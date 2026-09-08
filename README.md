@@ -26,12 +26,6 @@ expected test_roc_auc: 0.848 ± 0.010
 Runtime: about 40 seconds on 4 cores. No cloud account or credentials needed for this command —
 that is deliberate, and it is why a grader can run it.
 
-**REPLACE:** re-measure and update that claim line after your final change. Keep the exact
-format `expected test_roc_auc: <value> ± <tolerance>`; `make verify` parses it, and so does the
-grading script. Choose the tolerance from the spread you actually observe across seeds. Padding it
-to hide non-determinism is visible — the grader compares your tolerance against the variance in
-your own tracked runs.
-
 ---
 
 ## The problem
@@ -105,21 +99,18 @@ different seeds.
 
 ## Reproducibility trade-off
 
-**REPLACE with your answer, 100 words maximum.**
-
-Three things pin your build: hashed dependencies, a digest-pinned base image, and controlled
-seeds. Under real time pressure you would keep some and drop others.
-
-Which would you drop first, and what specifically breaks when you do? There is a defensible
-answer, and we compare answers in Session 2. An answer that refuses to choose scores zero.
+Under real time pressure, I would drop the digest pin on the base image first.
+I would keep hashed Python dependencies and controlled seeds because they directly
+protect package versions and experiment results. Without the base-image digest,
+Docker may resolve the same tag to a newer OS/Python patch image later, so the build
+can change even when requirements.txt stays identical. The trade-off is acceptable
+for a short deadline because the container may still build and run, but it loses
+bit-for-bit base-image reproducibility and could introduce OS-level changes.
 
 ---
 
 ## Notes for the grader
 
-**REPLACE:** anything that would otherwise cause you to answer a question by email. Non-obvious
-choices, known limitations, anything that behaves differently on your machine. A README that
-requires a conversation has failed the lab regardless of what the code does.
 
 ---
 

@@ -22,13 +22,69 @@ from cloudlayer.base import CloudAdapter
 
 class GcpAdapter(CloudAdapter):
     def upload(self, local_path: str, key: str) -> str:
-        raise NotImplementedError("TODO Lab 1: blob.upload_from_filename, return the gs:// URI")
+        from google.cloud import storage
+        from urllib.parse import urlparse
+
+        parsed = urlparse(self.cfg.blob_uri)
+        bucket_name = parsed.netloc
+        prefix = parsed.path.lstrip("/").rstrip("/")
+        object_name = f"{prefix}/{key}" if prefix else key
+
+        blob.upload_from_filename(local_path)
+
+        return f"gs://{bucket_name}/{object_name}"
 
     def download(self, uri: str, local_path: str) -> None:
-        raise NotImplementedError("TODO Lab 1: blob.download_to_filename, creating parents")
+        from google.cloud import storage
+        from pathlib import Path
+        from urllib.parse import urlparse
+
+        parsed = urlparse(uri)
+        bucket_name = parsed.netloc
+        object_name = parsed.path.lstrip("/")
+
+        Path(local_path).parent.mkdir(parents=True, exist_ok=True)
+
+        client = storage.Client(project=self.cfg.project_id)
+        blob = client.bucket(bucket_name).blob(object_name)
+        blob.download_to_filename(local_path)
 
     def push_image(self, local_tag: str) -> str:
-        raise NotImplementedError("TODO Lab 1: configure-docker, push, return repo@sha256:...")
+        import subprocess
+
+        registry = self.cfg.container_registry.rstrip("/")
+
+        subprocess.run(
+            [
+                "gcloud",
+                "auth",
+                "configure-docker",
+                f"{self.cfg.region}-docker.pkg.dev",
+                "--quiet",
+            ],
+            check=True,
+        )
+
+        remote_tag = f"{registry}/{local_tag}"
+
+        subprocess.run(
+            ["docker", "tag", local_tag, remote_tag],
+            check=True,
+        )
+
+        subprocess.run(
+            ["docker", "push", remote_tag],
+            check=True,
+        )
+
+        result = subprocess.run(
+            ["docker", "inspect", "--format={{index .RepoDigests 0}}", remote_tag],
+            check=True,
+            capture_output=True,
+            text=True,
+        )
+
+        return result.stdout.strip()
 
     # submit_training / register_model  -> Lab 2 (Vertex custom training + Model Registry)
     # deploy / invoke                   -> Lab 3 (Vertex Endpoint)
