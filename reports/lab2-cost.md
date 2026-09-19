@@ -29,3 +29,19 @@ No endpoint or persistent compute is created.
 Per-trial fit costs and study-process elapsed cost are estimated separately.
 Job-level elapsed times and billing reconciliation are appended after execution.
 Actual settled billing is not yet available; do not label estimates as actual.
+
+## Observed execution
+
+| Job | Worker seconds | Create-to-end seconds | Worker estimate THB |
+|---|---:|---:|---:|
+| 4147083806697848832 | 31.0 | 979.2 | 0.1722 |
+| 6221554385055383552 | 91.0 | 228.3 | 0.5056 |
+
+Fit-only estimate: **0.069424 THB**.
+Measured study-process estimate: **0.4351 THB**.
+Worker-interval estimate: **0.6778 THB**.
+Conservative create-to-end estimate, including unbilled queue time: **6.7085 THB**.
+
+These are different views of the same compute usage; do not add them together.
+Actual billed cost is unavailable until billing data is reconciled. Storage, image retention, operations, logging and egress are additional; 50 THB was reserved for overhead. No serving endpoint was deployed.
+The retained models, image and checkpoints support Lab 3; terminated jobs have no running training workers.

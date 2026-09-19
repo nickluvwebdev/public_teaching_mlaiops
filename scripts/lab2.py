@@ -10,7 +10,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 import yaml
 
 from cloudlayer.factory import get_adapter
-from src import config
+from src import config, costs
 
 LEDGER = config.REPO_ROOT / "reports/lab2-execution.json"
 
@@ -33,15 +33,17 @@ def main():
             "git_commit": subprocess.check_output(["git", "rev-parse", "HEAD"], text=True).strip(),
             "data_version": yaml.safe_load((config.REPO_ROOT / "data/raw.dvc").read_text())["outs"][0]["md5"],
             "study_key": "lab2/studies/" + datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ"),
-            "hourly_thb_upper_bound": 20.0, "budget_thb": 150, "jobs": [],
+            "hourly_thb_upper_bound": costs.LAB2_HOURLY_BOUND_THB, "budget_thb": 150, "jobs": [],
         }
         state["data_uri"] = adapter.upload(str(cfg.raw_path), state["study_key"] + "/data/sensors.csv")
     elif not state:
         raise ValueError("Run prepare first.")
     elif args.stage in ("submit", "resume"):
+        if args.stage == "submit" and state["jobs"]:
+            raise ValueError("Initial submission already exists; inspect it before using resume.")
         if len(state["jobs"]) >= 6:
             raise ValueError("Six-job safety cap reached. Review total spend before more submissions.")
-        train_args = ["--study-key", state["study_key"], "--hourly-thb", "20",
+        train_args = ["--study-key", state["study_key"], "--hourly-thb", str(state["hourly_thb_upper_bound"]),
                       "--budget-thb", "100", "--instance", "n1-standard-4", "--spot"]
         train_args += ["--interrupt-after", "3"] if args.stage == "submit" else ["--resume"]
         spec = {"module": "src.tune", "spot": True, "timeout": 900,

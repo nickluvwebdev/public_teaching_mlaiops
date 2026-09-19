@@ -35,7 +35,7 @@ train: ## Train locally, outside the container
 	python -m src.train --seed $(SEED) --metrics-out reports/metrics.json
 
 image: ## Build the training image for linux/amd64
-	docker buildx build --platform $(PLATFORM) -t $(IMAGE):$(TAG) --load .
+	docker buildx build --platform $(PLATFORM) --build-arg SOURCE_COMMIT=$(shell git rev-parse HEAD) -t $(IMAGE):$(TAG) --load .
 
 image-push: image ## Push to CONTAINER_REGISTRY via your adapter
 	python -c "from src import config; from cloudlayer.factory import get_adapter; \
@@ -111,3 +111,7 @@ cost: ## Build the cost report
 
 swap-check: ## Prove the portability seam against a second provider
 	python scripts/portability_swap_check.py --second-provider $(SECOND)
+
+.PHONY: cost-report
+cost-report: ## Report observed Lab 2 job durations and estimated cost
+	python scripts/lab2_cost_report.py

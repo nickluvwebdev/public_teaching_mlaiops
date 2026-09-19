@@ -9,8 +9,11 @@ is roughly 30% of on-demand across all three providers — SPOT_FACTOR below.
 """
 from __future__ import annotations
 
-# TODO(Lab 2): verify each of these against your provider's pricing page for YOUR region,
-# and record in reports/lab2-comparison.md when you checked and what you found.
+# Lab 2 uses an explicit conservative bound, checked against the GCP pricing page
+# on 2026-09-19 for asia-southeast1. See reports/lab2-cost.md.
+# These legacy cross-provider rows remain illustrative for later labs, not verified quotes.
+LAB2_HOURLY_BOUND_THB = 20.0
+
 PRICE_TABLE: dict[str, dict[str, float]] = {
     "local": {"local": 0.0},
     "aws": {

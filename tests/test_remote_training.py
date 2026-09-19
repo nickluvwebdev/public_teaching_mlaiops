@@ -92,3 +92,36 @@ def test_spot_submission_omits_flex_start_only_options():
         assert options["scheduling_strategy"].name == "SPOT"
         assert options["timeout"] == 900
         assert "max_wait_duration" not in options
+
+
+def test_registry_requires_exact_version():
+    with pytest.raises(ValueError, match="numeric version"):
+        GcpAdapter(config.load(strict=False)).download_registered_model("model", "staging", "/tmp/unused")
+
+
+def test_registration_preserves_all_lineage_fields():
+    import json
+
+    lineage = {
+        "git_commit": "a" * 40, "data_version": "data-hash.dir",
+        "mlflow_run_id": "b" * 32, "training_job_id": "job-123",
+        "image_digest": "image@sha256:" + "c" * 64,
+        "seed": 20260101, "metric_val": .91, "metric_test": .90,
+    }
+    adapter = GcpAdapter(config.load(strict=False))
+
+    def download(uri, local):
+        from pathlib import Path
+        Path(local).write_text(json.dumps(lineage))
+
+    with patch.object(adapter, "download", side_effect=download), patch(
+        "google.cloud.aiplatform.Model"
+    ) as model:
+        model.list.return_value = []
+        model.upload.return_value.resource_name = "model-resource"
+        model.upload.return_value.version_id = "1"
+        assert adapter.register_model("artifact-uri", "test-model") == "model-resource@1"
+        options = model.upload.call_args.kwargs
+        assert json.loads(options["version_description"]) == lineage
+        assert options["version_aliases"] == ["candidate"]
+        assert options["serving_container_image_uri"] == lineage["image_digest"]
