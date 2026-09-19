@@ -6,6 +6,7 @@ IMAGE ?= itcs355-lab1
 TAG   ?= $(shell git rev-parse --short HEAD 2>/dev/null || echo dev)
 PLATFORM ?= linux/amd64
 SEED ?= 20260101
+LAB ?= 2
 
 .PHONY: help setup cloud-check data test portability-audit train image image-push reproduce verify clean teardown \
         tune compare reload-check serve serve-image loadtest drift inject-drift pipeline cost swap-check llm-eval llm-gate
@@ -52,17 +53,21 @@ verify: ## Check the produced metric against the README claim
 
 teardown: ## Delete every resource tagged course=itcs355 for this lab
 	python -c "from src import config; from cloudlayer.factory import get_adapter; \
-	cfg=config.load(); print(get_adapter(cfg).teardown(cfg.tags(1)))"
+	cfg=config.load(); print(get_adapter(cfg).teardown(cfg.tags($(LAB))))"
 
 clean: ## Remove local artifacts
 	rm -rf mlruns mlartifacts mlflow.db reports/metrics.json .pytest_cache
 
 # --- Lab 2 -------------------------------------------------------------------
+.PHONY: train-remote
+train-remote: ## Submit one managed training job using a rebuilt digest-pinned image
+	python scripts/train_remote.py --image-uri "$(IMAGE_URI)" --data-uri "$(DATA_URI)" $(REMOTE_ARGS)
+
 tune: ## Budgeted hyperparameter study (>=12 trials)
-	python -m src.tune --trials 12 --budget-thb 150
+	python -m src.tune --trials 12 --budget-thb 150 --hourly-thb $(HOURLY_THB) --study-key "$(STUDY_KEY)" $(TUNE_ARGS)
 
 compare: ## Rank runs by metric and by cost per point
-	python scripts/compare_runs.py --experiment itcs355-lab2
+	python scripts/compare_runs.py
 
 reload-check: ## Load the registered model by version and score rows
 	python scripts/reload_check.py --name $(MODEL_REGISTRY_NAME) --version $(VERSION)

@@ -12,6 +12,7 @@ from __future__ import annotations
 import argparse
 import json
 import subprocess
+import tempfile
 from pathlib import Path
 
 import mlflow
@@ -20,6 +21,33 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import average_precision_score, roc_auc_score
 
 from src import config, data, seeds
+
+def prepare_remote_data(cfg, directory: Path) -> Path:
+    """Resolve input through the provider-neutral storage adapter."""
+    if not cfg.training_data_uri:
+        return cfg.raw_path
+    from cloudlayer.factory import get_adapter
+
+    local_path = directory / "sensors.csv"
+    get_adapter(cfg).download(cfg.training_data_uri, str(local_path))
+    return local_path
+
+
+def publish_artifacts(cfg, model, result: dict, directory: Path) -> None:
+    """Persist a reloadable model and its provenance outside managed compute."""
+    if not cfg.training_output_key:
+        return
+    from cloudlayer.factory import get_adapter
+
+    output = directory / "artifacts"
+    output.mkdir()
+    mlflow.sklearn.save_model(model, str(output / "model"))
+    (output / "metrics.json").write_text(json.dumps(result, indent=2))
+    adapter = get_adapter(cfg)
+    for path in sorted(output.rglob("*")):
+        if path.is_file():
+            key = f"{cfg.training_output_key.rstrip('/')}/{path.relative_to(output).as_posix()}"
+            adapter.upload(str(path), key)
 
 
 def git_commit() -> str:
@@ -46,13 +74,13 @@ def parse_args() -> argparse.Namespace:
     return p.parse_args()
 
 
-def main() -> None:
-    args = parse_args()
+def train(args, directory: Path) -> None:
     cfg = config.load(strict=False)
     seed = seeds.set_all(args.seed)
 
-    df = data.load_raw(cfg.raw_path)
-    fingerprint = data.data_fingerprint(cfg.raw_path)
+    raw_path = prepare_remote_data(cfg, directory)
+    df = data.load_raw(raw_path)
+    fingerprint = data.data_fingerprint(raw_path)
     train_df, val_df, test_df = data.split(df, seed=seed)
 
     mlflow.set_tracking_uri(cfg.mlflow_tracking_uri)
@@ -68,7 +96,7 @@ def main() -> None:
         })
         # Provenance. This is what makes the metric traceable.
         mlflow.set_tags({
-            "git_commit": git_commit(),
+            "git_commit": cfg.source_commit or git_commit(),
             "data_fingerprint": fingerprint,
             "split_strategy": "group_by_machine_id",
             "n_train_rows": len(train_df),
@@ -93,11 +121,24 @@ def main() -> None:
         mlflow.log_metrics(metrics)
         mlflow.sklearn.log_model(model, name="model")
 
-        print(json.dumps({"seed": seed, "data_fingerprint": fingerprint, **metrics}, indent=2))
+        result = {
+            "seed": seed, "data_fingerprint": fingerprint, **metrics,
+            "git_commit": cfg.source_commit or git_commit(),
+            "mlflow_run_id": mlflow.active_run().info.run_id,
+            "params": vars(args) | {"metrics_out": str(args.metrics_out) if args.metrics_out else None},
+        }
+        publish_artifacts(cfg, model, result, directory)
+        print(json.dumps(result, indent=2))
         if args.metrics_out:
             args.metrics_out.parent.mkdir(parents=True, exist_ok=True)
             args.metrics_out.write_text(json.dumps(
                 {"seed": seed, "data_fingerprint": fingerprint, **metrics}, indent=2))
+
+
+def main() -> None:
+    args = parse_args()
+    with tempfile.TemporaryDirectory(prefix="itcs355-training-") as directory:
+        train(args, Path(directory))
 
 
 if __name__ == "__main__":

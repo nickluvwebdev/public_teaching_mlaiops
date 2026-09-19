@@ -1,88 +1,70 @@
-"""Lab 2 — rank tracked runs by metric AND by cost per point.
-
-    python scripts/compare_runs.py --experiment itcs355-lab2
-
-Writes reports/lab2-comparison.md. The cost-per-point column is what the lab is about:
-the highest-scoring run is frequently not the one you should register.
-"""
-from __future__ import annotations
-
+"""Generate Lab 2 comparison and a measured, <=200-word selection justification."""
 import argparse
-import sys
+import csv
+import json
+import statistics
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-import mlflow
-import pandas as pd
+def report(state, out):
+    if not state.get("complete") or len(state["trials"]) < 14:
+        raise ValueError("A complete 12-trial study plus two seed checks is required.")
+    trials = state["trials"]
+    selected = trials[state["selected_index"]]
+    best = max(trials[:12], key=lambda t: t["metrics"]["val_roc_auc"])
+    repeats = [selected] + [t for t in trials if t["phase"] == "seed-check"]
+    scores = [t["metrics"]["val_roc_auc"] for t in repeats]
+    mean, std = statistics.mean(scores), statistics.stdev(scores)
+    fit_cost = selected["metrics"]["cost_thb"]
+    lines = ["# Lab 2 comparison", "",
+             "Selection rule declared before running: choose the fastest measured fit within "
+             "0.005 validation ROC-AUC of the best search trial. Test scores do not select the model.", "",
+             "| Trial | Phase | Trees | Depth | Leaf | Seed | Validation AUC | Test AUC | Seconds | Estimated fit THB |",
+             "|---|---|---|---|---|---|---|---|---|---|"]
+    for t in trials:
+        p, m = t["params"], t["metrics"]
+        lines.append(f"| {t['index']} | {t['phase']} | {p['n_estimators']} | {p['max_depth']} | "
+                     f"{p['min_samples_leaf']} | {t['seed']} | {m['val_roc_auc']:.6f} | "
+                     f"{m['test_roc_auc']:.6f} | {m['duration_s']:.3f} | {m['cost_thb']:.6f} |")
+    justification = (
+        f"I selected trial {selected['index']} (run {selected['run_id']}) using the predeclared "
+        f"cost-aware rule. Its validation ROC-AUC is {selected['metrics']['val_roc_auc']:.6f}; "
+        f"the best search score is {best['metrics']['val_roc_auc']:.6f}. "
+        f"The selected model is the fastest measured fit within 0.005 of that score. "
+        f"Across three model seeds on the same machine-group split, validation AUC averages "
+        f"{mean:.6f}, with sample standard deviation {std:.6f} (variance {std**2:.8f}). "
+        f"This measures model randomness, not uncertainty across alternative data splits. "
+        f"Estimated fit cost is {fit_cost:.6f} THB; one monthly refit has the same fit-only cost "
+        f"and twelve cost {12*fit_cost:.6f} THB. Provisioning, tracking, storage, and transfers are "
+        f"additional; the separate job-cost report estimates these overheads rather than claiming "
+        f"fit time equals the cloud bill. This choice could be wrong if future machine populations "
+        f"differ from this held-out split, or if timing noise changes which near-tied fit appears cheapest."
+    )
+    assert len(justification.split()) <= 200
+    lines += ["", "## Selection justification", "", justification, "",
+              "## Provenance", "", "```json", json.dumps(selected["lineage"], indent=2), "```", "",
+              "## Checkpoint evidence", "", "```json", json.dumps(state["events"], indent=2), "```", "",
+              f"Study-process estimated cost including tracking: {state['spent_thb']:.6f} THB.",
+              "Rates are estimates, not settled billing. See lab2-cost.md."]
+    out.parent.mkdir(parents=True, exist_ok=True)
+    out.write_text("\n".join(lines) + "\n")
+    with out.with_suffix(".csv").open("w", newline="") as handle:
+        rows = [{"trial": t["index"], "phase": t["phase"], "run_id": t["run_id"],
+                 "seed": t["seed"], **t["params"], **t["metrics"]} for t in trials]
+        writer = csv.DictWriter(handle, fieldnames=rows[0])
+        writer.writeheader()
+        writer.writerows(rows)
+    out.with_name("lab2-selected.json").write_text(json.dumps(selected, indent=2))
+    print(justification)
 
-from src import config
 
-
-def main() -> int:
-    ap = argparse.ArgumentParser()
-    ap.add_argument("--experiment", default="itcs355-lab2")
-    ap.add_argument("--metric", default="val_roc_auc")
-    ap.add_argument("--out", type=Path, default=Path("reports/lab2-comparison.md"))
-    args = ap.parse_args()
-
-    cfg = config.load(strict=False)
-    mlflow.set_tracking_uri(cfg.mlflow_tracking_uri)
-    exp = mlflow.get_experiment_by_name(args.experiment)
-    if exp is None:
-        print(f"No experiment named {args.experiment!r}. Run `make tune` first.")
-        return 1
-
-    runs = mlflow.search_runs(experiment_ids=[exp.experiment_id])
-    if runs.empty:
-        print("No runs found.")
-        return 1
-
-    metric_col = f"metrics.{args.metric}"
-    cost_col = "metrics.cost_thb"
-    baseline = runs[metric_col].min()
-
-    table = pd.DataFrame({
-        "run_id": runs["run_id"].str[:8],
-        args.metric: runs[metric_col].round(4),
-        "cost_thb": runs.get(cost_col, 0).round(4),
-        "n_estimators": runs.get("params.n_estimators"),
-        "max_depth": runs.get("params.max_depth"),
-        "min_samples_leaf": runs.get("params.min_samples_leaf"),
-    })
-    gain = (table[args.metric] - baseline).clip(lower=1e-9)
-    table["thb_per_point"] = (table["cost_thb"] / (gain * 100)).round(4)
-    table = table.sort_values(args.metric, ascending=False)
-
-    args.out.parent.mkdir(parents=True, exist_ok=True)
-    lines = [
-        "# Lab 2 — Run comparison",
-        "",
-        f"Experiment `{args.experiment}` · {len(table)} trials · "
-        f"total spend {table['cost_thb'].sum():.4f} THB",
-        "",
-        "`thb_per_point` is cost per percentage point of "
-        f"{args.metric} above the worst trial. Cheap improvements rank low; expensive "
-        "improvements rank high, however good the headline number is.",
-        "",
-        table.to_markdown(index=False),
-        "",
-        "## Which model did you register, and why?",
-        "",
-        "TODO(Lab 2): 200 words maximum. Must address all four:",
-        "",
-        "1. Why this model rather than the highest-scoring one, if they differ",
-        "2. The variance across seeds for your chosen configuration",
-        "3. What it costs to train, and to retrain monthly",
-        "4. One way this choice could be wrong",
-        "",
-        "An answer that only says \"highest validation score\" scores zero on this task.",
-    ]
-    args.out.write_text("\n".join(lines))
-    print(f"wrote {args.out}  ({len(table)} trials)")
-    print(table.head(5).to_string(index=False))
-    return 0
+def main():
+    p = argparse.ArgumentParser(description=__doc__)
+    p.add_argument("--checkpoint", type=Path, default=Path("reports/lab2-checkpoint.json"))
+    p.add_argument("--out", type=Path, default=Path("reports/lab2-comparison.md"))
+    args = p.parse_args()
+    report(json.loads(args.checkpoint.read_text()), args.out)
 
 
 if __name__ == "__main__":
-    raise SystemExit(main())
+    main()

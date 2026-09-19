@@ -47,6 +47,15 @@ class CloudAdapter(ABC):
     def register_model(self, model_uri: str, name: str) -> str:
         raise NotImplementedError("Lab 2")
 
+    def runtime_job_id(self) -> str:
+        return "local"
+
+    def download_directory(self, uri: str, local_path: str) -> None:
+        raise NotImplementedError("Directory download for registry reload")
+
+    def download_registered_model(self, name: str, version: str, local_path: str) -> dict:
+        raise NotImplementedError("Lab 2")
+
     # --- Lab 3 ---------------------------------------------------------------
     def deploy(self, model_ref: str, endpoint: str, instance: str) -> str:
         raise NotImplementedError("Lab 3")

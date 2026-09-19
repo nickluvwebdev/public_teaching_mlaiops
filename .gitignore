@@ -23,3 +23,7 @@ __pycache__/
 
 # ruff cache
 .ruff_cache/
+
+# Lab 2 synchronized tracking snapshots
+reports/*.db
+reports/*.db-*

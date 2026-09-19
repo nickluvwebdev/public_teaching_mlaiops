@@ -128,3 +128,50 @@ bit-for-bit base-image reproducibility and could introduce OS-level changes.
 
 That last check is not optional. A credential in Git history is an automatic deduction in this
 course, and rotating it is your responsibility, not the grader's.
+
+## Lab 2 execution and promotion
+
+The study runs 12 configurations across tree count, depth and minimum leaf size on
+Vertex Spot compute, then repeats the selected configuration with two more model
+seeds on the same held-out machine split. Selection is predeclared: fastest fit
+within 0.005 validation ROC-AUC of the best search result; test scores are never
+used to select. Checkpoints and consistent MLflow SQLite snapshots are uploaded
+after each completed trial. A controlled exit followed by a fresh managed job
+demonstrates restart recovery; it is not represented as a naturally occurring
+provider preemption.
+
+Use the existing Python environment and Google Cloud CLI:
+```bash
+source ~/.venvs/itcs355/bin/activate
+export PATH="$HOME/google-cloud-sdk/bin:$PATH"
+python scripts/lab2.py prepare --image-uri <rebuilt-image@sha256:digest>
+python scripts/lab2.py submit
+# Wait for the controlled interruption, then:
+python scripts/lab2.py resume
+# After the resumed job succeeds:
+python scripts/lab2.py sync
+make compare
+python scripts/lab2.py register
+python scripts/reload_check.py --name <model-resource-name> --version <numeric-version>
+python scripts/lab2.py promote
+make teardown LAB=2
+```
+
+The runner records job IDs and the image digest in reports/lab2-execution.json.
+The synchronized tracking database is reports/lab2-mlflow.db; model artifacts stay
+in the cloud. Start a local MLflow UI with that database to inspect the cloud runs.
+The registry version description contains all eight required lineage fields as
+JSON; candidate and staging aliases express promotion. A numeric registry version
+is required for reload; the script fetches its remote artifacts into an empty
+temporary directory and compares artifact lineage with registry properties.
+
+In an organisation, a model owner should propose promotion and an independent
+MLOps/release owner should approve it. Required evidence: immutable code/data/image
+lineage, validation and held-out test results, seed sensitivity, cost estimates,
+schema checks, exact-version reload evidence, and rollback readiness. A staging
+alias is not production deployment. This lab creates no serving endpoint.
+
+Cost estimates use an explicit conservative 20 THB/hour bound rather than the
+scaffold's unverified 30% Spot multiplier. Each job has a 15-minute running-time
+limit; the runner caps submissions at six and reserves 50 THB outside the study
+process budget for overhead. See reports/lab2-cost.md for evidence and limitations.
