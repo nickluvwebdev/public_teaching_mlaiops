@@ -129,7 +129,6 @@ class GcpAdapter(CloudAdapter):
         if args.get("spot"):
             from google.cloud.aiplatform_v1.types import Scheduling
             options["scheduling_strategy"] = Scheduling.Strategy.SPOT
-            options["max_wait_duration"] = 1800
         job.submit(service_account=self.cfg.identity_ref,
                    timeout=args.get("timeout", 3600), **options)
         return job.resource_name

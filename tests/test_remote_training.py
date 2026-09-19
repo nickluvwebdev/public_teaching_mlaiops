@@ -78,3 +78,17 @@ def test_wait_returns_completed_artifact_location():
         result = GcpAdapter(config.load(strict=False)).wait_training("job-id")
         assert result == {"job_id": "job-id", "state": "JOB_STATE_SUCCEEDED",
                           "artifact_uri": "artifact-location"}
+
+
+def test_spot_submission_omits_flex_start_only_options():
+    cfg = replace(config.load(strict=False), blob_uri="gs:" + "//test-bucket/lab2",
+                  identity_ref="training-service-account")
+    with patch("google.cloud.aiplatform.CustomJob") as custom_job:
+        GcpAdapter(cfg).submit_training("image@sha256:" + "a" * 64, {
+            "data_uri": cfg.blob_uri + "/input.csv", "git_commit": "abc123",
+            "spot": True, "timeout": 900,
+        })
+        options = custom_job.return_value.submit.call_args.kwargs
+        assert options["scheduling_strategy"].name == "SPOT"
+        assert options["timeout"] == 900
+        assert "max_wait_duration" not in options
