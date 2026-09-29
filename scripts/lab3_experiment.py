@@ -80,6 +80,8 @@ def performance(url, token, label, vus, batch=1, padding=0):
         "--rm",
         "--user",
         str(os.getuid()),
+        "--name",
+        "lab3-load-" + label,
         "-v",
         str(REPO_ROOT / "loadtest") + ":/scripts:ro",
         "-v",
@@ -89,7 +91,18 @@ def performance(url, token, label, vus, batch=1, padding=0):
         cmd += ["-e", key]
     cmd += [K6, "run", "/scripts/k6.js"]
     with (OUT / (label + ".log")).open("w") as log:
-        r = subprocess.run(cmd, env=env, stdout=log, stderr=subprocess.STDOUT)
+        r = subprocess.Popen(cmd, env=env, stdout=log, stderr=subprocess.STDOUT)
+        samples = []
+        while r.poll() is None:
+            stat = subprocess.run(
+                ["docker", "stats", "--no-stream", "--format", "{{json .}}", "lab3-load-" + label],
+                capture_output=True,
+                text=True,
+            )
+            if stat.returncode == 0 and stat.stdout.strip():
+                samples.append({"utc": now(), "stats": json.loads(stat.stdout)})
+            time.sleep(3)
+        save(label + "-client-cpu", samples)
     if r.returncode not in (0, 99):
         raise RuntimeError(f"k6 runner failed ({r.returncode}); see {label}.log")
     result = json.loads((OUT / (label + ".json")).read_text())

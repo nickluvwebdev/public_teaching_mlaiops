@@ -89,11 +89,11 @@ serve: ## Run the inference service locally on :8080
 serve-image: ## Build the serving image
 	docker buildx build --platform $(PLATFORM) -f service/Dockerfile.serve -t itcs355-serve:$(TAG) --load .
 
-loadtest: ## Load test at three concurrency levels
-	@for vus in 1 10 50; do \
-	  echo "=== $$vus VUs ==="; \
-	  k6 run -e TARGET=$(TARGET) -e VUS=$$vus loadtest/k6.js || true; \
-	done
+loadtest: ## Run bounded cloud load/canary experiments, then verify teardown
+	python scripts/lab3_experiment.py
+
+lab3-report: ## Render the measured Lab 3 report
+	python scripts/lab3_report.py
 
 # --- Lab 4 -------------------------------------------------------------------
 inject-drift: ## Shift a feature's distribution on purpose
@@ -122,5 +122,9 @@ swap-check: ## Prove the portability seam against a second provider
 	python scripts/portability_swap_check.py --second-provider $(SECOND)
 
 .PHONY: cost-report
-cost-report: ## Report observed Lab 2 job durations and estimated cost
+cost-report: ## Render the current lab cost evidence
+ifeq ($(LAB),3)
+	python scripts/lab3_report.py
+else
 	python scripts/lab2_cost_report.py
+endif
