@@ -175,3 +175,23 @@ Cost estimates use an explicit conservative 20 THB/hour bound rather than the
 scaffold's unverified 30% Spot multiplier. Each job has a 15-minute running-time
 limit; the runner caps submissions at six and reserves 50 THB outside the study
 process budget for overhead. See reports/lab2-cost.md for evidence and limitations.
+
+
+## Lab 3 — serving and rollback
+
+The API loads an exact numeric registry version once through the cloud adapter. `/health` reports process liveness; `/ready` returns 503 until startup loading and a scoring probe succeed. Single and batch predictions (1–100 rows) return the model version, with structured request logs and versioned validation errors.
+
+Set `SERVING_IMAGE` to the uploaded serving-image digest and `SERVING_IDENTITY_REF` to the keyless serving identity in the ignored `cloud.env`. Use a full registry resource with `@1`, never a moving alias:
+
+```bash
+make serve-image
+make deploy MODEL_REF='<full registry resource>@1'
+make smoke
+make loadtest
+make lab3-report
+make teardown LAB=3
+```
+
+`make loadtest` is a managed-cloud experiment: it deploys authenticated Cloud Run services, executes the committed k6 workloads and a masked-cohort 90/10 canary, rolls back, then deletes the lab serving services in a `finally` block. It requires registry evidence from Lab 2, the Lab 3 candidate reference, Docker, and authenticated gcloud. It is not a free local-only test. The predeclared target and bounded experiment are in `reports/lab3-plan.md`; measured evidence belongs in `reports/lab3-evidence/` and `reports/lab3-load.md`.
+
+The payload field `padding` is explicitly ignored and limited to 1 MiB, allowing a controlled transport test without changing model inputs. The separate serialization microbenchmark also tests larger payloads offline and labels those as outside the API contract.

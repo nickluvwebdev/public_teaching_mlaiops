@@ -78,7 +78,7 @@ This comparison includes separate HTTP/TLS connections in the sequential Python 
 {table([f"padding-{p}" for p in (1024, 16384, 65536, 262144, 1048576)])}
 
 Padding is an explicit ignored transport field; the six features and model stay constant. Each k6 summary also contains server_handling_ms and server_scoring_ms.
-Handling minus scoring includes upload/body reading, parsing, validation, queueing and framework overhead. It must not be described as pure JSON serialization time. A separate local parsing microbenchmark is needed to isolate serialization CPU time.
+Handling minus scoring includes upload/body reading, parsing, validation, queueing and framework overhead. It must not be described as pure JSON serialization time. The separate one-CPU container microbenchmark (reports/lab3-serialization.json) measured encoding + decoding at 1.97 ms for 1 MiB versus 4.90 ms scoring, rising to 10.28 ms at 4 MiB. Thus JSON CPU cost first dominates at the tested 4 MiB point, outside the API limit; live large-payload delays within the contract must not all be attributed to serialization. These are local-container CPU timings, not cloud CPU timings.
 
 ## Instance size
 {table(large)}
