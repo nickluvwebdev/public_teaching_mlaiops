@@ -113,8 +113,8 @@ At 50% throughput with the same paid active time, the compute component doubles.
 Large cost/1000 = **USD {large_cost:.6f}**. Batch100 marginal cost/1000 rows = **USD {batch_cost:.6f}** at {batch_rate:.2f} rows/s and one request charge per 100 predictions.
 Network, artifact storage, logging, tax and billing credits are excluded; this is an estimate, not an invoice.
 
-Batch alternative (two lines): For a daily batch job, estimated cost is 0.000024 × max(60, startup_seconds + N/batch_rows_per_second), versus USD 3.20544/day for a continuously active 1-CPU/1-GiB service; solve the inequality for N with an explicitly assumed startup time and batch throughput.
-Our actual service uses minimum zero, so it has no continuously warm 24-hour baseline: there is no universal request-count break-even independent of request timing, startup frequency and latency requirements.
+Batch alternative (two lines): A 1-CPU/1-GiB minimum-one service costs at least USD 0.6048/day while idle; a daily Cloud Run Job costs approximately 0.000024 × max(60, {cold["ms"]/1000:.2f} + N/{batch_rate:.2f}), using observed first-request latency as a startup proxy and HTTP batch throughput as a conservative job-throughput proxy. Batch is cheaper even than this idle-only baseline below approximately {int((25200-cold["ms"]/1000)*batch_rate):,} rows/day under those assumptions; active warm-service requests add further cost.
+Our actual service uses minimum zero, so it has no continuously warm 24-hour baseline: this illustrative threshold does not apply universally, and real job startup/throughput and request timing must be measured for a production decision.
 
 ## Teardown
 Verified {teardown["utc"]}: deleted {teardown["deleted"]}. Cloud Run services remaining in the region: {len(teardown["remaining"])}.

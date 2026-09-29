@@ -87,7 +87,7 @@ serve: ## Run the inference service locally on :8080
 	MODEL_PATH=reports/model.joblib MODEL_VERSION=local uvicorn service.app:app --port 8080
 
 serve-image: ## Build the serving image
-	docker buildx build --platform $(PLATFORM) -f service/Dockerfile.serve -t itcs355-serve:$(TAG) --load .
+	docker buildx build --platform $(PLATFORM) -f service/Dockerfile.serve --build-arg SOURCE_COMMIT=$(shell git rev-parse HEAD) -t itcs355-serve:$(TAG) --load .
 
 loadtest: ## Run bounded cloud load/canary experiments, then verify teardown
 	python scripts/lab3_experiment.py
