@@ -8,3 +8,4 @@ mlflow-skinny==3.16.0
 joblib==1.4.2
 google-cloud-aiplatform==1.165.1
 google-cloud-storage==3.10.0
+skops==0.14.0
