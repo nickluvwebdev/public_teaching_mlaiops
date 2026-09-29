@@ -1,0 +1,5 @@
+{
+  "image": "asia-southeast1-docker.pkg.dev/itcs355-6688058/itcs355/itcs355-serve@sha256:5db6df89a838a497c9bf3ccc7973776cb992453d740b3f0dfd370b107f0bcbde",
+  "transfer": "skopeo",
+  "source_commit": "29dddb48630a31a936cdeb6d274254513002e1c7"
+}

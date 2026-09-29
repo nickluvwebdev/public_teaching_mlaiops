@@ -1,0 +1,53 @@
+[
+  {
+    "utc": "2026-09-29T16:38:53.007268+00:00",
+    "ms": 153.45601700028055,
+    "status": 200,
+    "headers": {
+      "x-request-id": "b5771a86-bd4c-400c-8ee3-c5baa9c36244",
+      "x-model-version": "1",
+      "x-server-latency-ms": "9.836",
+      "x-scoring-ms": "8.157",
+      "x-instance-id": "20f2aed9b5d64a8c9c5b897bee3dc845",
+      "x-cloud-trace-context": "82e8edbcd8f0afc00d2c80863e61131d;o=1"
+    },
+    "body": {
+      "probability": 0.02157185719275899,
+      "model_version": "1"
+    }
+  },
+  {
+    "utc": "2026-09-29T16:38:53.158592+00:00",
+    "ms": 150.56379999805358,
+    "status": 200,
+    "headers": {
+      "x-request-id": "be9f58da-3b34-40eb-bdaf-5af44672a27a",
+      "x-model-version": "1",
+      "x-server-latency-ms": "10.748",
+      "x-scoring-ms": "8.193",
+      "x-instance-id": "20f2aed9b5d64a8c9c5b897bee3dc845",
+      "x-cloud-trace-context": "851a3b3db5930facc5e80bd382d5d651"
+    },
+    "body": {
+      "probability": 0.026792116476468123,
+      "model_version": "1"
+    }
+  },
+  {
+    "utc": "2026-09-29T16:38:53.318389+00:00",
+    "ms": 159.1268249976565,
+    "status": 200,
+    "headers": {
+      "x-request-id": "eff6b901-86c6-43e8-946e-c4d6bbecab68",
+      "x-model-version": "1",
+      "x-server-latency-ms": "10.528",
+      "x-scoring-ms": "8.713",
+      "x-instance-id": "20f2aed9b5d64a8c9c5b897bee3dc845",
+      "x-cloud-trace-context": "324bdd6bbfdc2e32ace57a980c3599dc"
+    },
+    "body": {
+      "probability": 0.052990718017366614,
+      "model_version": "1"
+    }
+  }
+]

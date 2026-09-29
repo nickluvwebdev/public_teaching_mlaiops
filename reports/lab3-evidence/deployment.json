@@ -1,0 +1,146 @@
+{
+  "utc": "2026-09-29T16:38:17.911341+00:00",
+  "resource": {
+    "apiVersion": "serving.knative.dev/v1",
+    "kind": "Service",
+    "metadata": {
+      "annotations": {
+        "run.googleapis.com/client-name": "gcloud",
+        "run.googleapis.com/client-version": "583.0.0",
+        "run.googleapis.com/ingress": "all",
+        "run.googleapis.com/ingress-status": "all",
+        "run.googleapis.com/maxScale": "20",
+        "run.googleapis.com/operation-id": "e3835de8-f952-4028-97cc-2e1df3960ba0",
+        "run.googleapis.com/urls": "[\"https://itcs355-lab3-775344551291.asia-southeast1.run.app\",\"https://itcs355-lab3-irtmnatasq-as.a.run.app\"]",
+        "serving.knative.dev/creator": "Nick165339@gmail.com",
+        "serving.knative.dev/lastModifier": "Nick165339@gmail.com"
+      },
+      "creationTimestamp": "2026-09-29T16:38:12.085815Z",
+      "generation": 1,
+      "labels": {
+        "cloud.googleapis.com/location": "asia-southeast1",
+        "course": "itcs355",
+        "lab": "3",
+        "run.googleapis.com/satisfiesPzs": "true",
+        "student": "itcs355-6688058"
+      },
+      "name": "itcs355-lab3",
+      "namespace": "775344551291",
+      "resourceVersion": "AAZcoc80pl8",
+      "selfLink": "/apis/serving.knative.dev/v1/namespaces/775344551291/services/itcs355-lab3",
+      "uid": "b759dd3a-61fb-4523-b9e0-fc00b9864240"
+    },
+    "spec": {
+      "template": {
+        "metadata": {
+          "annotations": {
+            "autoscaling.knative.dev/maxScale": "1",
+            "run.googleapis.com/client-name": "gcloud",
+            "run.googleapis.com/client-version": "583.0.0",
+            "run.googleapis.com/health-check-disabled": "true",
+            "run.googleapis.com/startup-cpu-boost": "false"
+          },
+          "labels": {
+            "course": "itcs355",
+            "lab": "3",
+            "run.googleapis.com/startupProbeType": "Custom",
+            "student": "itcs355-6688058"
+          },
+          "name": "itcs355-lab3-s0929163808"
+        },
+        "spec": {
+          "containerConcurrency": 80,
+          "containers": [
+            {
+              "env": [
+                {
+                  "name": "CLOUD_PROVIDER",
+                  "value": "gcp"
+                },
+                {
+                  "name": "PROJECT_ID",
+                  "value": "itcs355-6688058"
+                },
+                {
+                  "name": "REGION",
+                  "value": "asia-southeast1"
+                },
+                {
+                  "name": "MODEL_REGISTRY_NAME",
+                  "value": "projects/775344551291/locations/asia-southeast1/models/1431682886620151808"
+                },
+                {
+                  "name": "MODEL_VERSION",
+                  "value": "1"
+                }
+              ],
+              "image": "asia-southeast1-docker.pkg.dev/itcs355-6688058/itcs355/itcs355-serve@sha256:5db6df89a838a497c9bf3ccc7973776cb992453d740b3f0dfd370b107f0bcbde",
+              "ports": [
+                {
+                  "containerPort": 8080,
+                  "name": "http1"
+                }
+              ],
+              "resources": {
+                "limits": {
+                  "cpu": "1",
+                  "memory": "1Gi"
+                }
+              },
+              "startupProbe": {
+                "failureThreshold": 120,
+                "httpGet": {
+                  "path": "/ready",
+                  "port": 8080
+                },
+                "periodSeconds": 2,
+                "timeoutSeconds": 1
+              }
+            }
+          ],
+          "serviceAccountName": "itcs355-serving@itcs355-6688058.iam.gserviceaccount.com",
+          "timeoutSeconds": 60
+        }
+      },
+      "traffic": [
+        {
+          "latestRevision": true,
+          "percent": 100
+        }
+      ]
+    },
+    "status": {
+      "address": {
+        "url": "https://itcs355-lab3-irtmnatasq-as.a.run.app"
+      },
+      "conditions": [
+        {
+          "lastTransitionTime": "2026-09-29T16:38:16.088159Z",
+          "status": "True",
+          "type": "Ready"
+        },
+        {
+          "lastTransitionTime": "2026-09-29T16:38:13.400240Z",
+          "status": "True",
+          "type": "ConfigurationsReady"
+        },
+        {
+          "lastTransitionTime": "2026-09-29T16:38:16.020066Z",
+          "status": "True",
+          "type": "RoutesReady"
+        }
+      ],
+      "latestCreatedRevisionName": "itcs355-lab3-s0929163808",
+      "latestReadyRevisionName": "itcs355-lab3-s0929163808",
+      "observedGeneration": 1,
+      "traffic": [
+        {
+          "latestRevision": true,
+          "percent": 100,
+          "revisionName": "itcs355-lab3-s0929163808"
+        }
+      ],
+      "url": "https://itcs355-lab3-irtmnatasq-as.a.run.app"
+    }
+  }
+}

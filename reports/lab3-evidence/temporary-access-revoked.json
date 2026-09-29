@@ -1,0 +1,5 @@
+{
+  "utc": "2026-09-29T16:54:02.749617+00:00",
+  "removed_condition": "expression=request.time < timestamp('2026-09-29T17:36:59Z'),title=lab3-temporary-model-read",
+  "remaining_project_model_reader_bindings": []
+}

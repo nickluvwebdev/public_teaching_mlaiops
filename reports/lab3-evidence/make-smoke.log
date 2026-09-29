@@ -1,0 +1,25 @@
+python scripts/smoke.py --endpoint "itcs355-lab3"
+{
+  "singles": [
+    {
+      "probability": 0.026792116476468123,
+      "model_version": "1"
+    },
+    {
+      "probability": 0.052990718017366614,
+      "model_version": "1"
+    },
+    {
+      "probability": 0.019392695519155435,
+      "model_version": "1"
+    }
+  ],
+  "batch": {
+    "probabilities": [
+      0.026792116476468123,
+      0.052990718017366614,
+      0.019392695519155435
+    ],
+    "model_version": "1"
+  }
+}

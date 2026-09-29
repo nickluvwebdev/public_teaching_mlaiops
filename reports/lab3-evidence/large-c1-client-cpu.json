@@ -1,0 +1,100 @@
+[
+  {
+    "utc": "2026-09-29T16:45:16.065504+00:00",
+    "stats": {
+      "BlockIO": "0B / 0B",
+      "CPUPerc": "2.30%",
+      "Container": "lab3-load-large-c1",
+      "ID": "a6bf33357b30",
+      "MemPerc": "0.15%",
+      "MemUsage": "12.11MiB / 7.648GiB",
+      "Name": "lab3-load-large-c1",
+      "NetIO": "31.7kB / 22.3kB",
+      "PIDs": "12"
+    }
+  },
+  {
+    "utc": "2026-09-29T16:45:20.087371+00:00",
+    "stats": {
+      "BlockIO": "0B / 0B",
+      "CPUPerc": "1.82%",
+      "Container": "lab3-load-large-c1",
+      "ID": "a6bf33357b30",
+      "MemPerc": "0.16%",
+      "MemUsage": "12.85MiB / 7.648GiB",
+      "Name": "lab3-load-large-c1",
+      "NetIO": "65.6kB / 51.6kB",
+      "PIDs": "12"
+    }
+  },
+  {
+    "utc": "2026-09-29T16:45:24.348704+00:00",
+    "stats": {
+      "BlockIO": "0B / 0B",
+      "CPUPerc": "1.91%",
+      "Container": "lab3-load-large-c1",
+      "ID": "a6bf33357b30",
+      "MemPerc": "0.17%",
+      "MemUsage": "13.1MiB / 7.648GiB",
+      "Name": "lab3-load-large-c1",
+      "NetIO": "102kB / 83.3kB",
+      "PIDs": "13"
+    }
+  },
+  {
+    "utc": "2026-09-29T16:45:28.374130+00:00",
+    "stats": {
+      "BlockIO": "0B / 0B",
+      "CPUPerc": "1.88%",
+      "Container": "lab3-load-large-c1",
+      "ID": "a6bf33357b30",
+      "MemPerc": "0.17%",
+      "MemUsage": "13.09MiB / 7.648GiB",
+      "Name": "lab3-load-large-c1",
+      "NetIO": "137kB / 114kB",
+      "PIDs": "13"
+    }
+  },
+  {
+    "utc": "2026-09-29T16:45:32.399123+00:00",
+    "stats": {
+      "BlockIO": "0B / 0B",
+      "CPUPerc": "1.76%",
+      "Container": "lab3-load-large-c1",
+      "ID": "a6bf33357b30",
+      "MemPerc": "0.18%",
+      "MemUsage": "14.09MiB / 7.648GiB",
+      "Name": "lab3-load-large-c1",
+      "NetIO": "170kB / 143kB",
+      "PIDs": "13"
+    }
+  },
+  {
+    "utc": "2026-09-29T16:45:36.423824+00:00",
+    "stats": {
+      "BlockIO": "0B / 0B",
+      "CPUPerc": "1.96%",
+      "Container": "lab3-load-large-c1",
+      "ID": "a6bf33357b30",
+      "MemPerc": "0.18%",
+      "MemUsage": "14.34MiB / 7.648GiB",
+      "Name": "lab3-load-large-c1",
+      "NetIO": "204kB / 173kB",
+      "PIDs": "13"
+    }
+  },
+  {
+    "utc": "2026-09-29T16:45:40.449513+00:00",
+    "stats": {
+      "BlockIO": "0B / 0B",
+      "CPUPerc": "1.92%",
+      "Container": "lab3-load-large-c1",
+      "ID": "a6bf33357b30",
+      "MemPerc": "0.18%",
+      "MemUsage": "14.33MiB / 7.648GiB",
+      "Name": "lab3-load-large-c1",
+      "NetIO": "240kB / 204kB",
+      "PIDs": "13"
+    }
+  }
+]

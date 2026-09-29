@@ -1,0 +1,66 @@
+[
+  {
+    "padding_bytes": 0,
+    "encoding_ms": 0.002477000180078903,
+    "decoding_ms": 0.001920500153573812,
+    "json_total_ms": 0.004397500333652715,
+    "scoring_ms": 4.897947500239752,
+    "within_api_limit": true
+  },
+  {
+    "padding_bytes": 1024,
+    "encoding_ms": 0.003920999915862922,
+    "decoding_ms": 0.0024900000425986946,
+    "json_total_ms": 0.006410999958461616,
+    "scoring_ms": 4.897947500239752,
+    "within_api_limit": true
+  },
+  {
+    "padding_bytes": 16384,
+    "encoding_ms": 0.023396499955197214,
+    "decoding_ms": 0.00984049984253943,
+    "json_total_ms": 0.033236999797736644,
+    "scoring_ms": 4.897947500239752,
+    "within_api_limit": true
+  },
+  {
+    "padding_bytes": 65536,
+    "encoding_ms": 0.08614250009486568,
+    "decoding_ms": 0.033584499988137395,
+    "json_total_ms": 0.11972700008300308,
+    "scoring_ms": 4.897947500239752,
+    "within_api_limit": true
+  },
+  {
+    "padding_bytes": 262144,
+    "encoding_ms": 0.3576430001430708,
+    "decoding_ms": 0.13339900010578276,
+    "json_total_ms": 0.4910420002488536,
+    "scoring_ms": 4.897947500239752,
+    "within_api_limit": true
+  },
+  {
+    "padding_bytes": 1048576,
+    "encoding_ms": 1.4438944999710657,
+    "decoding_ms": 0.5214430000251014,
+    "json_total_ms": 1.965337499996167,
+    "scoring_ms": 4.897947500239752,
+    "within_api_limit": true
+  },
+  {
+    "padding_bytes": 4194304,
+    "encoding_ms": 7.993789500233106,
+    "decoding_ms": 2.287432000002809,
+    "json_total_ms": 10.281221500235915,
+    "scoring_ms": 4.897947500239752,
+    "within_api_limit": false
+  },
+  {
+    "padding_bytes": 8388608,
+    "encoding_ms": 18.021474500073964,
+    "decoding_ms": 5.425569999943036,
+    "json_total_ms": 23.447044500017,
+    "scoring_ms": 4.897947500239752,
+    "within_api_limit": false
+  }
+]

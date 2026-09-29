@@ -1,0 +1,17 @@
+{
+  "utc": "2026-09-29T16:45:12.014403+00:00",
+  "ms": 43830.21222900061,
+  "status": 200,
+  "headers": {
+    "x-request-id": "1401ef7f-19ea-4275-8bc2-40fee280439d",
+    "x-model-version": "1",
+    "x-server-latency-ms": "22.696",
+    "x-scoring-ms": "15.007",
+    "x-instance-id": "ffd65d74c2254219bb5f4a4f00487a47",
+    "x-cloud-trace-context": "5736b97c297db5d7cf7f80336abbc979;o=1"
+  },
+  "body": {
+    "probability": 0.026792116476468123,
+    "model_version": "1"
+  }
+}

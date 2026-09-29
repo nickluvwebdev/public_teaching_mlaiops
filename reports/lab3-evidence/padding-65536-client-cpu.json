@@ -1,0 +1,100 @@
+[
+  {
+    "utc": "2026-09-29T16:42:35.755072+00:00",
+    "stats": {
+      "BlockIO": "0B / 0B",
+      "CPUPerc": "1.51%",
+      "Container": "lab3-load-padding-65536",
+      "ID": "66057a6bb8c3",
+      "MemPerc": "0.18%",
+      "MemUsage": "13.82MiB / 7.648GiB",
+      "Name": "lab3-load-padding-65536",
+      "NetIO": "59.9kB / 2.01MB",
+      "PIDs": "13"
+    }
+  },
+  {
+    "utc": "2026-09-29T16:42:39.780209+00:00",
+    "stats": {
+      "BlockIO": "0B / 0B",
+      "CPUPerc": "2.04%",
+      "Container": "lab3-load-padding-65536",
+      "ID": "66057a6bb8c3",
+      "MemPerc": "0.18%",
+      "MemUsage": "14.26MiB / 7.648GiB",
+      "Name": "lab3-load-padding-65536",
+      "NetIO": "121kB / 4.48MB",
+      "PIDs": "13"
+    }
+  },
+  {
+    "utc": "2026-09-29T16:42:44.048816+00:00",
+    "stats": {
+      "BlockIO": "0B / 0B",
+      "CPUPerc": "1.63%",
+      "Container": "lab3-load-padding-65536",
+      "ID": "66057a6bb8c3",
+      "MemPerc": "0.18%",
+      "MemUsage": "14.43MiB / 7.648GiB",
+      "Name": "lab3-load-padding-65536",
+      "NetIO": "188kB / 7.21MB",
+      "PIDs": "13"
+    }
+  },
+  {
+    "utc": "2026-09-29T16:42:48.074083+00:00",
+    "stats": {
+      "BlockIO": "0B / 0B",
+      "CPUPerc": "1.97%",
+      "Container": "lab3-load-padding-65536",
+      "ID": "66057a6bb8c3",
+      "MemPerc": "0.18%",
+      "MemUsage": "14.12MiB / 7.648GiB",
+      "Name": "lab3-load-padding-65536",
+      "NetIO": "249kB / 9.75MB",
+      "PIDs": "13"
+    }
+  },
+  {
+    "utc": "2026-09-29T16:42:52.096272+00:00",
+    "stats": {
+      "BlockIO": "0B / 0B",
+      "CPUPerc": "1.85%",
+      "Container": "lab3-load-padding-65536",
+      "ID": "66057a6bb8c3",
+      "MemPerc": "0.19%",
+      "MemUsage": "14.82MiB / 7.648GiB",
+      "Name": "lab3-load-padding-65536",
+      "NetIO": "311kB / 12.4MB",
+      "PIDs": "13"
+    }
+  },
+  {
+    "utc": "2026-09-29T16:42:56.120099+00:00",
+    "stats": {
+      "BlockIO": "0B / 0B",
+      "CPUPerc": "1.74%",
+      "Container": "lab3-load-padding-65536",
+      "ID": "66057a6bb8c3",
+      "MemPerc": "0.20%",
+      "MemUsage": "15.53MiB / 7.648GiB",
+      "Name": "lab3-load-padding-65536",
+      "NetIO": "379kB / 15.2MB",
+      "PIDs": "13"
+    }
+  },
+  {
+    "utc": "2026-09-29T16:43:00.144565+00:00",
+    "stats": {
+      "BlockIO": "0B / 0B",
+      "CPUPerc": "2.05%",
+      "Container": "lab3-load-padding-65536",
+      "ID": "66057a6bb8c3",
+      "MemPerc": "0.20%",
+      "MemUsage": "15.67MiB / 7.648GiB",
+      "Name": "lab3-load-padding-65536",
+      "NetIO": "438kB / 17.6MB",
+      "PIDs": "13"
+    }
+  }
+]

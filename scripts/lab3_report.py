@@ -60,13 +60,13 @@ Cloud Run, Singapore, authenticated HTTPS, minimum zero, maximum one instance pe
 Small: 1 vCPU / 1 GiB. Large: 2 vCPU / 1 GiB. Forest serving uses one job per prediction.
 The exact image digest and revision configuration are in lab3-evidence/deployment.json.
 Targets were committed before measurement in reports/lab3-plan.md (commit 454e4f4): warm p95 <500 ms at concurrency 10, errors <1%.
-k6 uses 30-second closed-loop constant-concurrency runs from the local machine; results include the network path and authentication gateway. These are short experiments, not a long-term SLO guarantee.
+k6 uses 30-second closed-loop constant-concurrency runs from the local machine; results include the network path and authentication gateway. These are short experiments, not a long-term SLO guarantee. The load generator used only 4.30–5.27% CPU during small-c10; its CPU was not saturated. This does not rule out network or connection limits.
 
 ## Load results
 {table(small)}
 
 First measured failing concurrency: **{breaks[0] if breaks else "not reached in tested range"}**. This is a measured bound; intermediate concurrency levels were not exhaustively searched.
-New-revision first request: **{cold["ms"]:.2f} ms**, HTTP {cold["status"]}. This is separated from warm k6 results. Deployment health checking is disabled; inspect startup log timestamps to distinguish on-demand startup from any platform prewarming.
+New-revision first request: **{cold["ms"]:.2f} ms**, HTTP {cold["status"]}. This is separated from warm k6 results. Startup logs record 29,446 ms to load the stable model, finishing at 16:38:51.199 UTC within the first request interval (about 16:38:19.043–16:38:51.700 UTC). The response instance ID matches the startup log. This supports an on-demand cold start; it is one observed startup, not a cold-start percentile.
 
 ## Batch size
 {table(["batch100-c1"])}
@@ -78,27 +78,27 @@ This comparison includes separate HTTP/TLS connections in the sequential Python 
 {table([f"padding-{p}" for p in (1024, 16384, 65536, 262144, 1048576)])}
 
 Padding is an explicit ignored transport field; the six features and model stay constant. Each k6 summary also contains server_handling_ms and server_scoring_ms.
-Handling minus scoring includes upload/body reading, parsing, validation, queueing and framework overhead. It must not be described as pure JSON serialization time. The separate one-CPU container microbenchmark (reports/lab3-serialization.json) measured encoding + decoding at 1.97 ms for 1 MiB versus 4.90 ms scoring, rising to 10.28 ms at 4 MiB. Thus JSON CPU cost first dominates at the tested 4 MiB point, outside the API limit; live large-payload delays within the contract must not all be attributed to serialization. These are local-container CPU timings, not cloud CPU timings.
+Handling minus scoring includes upload/body reading, parsing, validation, queueing and framework overhead. It must not be described as pure JSON serialization time. The separate one-CPU container microbenchmark (reports/lab3-evidence/serialization.json) measured encoding + decoding at 1.97 ms for 1 MiB versus 4.90 ms scoring, rising to 10.28 ms at 4 MiB. Thus JSON CPU cost first dominates at the tested 4 MiB point, outside the API limit; live large-payload delays within the contract must not all be attributed to serialization. These are local-container CPU timings, not cloud CPU timings.
 
 ## Instance size
 {table(large)}
 
 At concurrency 10, p95 changes from {metrics("small-c10")["http_req_duration"]["values"]["p(95)"]:.2f} to {metrics("large-c10")["http_req_duration"]["values"]["p(95)"]:.2f} ms.
-Active hourly compute cost rises from USD {hourly:.5f} to USD {large_hourly:.5f}, a {(large_hourly / hourly - 1) * 100:.2f}% increase. Same image, model, region and memory; CPU allocation changes.
+Active hourly compute cost rises from USD {hourly:.5f} to USD {large_hourly:.5f}, a {(large_hourly / hourly - 1) * 100:.2f}% increase. Same image, model, region and memory; CPU allocation changes. Choose 1 CPU / 1 GiB: it meets the declared concurrency-10 target at lower measured latency and cost. These single short runs do not prove that adding CPU generally makes serving slower; repeated randomized comparisons would be needed to distinguish scheduling, thread contention and run-to-run variation.
 
 ## Canary and rollback
 The candidate is real Lab 2 trial 4, registered as version 2. Held-out Brier loss is 0.082300 versus stable 0.080347; lower is better.
 The detector receives prediction/label pairs and hashed cohort IDs. It does not use model settings or map hashes to stable/candidate while deciding.
 A 90/10 service traffic configuration was applied at {read("canary-traffic-90-10")["utc"]}.
-Observed cohort counts: {dict(counts)}.
+Observed cohort counts: {dict(counts)}. Final paired statistic: {json.dumps(read("canary-final-statistic"))}. The planned request cap was reached after {det["elapsed_seconds"]:.2f} seconds; this elapsed time is not a detection time.
 Alarm: {json.dumps(alarm) if alarm else "INCONCLUSIVE within the predeclared request cap; no claimed detection time."}
 Rollback configuration was confirmed at {read("rollback-traffic")["utc"]}. Subsequent {len(post)} requests returned version counts {dict(Counter(r.get("body", {}).get("model_version", "ERROR") for r in post))}.
 The confidence interval is an exploratory repeated-check alarm on unique replayed rows, not a calibrated sequential test. Rows within machines are correlated and the held-out replay is not new production data; both limit generalization.
-Evidence includes configuration snapshots plus returned versions, rather than configuration alone.
+Evidence includes configuration snapshots plus returned versions, rather than configuration alone. **Task 4 limitation:** degradation detection was not demonstrated under the predeclared rule. Rollback was exercised at the request cap, not triggered by a successful quality alarm. The complete Lab 3 detection requirement therefore remains unmet; no claim of full marks is made.
 
 ### Five-line reflection
 1. Paired Brier loss compares probability quality using known labels; HTTP errors alone would miss this regression.
-2. Detection took {str(round(alarm["seconds"], 2)) + " seconds" if alarm else "longer than the experiment cap; the result is inconclusive"}.
+2. {"Detection took " + str(round(alarm["seconds"], 2)) + " seconds" if alarm else "No alarm fired within the experiment cap; detection time is unknown"}.
 3. Faster labels and more candidate observations could shorten detection, with the same predeclared decision rule.
 4. A 50/50 split gives roughly five times as many candidate requests per unit of total traffic, while exposing five times as many requests to the candidate.
 5. That does not guarantee five-times-faster detection; sample overlap, correlated readings and the size of the quality gap also matter.

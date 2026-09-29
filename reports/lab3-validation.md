@@ -9,3 +9,13 @@
 - Tests cover health during loading, readiness failure, once-only model load, versioned errors, schema/batch behavior, immutable deployment references and scoped teardown.
 
 Cloud latency, canary and rollback validation is recorded separately in lab3-load.md and lab3-evidence after the managed experiment finishes. Unit tests alone do not satisfy those lab items.
+
+## Managed run, 2026-09-29
+
+- Adapter `make smoke`: passed against the live stable deployment; single/batch predictions agreed.
+- Predeclared warm concurrency-10 target: passed (p95 202.88 ms, 0% observed errors).
+- Real 90/10 traffic observed: 10,749 stable and 1,251 candidate requests.
+- Quality alarm: inconclusive after the predeclared 12,000-request cap; successful degradation detection is not demonstrated.
+- Rollback: all 300 subsequent responses returned stable version 1 with HTTP 200.
+- Experiment exited 0 and deleted both serving services; `make teardown LAB=3` then passed again with no remaining services.
+- Temporary project-level model metadata read grant revoked at 16:54:02 UTC.

@@ -1,0 +1,95 @@
+[
+  {
+    "insertId": "6abbec8d00027b824204b6ad",
+    "jsonPayload": {
+      "instance_id": "b816792767dc445aa9bd3016ebddf518",
+      "latency_ms": 9.863,
+      "model_version": "2",
+      "path": "/predict",
+      "request_id": "47f47fe1-505c-4b57-93f2-0ed8a3354755",
+      "scoring_ms": 8.202,
+      "status": 200
+    },
+    "labels": {
+      "course": "itcs355",
+      "instanceId": "0010dd8607654bb3878fcf46872a81efcf9ba86cba81b1753ae6674fcfe2a09c0441657aa8adf7cff742ef17c337246184c39c91921882fb1eb2d70d1e574d8f906199e48faf7681e78b86c3e0477caccc",
+      "lab": "3",
+      "student": "itcs355-6688058"
+    },
+    "logName": "projects/itcs355-6688058/logs/run.googleapis.com%2Fstderr",
+    "receiveTimestamp": "2026-09-29T16:51:25.397149545Z",
+    "resource": {
+      "labels": {
+        "configuration_name": "itcs355-lab3",
+        "location": "asia-southeast1",
+        "project_id": "itcs355-6688058",
+        "revision_name": "itcs355-lab3-c0929163808",
+        "service_name": "itcs355-lab3"
+      },
+      "type": "cloud_run_revision"
+    },
+    "timestamp": "2026-09-29T16:51:25.162690Z"
+  },
+  {
+    "insertId": "6abbec8d0001ad7bb4e76a85",
+    "jsonPayload": {
+      "instance_id": "b816792767dc445aa9bd3016ebddf518",
+      "latency_ms": 26.109,
+      "model_version": "2",
+      "path": "/predict",
+      "request_id": "e4f40876-03fd-4146-aa7d-9360b77781cd",
+      "scoring_ms": 12.84,
+      "status": 200
+    },
+    "labels": {
+      "course": "itcs355",
+      "instanceId": "0010dd8607654bb3878fcf46872a81efcf9ba86cba81b1753ae6674fcfe2a09c0441657aa8adf7cff742ef17c337246184c39c91921882fb1eb2d70d1e574d8f906199e48faf7681e78b86c3e0477caccc",
+      "lab": "3",
+      "student": "itcs355-6688058"
+    },
+    "logName": "projects/itcs355-6688058/logs/run.googleapis.com%2Fstderr",
+    "receiveTimestamp": "2026-09-29T16:51:25.397149545Z",
+    "resource": {
+      "labels": {
+        "configuration_name": "itcs355-lab3",
+        "location": "asia-southeast1",
+        "project_id": "itcs355-6688058",
+        "revision_name": "itcs355-lab3-c0929163808",
+        "service_name": "itcs355-lab3"
+      },
+      "type": "cloud_run_revision"
+    },
+    "timestamp": "2026-09-29T16:51:25.109947Z"
+  },
+  {
+    "insertId": "6abbec8d0001a8f1cc7df44c",
+    "jsonPayload": {
+      "instance_id": "b816792767dc445aa9bd3016ebddf518",
+      "latency_ms": 25.842,
+      "model_version": "2",
+      "path": "/predict",
+      "request_id": "9ccc8bb2-b658-403e-9105-1b1454ea26a0",
+      "scoring_ms": 10.353,
+      "status": 200
+    },
+    "labels": {
+      "course": "itcs355",
+      "instanceId": "0010dd8607654bb3878fcf46872a81efcf9ba86cba81b1753ae6674fcfe2a09c0441657aa8adf7cff742ef17c337246184c39c91921882fb1eb2d70d1e574d8f906199e48faf7681e78b86c3e0477caccc",
+      "lab": "3",
+      "student": "itcs355-6688058"
+    },
+    "logName": "projects/itcs355-6688058/logs/run.googleapis.com%2Fstderr",
+    "receiveTimestamp": "2026-09-29T16:51:25.397149545Z",
+    "resource": {
+      "labels": {
+        "configuration_name": "itcs355-lab3",
+        "location": "asia-southeast1",
+        "project_id": "itcs355-6688058",
+        "revision_name": "itcs355-lab3-c0929163808",
+        "service_name": "itcs355-lab3"
+      },
+      "type": "cloud_run_revision"
+    },
+    "timestamp": "2026-09-29T16:51:25.108785Z"
+  }
+]
