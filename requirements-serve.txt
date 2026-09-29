@@ -359,6 +359,12 @@ gitdb==4.0.12 \
 gitpython==3.1.62 \
     --hash=sha256:1791de66309bc0c7cfca40bf8d2e3de7ca091cbf94e6051be1ad0722c61062af \
     --hash=sha256:7002251225e10e29d2e1f49e6532613fe5d5d9f0b6f1f02997a52b38fe56899e
+google-api-core[grpc]==2.39.0 \
+    --hash=sha256:40a5d1c892bc1798f3b75ab10c665b85717979088519c714ca5774ee81d1e3c5 \
+    --hash=sha256:824ee414a10adefefae33fc5e2ba28dc6f0f7089d011c9cc98ea9178e61299e9
+google-auth[pyopenssl,requests]==2.59.0 \
+    --hash=sha256:43e47b1d3067fb90d77bd9ba21f139bb0577b3f2b9f3e2516fc00f37435efcad \
+    --hash=sha256:eb32f44f89f6b577947ebee5887c1db46e6b1a278889ba369a88179643f32240
 google-cloud-aiplatform==1.165.1 \
     --hash=sha256:93874bd7993d1d901291595df693a8b9d4d7c89b93d4f41f8664d73f088dec89 \
     --hash=sha256:bd62ba7590255cacd66f9d0439eb731060af460d35bb48dbbeeefce9dfc0a359
@@ -412,6 +418,9 @@ google-genai==2.25.0 \
 google-resumable-media==2.10.2 \
     --hash=sha256:1de441703cd298d75a419bfdc0066e9fc7b0a1de630df96eea8ce8f5c759358c \
     --hash=sha256:e3cedc827a4ea41e216582d74346f1fb9fceb625a8c3c53912f2ca1d663334d7
+googleapis-common-protos[grpc]==1.75.4 \
+    --hash=sha256:4587babdc82a8d7e5a3d4f5a6697e064bf44a598b4d08341c212b68185eadbcd \
+    --hash=sha256:e8eb9cffa9a9f3423090cc7a086012004196abab388a0561690e81887fd79cc1
 grpc-google-iam-v1==0.14.5 \
     --hash=sha256:07fd3a9fafb586588e771831fbfc8f6597050181d0c3b45e039d18b8fdc1aab5 \
     --hash=sha256:0f5e680b20aa0a9441e68c769da04d94d70fca4e43751a82d8abb8aa6a7181ca
