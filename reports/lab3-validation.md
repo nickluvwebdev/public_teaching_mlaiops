@@ -19,3 +19,5 @@ Cloud latency, canary and rollback validation is recorded separately in lab3-loa
 - Rollback: all 300 subsequent responses returned stable version 1 with HTTP 200.
 - Experiment exited 0 and deleted both serving services; `make teardown LAB=3` then passed again with no remaining services.
 - Temporary project-level model metadata read grant revoked at 16:54:02 UTC.
+
+Instructor mechanical grader on a fresh local clone: **10 passed, 0 failed**. This does not override the unresolved canary detection judgement item. Full output: `lab3-mechanical-check.txt`.

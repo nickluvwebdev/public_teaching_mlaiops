@@ -1,0 +1,20 @@
+ITCS355 Lab 3 grading — /home/nick/projects/public_teaching_mlaiops
+
+Common
+  [PASS] no credentials in history
+  [PASS] cloud.env not committed
+  [PASS] portability audit clean
+  [PASS] data tests pass
+
+Lab 3 — serving and rollback
+  [PASS] service tests pass
+  [PASS] health and ready differ
+  [PASS] load test committed
+  [PASS] load report exists
+  [PASS] percentiles reported
+  [PASS] latency target stated
+  [ ?  ] was the target committed BEFORE the results? check git log on loadtest/
+  [ ?  ] rollback evidence — do timestamps show traffic actually moving?
+
+mechanical: 10 passed, 0 failed
+items marked [ ? ] need you — see instructor/RUBRIC-labs-2-to-5.md
