@@ -54,6 +54,10 @@ class Config:
     data_dir: Path = field(default=REPO_ROOT / "data")
     reports_dir: Path = field(default=REPO_ROOT / "reports")
 
+    serving_image: str = ""
+    serving_identity: str = ""
+    serving_revision: str = ""
+    serving_no_traffic: bool = False
     training_data_uri: str = ""
     training_output_key: str = ""
     source_commit: str = ""
@@ -87,6 +91,10 @@ def load(strict: bool = True) -> Config:
         mlflow_tracking_uri=get("MLFLOW_TRACKING_URI", "sqlite:///mlflow.db"),
         model_registry_name=get("MODEL_REGISTRY_NAME", "itcs355"),
         identity_ref=get("IDENTITY_REF", ""),
+        serving_image=get("SERVING_IMAGE", ""),
+        serving_identity=get("SERVING_IDENTITY_REF", ""),
+        serving_revision=get("SERVING_REVISION", ""),
+        serving_no_traffic=get("SERVING_NO_TRAFFIC", "0") == "1",
         training_data_uri=get("TRAINING_DATA_URI", ""),
         training_output_key=get("TRAINING_OUTPUT_KEY", ""),
         source_commit=get("SOURCE_COMMIT", ""),

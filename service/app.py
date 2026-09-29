@@ -1,129 +1,200 @@
-"""Lab 3 — inference service.
+"""Provider-neutral inference service; load one exact registry version at startup."""
 
-Provider-neutral by construction: the model arrives through the adapter, and the same
-container image deploys to SageMaker, Azure ML, or Vertex AI. Route paths differ per
-platform; that difference belongs in cloudlayer/, never here.
-
-Run locally:  uvicorn service.app:app --port 8080
-"""
 from __future__ import annotations
-
+import asyncio
+import json
 import logging
 import os
+import tempfile
 import time
 import uuid
 from contextlib import asynccontextmanager
 from typing import Any
-
 from fastapi import FastAPI, HTTPException, Request
+from fastapi.exceptions import RequestValidationError
 from fastapi.responses import JSONResponse
-
+from starlette.exceptions import HTTPException as StarletteHTTPException
 from service.schemas import BatchRequest, BatchResponse, PredictRequest, PredictResponse
 
-logging.basicConfig(
-    level=logging.INFO,
-    format='{"ts":"%(asctime)s","level":"%(levelname)s","msg":%(message)s}',
-)
 log = logging.getLogger("service")
-
-STATE: dict[str, Any] = {"model": None, "version": os.environ.get("MODEL_VERSION", "unknown")}
+log.setLevel(logging.INFO)
+if not log.handlers:
+    handler = logging.StreamHandler()
+    handler.setFormatter(logging.Formatter("%(message)s"))
+    log.addHandler(handler)
+log.propagate = False
+STATE: dict[str, Any] = {"model": None, "version": "unknown", "ready": False}
+INSTANCE_ID = uuid.uuid4().hex
+PROBE = {
+    "temp_c": 78.4,
+    "vibration_mm_s": 3.1,
+    "pressure_kpa": 315.2,
+    "hours_since_service": 4200.0,
+    "load_pct": 68.0,
+    "ambient_humidity": 55.0,
+}
 
 
 def _load_model():
-    """Load once, at startup. Never per request.
-
-    Loading per request is the commonest cause of a p99 that looks nothing like p50, and
-    it is the first thing to check when your latency distribution has a long tail.
-    """
     name = os.environ.get("MODEL_REGISTRY_NAME")
     version = os.environ.get("MODEL_VERSION")
     if name and version:
-        import mlflow.sklearn  # imported lazily so tests can run without a registry
+        import mlflow.sklearn
+        from src.config import load
+        from cloudlayer.factory import get_adapter
 
-        mlflow.set_tracking_uri(os.environ.get("MLFLOW_TRACKING_URI", "sqlite:///mlflow.db"))
-        return mlflow.sklearn.load_model(f"models:/{name}/{version}")
+        with tempfile.TemporaryDirectory() as directory:
+            get_adapter(load(strict=False)).download_registered_model(name, version, directory)
+            model = mlflow.sklearn.load_model(directory)
+    else:
+        import joblib
 
-    # Fallback for local development and tests only. Submitting this is not acceptable:
-    # your deployed service must load a registered version.
-    from pathlib import Path
+        model = joblib.load(os.environ.get("MODEL_PATH", "reports/model.joblib"))
+    if hasattr(model, "n_jobs"):
+        model.n_jobs = 1
+    return model
 
-    import joblib
 
-    path = Path(os.environ.get("MODEL_PATH", "reports/model.joblib"))
-    if not path.exists():
-        raise RuntimeError(
-            "No model available. Set MODEL_REGISTRY_NAME and MODEL_VERSION, or MODEL_PATH."
+def _score(rows: list[dict]) -> list[float]:
+    if STATE["model"] is None:
+        raise HTTPException(503, "model not loaded")
+    import pandas as pd
+    from src.data import FEATURES
+
+    return [float(p) for p in STATE["model"].predict_proba(pd.DataFrame(rows)[FEATURES])[:, 1]]
+
+
+def _initialise():
+    started = time.perf_counter()
+    try:
+        STATE["model"] = _load_model()
+        scores = _score([PROBE])
+        if len(scores) != 1 or not 0 <= scores[0] <= 1:
+            raise ValueError("startup scoring check failed")
+        STATE["ready"] = True
+        log.info(
+            json.dumps(
+                {
+                    "event": "model_loaded",
+                    "model_version": STATE["version"],
+                    "instance_id": INSTANCE_ID,
+                    "load_ms": (time.perf_counter() - started) * 1000,
+                }
+            )
         )
-    return joblib.load(path)
+    except Exception as exc:
+        STATE["model"] = None
+        log.error(
+            json.dumps(
+                {"event": "model_load_failed", "error": str(exc), "model_version": STATE["version"]}
+            )
+        )
 
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    try:
-        STATE["model"] = _load_model()
-        log.info('"model loaded, version=%s"', STATE["version"])
-    except Exception as exc:  # readiness stays false; liveness still passes
-        STATE["model"] = None
-        log.error('"model load failed: %s"', exc)
+    STATE.update(model=None, ready=False, version=os.environ.get("MODEL_VERSION", "unknown"))
+    task = asyncio.create_task(asyncio.to_thread(_initialise))
     yield
-    STATE["model"] = None
+    await task
+    STATE.update(model=None, ready=False)
 
 
-app = FastAPI(title="ITCS355 inference", version="1.0.0", lifespan=lifespan)
+app = FastAPI(
+    title="ITCS355 inference", lifespan=lifespan, docs_url=None, redoc_url=None, openapi_url=None
+)
+
+
+@app.exception_handler(RequestValidationError)
+async def validation_error(request, exc):
+    # Exclude input/context: they can contain non-JSON floats or large user payloads.
+    errors = [{"loc": list(e["loc"]), "msg": e["msg"], "type": e["type"]} for e in exc.errors()]
+    return JSONResponse(
+        status_code=422, content={"detail": errors, "model_version": STATE["version"]}
+    )
+
+
+@app.exception_handler(StarletteHTTPException)
+async def http_error(request, exc):
+    return JSONResponse(
+        status_code=exc.status_code,
+        content={"detail": exc.detail, "model_version": STATE["version"]},
+    )
 
 
 @app.middleware("http")
-async def add_request_context(request: Request, call_next):
-    request_id = request.headers.get("x-request-id", str(uuid.uuid4()))
+async def context(request: Request, call_next):
+    request_id = request.headers.get("x-request-id", str(uuid.uuid4()))[:128]
     started = time.perf_counter()
-    response = await call_next(request)
-    latency_ms = (time.perf_counter() - started) * 1000
-    response.headers["x-request-id"] = request_id
-    response.headers["x-model-version"] = str(STATE["version"])
+    try:
+        response = await call_next(request)
+    except Exception:
+        log.exception("Unhandled request failure")
+        response = JSONResponse(
+            status_code=500, content={"detail": "internal error", "model_version": STATE["version"]}
+        )
+    elapsed = (time.perf_counter() - started) * 1000
+    scoring = getattr(request.state, "scoring_ms", 0.0)
+    response.headers.update(
+        {
+            "x-request-id": request_id,
+            "x-model-version": str(STATE["version"]),
+            "x-server-latency-ms": f"{elapsed:.3f}",
+            "x-scoring-ms": f"{scoring:.3f}",
+            "x-instance-id": INSTANCE_ID,
+        }
+    )
     log.info(
-        '{"request_id":"%s","path":"%s","status":%d,"latency_ms":%.2f,"model_version":"%s"}',
-        request_id, request.url.path, response.status_code, latency_ms, STATE["version"],
+        json.dumps(
+            {
+                "request_id": request_id,
+                "path": request.url.path,
+                "status": response.status_code,
+                "latency_ms": round(elapsed, 3),
+                "scoring_ms": round(scoring, 3),
+                "model_version": STATE["version"],
+                "instance_id": INSTANCE_ID,
+            }
+        )
     )
     return response
 
 
 @app.get("/health")
-def health() -> dict[str, str]:
-    """Liveness. The process is up. Says nothing about whether it can serve."""
-    return {"status": "alive"}
+def health():
+    return {"status": "alive", "model_version": STATE["version"]}
 
 
 @app.get("/ready")
 def ready():
-    """Readiness. The model is loaded and can score.
-
-    These two are genuinely different, and confusing them causes a specific production
-    failure: traffic routed to a container whose model has not finished loading. All three
-    providers distinguish them, and Quiz 3 asks about it.
-    """
-    if STATE["model"] is None:
-        return JSONResponse(status_code=503, content={"status": "not_ready", "reason": "model not loaded"})
+    if not STATE["ready"]:
+        return JSONResponse(
+            status_code=503, content={"status": "not_ready", "model_version": STATE["version"]}
+        )
+    try:
+        _score([PROBE])
+    except Exception:
+        return JSONResponse(
+            status_code=503, content={"status": "not_ready", "model_version": STATE["version"]}
+        )
     return {"status": "ready", "model_version": STATE["version"]}
 
 
-def _score(rows: list[dict]) -> list[float]:
-    if STATE["model"] is None:
-        raise HTTPException(status_code=503, detail="model not loaded")
-    import pandas as pd
-
-    from src.data import FEATURES
-
-    frame = pd.DataFrame(rows)[FEATURES]
-    return [float(p) for p in STATE["model"].predict_proba(frame)[:, 1]]
-
-
 @app.post("/predict", response_model=PredictResponse)
-def predict(payload: PredictRequest) -> PredictResponse:
-    score = _score([payload.model_dump()])[0]
+def predict(payload: PredictRequest, request: Request):
+    if not STATE["ready"]:
+        raise HTTPException(503, "model not ready")
+    started = time.perf_counter()
+    score = _score([payload.model_dump(exclude={"padding"})])[0]
+    request.state.scoring_ms = (time.perf_counter() - started) * 1000
     return PredictResponse(probability=score, model_version=str(STATE["version"]))
 
 
 @app.post("/predict/batch", response_model=BatchResponse)
-def predict_batch(payload: BatchRequest) -> BatchResponse:
-    scores = _score([row.model_dump() for row in payload.rows])
+def batch(payload: BatchRequest, request: Request):
+    if not STATE["ready"]:
+        raise HTTPException(503, "model not ready")
+    started = time.perf_counter()
+    scores = _score([r.model_dump(exclude={"padding"}) for r in payload.rows])
+    request.state.scoring_ms = (time.perf_counter() - started) * 1000
     return BatchResponse(probabilities=scores, model_version=str(STATE["version"]))

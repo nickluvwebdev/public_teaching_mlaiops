@@ -40,6 +40,11 @@ def client():
 
     from service.app import app
     with TestClient(app) as c:
+        import time
+        for _ in range(200):
+            if c.get("/ready").status_code == 200:
+                break
+            time.sleep(0.05)
         yield c
 
 

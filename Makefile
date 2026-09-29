@@ -6,7 +6,7 @@ IMAGE ?= itcs355-lab1
 TAG   ?= $(shell git rev-parse --short HEAD 2>/dev/null || echo dev)
 PLATFORM ?= linux/amd64
 SEED ?= 20260101
-LAB ?= 2
+LAB ?= 3
 
 .PHONY: help setup cloud-check data test portability-audit train image image-push reproduce verify clean teardown \
         tune compare reload-check serve serve-image loadtest drift inject-drift pipeline cost swap-check llm-eval llm-gate
@@ -73,6 +73,15 @@ reload-check: ## Load the registered model by version and score rows
 	python scripts/reload_check.py --name $(MODEL_REGISTRY_NAME) --version $(VERSION)
 
 # --- Lab 3 -------------------------------------------------------------------
+.PHONY: deploy smoke
+ENDPOINT ?= itcs355-lab3
+INSTANCE ?= 1cpu-1Gi
+deploy: ## Deploy an exact registered model version
+	python scripts/deploy.py --model-ref "$(MODEL_REF)" --endpoint "$(ENDPOINT)" --instance "$(INSTANCE)"
+
+smoke: ## Invoke three known payloads and verify batch agreement
+	python scripts/smoke.py --endpoint "$(ENDPOINT)"
+
 serve: ## Run the inference service locally on :8080
 	python scripts/export_model.py --out reports/model.joblib
 	MODEL_PATH=reports/model.joblib MODEL_VERSION=local uvicorn service.app:app --port 8080

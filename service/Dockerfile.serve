@@ -1,27 +1,16 @@
-# ITCS355 Lab 3 — serving image
-#
-# TODO(Lab 3): pin by digest, as you did for the training image in Lab 1.
-FROM python:3.11-slim AS builder
-ENV PIP_NO_CACHE_DIR=1 PIP_DISABLE_PIP_VERSION_CHECK=1
+FROM python:3.11-slim@sha256:9534e5a8e315485d4061ed659af0fd78a284c015f9b73661b41d6bab25604534 AS builder
 WORKDIR /build
-COPY requirements-serve.txt ./
-RUN pip install --prefix=/install -r requirements-serve.txt
-
-FROM python:3.11-slim AS runtime
-RUN useradd --create-home --uid 10001 runner
-ENV PYTHONUNBUFFERED=1 PYTHONPATH=/app
+COPY requirements-serve.txt .
+RUN pip install --no-cache-dir --require-hashes --prefix=/install -r requirements-serve.txt
+FROM python:3.11-slim@sha256:9534e5a8e315485d4061ed659af0fd78a284c015f9b73661b41d6bab25604534
 COPY --from=builder /install /usr/local
+RUN useradd --uid 10001 --create-home appuser
 WORKDIR /app
-COPY --chown=runner:runner service/ ./service/
-COPY --chown=runner:runner src/ ./src/
-COPY --chown=runner:runner cloudlayer/ ./cloudlayer/
-USER runner
-
+COPY service/ service/
+COPY src/ src/
+COPY cloudlayer/ cloudlayer/
+ARG SOURCE_COMMIT=unknown
+LABEL org.opencontainers.image.revision=$SOURCE_COMMIT
+USER 10001
 EXPOSE 8080
-# TODO(Lab 3): your provider expects specific health and predict paths.
-#   AWS SageMaker  -> /ping and /invocations
-#   Azure ML       -> configurable liveness route on the deployment
-#   Vertex AI      -> health and predict routes declared on the Model resource
-# Absorb the difference in cloudlayer/, or map the paths here. Do NOT rename the routes
-# in service/app.py — that is what makes the image non-portable.
-CMD ["uvicorn", "service.app:app", "--host", "0.0.0.0", "--port", "8080", "--workers", "2"]
+CMD ["uvicorn", "service.app:app", "--host", "0.0.0.0", "--port", "8080", "--workers", "1", "--no-access-log"]

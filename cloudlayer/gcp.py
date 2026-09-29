@@ -172,6 +172,27 @@ class GcpAdapter(CloudAdapter):
         root = Path(local_path).resolve()
         count = 0
         client = storage.Client(project=self.cfg.project_id)
+        # An explicit manifest avoids granting bucket-wide object-list permission
+        # to the serving identity. Older Lab 2 artifacts retain the list fallback.
+        import json
+        import hashlib
+        from google.api_core.exceptions import NotFound
+        try:
+            manifest = json.loads(client.bucket(parsed.netloc).blob(prefix + "artifact-manifest.json").download_as_bytes())
+        except NotFound:
+            manifest = None
+        if manifest is not None:
+            if not manifest:
+                raise ValueError("Empty artifact manifest")
+            for relative, digest in manifest.items():
+                path = (root / relative).resolve()
+                if not path.is_relative_to(root) or path == root:
+                    raise ValueError("Unsafe artifact manifest path")
+                path.parent.mkdir(parents=True, exist_ok=True)
+                client.bucket(parsed.netloc).blob(prefix + relative).download_to_filename(str(path))
+                if hashlib.sha256(path.read_bytes()).hexdigest() != digest:
+                    raise ValueError("Artifact checksum mismatch")
+            return
         for blob in client.list_blobs(parsed.netloc, prefix=prefix):
             if blob.name.endswith("/"):
                 continue
@@ -217,7 +238,7 @@ class GcpAdapter(CloudAdapter):
             labels={**self.cfg.tags(2), "git_commit": lineage["git_commit"],
                     "mlflow_run_id": lineage["mlflow_run_id"]},
             version_description=json.dumps(lineage, sort_keys=True),
-            version_aliases=["candidate"], sync=True,
+            version_aliases=["candidate"], is_default_version=not existing, sync=True,
         )
         return f"{model.resource_name}@{model.version_id}"
 
@@ -255,6 +276,9 @@ class GcpAdapter(CloudAdapter):
         """Cancel active matching training jobs; preserve registry, artifacts and evidence."""
         from google.cloud import aiplatform
 
+        if tags == self.cfg.tags(3):
+            from cloudlayer.gcp_run import teardown
+            return teardown(self.cfg, tags)
         if tags != self.cfg.tags(2):
             raise ValueError("This teardown is scoped strictly to this student's Lab 2 jobs.")
         query = " AND ".join(f'labels.{key}="{value}"' for key, value in tags.items())
@@ -268,6 +292,13 @@ class GcpAdapter(CloudAdapter):
                 cancelled.append(job.resource_name)
         return cancelled
 
-    # deploy / invoke                   -> Lab 3 (Vertex Endpoint)
+    def deploy(self, model_ref: str, endpoint: str, instance: str) -> str:
+        from cloudlayer.gcp_run import deploy
+        return deploy(self.cfg, model_ref, endpoint, instance)
+
+    def invoke(self, endpoint: str, payload: dict[str, Any]) -> dict[str, Any]:
+        from cloudlayer.gcp_run import invoke
+        return invoke(self.cfg, endpoint, payload)
+
     # emit_metric                       -> Lab 4 (Cloud Monitoring time series)
     # generate                          -> Lab 5 (managed LLM endpoint; read usageMetadata for tokens)
