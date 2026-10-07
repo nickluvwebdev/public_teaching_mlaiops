@@ -57,7 +57,7 @@ def build(seed: int) -> pd.DataFrame:
                 "failed_within_7d": int(rng.random() < p),
             })
             reading_id += 1
-    return pd.DataFrame(rows)
+    return pd.DataFrame(rows).drop(columns=["pressure_kpa"])
 
 
 def main() -> None:
