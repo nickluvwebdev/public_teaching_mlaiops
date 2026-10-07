@@ -154,6 +154,7 @@ async def context(request: Request, call_next):
                 "scoring_ms": round(scoring, 3),
                 "model_version": STATE["version"],
                 "instance_id": INSTANCE_ID,
+                "features": getattr(request.state, "features", []),
             }
         )
     )
@@ -187,6 +188,7 @@ def predict(payload: PredictRequest, request: Request):
     started = time.perf_counter()
     score = _score([payload.model_dump(exclude={"padding"})])[0]
     request.state.scoring_ms = (time.perf_counter() - started) * 1000
+    request.state.features = [payload.model_dump(exclude={"padding"})]
     return PredictResponse(probability=score, model_version=str(STATE["version"]))
 
 
@@ -197,4 +199,5 @@ def batch(payload: BatchRequest, request: Request):
     started = time.perf_counter()
     scores = _score([r.model_dump(exclude={"padding"}) for r in payload.rows])
     request.state.scoring_ms = (time.perf_counter() - started) * 1000
+    request.state.features = [r.model_dump(exclude={"padding"}) for r in payload.rows]
     return BatchResponse(probabilities=scores, model_version=str(STATE["version"]))

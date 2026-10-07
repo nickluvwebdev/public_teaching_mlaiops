@@ -9,6 +9,7 @@ WORKDIR /app
 COPY service/ service/
 COPY src/ src/
 COPY cloudlayer/ cloudlayer/
+COPY monitoring/ monitoring/
 ARG SOURCE_COMMIT=unknown
 LABEL org.opencontainers.image.revision=$SOURCE_COMMIT
 USER 10001

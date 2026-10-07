@@ -1,0 +1,99 @@
+COMMAND ['ruff', 'check', 'src/', 'service/', 'monitoring/', 'scripts/', 'tests/', 'cloudlayer/']
+All checks passed!
+COMMAND ['python', 'scripts/portability_audit.py']
+PORTABILITY AUDIT PASSED — src, service, monitoring, tests contain no provider-specific strings
+COMMAND ['pytest', '-q']
+......................................................                   [100%]
+=============================== warnings summary ===============================
+../../.venvs/itcs355/lib/python3.14/site-packages/starlette/testclient.py:53
+  /home/nick/.venvs/itcs355/lib/python3.14/site-packages/starlette/testclient.py:53: DeprecationWarning: The anyio.abc.BlockingPortal alias is deprecated, use anyio.from_thread.BlockingPortal instead.
+    _PortalFactoryType = Callable[[], AbstractContextManager[anyio.abc.BlockingPortal]]
+
+tests/test_lab2_study.py: 14 warnings
+  /home/nick/.venvs/itcs355/lib/python3.14/site-packages/mlflow/types/utils.py:440: UserWarning: Hint: Inferred schema contains integer column(s). Integer columns in Python cannot represent missing values. If your input data contains missing values at inference time, it will be encoded as floats and will cause a schema enforcement error. The best way to avoid this problem is to infer the model schema based on a realistic data sample (training dataset) that includes missing values. Alternatively, you can declare integer columns as doubles (float64) whenever these columns may have missing values. See `Handling Integers With Missing Values <https://www.mlflow.org/docs/latest/models.html#handling-integers-with-missing-values>`_ for more details.
+    warnings.warn(
+
+tests/test_lab2_study.py: 28 warnings
+tests/test_remote_training.py: 1 warning
+  /home/nick/.venvs/itcs355/lib/python3.14/site-packages/mlflow/utils/file_utils.py:304: DeprecationWarning: codecs.open() is deprecated. Use open() instead.
+    with codecs.open(filename, mode="w", encoding=ENCODING) as handle:
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+54 passed, 44 warnings in 33.60s
+COMMAND ['docker', 'build', '-f', 'service/Dockerfile.serve', '--build-arg', 'SOURCE_COMMIT=lab4-local-preflight', '-t', 'itcs355-serve:lab4-preflight', '.']
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile.serve
+#1 transferring dockerfile: 791B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/python:3.11-slim@sha256:9534e5a8e315485d4061ed659af0fd78a284c015f9b73661b41d6bab25604534
+#2 DONE 0.1s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 171B done
+#3 DONE 0.0s
+
+#4 [internal] load build context
+#4 transferring context: 115.43kB 0.0s done
+#4 DONE 0.0s
+
+#5 [builder 1/4] FROM docker.io/library/python:3.11-slim@sha256:9534e5a8e315485d4061ed659af0fd78a284c015f9b73661b41d6bab25604534
+#5 resolve docker.io/library/python:3.11-slim@sha256:9534e5a8e315485d4061ed659af0fd78a284c015f9b73661b41d6bab25604534 0.0s done
+#5 DONE 0.0s
+
+#6 [builder 2/4] WORKDIR /build
+#6 CACHED
+
+#7 [stage-1 2/8] COPY --from=builder /install /usr/local
+#7 CACHED
+
+#8 [builder 4/4] RUN pip install --no-cache-dir --require-hashes --prefix=/install -r requirements-serve.txt
+#8 CACHED
+
+#9 [stage-1 3/8] RUN useradd --uid 10001 --create-home appuser
+#9 CACHED
+
+#10 [builder 3/4] COPY requirements-serve.txt .
+#10 CACHED
+
+#11 [stage-1 4/8] WORKDIR /app
+#11 CACHED
+
+#12 [stage-1 5/8] COPY service/ service/
+#12 DONE 0.2s
+
+#13 [stage-1 6/8] COPY src/ src/
+#13 DONE 0.1s
+
+#14 [stage-1 7/8] COPY cloudlayer/ cloudlayer/
+#14 DONE 0.1s
+
+#15 [stage-1 8/8] COPY monitoring/ monitoring/
+#15 DONE 0.1s
+
+#16 exporting to image
+#16 exporting layers
+#16 exporting layers 0.4s done
+#16 exporting manifest sha256:7ad0f598aefcf46e153c4696d2dd5bf7534b9ad3fbae58896d824e9881d23c9c 0.0s done
+#16 exporting config sha256:e431dc72ee64bb626e9cb1530a5d7cc8ea2e2c1387d1effb275013d9e8138c86 0.0s done
+#16 exporting attestation manifest sha256:e3f6420f13b4c519ffefb671d54a65d856180dfafcd9e75970f9cb02a25f7a3c 0.0s done
+#16 exporting manifest list sha256:7ae1b407843d4d840b6652cb511f1aa72a22e4df900e801ab7311903e6973244 0.0s done
+#16 naming to docker.io/library/itcs355-serve:lab4-preflight
+#16 naming to docker.io/library/itcs355-serve:lab4-preflight done
+#16 unpacking to docker.io/library/itcs355-serve:lab4-preflight 0.1s done
+#16 DONE 0.7s
+COMMAND ['python', 'scripts/export_model.py', '--out', 'reports/lab4-model.joblib']
+wrote reports/lab4-model.joblib
+93a9cad34f26784dbbf8befa0f0fb6414f32e74782146c52723899a3ed114061
+Container integration passed: probability, exact version, and 422 contract
+INFO:     Started server process [1]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8080 (Press CTRL+C to quit)
+{"request_id": "66693231-944c-4e57-807d-6be23786afc4", "path": "/ready", "status": 503, "latency_ms": 3.752, "scoring_ms": 0.0, "model_version": "lab4-preflight", "instance_id": "636654c6f6aa4a2fad7c594d3057df14", "features": []}
+{"event": "model_loaded", "model_version": "lab4-preflight", "instance_id": "636654c6f6aa4a2fad7c594d3057df14", "load_ms": 1827.7682320000395}
+{"request_id": "6b0a2df6-cad7-4202-be26-5b573bb6ee04", "path": "/ready", "status": 200, "latency_ms": 10.249, "scoring_ms": 0.0, "model_version": "lab4-preflight", "instance_id": "636654c6f6aa4a2fad7c594d3057df14", "features": []}
+{"request_id": "d5aeba15-9497-4cbb-94e1-16a6986f7747", "path": "/predict", "status": 200, "latency_ms": 13.153, "scoring_ms": 11.705, "model_version": "lab4-preflight", "instance_id": "636654c6f6aa4a2fad7c594d3057df14", "features": [{"temp_c": 78.4, "vibration_mm_s": 3.1, "pressure_kpa": 315.2, "hours_since_service": 4200.0, "load_pct": 68.0, "ambient_humidity": 55.0}]}
+{"request_id": "a724e70c-6fa0-45b0-9975-d3689c8ca952", "path": "/predict", "status": 422, "latency_ms": 0.495, "scoring_ms": 0.0, "model_version": "lab4-preflight", "instance_id": "636654c6f6aa4a2fad7c594d3057df14", "features": []}
+itcs355-lab4-integration

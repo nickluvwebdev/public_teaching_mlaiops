@@ -1,0 +1,50 @@
+[
+  {
+    "feature": "vibration_mm_s",
+    "psi": 0.00933,
+    "ks_statistic": 0.04139,
+    "ref_mean": 4.6032,
+    "cur_mean": 4.7303,
+    "verdict": "stable"
+  },
+  {
+    "feature": "load_pct",
+    "psi": 0.00794,
+    "ks_statistic": 0.0275,
+    "ref_mean": 65.6636,
+    "cur_mean": 64.9228,
+    "verdict": "stable"
+  },
+  {
+    "feature": "hours_since_service",
+    "psi": 0.00488,
+    "ks_statistic": 0.0275,
+    "ref_mean": 4533.5857,
+    "cur_mean": 4615.7827,
+    "verdict": "stable"
+  },
+  {
+    "feature": "pressure_kpa",
+    "psi": 0.00452,
+    "ks_statistic": 0.02167,
+    "ref_mean": 318.1791,
+    "cur_mean": 317.7754,
+    "verdict": "stable"
+  },
+  {
+    "feature": "temp_c",
+    "psi": 0.00321,
+    "ks_statistic": 0.01611,
+    "ref_mean": 79.6689,
+    "cur_mean": 79.5225,
+    "verdict": "stable"
+  },
+  {
+    "feature": "ambient_humidity",
+    "psi": 0.00314,
+    "ks_statistic": 0.01306,
+    "ref_mean": 58.0388,
+    "cur_mean": 58.0419,
+    "verdict": "stable"
+  }
+]

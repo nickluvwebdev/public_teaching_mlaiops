@@ -54,6 +54,7 @@ class Config:
     data_dir: Path = field(default=REPO_ROOT / "data")
     reports_dir: Path = field(default=REPO_ROOT / "reports")
 
+    serving_lab: int = 3
     serving_image: str = ""
     serving_identity: str = ""
     serving_revision: str = ""
@@ -91,6 +92,7 @@ def load(strict: bool = True) -> Config:
         mlflow_tracking_uri=get("MLFLOW_TRACKING_URI", "sqlite:///mlflow.db"),
         model_registry_name=get("MODEL_REGISTRY_NAME", "itcs355"),
         identity_ref=get("IDENTITY_REF", ""),
+        serving_lab=int(get("SERVING_LAB", "3")),
         serving_image=get("SERVING_IMAGE", ""),
         serving_identity=get("SERVING_IDENTITY_REF", ""),
         serving_revision=get("SERVING_REVISION", ""),

@@ -91,7 +91,11 @@ def test_every_row_lands_in_exactly_one_split(df):
     assert total == len(df), f"rows lost or duplicated: {total} vs {len(df)}"
 
 
-def test_data_fingerprint_is_stable():
-    if not RAW.exists():
-        pytest.skip("no raw data")
-    assert data.data_fingerprint(RAW) == data.data_fingerprint(RAW)
+def test_data_fingerprint_detects_content_changes(tmp_path):
+    original = tmp_path / "original.csv"
+    copy = tmp_path / "copy.csv"
+    original.write_bytes(b"x,y\n1,2\n")
+    copy.write_bytes(original.read_bytes())
+    assert data.data_fingerprint(original) == data.data_fingerprint(copy)
+    copy.write_bytes(b"x,y\n1,3\n")
+    assert data.data_fingerprint(original) != data.data_fingerprint(copy)

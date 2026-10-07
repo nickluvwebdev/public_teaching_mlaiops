@@ -20,11 +20,9 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
-# Conventional PSI reading, and it IS only conventional — it comes from credit scoring,
-# where features are stable and volumes are large. Your problem may warrant something
-# tighter or looser. TODO(Lab 4): state your threshold and why, in your README.
-PSI_NO_CHANGE = 0.10
-PSI_MODERATE = 0.25
+# Calibrated for 500-row windows; see reports/lab4-plan.md and calibration evidence.
+PSI_NO_CHANGE = 0.05
+PSI_MODERATE = 0.40
 
 
 @dataclass
@@ -37,6 +35,13 @@ class FeatureDrift:
     verdict: str
 
 
+def validate_samples(reference, current):
+    samples = [np.asarray(x, dtype=float) for x in (reference, current)]
+    if any(x.ndim != 1 or len(x) == 0 or not np.isfinite(x).all() for x in samples):
+        raise ValueError("Drift requires nonempty, finite, one-dimensional samples")
+    return samples
+
+
 def psi(reference: np.ndarray, current: np.ndarray, bins: int = 10) -> float:
     """Population Stability Index.
 
@@ -44,11 +49,13 @@ def psi(reference: np.ndarray, current: np.ndarray, bins: int = 10) -> float:
     Sensitive to changes in shape, not only in mean — which is why a feature can drift
     badly while its average looks untouched.
     """
+    reference, current = validate_samples(reference, current)
     edges = np.quantile(reference, np.linspace(0, 1, bins + 1))
     edges[0], edges[-1] = -np.inf, np.inf
     edges = np.unique(edges)
-    if len(edges) < 3:
-        return 0.0
+    if len(edges) < 3 or np.ptp(reference) == 0:
+        center = reference[0]
+        edges = np.array([-np.inf, center - 1e-9, center + 1e-9, np.inf])
 
     ref_counts, _ = np.histogram(reference, bins=edges)
     cur_counts, _ = np.histogram(current, bins=edges)
@@ -66,6 +73,7 @@ def ks_statistic(reference: np.ndarray, current: np.ndarray) -> float:
     Complements PSI. KS is more sensitive to a shift in location; PSI to a change in shape.
     Reporting both, and noticing when they disagree, is worth more than either alone.
     """
+    reference, current = validate_samples(reference, current)
     ref = np.sort(reference)
     cur = np.sort(current)
     pooled = np.concatenate([ref, cur])
@@ -124,8 +132,7 @@ def main() -> int:
         print(f"{r.feature:<22}{r.psi:>10.5f}{r.ks_statistic:>10.5f}  {r.verdict}")
 
     if args.emit:
-        # TODO(Lab 4): implement emit_metric in your adapter, then this reaches
-        # CloudWatch / Azure Monitor / Cloud Monitoring and your dashboard shows it.
+        # Provider-specific metric transport stays inside the adapter.
         from cloudlayer.factory import get_adapter
         adapter = get_adapter(config.load(strict=False))
         for r in results:

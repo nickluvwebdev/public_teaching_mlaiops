@@ -80,7 +80,7 @@ def deploy(cfg, model_ref, endpoint, instance):
         "--set-env-vars",
         ",".join(f"{k}={v}" for k, v in env.items()),
         "--labels",
-        ",".join(f"{k}={v}" for k, v in cfg.tags(3).items()),
+        ",".join(f"{k}={v}" for k, v in cfg.tags(cfg.serving_lab).items()),
         *options,
     )
     return describe(cfg, endpoint)["status"]["url"]

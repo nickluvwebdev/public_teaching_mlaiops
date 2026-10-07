@@ -276,6 +276,9 @@ class GcpAdapter(CloudAdapter):
         """Cancel active matching training jobs; preserve registry, artifacts and evidence."""
         from google.cloud import aiplatform
 
+        if tags == self.cfg.tags(4):
+            from cloudlayer.lab4 import teardown
+            return teardown(self.cfg)
         if tags == self.cfg.tags(3):
             from cloudlayer.gcp_run import teardown
             return teardown(self.cfg, tags)
@@ -300,5 +303,7 @@ class GcpAdapter(CloudAdapter):
         from cloudlayer.gcp_run import invoke
         return invoke(self.cfg, endpoint, payload)
 
-    # emit_metric                       -> Lab 4 (Cloud Monitoring time series)
+    def emit_metric(self, name: str, value: float, unit: str = "None") -> None:
+        from cloudlayer.gcp_monitoring import emit
+        emit(self.cfg, name, value, unit)
     # generate                          -> Lab 5 (managed LLM endpoint; read usageMetadata for tokens)

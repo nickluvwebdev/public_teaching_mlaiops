@@ -1,62 +1,66 @@
-# ITCS355 Lab 4 — continuous deployment.
-#
-# Runs only on main, only after CI is green. Credentials come from OIDC federation, not
-# from stored keys — TODO(Lab 4): uncomment the block for YOUR provider and delete the
-# other two.
-
 name: CD
-
 on:
   workflow_run:
     workflows: [CI]
     types: [completed]
     branches: [main]
-
 permissions:
   contents: read
+  actions: read
   id-token: write
-
+concurrency:
+  group: lab4-staging
+  cancel-in-progress: false
 jobs:
   deploy-staging:
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    if: >-
+      github.event.workflow_run.conclusion == 'success' &&
+      github.event.workflow_run.event == 'push' &&
+      github.event.workflow_run.head_branch == 'main' &&
+      github.event.workflow_run.head_repository.full_name == github.repository &&
+      vars.LAB4_DEPLOY_ENABLED == 'true'
     runs-on: ubuntu-latest
     environment: staging
+    env:
+      # workflow_run's github.sha can differ: deploy the SHA that actually passed CI.
+      SOURCE_SHA: ${{ github.event.workflow_run.head_sha }}
+      CLOUD_PROVIDER: gcp
+      PROJECT_ID: ${{ vars.PROJECT_ID }}
+      REGION: ${{ vars.REGION }}
+      CONTAINER_REGISTRY: ${{ vars.CONTAINER_REGISTRY }}
+      BLOB_URI: ${{ vars.BLOB_URI }}
+      MODEL_REGISTRY_NAME: ${{ vars.MODEL_REGISTRY_NAME }}
+      IDENTITY_REF: ${{ vars.GCP_DEPLOY_SA }}
+      SERVING_IDENTITY_REF: ${{ vars.SERVING_IDENTITY_REF }}
+      MLFLOW_TRACKING_URI: sqlite:///mlflow.db
+      SERVING_LAB: '4'
     steps:
       - uses: actions/checkout@v4
-
-      # --- AWS ---------------------------------------------------------------
-      # - uses: aws-actions/configure-aws-credentials@v4
-      #   with:
-      #     role-to-assume: ${{ secrets.AWS_DEPLOY_ROLE_ARN }}
-      #     aws-region: ${{ vars.REGION }}
-      # - run: aws ecr get-login-password --region ${{ vars.REGION }} | docker login --username AWS --password-stdin ${{ vars.CONTAINER_REGISTRY }}
-
-      # --- Azure -------------------------------------------------------------
-      # - uses: azure/login@v2
-      #   with:
-      #     client-id: ${{ secrets.AZURE_CLIENT_ID }}
-      #     tenant-id: ${{ secrets.AZURE_TENANT_ID }}
-      #     subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-      # - run: az acr login --name ${{ vars.ACR_NAME }}
-
-      # --- GCP ---------------------------------------------------------------
-      # - uses: google-github-actions/auth@v2
-      #   with:
-      #     workload_identity_provider: ${{ secrets.GCP_WIF_PROVIDER }}
-      #     service_account: ${{ secrets.GCP_DEPLOY_SA }}
-      # - run: gcloud auth configure-docker ${{ vars.REGION }}-docker.pkg.dev
-
-      - name: Push image
+        with:
+          ref: ${{ github.event.workflow_run.head_sha }}
+      - uses: actions/download-artifact@v4
+        with:
+          name: tested-serving-image
+          run-id: ${{ github.event.workflow_run.id }}
+          github-token: ${{ github.token }}
+      - uses: google-github-actions/auth@v3
+        with:
+          workload_identity_provider: ${{ vars.GCP_WIF_PROVIDER }}
+          service_account: ${{ vars.GCP_DEPLOY_SA }}
+      - uses: google-github-actions/setup-gcloud@v3
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install --require-hashes -r requirements.txt
+      - name: Push exactly the image CI tested
         run: |
-          echo "TODO(Lab 4): push the SHA-tagged image through your adapter"
-          # python -c "from src import config; from cloudlayer.factory import get_adapter; \
-          #   print(get_adapter(config.load()).push_image('itcs355-serve:${{ github.sha }}'))"
-
-      - name: Deploy to staging
-        run: |
-          echo "TODO(Lab 4): adapter.deploy(model_ref, endpoint, instance)"
-
-      - name: Smoke test
-        run: |
-          echo "TODO(Lab 4): adapter.invoke() with three known payloads."
-          echo "A deploy that is not smoke-tested is a deploy you have not verified."
+          set -euo pipefail
+          docker load -i image.tar
+          gcloud auth configure-docker "$REGION-docker.pkg.dev" --quiet
+          python scripts/lab4_cd.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: staging-evidence
+          path: reports/lab4-staging.json
+          retention-days: 7
