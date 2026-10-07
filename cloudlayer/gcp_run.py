@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 import json
+import os
 import subprocess
 from urllib.request import Request, urlopen
 
@@ -87,6 +88,8 @@ def deploy(cfg, model_ref, endpoint, instance):
 
 
 def identity_token():
+    if os.environ.get("SERVING_ID_TOKEN"):
+        return os.environ["SERVING_ID_TOKEN"]
     return subprocess.run(
         ["gcloud", "auth", "print-identity-token"], check=True, capture_output=True, text=True
     ).stdout.strip()

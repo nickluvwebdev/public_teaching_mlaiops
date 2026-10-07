@@ -1,0 +1,246 @@
+test	Data contract tests	﻿2026-10-07T12:29:55.5870180Z ##[group]Run pytest -q tests/test_data.py
+test	Data contract tests	2026-10-07T12:29:55.5870528Z [36;1mpytest -q tests/test_data.py[0m
+test	Data contract tests	2026-10-07T12:29:55.5903925Z shell: /usr/bin/bash -e {0}
+test	Data contract tests	2026-10-07T12:29:55.5904473Z env:
+test	Data contract tests	2026-10-07T12:29:55.5904734Z   pythonLocation: /opt/hostedtoolcache/Python/3.11.16/x64
+test	Data contract tests	2026-10-07T12:29:55.5905134Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.11.16/x64/lib/pkgconfig
+test	Data contract tests	2026-10-07T12:29:55.5905506Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.16/x64
+test	Data contract tests	2026-10-07T12:29:55.5905835Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.16/x64
+test	Data contract tests	2026-10-07T12:29:55.5906167Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.16/x64
+test	Data contract tests	2026-10-07T12:29:55.5906507Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.11.16/x64/lib
+test	Data contract tests	2026-10-07T12:29:55.5906809Z ##[endgroup]
+test	Data contract tests	2026-10-07T12:29:56.2881630Z FFF.......                                                               [100%]
+test	Data contract tests	2026-10-07T12:29:56.2882449Z =================================== FAILURES ===================================
+test	Data contract tests	2026-10-07T12:29:56.2883150Z ____________________ test_schema_columns_present_and_typed _____________________
+test	Data contract tests	2026-10-07T12:29:56.2883486Z 
+test	Data contract tests	2026-10-07T12:29:56.2883780Z df =       reading_id  machine_id  ...  ambient_humidity  failed_within_7d
+test	Data contract tests	2026-10-07T12:29:56.2884252Z 0              0           0  ...            63....65.351                 1
+test	Data contract tests	2026-10-07T12:29:56.2884612Z 5999        5999         239  ...            55.347                 1
+test	Data contract tests	2026-10-07T12:29:56.2884905Z 
+test	Data contract tests	2026-10-07T12:29:56.2885003Z [6000 rows x 8 columns]
+test	Data contract tests	2026-10-07T12:29:56.2885175Z 
+test	Data contract tests	2026-10-07T12:29:56.2885320Z     def test_schema_columns_present_and_typed(df):
+test	Data contract tests	2026-10-07T12:29:56.2885754Z         missing = set(data.SCHEMA) - set(df.columns)
+test	Data contract tests	2026-10-07T12:29:56.2886136Z >       assert not missing, f"missing columns: {sorted(missing)}"
+test	Data contract tests	2026-10-07T12:29:56.2886517Z E       AssertionError: missing columns: ['pressure_kpa']
+test	Data contract tests	2026-10-07T12:29:56.2886864Z E       assert not {'pressure_kpa'}
+test	Data contract tests	2026-10-07T12:29:56.2887058Z 
+test	Data contract tests	2026-10-07T12:29:56.2887170Z tests/test_data.py:35: AssertionError
+test	Data contract tests	2026-10-07T12:29:56.2887566Z ______________________ test_no_nulls_in_required_columns _______________________
+test	Data contract tests	2026-10-07T12:29:56.2887836Z 
+test	Data contract tests	2026-10-07T12:29:56.2888029Z df =       reading_id  machine_id  ...  ambient_humidity  failed_within_7d
+test	Data contract tests	2026-10-07T12:29:56.2888414Z 0              0           0  ...            63....65.351                 1
+test	Data contract tests	2026-10-07T12:29:56.2888770Z 5999        5999         239  ...            55.347                 1
+test	Data contract tests	2026-10-07T12:29:56.2888969Z 
+test	Data contract tests	2026-10-07T12:29:56.2889095Z [6000 rows x 8 columns]
+test	Data contract tests	2026-10-07T12:29:56.2889277Z 
+test	Data contract tests	2026-10-07T12:29:56.2889407Z     def test_no_nulls_in_required_columns(df):
+test	Data contract tests	2026-10-07T12:29:56.2889731Z >       nulls = df[list(data.SCHEMA)].isna().sum()
+test	Data contract tests	2026-10-07T12:29:56.2890022Z                 ^^^^^^^^^^^^^^^^^^^^^
+test	Data contract tests	2026-10-07T12:29:56.2890229Z 
+test	Data contract tests	2026-10-07T12:29:56.2890360Z tests/test_data.py:43: 
+test	Data contract tests	2026-10-07T12:29:56.2890681Z _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+test	Data contract tests	2026-10-07T12:29:56.2891364Z /opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/pandas/core/frame.py:4384: in __getitem__
+test	Data contract tests	2026-10-07T12:29:56.2891987Z     indexer = self.columns._get_indexer_strict(key, "columns")[1]
+test	Data contract tests	2026-10-07T12:29:56.2892343Z               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+test	Data contract tests	2026-10-07T12:29:56.2892897Z /opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/pandas/core/indexes/base.py:6302: in _get_indexer_strict
+test	Data contract tests	2026-10-07T12:29:56.2893443Z     self._raise_if_missing(keyarr, indexer, axis_name)
+test	Data contract tests	2026-10-07T12:29:56.2893863Z _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+test	Data contract tests	2026-10-07T12:29:56.2894067Z 
+test	Data contract tests	2026-10-07T12:29:56.2894260Z self = Index(['reading_id', 'machine_id', 'temp_c', 'vibration_mm_s',
+test	Data contract tests	2026-10-07T12:29:56.2894642Z        'hours_since_service', 'load_pct', 'ambient_humidity',
+test	Data contract tests	2026-10-07T12:29:56.2894996Z        'failed_within_7d'],
+test	Data contract tests	2026-10-07T12:29:56.2895326Z       dtype='str')
+test	Data contract tests	2026-10-07T12:29:56.2895663Z key = Index(['reading_id', 'machine_id', 'temp_c', 'vibration_mm_s', 'pressure_kpa',
+test	Data contract tests	2026-10-07T12:29:56.2896335Z        'hours_since_service', 'load_pct', 'ambient_humidity',
+test	Data contract tests	2026-10-07T12:29:56.2896759Z        'failed_within_7d'],
+test	Data contract tests	2026-10-07T12:29:56.2897059Z       dtype='str')
+test	Data contract tests	2026-10-07T12:29:56.2897400Z indexer = array([ 0,  1,  2,  3, -1,  4,  5,  6,  7]), axis_name = 'columns'
+test	Data contract tests	2026-10-07T12:29:56.2897621Z 
+test	Data contract tests	2026-10-07T12:29:56.2897823Z     def _raise_if_missing(self, key, indexer, axis_name: str_t) -> None:
+test	Data contract tests	2026-10-07T12:29:56.2898171Z         """
+test	Data contract tests	2026-10-07T12:29:56.2898439Z         Check that indexer can be used to return a result.
+test	Data contract tests	2026-10-07T12:29:56.2898758Z     
+test	Data contract tests	2026-10-07T12:29:56.2899018Z         e.g. at least one element was found,
+test	Data contract tests	2026-10-07T12:29:56.2899319Z         unless the list of keys was actually empty.
+test	Data contract tests	2026-10-07T12:29:56.2899673Z     
+test	Data contract tests	2026-10-07T12:29:56.2899890Z         Parameters
+test	Data contract tests	2026-10-07T12:29:56.2900136Z         ----------
+test	Data contract tests	2026-10-07T12:29:56.2900398Z         key : list-like
+test	Data contract tests	2026-10-07T12:29:56.2900706Z             Targeted labels (only used to show correct error message).
+test	Data contract tests	2026-10-07T12:29:56.2901106Z         indexer: array-like of booleans
+test	Data contract tests	2026-10-07T12:29:56.2901687Z             Indices corresponding to the key,
+test	Data contract tests	2026-10-07T12:29:56.2902004Z             (with -1 indicating not found).
+test	Data contract tests	2026-10-07T12:29:56.2902320Z         axis_name : str
+test	Data contract tests	2026-10-07T12:29:56.2902581Z     
+test	Data contract tests	2026-10-07T12:29:56.2902815Z         Raises
+test	Data contract tests	2026-10-07T12:29:56.2903044Z         ------
+test	Data contract tests	2026-10-07T12:29:56.2903268Z         KeyError
+test	Data contract tests	2026-10-07T12:29:56.2903587Z             If at least one key was requested but none was found.
+test	Data contract tests	2026-10-07T12:29:56.2903901Z         """
+test	Data contract tests	2026-10-07T12:29:56.2904149Z         if len(key) == 0:
+test	Data contract tests	2026-10-07T12:29:56.2904397Z             return
+test	Data contract tests	2026-10-07T12:29:56.2904625Z     
+test	Data contract tests	2026-10-07T12:29:56.2904896Z         # Count missing values
+test	Data contract tests	2026-10-07T12:29:56.2905204Z         missing_mask = indexer < 0
+test	Data contract tests	2026-10-07T12:29:56.2905496Z         nmissing = missing_mask.sum()
+test	Data contract tests	2026-10-07T12:29:56.2905862Z     
+test	Data contract tests	2026-10-07T12:29:56.2906135Z         if nmissing:
+test	Data contract tests	2026-10-07T12:29:56.2906440Z             if nmissing == len(indexer):
+test	Data contract tests	2026-10-07T12:29:56.2906786Z                 raise KeyError(f"None of [{key}] are in the [{axis_name}]")
+test	Data contract tests	2026-10-07T12:29:56.2907129Z     
+test	Data contract tests	2026-10-07T12:29:56.2907472Z             not_found = list(ensure_index(key)[missing_mask.nonzero()[0]].unique())
+test	Data contract tests	2026-10-07T12:29:56.2907856Z >           raise KeyError(f"{not_found} not in index")
+test	Data contract tests	2026-10-07T12:29:56.2908243Z E           KeyError: "['pressure_kpa'] not in index"
+test	Data contract tests	2026-10-07T12:29:56.2908424Z 
+test	Data contract tests	2026-10-07T12:29:56.2908736Z /opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/pandas/core/indexes/base.py:6355: KeyError
+test	Data contract tests	2026-10-07T12:29:56.2909272Z ____________________ test_features_within_plausible_ranges _____________________
+test	Data contract tests	2026-10-07T12:29:56.2909551Z 
+test	Data contract tests	2026-10-07T12:29:56.2909707Z self = Index(['reading_id', 'machine_id', 'temp_c', 'vibration_mm_s',
+test	Data contract tests	2026-10-07T12:29:56.2910103Z        'hours_since_service', 'load_pct', 'ambient_humidity',
+test	Data contract tests	2026-10-07T12:29:56.2910492Z        'failed_within_7d'],
+test	Data contract tests	2026-10-07T12:29:56.2910754Z       dtype='str')
+test	Data contract tests	2026-10-07T12:29:56.2911252Z key = 'pressure_kpa'
+test	Data contract tests	2026-10-07T12:29:56.2911432Z 
+test	Data contract tests	2026-10-07T12:29:56.2911564Z     def get_loc(self, key):
+test	Data contract tests	2026-10-07T12:29:56.2911836Z         """
+test	Data contract tests	2026-10-07T12:29:56.2912159Z         Get integer location, slice or boolean mask for requested label.
+test	Data contract tests	2026-10-07T12:29:56.2912497Z     
+test	Data contract tests	2026-10-07T12:29:56.2912705Z         Parameters
+test	Data contract tests	2026-10-07T12:29:56.2913004Z         ----------
+test	Data contract tests	2026-10-07T12:29:56.2913256Z         key : label
+test	Data contract tests	2026-10-07T12:29:56.2913568Z             The key to check its location if it is present in the index.
+test	Data contract tests	2026-10-07T12:29:56.2913892Z     
+test	Data contract tests	2026-10-07T12:29:56.2914093Z         Returns
+test	Data contract tests	2026-10-07T12:29:56.2914353Z         -------
+test	Data contract tests	2026-10-07T12:29:56.2914663Z         int if unique index, slice if monotonic index, else mask
+test	Data contract tests	2026-10-07T12:29:56.2915014Z             Integer location, slice or boolean mask.
+test	Data contract tests	2026-10-07T12:29:56.2915313Z     
+test	Data contract tests	2026-10-07T12:29:56.2915668Z         See Also
+test	Data contract tests	2026-10-07T12:29:56.2915953Z         --------
+test	Data contract tests	2026-10-07T12:29:56.2916294Z         Index.get_slice_bound : Calculate slice bound that corresponds to
+test	Data contract tests	2026-10-07T12:29:56.2916724Z             given label.
+test	Data contract tests	2026-10-07T12:29:56.2917069Z         Index.get_indexer : Computes indexer and mask for new index given
+test	Data contract tests	2026-10-07T12:29:56.2917424Z             the current index.
+test	Data contract tests	2026-10-07T12:29:56.2917789Z         Index.get_non_unique : Returns indexer and masks for new index given
+test	Data contract tests	2026-10-07T12:29:56.2918213Z             the current index.
+test	Data contract tests	2026-10-07T12:29:56.2918539Z         Index.get_indexer_for : Returns an indexer even when non-unique.
+test	Data contract tests	2026-10-07T12:29:56.2918935Z     
+test	Data contract tests	2026-10-07T12:29:56.2919157Z         Examples
+test	Data contract tests	2026-10-07T12:29:56.2919402Z         --------
+test	Data contract tests	2026-10-07T12:29:56.2919674Z         >>> unique_index = pd.Index(list("abc"))
+test	Data contract tests	2026-10-07T12:29:56.2919965Z         >>> unique_index.get_loc("b")
+test	Data contract tests	2026-10-07T12:29:56.2920256Z         1
+test	Data contract tests	2026-10-07T12:29:56.2920477Z     
+test	Data contract tests	2026-10-07T12:29:56.2920725Z         >>> monotonic_index = pd.Index(list("abbc"))
+test	Data contract tests	2026-10-07T12:29:56.2921065Z         >>> monotonic_index.get_loc("b")
+test	Data contract tests	2026-10-07T12:29:56.2921550Z         slice(1, 3, None)
+test	Data contract tests	2026-10-07T12:29:56.2921861Z     
+test	Data contract tests	2026-10-07T12:29:56.2922117Z         >>> non_monotonic_index = pd.Index(list("abcb"))
+test	Data contract tests	2026-10-07T12:29:56.2922447Z         >>> non_monotonic_index.get_loc("b")
+test	Data contract tests	2026-10-07T12:29:56.2922782Z         array([False,  True, False,  True])
+test	Data contract tests	2026-10-07T12:29:56.2923063Z         """
+test	Data contract tests	2026-10-07T12:29:56.2923327Z         casted_key = self._maybe_cast_indexer(key)
+test	Data contract tests	2026-10-07T12:29:56.2923616Z         try:
+test	Data contract tests	2026-10-07T12:29:56.2923857Z >           return self._engine.get_loc(casted_key)
+test	Data contract tests	2026-10-07T12:29:56.2924209Z                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+test	Data contract tests	2026-10-07T12:29:56.2924404Z 
+test	Data contract tests	2026-10-07T12:29:56.2924697Z /opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/pandas/core/indexes/base.py:3641: 
+test	Data contract tests	2026-10-07T12:29:56.2925186Z _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+test	Data contract tests	2026-10-07T12:29:56.2925596Z pandas/_libs/index.pyx:168: in pandas._libs.index.IndexEngine.get_loc
+test	Data contract tests	2026-10-07T12:29:56.2925940Z     ???
+test	Data contract tests	2026-10-07T12:29:56.2926290Z pandas/_libs/index.pyx:197: in pandas._libs.index.IndexEngine.get_loc
+test	Data contract tests	2026-10-07T12:29:56.2926640Z     ???
+test	Data contract tests	2026-10-07T12:29:56.2927038Z pandas/_libs/hashtable_class_helper.pxi:7668: in pandas._libs.hashtable.PyObjectHashTable.get_item
+test	Data contract tests	2026-10-07T12:29:56.2927500Z     ???
+test	Data contract tests	2026-10-07T12:29:56.2927747Z _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+test	Data contract tests	2026-10-07T12:29:56.2927983Z 
+test	Data contract tests	2026-10-07T12:29:56.2928110Z >   ???
+test	Data contract tests	2026-10-07T12:29:56.2928341Z E   KeyError: 'pressure_kpa'
+test	Data contract tests	2026-10-07T12:29:56.2928492Z 
+test	Data contract tests	2026-10-07T12:29:56.2928662Z pandas/_libs/hashtable_class_helper.pxi:7676: KeyError
+test	Data contract tests	2026-10-07T12:29:56.2928901Z 
+test	Data contract tests	2026-10-07T12:29:56.2929069Z The above exception was the direct cause of the following exception:
+test	Data contract tests	2026-10-07T12:29:56.2929341Z 
+test	Data contract tests	2026-10-07T12:29:56.2929503Z df =       reading_id  machine_id  ...  ambient_humidity  failed_within_7d
+test	Data contract tests	2026-10-07T12:29:56.2929960Z 0              0           0  ...            63....65.351                 1
+test	Data contract tests	2026-10-07T12:29:56.2930320Z 5999        5999         239  ...            55.347                 1
+test	Data contract tests	2026-10-07T12:29:56.2930521Z 
+test	Data contract tests	2026-10-07T12:29:56.2930648Z [6000 rows x 8 columns]
+test	Data contract tests	2026-10-07T12:29:56.2930792Z 
+test	Data contract tests	2026-10-07T12:29:56.2930949Z     def test_features_within_plausible_ranges(df):
+test	Data contract tests	2026-10-07T12:29:56.2931473Z         for col, (lo, hi) in data.PLAUSIBLE_RANGES.items():
+test	Data contract tests	2026-10-07T12:29:56.2931910Z >           assert df[col].min() >= lo, f"{col} below plausible floor: {df[col].min()}"
+test	Data contract tests	2026-10-07T12:29:56.2932280Z                    ^^^^^^^
+test	Data contract tests	2026-10-07T12:29:56.2932447Z 
+test	Data contract tests	2026-10-07T12:29:56.2933029Z tests/test_data.py:50: 
+test	Data contract tests	2026-10-07T12:29:56.2933357Z _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+test	Data contract tests	2026-10-07T12:29:56.2933877Z /opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/pandas/core/frame.py:4378: in __getitem__
+test	Data contract tests	2026-10-07T12:29:56.2934499Z     indexer = self.columns.get_loc(key)
+test	Data contract tests	2026-10-07T12:29:56.2934789Z               ^^^^^^^^^^^^^^^^^^^^^^^^^
+test	Data contract tests	2026-10-07T12:29:56.2935189Z _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+test	Data contract tests	2026-10-07T12:29:56.2935454Z 
+test	Data contract tests	2026-10-07T12:29:56.2935613Z self = Index(['reading_id', 'machine_id', 'temp_c', 'vibration_mm_s',
+test	Data contract tests	2026-10-07T12:29:56.2936056Z        'hours_since_service', 'load_pct', 'ambient_humidity',
+test	Data contract tests	2026-10-07T12:29:56.2936390Z        'failed_within_7d'],
+test	Data contract tests	2026-10-07T12:29:56.2936649Z       dtype='str')
+test	Data contract tests	2026-10-07T12:29:56.2936878Z key = 'pressure_kpa'
+test	Data contract tests	2026-10-07T12:29:56.2937020Z 
+test	Data contract tests	2026-10-07T12:29:56.2937159Z     def get_loc(self, key):
+test	Data contract tests	2026-10-07T12:29:56.2937480Z         """
+test	Data contract tests	2026-10-07T12:29:56.2937786Z         Get integer location, slice or boolean mask for requested label.
+test	Data contract tests	2026-10-07T12:29:56.2938134Z     
+test	Data contract tests	2026-10-07T12:29:56.2938358Z         Parameters
+test	Data contract tests	2026-10-07T12:29:56.2938647Z         ----------
+test	Data contract tests	2026-10-07T12:29:56.2938881Z         key : label
+test	Data contract tests	2026-10-07T12:29:56.2939181Z             The key to check its location if it is present in the index.
+test	Data contract tests	2026-10-07T12:29:56.2939519Z     
+test	Data contract tests	2026-10-07T12:29:56.2939730Z         Returns
+test	Data contract tests	2026-10-07T12:29:56.2939970Z         -------
+test	Data contract tests	2026-10-07T12:29:56.2940275Z         int if unique index, slice if monotonic index, else mask
+test	Data contract tests	2026-10-07T12:29:56.2940613Z             Integer location, slice or boolean mask.
+test	Data contract tests	2026-10-07T12:29:56.2940933Z     
+test	Data contract tests	2026-10-07T12:29:56.2941275Z         See Also
+test	Data contract tests	2026-10-07T12:29:56.2941607Z         --------
+test	Data contract tests	2026-10-07T12:29:56.2941915Z         Index.get_slice_bound : Calculate slice bound that corresponds to
+test	Data contract tests	2026-10-07T12:29:56.2942258Z             given label.
+test	Data contract tests	2026-10-07T12:29:56.2942614Z         Index.get_indexer : Computes indexer and mask for new index given
+test	Data contract tests	2026-10-07T12:29:56.2942972Z             the current index.
+test	Data contract tests	2026-10-07T12:29:56.2943310Z         Index.get_non_unique : Returns indexer and masks for new index given
+test	Data contract tests	2026-10-07T12:29:56.2943696Z             the current index.
+test	Data contract tests	2026-10-07T12:29:56.2944031Z         Index.get_indexer_for : Returns an indexer even when non-unique.
+test	Data contract tests	2026-10-07T12:29:56.2944403Z     
+test	Data contract tests	2026-10-07T12:29:56.2944612Z         Examples
+test	Data contract tests	2026-10-07T12:29:56.2944834Z         --------
+test	Data contract tests	2026-10-07T12:29:56.2945115Z         >>> unique_index = pd.Index(list("abc"))
+test	Data contract tests	2026-10-07T12:29:56.2945424Z         >>> unique_index.get_loc("b")
+test	Data contract tests	2026-10-07T12:29:56.2945704Z         1
+test	Data contract tests	2026-10-07T12:29:56.2945917Z     
+test	Data contract tests	2026-10-07T12:29:56.2946143Z         >>> monotonic_index = pd.Index(list("abbc"))
+test	Data contract tests	2026-10-07T12:29:56.2946498Z         >>> monotonic_index.get_loc("b")
+test	Data contract tests	2026-10-07T12:29:56.2946784Z         slice(1, 3, None)
+test	Data contract tests	2026-10-07T12:29:56.2947074Z     
+test	Data contract tests	2026-10-07T12:29:56.2947321Z         >>> non_monotonic_index = pd.Index(list("abcb"))
+test	Data contract tests	2026-10-07T12:29:56.2947627Z         >>> non_monotonic_index.get_loc("b")
+test	Data contract tests	2026-10-07T12:29:56.3156373Z         array([False,  True, False,  True])
+test	Data contract tests	2026-10-07T12:29:56.3156792Z         """
+test	Data contract tests	2026-10-07T12:29:56.3157190Z         casted_key = self._maybe_cast_indexer(key)
+test	Data contract tests	2026-10-07T12:29:56.3157605Z         try:
+test	Data contract tests	2026-10-07T12:29:56.3157887Z             return self._engine.get_loc(casted_key)
+test	Data contract tests	2026-10-07T12:29:56.3158214Z         except KeyError as err:
+test	Data contract tests	2026-10-07T12:29:56.3158507Z             if isinstance(casted_key, slice) or (
+test	Data contract tests	2026-10-07T12:29:56.3158847Z                 isinstance(casted_key, abc.Iterable)
+test	Data contract tests	2026-10-07T12:29:56.3159191Z                 and any(isinstance(x, slice) for x in casted_key)
+test	Data contract tests	2026-10-07T12:29:56.3159565Z             ):
+test	Data contract tests	2026-10-07T12:29:56.3159841Z                 raise InvalidIndexError(key) from err
+test	Data contract tests	2026-10-07T12:29:56.3160157Z >           raise KeyError(key) from err
+test	Data contract tests	2026-10-07T12:29:56.3160459Z E           KeyError: 'pressure_kpa'
+test	Data contract tests	2026-10-07T12:29:56.3160654Z 
+test	Data contract tests	2026-10-07T12:29:56.3160934Z /opt/hostedtoolcache/Python/3.11.16/x64/lib/python3.11/site-packages/pandas/core/indexes/base.py:3648: KeyError
+test	Data contract tests	2026-10-07T12:29:56.3161619Z =========================== short test summary info ============================
+test	Data contract tests	2026-10-07T12:29:56.3162470Z FAILED tests/test_data.py::test_schema_columns_present_and_typed - AssertionError: missing columns: ['pressure_kpa']
+test	Data contract tests	2026-10-07T12:29:56.3163059Z assert not {'pressure_kpa'}
+test	Data contract tests	2026-10-07T12:29:56.3163497Z FAILED tests/test_data.py::test_no_nulls_in_required_columns - KeyError: "['pressure_kpa'] not in index"
+test	Data contract tests	2026-10-07T12:29:56.3164084Z FAILED tests/test_data.py::test_features_within_plausible_ranges - KeyError: 'pressure_kpa'
+test	Data contract tests	2026-10-07T12:29:56.3164497Z 3 failed, 7 passed in 0.56s
+test	Data contract tests	2026-10-07T12:29:56.3792912Z ##[error]Process completed with exit code 1.

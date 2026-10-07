@@ -44,15 +44,20 @@ jobs:
           run-id: ${{ github.event.workflow_run.id }}
           github-token: ${{ github.token }}
       - uses: google-github-actions/auth@v3
+        id: auth
         with:
           workload_identity_provider: ${{ vars.GCP_WIF_PROVIDER }}
           service_account: ${{ vars.GCP_DEPLOY_SA }}
+          token_format: id_token
+          id_token_audience: ${{ vars.SERVING_URL }}
       - uses: google-github-actions/setup-gcloud@v3
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
       - run: pip install --require-hashes -r requirements.txt
       - name: Push exactly the image CI tested
+        env:
+          SERVING_ID_TOKEN: ${{ steps.auth.outputs.id_token }}
         run: |
           set -euo pipefail
           docker load -i image.tar
