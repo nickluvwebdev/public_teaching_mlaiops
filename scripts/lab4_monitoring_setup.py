@@ -9,6 +9,7 @@ import sys
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from src.config import load
+from src.data import FEATURES
 from cloudlayer.gcp_monitoring import session
 
 p = argparse.ArgumentParser()
@@ -27,7 +28,6 @@ def create(path, body):
     response.raise_for_status()
     return response.json()
 # Create descriptors without inventing observations, so alert validation can resolve them.
-from src.data import FEATURES
 for metric_name in (["lab4/drift/psi/" + f for f in FEATURES]
                     + ["lab4/feature/mean/" + f for f in FEATURES]
                     + ["lab4/window/rows", "lab4/model/version"]):
