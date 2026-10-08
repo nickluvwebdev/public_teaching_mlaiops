@@ -1,0 +1,23 @@
+ITCS355 Lab 4 grading — /home/nick/projects/public_teaching_mlaiops
+
+Common
+  [PASS] no credentials in history
+  [PASS] cloud.env not committed
+  [PASS] portability audit clean
+  [PASS] data tests pass
+
+Lab 4 — CI/CD, observability, drift
+  [PASS] behaviour tests pass
+  [PASS] CI workflow present
+  [PASS] CD gated on CI
+  [PASS] images tagged by SHA
+  [PASS] 2+ data contract tests
+  [PASS] drift detector present
+  [PASS] threshold justified
+  [PASS] SLO response filled in
+  [PASS] post-mortem written
+  [ ?  ] REQUIRED: evidence of the blocked bad commit — a failing CI run
+  [ ?  ] post-mortem lines 3 and 4 — is 'retrain' reflexive or reasoned?
+
+mechanical: 13 passed, 0 failed
+items marked [ ? ] need you — see instructor/RUBRIC-labs-2-to-5.md
