@@ -31,9 +31,9 @@ for s in series["requests"].get("timeSeries", []):
         classes[cls][t] += v
 if rate:
     x = sorted(rate)
-    axes[0, 0].plot(x, [rate[t] for t in x], marker="o")
+    axes[0, 0].plot(x, [rate[t] for t in x], marker="o", linestyle="none")
     for cls, color in [("4xx", "#d18b00"), ("5xx", "#b52d36")]:
-        axes[0, 1].plot(x, [classes[cls][t] / rate[t] if rate[t] else float("nan") for t in x], marker="o", label=cls, color=color)
+        axes[0, 1].plot(x, [classes[cls][t] / rate[t] if rate[t] else float("nan") for t in x], marker="o", linestyle="none", label=cls, color=color)
 axes[0, 0].set(title="Request rate", ylabel="requests / second")
 axes[0, 1].set(title="Error fractions (4xx vs 5xx)", ylabel="fraction of requests")
 axes[0, 1].legend()
@@ -42,9 +42,11 @@ for name, color in [("p50", "#167d9a"), ("p95", "#cc7722"), ("p99", "#b52d36")]:
         if s["metric"].get("labels", {}).get("response_code_class") == "2xx":
             values = points(s)
             if values:
-                axes[1, 0].plot(*zip(*values), marker="o", label=name, color=color)
+                axes[1, 0].plot(*zip(*values), marker="o", linestyle="none", label=name, color=color)
 axes[1, 0].set(title="Endpoint latency, successful requests", ylabel="milliseconds")
-axes[1, 0].legend()
+handles, labels = axes[1, 0].get_legend_handles_labels()
+unique = dict(zip(labels, handles))
+axes[1, 0].legend(unique.values(), unique.keys())
 line(axes[1, 1], "temperature_mean", color="#167d9a")
 axes[1, 1].set(title="Temperature: latest 500 rows / 15 min", ylabel="degrees Celsius")
 line(axes[2, 0], "temperature_psi", color="#b52d36")
