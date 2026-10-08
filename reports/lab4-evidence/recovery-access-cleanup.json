@@ -1,0 +1,18 @@
+{
+  "utc": "2026-10-08T07:08:03.464837+00:00",
+  "removed": [
+    {
+      "role": "projects/itcs355-6688058/roles/lab3ModelReader",
+      "member": "serviceAccount:itcs355-serving@itcs355-6688058.iam.gserviceaccount.com"
+    },
+    {
+      "role": "roles/logging.viewer",
+      "member": "deleted:serviceAccount:itcs355-lab4-monitor@itcs355-6688058.iam.gserviceaccount.com?uid=105593702657767260967"
+    },
+    {
+      "role": "roles/monitoring.metricWriter",
+      "member": "deleted:serviceAccount:itcs355-lab4-monitor@itcs355-6688058.iam.gserviceaccount.com?uid=105593702657767260967"
+    }
+  ],
+  "used_original_policy_etag": true
+}

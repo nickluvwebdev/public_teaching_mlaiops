@@ -1,0 +1,56 @@
+{
+  "timeSeries": [
+    {
+      "metric": {
+        "type": "custom.googleapis.com/itcs355/lab4/drift/psi/temp_c"
+      },
+      "resource": {
+        "type": "global",
+        "labels": {
+          "project_id": "itcs355-6688058"
+        }
+      },
+      "metricKind": "GAUGE",
+      "valueType": "DOUBLE",
+      "points": [
+        {
+          "interval": {
+            "startTime": "2026-10-07T18:00:30.326702Z",
+            "endTime": "2026-10-07T18:00:30.326702Z"
+          },
+          "value": {
+            "doubleValue": 0.6602
+          }
+        },
+        {
+          "interval": {
+            "startTime": "2026-10-07T17:59:24.535Z",
+            "endTime": "2026-10-07T17:59:24.535Z"
+          },
+          "value": {
+            "doubleValue": 0.6602
+          }
+        },
+        {
+          "interval": {
+            "startTime": "2026-10-07T17:58:24.923619Z",
+            "endTime": "2026-10-07T17:58:24.923619Z"
+          },
+          "value": {
+            "doubleValue": 0.6602
+          }
+        },
+        {
+          "interval": {
+            "startTime": "2026-10-07T17:57:18.180493Z",
+            "endTime": "2026-10-07T17:57:18.180493Z"
+          },
+          "value": {
+            "doubleValue": 0.00495
+          }
+        }
+      ]
+    }
+  ],
+  "unit": "1"
+}

@@ -1,0 +1,7 @@
+{
+  "utc": "2026-10-07T17:52:50.124675+00:00",
+  "source_sha": "1841064072024181bc30457bc257e5c837d6ca13",
+  "image": "asia-southeast1-docker.pkg.dev/itcs355-6688058/itcs355/itcs355-serve@sha256:0684669c075e133380f89b0becb09852e352864527e7c58b9f395950953d7814",
+  "url": "https://itcs355-lab4-irtmnatasq-as.a.run.app",
+  "smoke": "{\n  \"singles\": [\n    {\n      \"probability\": 0.026792116476468123,\n      \"model_version\": \"1\"\n    },\n    {\n      \"probability\": 0.052990718017366614,\n      \"model_version\": \"1\"\n    },\n    {\n      \"probability\": 0.019392695519155435,\n      \"model_version\": \"1\"\n    }\n  ],\n  \"batch\": {\n    \"probabilities\": [\n      0.026792116476468123,\n      0.052990718017366614,\n      0.019392695519155435\n    ],\n    \"model_version\": \"1\"\n  }\n}\n"
+}

@@ -1,0 +1,17 @@
+{
+  "type": "email",
+  "displayName": "ITCS355 Lab 4 authorized test email",
+  "labels": {
+    "email_address": "[personal-email-redacted]"
+  },
+  "name": "projects/itcs355-6688058/notificationChannels/4459826566953385857",
+  "enabled": true,
+  "creationRecord": {
+    "mutateTime": "2026-10-07T17:53:38.693723237Z"
+  },
+  "mutationRecords": [
+    {
+      "mutateTime": "2026-10-07T17:53:38.693723237Z"
+    }
+  ]
+}

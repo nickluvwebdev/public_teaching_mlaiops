@@ -1,0 +1,7 @@
+{
+  "managed_executions": 408,
+  "succeeded": 407,
+  "failed": 1,
+  "scheduler_log_entries": 1568,
+  "note": "Includes one manual recovery execution. Scheduler logs include start and finish entries, not one entry per execution. Billing invoice not available."
+}

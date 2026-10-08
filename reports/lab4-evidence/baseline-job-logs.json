@@ -1,0 +1,267 @@
+[
+  {
+    "insertId": "y4y65fdnd86",
+    "labels": {
+      "run.googleapis.com/execution_name": "itcs355-lab4-drift-ccmh5"
+    },
+    "logName": "projects/itcs355-6688058/logs/cloudaudit.googleapis.com%2Fsystem_event",
+    "protoPayload": {
+      "@type": "type.googleapis.com/google.cloud.audit.AuditLog",
+      "methodName": "/Jobs.RunJob",
+      "resourceName": "namespaces/itcs355-6688058/executions/itcs355-lab4-drift-ccmh5",
+      "response": {
+        "@type": "type.googleapis.com/google.cloud.run.v1.Execution",
+        "apiVersion": "run.googleapis.com/v1",
+        "kind": "Execution",
+        "metadata": {
+          "annotations": {
+            "run.googleapis.com/client-name": "gcloud",
+            "run.googleapis.com/client-version": "583.0.0",
+            "run.googleapis.com/creator": "itcs355-lab4-monitor@itcs355-6688058.iam.gserviceaccount.com",
+            "run.googleapis.com/execution-environment": "gen2",
+            "run.googleapis.com/lastModifier": "itcs355-lab4-monitor@itcs355-6688058.iam.gserviceaccount.com",
+            "run.googleapis.com/operation-id": "345ec3de-799c-4478-a92d-3495a4a080b2"
+          },
+          "creationTimestamp": "2026-10-07T17:57:00.854168Z",
+          "generation": 1,
+          "labels": {
+            "client.knative.dev/nonce": "saf_xeh_cez",
+            "cloud.googleapis.com/location": "asia-southeast1",
+            "course": "itcs355",
+            "lab": "4",
+            "run.googleapis.com/job": "itcs355-lab4-drift",
+            "run.googleapis.com/jobGeneration": "1",
+            "run.googleapis.com/jobResourceVersion": "1791395629770186",
+            "run.googleapis.com/jobUid": "45066b44-8def-4946-b3ad-8336568b039e",
+            "run.googleapis.com/satisfiesPzs": "true",
+            "student": "itcs355-6688058"
+          },
+          "name": "itcs355-lab4-drift-ccmh5",
+          "namespace": "775344551291",
+          "ownerReferences": [
+            {
+              "apiVersion": "serving.knative.dev/v1",
+              "blockOwnerDeletion": true,
+              "controller": true,
+              "kind": "Job",
+              "name": "itcs355-lab4-drift",
+              "uid": "45066b44-8def-4946-b3ad-8336568b039e"
+            }
+          ],
+          "resourceVersion": "AAZdQ9kGPC8",
+          "selfLink": "/apis/run.googleapis.com/v1/namespaces/775344551291/executions/itcs355-lab4-drift-ccmh5",
+          "uid": "d67359bc-50f0-4bc4-913e-d7f7d67340c6"
+        },
+        "spec": {
+          "parallelism": 1,
+          "taskCount": 1,
+          "template": {
+            "spec": {
+              "containers": [
+                {
+                  "args": [
+                    "-m",
+                    "cloudlayer.lab4_job"
+                  ],
+                  "command": [
+                    "python"
+                  ],
+                  "env": [
+                    {
+                      "name": "CLOUD_PROVIDER",
+                      "value": "gcp"
+                    },
+                    {
+                      "name": "PROJECT_ID",
+                      "value": "itcs355-6688058"
+                    },
+                    {
+                      "name": "REGION",
+                      "value": "asia-southeast1"
+                    },
+                    {
+                      "name": "REFERENCE_URI",
+                      "value": "gs://itcs355-6688058/itcs355/lab4/reference.csv"
+                    }
+                  ],
+                  "image": "asia-southeast1-docker.pkg.dev/itcs355-6688058/itcs355/itcs355-serve@sha256:0684669c075e133380f89b0becb09852e352864527e7c58b9f395950953d7814",
+                  "resources": {
+                    "limits": {
+                      "cpu": "1",
+                      "memory": "1Gi"
+                    }
+                  }
+                }
+              ],
+              "maxRetries": 0,
+              "serviceAccountName": "itcs355-lab4-monitor@itcs355-6688058.iam.gserviceaccount.com",
+              "timeoutSeconds": "120"
+            }
+          }
+        },
+        "status": {
+          "completionTime": "2026-10-07T17:57:24.419225Z",
+          "conditions": [
+            {
+              "lastTransitionTime": "2026-10-07T17:57:24.419225Z",
+              "message": "Execution completed successfully in 19.96s.",
+              "status": "True",
+              "type": "Completed"
+            },
+            {
+              "lastTransitionTime": "2026-10-07T17:57:01.975658Z",
+              "message": "Provisioned imported containers.",
+              "status": "True",
+              "type": "ResourcesAvailable"
+            },
+            {
+              "lastTransitionTime": "2026-10-07T17:57:10.141322Z",
+              "message": "Started deployed execution in 8.16s.",
+              "status": "True",
+              "type": "Started"
+            },
+            {
+              "lastTransitionTime": "2026-10-07T17:57:01.681098Z",
+              "message": "Imported container image.",
+              "status": "True",
+              "type": "ContainerReady"
+            },
+            {
+              "lastTransitionTime": "2026-10-07T17:57:25.520431Z",
+              "message": "System will retry after 00:00 from lastTransitionTime for attempt 0.",
+              "reason": "ImmediateRetry",
+              "severity": "Info",
+              "status": "True",
+              "type": "Retry"
+            }
+          ],
+          "logUri": "https://console.cloud.google.com/logs/viewer?project=itcs355-6688058&advancedFilter=resource.type%3D%22cloud_run_job%22%0Aresource.labels.job_name%3D%22itcs355-lab4-drift%22%0Aresource.labels.location%3D%22asia-southeast1%22%0Alabels.%22run.googleapis.com/execution_name%22%3D%22itcs355-lab4-drift-ccmh5%22",
+          "observedGeneration": 1,
+          "startTime": "2026-10-07T17:57:04.451614Z",
+          "succeededCount": 1
+        }
+      },
+      "serviceName": "run.googleapis.com",
+      "status": {
+        "message": "Execution itcs355-lab4-drift-ccmh5 has completed successfully."
+      }
+    },
+    "receiveTimestamp": "2026-10-07T17:57:26.016455126Z",
+    "resource": {
+      "labels": {
+        "job_name": "itcs355-lab4-drift",
+        "location": "asia-southeast1",
+        "project_id": "itcs355-6688058"
+      },
+      "type": "cloud_run_job"
+    },
+    "severity": "INFO",
+    "timestamp": "2026-10-07T17:57:25.533596Z"
+  },
+  {
+    "insertId": "6ac687ff0006ab44c78a21d9",
+    "labels": {
+      "container_name": "worker",
+      "course": "itcs355",
+      "instanceId": "0010dd8607a9110dbe21f4bab5adaebabd93810e9903870a2626e8cb2b36c5cff6e1f8d69816d96345c489a87504eb6eef3afa4cd7212703bc6844bd9ed4206650f1e798b4ba674b9f5bdbccd0c943574859defd24df421ccf173ebeb0",
+      "lab": "4",
+      "run.googleapis.com/execution_name": "itcs355-lab4-drift-ccmh5",
+      "run.googleapis.com/task_attempt": "0",
+      "run.googleapis.com/task_index": "0",
+      "student": "itcs355-6688058"
+    },
+    "logName": "projects/itcs355-6688058/logs/run.googleapis.com%2Fvarlog%2Fsystem",
+    "receiveTimestamp": "2026-10-07T17:57:19.441306996Z",
+    "resource": {
+      "labels": {
+        "job_name": "itcs355-lab4-drift",
+        "location": "asia-southeast1",
+        "project_id": "itcs355-6688058"
+      },
+      "type": "cloud_run_job"
+    },
+    "severity": "INFO",
+    "textPayload": "Container called exit(0).",
+    "timestamp": "2026-10-07T17:57:19.436932Z"
+  },
+  {
+    "insertId": "6ac687ff0004abed5061f420",
+    "jsonPayload": {
+      "event": "drift_window",
+      "results": [
+        {
+          "cur_mean": 67.3128,
+          "feature": "load_pct",
+          "ks_statistic": 0.05044,
+          "psi": 0.02461,
+          "ref_mean": 65.6636,
+          "verdict": "stable"
+        },
+        {
+          "cur_mean": 4.6514,
+          "feature": "vibration_mm_s",
+          "ks_statistic": 0.04361,
+          "psi": 0.02272,
+          "ref_mean": 4.6032,
+          "verdict": "stable"
+        },
+        {
+          "cur_mean": 318.3566,
+          "feature": "pressure_kpa",
+          "ks_statistic": 0.02106,
+          "psi": 0.01644,
+          "ref_mean": 318.1791,
+          "verdict": "stable"
+        },
+        {
+          "cur_mean": 58.3503,
+          "feature": "ambient_humidity",
+          "ks_statistic": 0.02622,
+          "psi": 0.01059,
+          "ref_mean": 58.0388,
+          "verdict": "stable"
+        },
+        {
+          "cur_mean": 4669.3892,
+          "feature": "hours_since_service",
+          "ks_statistic": 0.04017,
+          "psi": 0.00714,
+          "ref_mean": 4533.5857,
+          "verdict": "stable"
+        },
+        {
+          "cur_mean": 80.2142,
+          "feature": "temp_c",
+          "ks_statistic": 0.03644,
+          "psi": 0.00495,
+          "ref_mean": 79.6689,
+          "verdict": "stable"
+        }
+      ],
+      "rows": 500,
+      "temperature_alert": false,
+      "utc": "2026-10-07T17:57:13.101924+00:00",
+      "window_start": "2026-10-07T17:42:13.101924+00:00"
+    },
+    "labels": {
+      "course": "itcs355",
+      "instanceId": "0010dd8607a9110dbe21f4bab5adaebabd93810e9903870a2626e8cb2b36c5cff6e1f8d69816d96345c489a87504eb6eef3afa4cd7212703bc6844bd9ed4206650f1e798b4ba674b9f5bdbccd0c943574859defd24df421ccf173ebeb0",
+      "lab": "4",
+      "run.googleapis.com/execution_name": "itcs355-lab4-drift-ccmh5",
+      "run.googleapis.com/task_attempt": "0",
+      "run.googleapis.com/task_index": "0",
+      "student": "itcs355-6688058"
+    },
+    "logName": "projects/itcs355-6688058/logs/run.googleapis.com%2Fstdout",
+    "receiveTimestamp": "2026-10-07T17:57:19.309213592Z",
+    "resource": {
+      "labels": {
+        "job_name": "itcs355-lab4-drift",
+        "location": "asia-southeast1",
+        "project_id": "itcs355-6688058"
+      },
+      "type": "cloud_run_job"
+    },
+    "timestamp": "2026-10-07T17:57:19.306157Z"
+  }
+]

@@ -1,0 +1,11 @@
+{
+  "injection_start_utc": "2026-10-07T17:57:55.156715Z",
+  "first_breaching_metric_utc": "2026-10-07T17:58:24.923619Z",
+  "first_breaching_log_utc": "2026-10-07T17:58:28.961953Z",
+  "email_received_utc": "2026-10-07T18:01:16Z",
+  "metric_delay_seconds": 29.766904,
+  "log_delay_seconds": 33.805238,
+  "email_delay_seconds": 200.843285,
+  "recovery_log_utc": "2026-10-08T07:03:50.497946Z",
+  "recovery_psi": 0.00495
+}

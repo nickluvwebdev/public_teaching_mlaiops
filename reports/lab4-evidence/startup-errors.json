@@ -1,0 +1,56 @@
+[
+  {
+    "insertId": "6ac73f830009f2aa8752b06b",
+    "jsonPayload": {
+      "error": "403 Permission 'aiplatform.models.get' denied on resource '//aiplatform.googleapis.com/projects/775344551291/locations/asia-southeast1/models/1431682886620151808@1' (or it may not exist). Remediate access with this Troubleshooter URL or share it with your administrator - https://console.cloud.google.com/iam-admin/troubleshooter/summary;errorId=CiQwMWExMWE1MC0xYTNlLTdjM2ItOWFiNC01Zjg3ODhjYjAwZmQSTHByb2plY3RzLzc3NTM0NDU1MTI5MS9sb2NhdGlvbnMvYXNpYS1zb3V0aGVhc3QxL21vZGVscy8xNDMxNjgyODg2NjIwMTUxODA4QDE%3D . [reason: \"IAM_PERMISSION_DENIED\"\ndomain: \"aiplatform.googleapis.com\"\nmetadata {\n  key: \"troubleshooter_url\"\n  value: \"https://console.cloud.google.com/iam-admin/troubleshooter/summary;errorId=CiQwMWExMWE1MC0xYTNlLTdjM2ItOWFiNC01Zjg3ODhjYjAwZmQSTHByb2plY3RzLzc3NTM0NDU1MTI5MS9sb2NhdGlvbnMvYXNpYS1zb3V0aGVhc3QxL21vZGVscy8xNDMxNjgyODg2NjIwMTUxODA4QDE%3D\"\n}\nmetadata {\n  key: \"resource\"\n  value: \"projects/775344551291/locations/asia-southeast1/models/1431682886620151808@1\"\n}\nmetadata {\n  key: \"permission\"\n  value: \"aiplatform.models.get\"\n}\nmetadata {\n  key: \"error_info_id\"\n  value: \"CiQwMWExMWE1MC0xYTNlLTdjM2ItOWFiNC01Zjg3ODhjYjAwZmQSTHByb2plY3RzLzc3NTM0NDU1MTI5MS9sb2NhdGlvbnMvYXNpYS1zb3V0aGVhc3QxL21vZGVscy8xNDMxNjgyODg2NjIwMTUxODA4QDE=\"\n}\n]",
+      "event": "model_load_failed",
+      "model_version": "1"
+    },
+    "labels": {
+      "course": "itcs355",
+      "instanceId": "0010dd8607fa59cc49c04f0bb2b93b4fe33704469ab8800ae57eeea32911a585fe0bd01f2d22877b1c70ae800fd26d93d968bedb52d88953ef3d82c27e2a1c3bce6ce851ca754dbab566783d8d2f596b03",
+      "lab": "4",
+      "student": "itcs355-6688058"
+    },
+    "logName": "projects/itcs355-6688058/logs/run.googleapis.com%2Fstderr",
+    "receiveTimestamp": "2026-10-08T07:00:19.959395742Z",
+    "resource": {
+      "labels": {
+        "configuration_name": "itcs355-lab4",
+        "location": "asia-southeast1",
+        "project_id": "itcs355-6688058",
+        "revision_name": "itcs355-lab4-g184106407202",
+        "service_name": "itcs355-lab4"
+      },
+      "type": "cloud_run_revision"
+    },
+    "timestamp": "2026-10-08T07:00:19.651946Z"
+  },
+  {
+    "insertId": "6ac73e280002ffccbf7c68c3",
+    "jsonPayload": {
+      "error": "403 Permission 'aiplatform.models.get' denied on resource '//aiplatform.googleapis.com/projects/775344551291/locations/asia-southeast1/models/1431682886620151808@1' (or it may not exist). Remediate access with this Troubleshooter URL or share it with your administrator - https://console.cloud.google.com/iam-admin/troubleshooter/summary;errorId=CiQwMWExMWE0YS1jY2ZlLTdmMzAtOWVhMi01ODkxNjAwYjVkOWQSTHByb2plY3RzLzc3NTM0NDU1MTI5MS9sb2NhdGlvbnMvYXNpYS1zb3V0aGVhc3QxL21vZGVscy8xNDMxNjgyODg2NjIwMTUxODA4QDE%3D . [reason: \"IAM_PERMISSION_DENIED\"\ndomain: \"aiplatform.googleapis.com\"\nmetadata {\n  key: \"troubleshooter_url\"\n  value: \"https://console.cloud.google.com/iam-admin/troubleshooter/summary;errorId=CiQwMWExMWE0YS1jY2ZlLTdmMzAtOWVhMi01ODkxNjAwYjVkOWQSTHByb2plY3RzLzc3NTM0NDU1MTI5MS9sb2NhdGlvbnMvYXNpYS1zb3V0aGVhc3QxL21vZGVscy8xNDMxNjgyODg2NjIwMTUxODA4QDE%3D\"\n}\nmetadata {\n  key: \"resource\"\n  value: \"projects/775344551291/locations/asia-southeast1/models/1431682886620151808@1\"\n}\nmetadata {\n  key: \"permission\"\n  value: \"aiplatform.models.get\"\n}\nmetadata {\n  key: \"error_info_id\"\n  value: \"CiQwMWExMWE0YS1jY2ZlLTdmMzAtOWVhMi01ODkxNjAwYjVkOWQSTHByb2plY3RzLzc3NTM0NDU1MTI5MS9sb2NhdGlvbnMvYXNpYS1zb3V0aGVhc3QxL21vZGVscy8xNDMxNjgyODg2NjIwMTUxODA4QDE=\"\n}\n]",
+      "event": "model_load_failed",
+      "model_version": "1"
+    },
+    "labels": {
+      "course": "itcs355",
+      "instanceId": "0010dd86071b6f113f4153361cee7d04d5c1cb837123075d1a5844f073af3b8a179829b7c3a7110f01ee3f141022021f713716af18edc5ff9d5540fba0d53122f9810594854c71845f5ed975b6bff23768",
+      "lab": "4",
+      "student": "itcs355-6688058"
+    },
+    "logName": "projects/itcs355-6688058/logs/run.googleapis.com%2Fstderr",
+    "receiveTimestamp": "2026-10-08T06:54:32.454445752Z",
+    "resource": {
+      "labels": {
+        "configuration_name": "itcs355-lab4",
+        "location": "asia-southeast1",
+        "project_id": "itcs355-6688058",
+        "revision_name": "itcs355-lab4-g184106407202",
+        "service_name": "itcs355-lab4"
+      },
+      "type": "cloud_run_revision"
+    },
+    "timestamp": "2026-10-08T06:54:32.196556Z"
+  }
+]

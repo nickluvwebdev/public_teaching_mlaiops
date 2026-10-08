@@ -1,0 +1,31 @@
+{
+  "attemptDeadline": "180s",
+  "httpTarget": {
+    "body": "e30=",
+    "headers": {
+      "Content-Type": "application/json",
+      "User-Agent": "Google-Cloud-Scheduler"
+    },
+    "httpMethod": "POST",
+    "oauthToken": {
+      "scope": "https://www.googleapis.com/auth/cloud-platform",
+      "serviceAccountEmail": "itcs355-lab4-monitor@itcs355-6688058.iam.gserviceaccount.com"
+    },
+    "uri": "https://run.googleapis.com/v2/projects/itcs355-6688058/locations/asia-southeast1/jobs/itcs355-lab4-drift:run"
+  },
+  "name": "projects/itcs355-6688058/locations/asia-southeast1/jobs/itcs355-lab4-drift",
+  "retryConfig": {
+    "maxBackoffDuration": "3600s",
+    "maxDoublings": 5,
+    "maxRetryDuration": "0s",
+    "minBackoffDuration": "5s"
+  },
+  "schedule": "* * * * *",
+  "scheduleTime": "2026-10-07T17:56:00Z",
+  "state": "ENABLED",
+  "status": {
+    "code": -1
+  },
+  "timeZone": "Etc/UTC",
+  "userUpdateTime": "2026-10-07T17:55:10.293098Z"
+}

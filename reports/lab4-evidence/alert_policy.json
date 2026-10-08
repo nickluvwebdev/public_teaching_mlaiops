@@ -1,0 +1,45 @@
+{
+  "name": "projects/itcs355-6688058/alertPolicies/18329004879854148731",
+  "displayName": "ITCS355 Lab 4 temperature PSI above calibrated 0.40",
+  "combiner": "OR",
+  "creationRecord": {
+    "mutateTime": "2026-10-07T17:53:41.640688500Z",
+    "mutatedBy": "[personal-email-redacted]"
+  },
+  "mutationRecord": {
+    "mutateTime": "2026-10-07T17:53:41.640688500Z",
+    "mutatedBy": "[personal-email-redacted]"
+  },
+  "conditions": [
+    {
+      "conditionThreshold": {
+        "filter": "metric.type=\"custom.googleapis.com/itcs355/lab4/drift/psi/temp_c\" AND resource.type=\"global\"",
+        "comparison": "COMPARISON_GT",
+        "thresholdValue": 0.4,
+        "duration": "0s",
+        "trigger": {
+          "count": 1
+        },
+        "aggregations": [
+          {
+            "alignmentPeriod": "60s",
+            "perSeriesAligner": "ALIGN_MAX"
+          }
+        ]
+      },
+      "displayName": "500-row temperature PSI exceeds 0.40",
+      "name": "projects/itcs355-6688058/alertPolicies/18329004879854148731/conditions/18329004879854147572"
+    }
+  ],
+  "documentation": {
+    "content": "Authorized Lab 4 fault-injection exercise. Temperature PSI exceeds 0.40. Check the upstream producer before retraining; injected sensor corruption should be fixed upstream, not learned by the model.",
+    "mimeType": "text/markdown"
+  },
+  "notificationChannels": [
+    "projects/itcs355-6688058/notificationChannels/4459826566953385857"
+  ],
+  "enabled": true,
+  "alertStrategy": {
+    "autoClose": "1800s"
+  }
+}

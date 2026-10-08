@@ -1,0 +1,1362 @@
+[
+  {
+    "insertId": "6ac740560007991ae7298642",
+    "jsonPayload": {
+      "event": "drift_window",
+      "results": [
+        {
+          "cur_mean": 67.3128,
+          "feature": "load_pct",
+          "ks_statistic": 0.05044,
+          "psi": 0.02461,
+          "ref_mean": 65.6636,
+          "verdict": "stable"
+        },
+        {
+          "cur_mean": 4.6514,
+          "feature": "vibration_mm_s",
+          "ks_statistic": 0.04361,
+          "psi": 0.02272,
+          "ref_mean": 4.6032,
+          "verdict": "stable"
+        },
+        {
+          "cur_mean": 318.3566,
+          "feature": "pressure_kpa",
+          "ks_statistic": 0.02106,
+          "psi": 0.01644,
+          "ref_mean": 318.1791,
+          "verdict": "stable"
+        },
+        {
+          "cur_mean": 58.3503,
+          "feature": "ambient_humidity",
+          "ks_statistic": 0.02622,
+          "psi": 0.01059,
+          "ref_mean": 58.0388,
+          "verdict": "stable"
+        },
+        {
+          "cur_mean": 4669.3892,
+          "feature": "hours_since_service",
+          "ks_statistic": 0.04017,
+          "psi": 0.00714,
+          "ref_mean": 4533.5857,
+          "verdict": "stable"
+        },
+        {
+          "cur_mean": 80.2142,
+          "feature": "temp_c",
+          "ks_statistic": 0.03644,
+          "psi": 0.00495,
+          "ref_mean": 79.6689,
+          "verdict": "stable"
+        }
+      ],
+      "rows": 500,
+      "temperature_alert": false,
+      "utc": "2026-10-08T07:03:43.099026+00:00",
+      "window_start": "2026-10-08T06:48:43.099026+00:00"
+    },
+    "labels": {
+      "course": "itcs355",
+      "instanceId": "0010dd8607de36e6e6e7085a7c47ed80076a81fd8ab1d9bf9a9ee0d972f058f27c991b74c31b903bf9bf356d06efd375bd29c1cc8c973b6f61b95038683ecae44fe64d9c244b51878de7c5da9bb28c1baf4cb0b6362e28b27fff2bbf3424a4",
+      "lab": "4",
+      "run.googleapis.com/execution_name": "itcs355-lab4-drift-q2lzg",
+      "run.googleapis.com/task_attempt": "0",
+      "run.googleapis.com/task_index": "0",
+      "student": "itcs355-6688058"
+    },
+    "logName": "projects/itcs355-6688058/logs/run.googleapis.com%2Fstdout",
+    "receiveTimestamp": "2026-10-08T07:03:50.506540042Z",
+    "resource": {
+      "labels": {
+        "job_name": "itcs355-lab4-drift",
+        "location": "asia-southeast1",
+        "project_id": "itcs355-6688058"
+      },
+      "type": "cloud_run_job"
+    },
+    "timestamp": "2026-10-08T07:03:50.497946Z"
+  },
+  {
+    "insertId": "6ac68b8c000154a47b5013bc",
+    "jsonPayload": {
+      "event": "drift_window",
+      "results": [
+        {
+          "cur_mean": 88.2142,
+          "feature": "temp_c",
+          "ks_statistic": 0.33339,
+          "psi": 0.6602,
+          "ref_mean": 79.6689,
+          "verdict": "significant"
+        },
+        {
+          "cur_mean": 67.3128,
+          "feature": "load_pct",
+          "ks_statistic": 0.05044,
+          "psi": 0.02461,
+          "ref_mean": 65.6636,
+          "verdict": "stable"
+        },
+        {
+          "cur_mean": 4.6514,
+          "feature": "vibration_mm_s",
+          "ks_statistic": 0.04361,
+          "psi": 0.02272,
+          "ref_mean": 4.6032,
+          "verdict": "stable"
+        },
+        {
+          "cur_mean": 318.3566,
+          "feature": "pressure_kpa",
+          "ks_statistic": 0.02106,
+          "psi": 0.01644,
+          "ref_mean": 318.1791,
+          "verdict": "stable"
+        },
+        {
+          "cur_mean": 58.3503,
+          "feature": "ambient_humidity",
+          "ks_statistic": 0.02622,
+          "psi": 0.01059,
+          "ref_mean": 58.0388,
+          "verdict": "stable"
+        },
+        {
+          "cur_mean": 4669.3892,
+          "feature": "hours_since_service",
+          "ks_statistic": 0.04017,
+          "psi": 0.00714,
+          "ref_mean": 4533.5857,
+          "verdict": "stable"
+        }
+      ],
+      "rows": 500,
+      "temperature_alert": true,
+      "utc": "2026-10-07T18:12:22.205668+00:00",
+      "window_start": "2026-10-07T17:57:22.205668+00:00"
+    },
+    "labels": {
+      "course": "itcs355",
+      "instanceId": "0010dd860783f541005af8fef9c5195153531646ccda93258b1672c64fc0174ea7c0c86f27d7313dc9f404643bae9ac790d5d10706a3a76ba6b18b5b81b451abff78159596078f42c5cf1eb0f321fc06ff304d39d31bd322211d7133884e8a",
+      "lab": "4",
+      "run.googleapis.com/execution_name": "itcs355-lab4-drift-mq66p",
+      "run.googleapis.com/task_attempt": "0",
+      "run.googleapis.com/task_index": "0",
+      "student": "itcs355-6688058"
+    },
+    "logName": "projects/itcs355-6688058/logs/run.googleapis.com%2Fstdout",
+    "receiveTimestamp": "2026-10-07T18:12:28.095435837Z",
+    "resource": {
+      "labels": {
+        "job_name": "itcs355-lab4-drift",
+        "location": "asia-southeast1",
+        "project_id": "itcs355-6688058"
+      },
+      "type": "cloud_run_job"
+    },
+    "timestamp": "2026-10-07T18:12:28.087204Z"
+  },
+  {
+    "insertId": "6ac68b45000e47b0fa24916c",
+    "jsonPayload": {
+      "event": "drift_window",
+      "results": [
+        {
+          "cur_mean": 88.2142,
+          "feature": "temp_c",
+          "ks_statistic": 0.33339,
+          "psi": 0.6602,
+          "ref_mean": 79.6689,
+          "verdict": "significant"
+        },
+        {
+          "cur_mean": 67.3128,
+          "feature": "load_pct",
+          "ks_statistic": 0.05044,
+          "psi": 0.02461,
+          "ref_mean": 65.6636,
+          "verdict": "stable"
+        },
+        {
+          "cur_mean": 4.6514,
+          "feature": "vibration_mm_s",
+          "ks_statistic": 0.04361,
+          "psi": 0.02272,
+          "ref_mean": 4.6032,
+          "verdict": "stable"
+        },
+        {
+          "cur_mean": 318.3566,
+          "feature": "pressure_kpa",
+          "ks_statistic": 0.02106,
+          "psi": 0.01644,
+          "ref_mean": 318.1791,
+          "verdict": "stable"
+        },
+        {
+          "cur_mean": 58.3503,
+          "feature": "ambient_humidity",
+          "ks_statistic": 0.02622,
+          "psi": 0.01059,
+          "ref_mean": 58.0388,
+          "verdict": "stable"
+        },
+        {
+          "cur_mean": 4669.3892,
+          "feature": "hours_since_service",
+          "ks_statistic": 0.04017,
+          "psi": 0.00714,
+          "ref_mean": 4533.5857,
+          "verdict": "stable"
+        }
+      ],
+      "rows": 500,
+      "temperature_alert": true,
+      "utc": "2026-10-07T18:11:12.278742+00:00",
+      "window_start": "2026-10-07T17:56:12.278742+00:00"
+    },
+    "labels": {
+      "course": "itcs355",
+      "instanceId": "0010dd8607de9f4506978fdb166859808b3af8c77ddc15ec92cb8b0571b75dd435c6142aea4b5f21d6040a48c012f688fc58ffb35f8412da27bf9b2bd51ac13689dd668379370dcf50e4ccd5cb8da2acac0c539d768506b4e9332599521b",
+      "lab": "4",
+      "run.googleapis.com/execution_name": "itcs355-lab4-drift-rwscg",
+      "run.googleapis.com/task_attempt": "0",
+      "run.googleapis.com/task_index": "0",
+      "student": "itcs355-6688058"
+    },
+    "logName": "projects/itcs355-6688058/logs/run.googleapis.com%2Fstdout",
+    "receiveTimestamp": "2026-10-07T18:11:17.941619952Z",
+    "resource": {
+      "labels": {
+        "job_name": "itcs355-lab4-drift",
+        "location": "asia-southeast1",
+        "project_id": "itcs355-6688058"
+      },
+      "type": "cloud_run_job"
+    },
+    "timestamp": "2026-10-07T18:11:17.935856Z"
+  },
+  {
+    "insertId": "6ac68b0a000317e4a097d1ff",
+    "jsonPayload": {
+      "event": "drift_window",
+      "results": [
+        {
+          "cur_mean": 88.2142,
+          "feature": "temp_c",
+          "ks_statistic": 0.33339,
+          "psi": 0.6602,
+          "ref_mean": 79.6689,
+          "verdict": "significant"
+        },
+        {
+          "cur_mean": 67.3128,
+          "feature": "load_pct",
+          "ks_statistic": 0.05044,
+          "psi": 0.02461,
+          "ref_mean": 65.6636,
+          "verdict": "stable"
+        },
+        {
+          "cur_mean": 4.6514,
+          "feature": "vibration_mm_s",
+          "ks_statistic": 0.04361,
+          "psi": 0.02272,
+          "ref_mean": 4.6032,
+          "verdict": "stable"
+        },
+        {
+          "cur_mean": 318.3566,
+          "feature": "pressure_kpa",
+          "ks_statistic": 0.02106,
+          "psi": 0.01644,
+          "ref_mean": 318.1791,
+          "verdict": "stable"
+        },
+        {
+          "cur_mean": 58.3503,
+          "feature": "ambient_humidity",
+          "ks_statistic": 0.02622,
+          "psi": 0.01059,
+          "ref_mean": 58.0388,
+          "verdict": "stable"
+        },
+        {
+          "cur_mean": 4669.3892,
+          "feature": "hours_since_service",
+          "ks_statistic": 0.04017,
+          "psi": 0.00714,
+          "ref_mean": 4533.5857,
+          "verdict": "stable"
+        }
+      ],
+      "rows": 500,
+      "temperature_alert": true,
+      "utc": "2026-10-07T18:10:12.574513+00:00",
+      "window_start": "2026-10-07T17:55:12.574513+00:00"
+    },
+    "labels": {
+      "course": "itcs355",
+      "instanceId": "0010dd860733f34e4c21b3d32aa3fc0225fd1a4d2839a3ce9dc661dfecd7846b44f76e99f6adedfe2bcb9aff48c0b11fd299b89267dd02253582dc580300c933593b389ebe2c197279b9fd8c0cfe0d78dbad3284b546e3b5eeb3a084",
+      "lab": "4",
+      "run.googleapis.com/execution_name": "itcs355-lab4-drift-v77f8",
+      "run.googleapis.com/task_attempt": "0",
+      "run.googleapis.com/task_index": "0",
+      "student": "itcs355-6688058"
+    },
+    "logName": "projects/itcs355-6688058/logs/run.googleapis.com%2Fstdout",
+    "receiveTimestamp": "2026-10-07T18:10:18.206921509Z",
+    "resource": {
+      "labels": {
+        "job_name": "itcs355-lab4-drift",
+        "location": "asia-southeast1",
+        "project_id": "itcs355-6688058"
+      },
+      "type": "cloud_run_job"
+    },
+    "timestamp": "2026-10-07T18:10:18.202724Z"
+  },
+  {
+    "insertId": "6ac68ace000e61cf070d2417",
+    "jsonPayload": {
+      "event": "drift_window",
+      "results": [
+        {
+          "cur_mean": 88.2142,
+          "feature": "temp_c",
+          "ks_statistic": 0.33339,
+          "psi": 0.6602,
+          "ref_mean": 79.6689,
+          "verdict": "significant"
+        },
+        {
+          "cur_mean": 67.3128,
+          "feature": "load_pct",
+          "ks_statistic": 0.05044,
+          "psi": 0.02461,
+          "ref_mean": 65.6636,
+          "verdict": "stable"
+        },
+        {
+          "cur_mean": 4.6514,
+          "feature": "vibration_mm_s",
+          "ks_statistic": 0.04361,
+          "psi": 0.02272,
+          "ref_mean": 4.6032,
+          "verdict": "stable"
+        },
+        {
+          "cur_mean": 318.3566,
+          "feature": "pressure_kpa",
+          "ks_statistic": 0.02106,
+          "psi": 0.01644,
+          "ref_mean": 318.1791,
+          "verdict": "stable"
+        },
+        {
+          "cur_mean": 58.3503,
+          "feature": "ambient_humidity",
+          "ks_statistic": 0.02622,
+          "psi": 0.01059,
+          "ref_mean": 58.0388,
+          "verdict": "stable"
+        },
+        {
+          "cur_mean": 4669.3892,
+          "feature": "hours_since_service",
+          "ks_statistic": 0.04017,
+          "psi": 0.00714,
+          "ref_mean": 4533.5857,
+          "verdict": "stable"
+        }
+      ],
+      "rows": 500,
+      "temperature_alert": true,
+      "utc": "2026-10-07T18:09:13.007288+00:00",
+      "window_start": "2026-10-07T17:54:13.007288+00:00"
+    },
+    "labels": {
+      "course": "itcs355",
+      "instanceId": "0010dd8607ed0317d4e3e314ac7a72088ed179b3084accfbcdfac7079217a872c1198e40dce603341521372a70c172b12f9132c38dd2bc95429dd8eddaf7a34746a737afd58fd4054638f909f05b5f7c6e81650a1d85a077a9dc3b2a1f69",
+      "lab": "4",
+      "run.googleapis.com/execution_name": "itcs355-lab4-drift-llx8s",
+      "run.googleapis.com/task_attempt": "0",
+      "run.googleapis.com/task_index": "0",
+      "student": "itcs355-6688058"
+    },
+    "logName": "projects/itcs355-6688058/logs/run.googleapis.com%2Fstdout",
+    "receiveTimestamp": "2026-10-07T18:09:18.950080252Z",
+    "resource": {
+      "labels": {
+        "job_name": "itcs355-lab4-drift",
+        "location": "asia-southeast1",
+        "project_id": "itcs355-6688058"
+      },
+      "type": "cloud_run_job"
+    },
+    "timestamp": "2026-10-07T18:09:18.942543Z"
+  },
+  {
+    "insertId": "6ac68a92000157225222b045",
+    "jsonPayload": {
+      "event": "drift_window",
+      "results": [
+        {
+          "cur_mean": 88.2142,
+          "feature": "temp_c",
+          "ks_statistic": 0.33339,
+          "psi": 0.6602,
+          "ref_mean": 79.6689,
+          "verdict": "significant"
+        },
+        {
+          "cur_mean": 67.3128,
+          "feature": "load_pct",
+          "ks_statistic": 0.05044,
+          "psi": 0.02461,
+          "ref_mean": 65.6636,
+          "verdict": "stable"
+        },
+        {
+          "cur_mean": 4.6514,
+          "feature": "vibration_mm_s",
+          "ks_statistic": 0.04361,
+          "psi": 0.02272,
+          "ref_mean": 4.6032,
+          "verdict": "stable"
+        },
+        {
+          "cur_mean": 318.3566,
+          "feature": "pressure_kpa",
+          "ks_statistic": 0.02106,
+          "psi": 0.01644,
+          "ref_mean": 318.1791,
+          "verdict": "stable"
+        },
+        {
+          "cur_mean": 58.3503,
+          "feature": "ambient_humidity",
+          "ks_statistic": 0.02622,
+          "psi": 0.01059,
+          "ref_mean": 58.0388,
+          "verdict": "stable"
+        },
+        {
+          "cur_mean": 4669.3892,
+          "feature": "hours_since_service",
+          "ks_statistic": 0.04017,
+          "psi": 0.00714,
+          "ref_mean": 4533.5857,
+          "verdict": "stable"
+        }
+      ],
+      "rows": 500,
+      "temperature_alert": true,
+      "utc": "2026-10-07T18:08:12.375108+00:00",
+      "window_start": "2026-10-07T17:53:12.375108+00:00"
+    },
+    "labels": {
+      "course": "itcs355",
+      "instanceId": "0010dd86070d283a66f4418b75ac3f5439b9734279532ffbd3bd35e914d492d74a7632ce9a6223d0b9dcfd5e5260024d5eca769bc4e83baf408b87ec73f15e47ac7254d5f8212ff35c0dba50ec3a60cff8ad7d859469fc1b88919671ba02af",
+      "lab": "4",
+      "run.googleapis.com/execution_name": "itcs355-lab4-drift-qqzwv",
+      "run.googleapis.com/task_attempt": "0",
+      "run.googleapis.com/task_index": "0",
+      "student": "itcs355-6688058"
+    },
+    "logName": "projects/itcs355-6688058/logs/run.googleapis.com%2Fstdout",
+    "receiveTimestamp": "2026-10-07T18:08:18.093844161Z",
+    "resource": {
+      "labels": {
+        "job_name": "itcs355-lab4-drift",
+        "location": "asia-southeast1",
+        "project_id": "itcs355-6688058"
+      },
+      "type": "cloud_run_job"
+    },
+    "timestamp": "2026-10-07T18:08:18.087842Z"
+  },
+  {
+    "insertId": "6ac68a55000e499f7050961b",
+    "jsonPayload": {
+      "event": "drift_window",
+      "results": [
+        {
+          "cur_mean": 88.2142,
+          "feature": "temp_c",
+          "ks_statistic": 0.33339,
+          "psi": 0.6602,
+          "ref_mean": 79.6689,
+          "verdict": "significant"
+        },
+        {
+          "cur_mean": 67.3128,
+          "feature": "load_pct",
+          "ks_statistic": 0.05044,
+          "psi": 0.02461,
+          "ref_mean": 65.6636,
+          "verdict": "stable"
+        },
+        {
+          "cur_mean": 4.6514,
+          "feature": "vibration_mm_s",
+          "ks_statistic": 0.04361,
+          "psi": 0.02272,
+          "ref_mean": 4.6032,
+          "verdict": "stable"
+        },
+        {
+          "cur_mean": 318.3566,
+          "feature": "pressure_kpa",
+          "ks_statistic": 0.02106,
+          "psi": 0.01644,
+          "ref_mean": 318.1791,
+          "verdict": "stable"
+        },
+        {
+          "cur_mean": 58.3503,
+          "feature": "ambient_humidity",
+          "ks_statistic": 0.02622,
+          "psi": 0.01059,
+          "ref_mean": 58.0388,
+          "verdict": "stable"
+        },
+        {
+          "cur_mean": 4669.3892,
+          "feature": "hours_since_service",
+          "ks_statistic": 0.04017,
+          "psi": 0.00714,
+          "ref_mean": 4533.5857,
+          "verdict": "stable"
+        }
+      ],
+      "rows": 500,
+      "temperature_alert": true,
+      "utc": "2026-10-07T18:07:12.171578+00:00",
+      "window_start": "2026-10-07T17:52:12.171578+00:00"
+    },
+    "labels": {
+      "course": "itcs355",
+      "instanceId": "0010dd860789026f607605008f1a87e7bd9b3f75af5f6e1f9aa60cab26a87a1d21a9893c176b93e8b21fe1c07ad627d88064c63d72e35dd973db670f6193092f5395e7704102414c5c66c788d9179298ef4817b4fc97396b57f8883ee12f",
+      "lab": "4",
+      "run.googleapis.com/execution_name": "itcs355-lab4-drift-w4n6j",
+      "run.googleapis.com/task_attempt": "0",
+      "run.googleapis.com/task_index": "0",
+      "student": "itcs355-6688058"
+    },
+    "logName": "projects/itcs355-6688058/logs/run.googleapis.com%2Fstdout",
+    "receiveTimestamp": "2026-10-07T18:07:17.941836767Z",
+    "resource": {
+      "labels": {
+        "job_name": "itcs355-lab4-drift",
+        "location": "asia-southeast1",
+        "project_id": "itcs355-6688058"
+      },
+      "type": "cloud_run_job"
+    },
+    "timestamp": "2026-10-07T18:07:17.936351Z"
+  },
+  {
+    "insertId": "6ac68a1c0002dc663a0ab49d",
+    "jsonPayload": {
+      "event": "drift_window",
+      "results": [
+        {
+          "cur_mean": 88.2142,
+          "feature": "temp_c",
+          "ks_statistic": 0.33339,
+          "psi": 0.6602,
+          "ref_mean": 79.6689,
+          "verdict": "significant"
+        },
+        {
+          "cur_mean": 67.3128,
+          "feature": "load_pct",
+          "ks_statistic": 0.05044,
+          "psi": 0.02461,
+          "ref_mean": 65.6636,
+          "verdict": "stable"
+        },
+        {
+          "cur_mean": 4.6514,
+          "feature": "vibration_mm_s",
+          "ks_statistic": 0.04361,
+          "psi": 0.02272,
+          "ref_mean": 4.6032,
+          "verdict": "stable"
+        },
+        {
+          "cur_mean": 318.3566,
+          "feature": "pressure_kpa",
+          "ks_statistic": 0.02106,
+          "psi": 0.01644,
+          "ref_mean": 318.1791,
+          "verdict": "stable"
+        },
+        {
+          "cur_mean": 58.3503,
+          "feature": "ambient_humidity",
+          "ks_statistic": 0.02622,
+          "psi": 0.01059,
+          "ref_mean": 58.0388,
+          "verdict": "stable"
+        },
+        {
+          "cur_mean": 4669.3892,
+          "feature": "hours_since_service",
+          "ks_statistic": 0.04017,
+          "psi": 0.00714,
+          "ref_mean": 4533.5857,
+          "verdict": "stable"
+        }
+      ],
+      "rows": 500,
+      "temperature_alert": true,
+      "utc": "2026-10-07T18:06:13.216924+00:00",
+      "window_start": "2026-10-07T17:51:13.216924+00:00"
+    },
+    "labels": {
+      "course": "itcs355",
+      "instanceId": "0010dd8607f0350a6843017f792eba1a40c6adaeb48bc58cf0bb0056e599e36d8364a618c37c82b8061f507ba6e1e3346c1b867b66328b7e1724ce207baa583fc741d3f4b03204c50780022b439cf3a6a8707270b30d070951ca4f95",
+      "lab": "4",
+      "run.googleapis.com/execution_name": "itcs355-lab4-drift-97jqz",
+      "run.googleapis.com/task_attempt": "0",
+      "run.googleapis.com/task_index": "0",
+      "student": "itcs355-6688058"
+    },
+    "logName": "projects/itcs355-6688058/logs/run.googleapis.com%2Fstdout",
+    "receiveTimestamp": "2026-10-07T18:06:20.192044261Z",
+    "resource": {
+      "labels": {
+        "job_name": "itcs355-lab4-drift",
+        "location": "asia-southeast1",
+        "project_id": "itcs355-6688058"
+      },
+      "type": "cloud_run_job"
+    },
+    "timestamp": "2026-10-07T18:06:20.187494Z"
+  },
+  {
+    "insertId": "6ac689de0008ae9493873abe",
+    "jsonPayload": {
+      "event": "drift_window",
+      "results": [
+        {
+          "cur_mean": 88.2142,
+          "feature": "temp_c",
+          "ks_statistic": 0.33339,
+          "psi": 0.6602,
+          "ref_mean": 79.6689,
+          "verdict": "significant"
+        },
+        {
+          "cur_mean": 67.3128,
+          "feature": "load_pct",
+          "ks_statistic": 0.05044,
+          "psi": 0.02461,
+          "ref_mean": 65.6636,
+          "verdict": "stable"
+        },
+        {
+          "cur_mean": 4.6514,
+          "feature": "vibration_mm_s",
+          "ks_statistic": 0.04361,
+          "psi": 0.02272,
+          "ref_mean": 4.6032,
+          "verdict": "stable"
+        },
+        {
+          "cur_mean": 318.3566,
+          "feature": "pressure_kpa",
+          "ks_statistic": 0.02106,
+          "psi": 0.01644,
+          "ref_mean": 318.1791,
+          "verdict": "stable"
+        },
+        {
+          "cur_mean": 58.3503,
+          "feature": "ambient_humidity",
+          "ks_statistic": 0.02622,
+          "psi": 0.01059,
+          "ref_mean": 58.0388,
+          "verdict": "stable"
+        },
+        {
+          "cur_mean": 4669.3892,
+          "feature": "hours_since_service",
+          "ks_statistic": 0.04017,
+          "psi": 0.00714,
+          "ref_mean": 4533.5857,
+          "verdict": "stable"
+        }
+      ],
+      "rows": 500,
+      "temperature_alert": true,
+      "utc": "2026-10-07T18:05:12.669962+00:00",
+      "window_start": "2026-10-07T17:50:12.669962+00:00"
+    },
+    "labels": {
+      "course": "itcs355",
+      "instanceId": "0010dd860721b2a1ad343372b1f4186e243a96e64fdf5ee2672554b5d591ebc8dc6ebbbf7d34a6543a337f92a8353f91cadcd70d0875d24337b9c28556f0e4ed3b18df4abdcec2a4026301e1a9baf65fe8be60308fb8f645d933eb68755ba2",
+      "lab": "4",
+      "run.googleapis.com/execution_name": "itcs355-lab4-drift-jdp6c",
+      "run.googleapis.com/task_attempt": "0",
+      "run.googleapis.com/task_index": "0",
+      "student": "itcs355-6688058"
+    },
+    "logName": "projects/itcs355-6688058/logs/run.googleapis.com%2Fstdout",
+    "receiveTimestamp": "2026-10-07T18:05:18.574981298Z",
+    "resource": {
+      "labels": {
+        "job_name": "itcs355-lab4-drift",
+        "location": "asia-southeast1",
+        "project_id": "itcs355-6688058"
+      },
+      "type": "cloud_run_job"
+    },
+    "timestamp": "2026-10-07T18:05:18.568980Z"
+  },
+  {
+    "insertId": "6ac689ac00031323db26b9d6",
+    "jsonPayload": {
+      "event": "drift_window",
+      "results": [
+        {
+          "cur_mean": 88.2142,
+          "feature": "temp_c",
+          "ks_statistic": 0.33339,
+          "psi": 0.6602,
+          "ref_mean": 79.6689,
+          "verdict": "significant"
+        },
+        {
+          "cur_mean": 67.3128,
+          "feature": "load_pct",
+          "ks_statistic": 0.05044,
+          "psi": 0.02461,
+          "ref_mean": 65.6636,
+          "verdict": "stable"
+        },
+        {
+          "cur_mean": 4.6514,
+          "feature": "vibration_mm_s",
+          "ks_statistic": 0.04361,
+          "psi": 0.02272,
+          "ref_mean": 4.6032,
+          "verdict": "stable"
+        },
+        {
+          "cur_mean": 318.3566,
+          "feature": "pressure_kpa",
+          "ks_statistic": 0.02106,
+          "psi": 0.01644,
+          "ref_mean": 318.1791,
+          "verdict": "stable"
+        },
+        {
+          "cur_mean": 58.3503,
+          "feature": "ambient_humidity",
+          "ks_statistic": 0.02622,
+          "psi": 0.01059,
+          "ref_mean": 58.0388,
+          "verdict": "stable"
+        },
+        {
+          "cur_mean": 4669.3892,
+          "feature": "hours_since_service",
+          "ks_statistic": 0.04017,
+          "psi": 0.00714,
+          "ref_mean": 4533.5857,
+          "verdict": "stable"
+        }
+      ],
+      "rows": 500,
+      "temperature_alert": true,
+      "utc": "2026-10-07T18:04:22.457378+00:00",
+      "window_start": "2026-10-07T17:49:22.457378+00:00"
+    },
+    "labels": {
+      "course": "itcs355",
+      "instanceId": "0010dd8607f98c039c1725746a128a7723a7c45df325533b239d045a774624a28749ab7448306876a0d0d5c6fbde5f6426dabe31106d5cec03e831c85d67892bf2a271d7f825a0d35cafdf6784669f05587d9559879886e8b44a182c7b13",
+      "lab": "4",
+      "run.googleapis.com/execution_name": "itcs355-lab4-drift-8bz6z",
+      "run.googleapis.com/task_attempt": "0",
+      "run.googleapis.com/task_index": "0",
+      "student": "itcs355-6688058"
+    },
+    "logName": "projects/itcs355-6688058/logs/run.googleapis.com%2Fstdout",
+    "receiveTimestamp": "2026-10-07T18:04:28.208652687Z",
+    "resource": {
+      "labels": {
+        "job_name": "itcs355-lab4-drift",
+        "location": "asia-southeast1",
+        "project_id": "itcs355-6688058"
+      },
+      "type": "cloud_run_job"
+    },
+    "timestamp": "2026-10-07T18:04:28.201507Z"
+  },
+  {
+    "insertId": "6ac689670009ccffde0deae9",
+    "jsonPayload": {
+      "event": "drift_window",
+      "results": [
+        {
+          "cur_mean": 88.2142,
+          "feature": "temp_c",
+          "ks_statistic": 0.33339,
+          "psi": 0.6602,
+          "ref_mean": 79.6689,
+          "verdict": "significant"
+        },
+        {
+          "cur_mean": 67.3128,
+          "feature": "load_pct",
+          "ks_statistic": 0.05044,
+          "psi": 0.02461,
+          "ref_mean": 65.6636,
+          "verdict": "stable"
+        },
+        {
+          "cur_mean": 4.6514,
+          "feature": "vibration_mm_s",
+          "ks_statistic": 0.04361,
+          "psi": 0.02272,
+          "ref_mean": 4.6032,
+          "verdict": "stable"
+        },
+        {
+          "cur_mean": 318.3566,
+          "feature": "pressure_kpa",
+          "ks_statistic": 0.02106,
+          "psi": 0.01644,
+          "ref_mean": 318.1791,
+          "verdict": "stable"
+        },
+        {
+          "cur_mean": 58.3503,
+          "feature": "ambient_humidity",
+          "ks_statistic": 0.02622,
+          "psi": 0.01059,
+          "ref_mean": 58.0388,
+          "verdict": "stable"
+        },
+        {
+          "cur_mean": 4669.3892,
+          "feature": "hours_since_service",
+          "ks_statistic": 0.04017,
+          "psi": 0.00714,
+          "ref_mean": 4533.5857,
+          "verdict": "stable"
+        }
+      ],
+      "rows": 500,
+      "temperature_alert": true,
+      "utc": "2026-10-07T18:03:13.206949+00:00",
+      "window_start": "2026-10-07T17:48:13.206949+00:00"
+    },
+    "labels": {
+      "course": "itcs355",
+      "instanceId": "0010dd86077b3f6fa0f3b96085b51a7be1b02351acfe452c8611548f489ad98341d4531fe459e2ac5405810fda5d29a86ef7bdd08643652ac150fe5376e01ac00f157eb7985e7eff2b8055a2b6b957388798583fa40856c7c5155978e7b3",
+      "lab": "4",
+      "run.googleapis.com/execution_name": "itcs355-lab4-drift-24hbk",
+      "run.googleapis.com/task_attempt": "0",
+      "run.googleapis.com/task_index": "0",
+      "student": "itcs355-6688058"
+    },
+    "logName": "projects/itcs355-6688058/logs/run.googleapis.com%2Fstdout",
+    "receiveTimestamp": "2026-10-07T18:03:19.647714715Z",
+    "resource": {
+      "labels": {
+        "job_name": "itcs355-lab4-drift",
+        "location": "asia-southeast1",
+        "project_id": "itcs355-6688058"
+      },
+      "type": "cloud_run_job"
+    },
+    "timestamp": "2026-10-07T18:03:19.642303Z"
+  },
+  {
+    "insertId": "6ac68935000dd21278c2e8c4",
+    "jsonPayload": {
+      "event": "drift_window",
+      "results": [
+        {
+          "cur_mean": 88.2142,
+          "feature": "temp_c",
+          "ks_statistic": 0.33339,
+          "psi": 0.6602,
+          "ref_mean": 79.6689,
+          "verdict": "significant"
+        },
+        {
+          "cur_mean": 67.3128,
+          "feature": "load_pct",
+          "ks_statistic": 0.05044,
+          "psi": 0.02461,
+          "ref_mean": 65.6636,
+          "verdict": "stable"
+        },
+        {
+          "cur_mean": 4.6514,
+          "feature": "vibration_mm_s",
+          "ks_statistic": 0.04361,
+          "psi": 0.02272,
+          "ref_mean": 4.6032,
+          "verdict": "stable"
+        },
+        {
+          "cur_mean": 318.3566,
+          "feature": "pressure_kpa",
+          "ks_statistic": 0.02106,
+          "psi": 0.01644,
+          "ref_mean": 318.1791,
+          "verdict": "stable"
+        },
+        {
+          "cur_mean": 58.3503,
+          "feature": "ambient_humidity",
+          "ks_statistic": 0.02622,
+          "psi": 0.01059,
+          "ref_mean": 58.0388,
+          "verdict": "stable"
+        },
+        {
+          "cur_mean": 4669.3892,
+          "feature": "hours_since_service",
+          "ks_statistic": 0.04017,
+          "psi": 0.00714,
+          "ref_mean": 4533.5857,
+          "verdict": "stable"
+        }
+      ],
+      "rows": 500,
+      "temperature_alert": true,
+      "utc": "2026-10-07T18:02:23.752985+00:00",
+      "window_start": "2026-10-07T17:47:23.752985+00:00"
+    },
+    "labels": {
+      "course": "itcs355",
+      "instanceId": "0010dd860729534c79212316060a0af1c9284742e22bd6645b642bf603758e21ba0e12292cf778888cd9f9b9de00110fa30c649a49a8d3295dcd8485f2c9030b0adbf7f1280ba4638cc1998b750bc735f7dbe92653584d80caca906457e0",
+      "lab": "4",
+      "run.googleapis.com/execution_name": "itcs355-lab4-drift-trlhp",
+      "run.googleapis.com/task_attempt": "0",
+      "run.googleapis.com/task_index": "0",
+      "student": "itcs355-6688058"
+    },
+    "logName": "projects/itcs355-6688058/logs/run.googleapis.com%2Fstdout",
+    "receiveTimestamp": "2026-10-07T18:02:29.911984378Z",
+    "resource": {
+      "labels": {
+        "job_name": "itcs355-lab4-drift",
+        "location": "asia-southeast1",
+        "project_id": "itcs355-6688058"
+      },
+      "type": "cloud_run_job"
+    },
+    "timestamp": "2026-10-07T18:02:29.905746Z"
+  },
+  {
+    "insertId": "6ac688f0000853e87605a148",
+    "jsonPayload": {
+      "event": "drift_window",
+      "results": [
+        {
+          "cur_mean": 88.2142,
+          "feature": "temp_c",
+          "ks_statistic": 0.33339,
+          "psi": 0.6602,
+          "ref_mean": 79.6689,
+          "verdict": "significant"
+        },
+        {
+          "cur_mean": 67.3128,
+          "feature": "load_pct",
+          "ks_statistic": 0.05044,
+          "psi": 0.02461,
+          "ref_mean": 65.6636,
+          "verdict": "stable"
+        },
+        {
+          "cur_mean": 4.6514,
+          "feature": "vibration_mm_s",
+          "ks_statistic": 0.04361,
+          "psi": 0.02272,
+          "ref_mean": 4.6032,
+          "verdict": "stable"
+        },
+        {
+          "cur_mean": 318.3566,
+          "feature": "pressure_kpa",
+          "ks_statistic": 0.02106,
+          "psi": 0.01644,
+          "ref_mean": 318.1791,
+          "verdict": "stable"
+        },
+        {
+          "cur_mean": 58.3503,
+          "feature": "ambient_humidity",
+          "ks_statistic": 0.02622,
+          "psi": 0.01059,
+          "ref_mean": 58.0388,
+          "verdict": "stable"
+        },
+        {
+          "cur_mean": 4669.3892,
+          "feature": "hours_since_service",
+          "ks_statistic": 0.04017,
+          "psi": 0.00714,
+          "ref_mean": 4533.5857,
+          "verdict": "stable"
+        }
+      ],
+      "rows": 500,
+      "temperature_alert": true,
+      "utc": "2026-10-07T18:01:13.966582+00:00",
+      "window_start": "2026-10-07T17:46:13.966582+00:00"
+    },
+    "labels": {
+      "course": "itcs355",
+      "instanceId": "0010dd860762acdcf2d74728aeb6041a8c5ef7b8d5d2a1ce5efae0e5cbeeefb9951937f493b72eb4c39b8cc98929c253325643a8036cd2479aee9484c82bead94180a20812614acf3998e8d4a204d3bb2dc15d55e52c5e09d2bc2ff9d005",
+      "lab": "4",
+      "run.googleapis.com/execution_name": "itcs355-lab4-drift-n2jlb",
+      "run.googleapis.com/task_attempt": "0",
+      "run.googleapis.com/task_index": "0",
+      "student": "itcs355-6688058"
+    },
+    "logName": "projects/itcs355-6688058/logs/run.googleapis.com%2Fstdout",
+    "receiveTimestamp": "2026-10-07T18:01:20.552938831Z",
+    "resource": {
+      "labels": {
+        "job_name": "itcs355-lab4-drift",
+        "location": "asia-southeast1",
+        "project_id": "itcs355-6688058"
+      },
+      "type": "cloud_run_job"
+    },
+    "timestamp": "2026-10-07T18:01:20.545768Z"
+  },
+  {
+    "insertId": "6ac688c200064675ff31e508",
+    "jsonPayload": {
+      "event": "drift_window",
+      "results": [
+        {
+          "cur_mean": 88.2142,
+          "feature": "temp_c",
+          "ks_statistic": 0.33339,
+          "psi": 0.6602,
+          "ref_mean": 79.6689,
+          "verdict": "significant"
+        },
+        {
+          "cur_mean": 67.3128,
+          "feature": "load_pct",
+          "ks_statistic": 0.05044,
+          "psi": 0.02461,
+          "ref_mean": 65.6636,
+          "verdict": "stable"
+        },
+        {
+          "cur_mean": 4.6514,
+          "feature": "vibration_mm_s",
+          "ks_statistic": 0.04361,
+          "psi": 0.02272,
+          "ref_mean": 4.6032,
+          "verdict": "stable"
+        },
+        {
+          "cur_mean": 318.3566,
+          "feature": "pressure_kpa",
+          "ks_statistic": 0.02106,
+          "psi": 0.01644,
+          "ref_mean": 318.1791,
+          "verdict": "stable"
+        },
+        {
+          "cur_mean": 58.3503,
+          "feature": "ambient_humidity",
+          "ks_statistic": 0.02622,
+          "psi": 0.01059,
+          "ref_mean": 58.0388,
+          "verdict": "stable"
+        },
+        {
+          "cur_mean": 4669.3892,
+          "feature": "hours_since_service",
+          "ks_statistic": 0.04017,
+          "psi": 0.00714,
+          "ref_mean": 4533.5857,
+          "verdict": "stable"
+        }
+      ],
+      "rows": 500,
+      "temperature_alert": true,
+      "utc": "2026-10-07T18:00:27.957345+00:00",
+      "window_start": "2026-10-07T17:45:27.957345+00:00"
+    },
+    "labels": {
+      "course": "itcs355",
+      "instanceId": "0010dd86079134169236e0fd4dccbe67fce328cd3481682cc1573fe97249178311c7131e73cf5e5159de09d5accb1115d9cfcb8e120e3de5b5da87d37020fc70b2d52c0a95d520085380e0af2cc62fdbe6c3aeb482099e0c0c865614d530",
+      "lab": "4",
+      "run.googleapis.com/execution_name": "itcs355-lab4-drift-9vc9l",
+      "run.googleapis.com/task_attempt": "0",
+      "run.googleapis.com/task_index": "0",
+      "student": "itcs355-6688058"
+    },
+    "logName": "projects/itcs355-6688058/logs/run.googleapis.com%2Fstdout",
+    "receiveTimestamp": "2026-10-07T18:00:34.416344060Z",
+    "resource": {
+      "labels": {
+        "job_name": "itcs355-lab4-drift",
+        "location": "asia-southeast1",
+        "project_id": "itcs355-6688058"
+      },
+      "type": "cloud_run_job"
+    },
+    "timestamp": "2026-10-07T18:00:34.411253Z"
+  },
+  {
+    "insertId": "6ac68880000931068aecf82b",
+    "jsonPayload": {
+      "event": "drift_window",
+      "results": [
+        {
+          "cur_mean": 88.2142,
+          "feature": "temp_c",
+          "ks_statistic": 0.33339,
+          "psi": 0.6602,
+          "ref_mean": 79.6689,
+          "verdict": "significant"
+        },
+        {
+          "cur_mean": 67.3128,
+          "feature": "load_pct",
+          "ks_statistic": 0.05044,
+          "psi": 0.02461,
+          "ref_mean": 65.6636,
+          "verdict": "stable"
+        },
+        {
+          "cur_mean": 4.6514,
+          "feature": "vibration_mm_s",
+          "ks_statistic": 0.04361,
+          "psi": 0.02272,
+          "ref_mean": 4.6032,
+          "verdict": "stable"
+        },
+        {
+          "cur_mean": 318.3566,
+          "feature": "pressure_kpa",
+          "ks_statistic": 0.02106,
+          "psi": 0.01644,
+          "ref_mean": 318.1791,
+          "verdict": "stable"
+        },
+        {
+          "cur_mean": 58.3503,
+          "feature": "ambient_humidity",
+          "ks_statistic": 0.02622,
+          "psi": 0.01059,
+          "ref_mean": 58.0388,
+          "verdict": "stable"
+        },
+        {
+          "cur_mean": 4669.3892,
+          "feature": "hours_since_service",
+          "ks_statistic": 0.04017,
+          "psi": 0.00714,
+          "ref_mean": 4533.5857,
+          "verdict": "stable"
+        }
+      ],
+      "rows": 500,
+      "temperature_alert": true,
+      "utc": "2026-10-07T17:59:22.599989+00:00",
+      "window_start": "2026-10-07T17:44:22.599989+00:00"
+    },
+    "labels": {
+      "course": "itcs355",
+      "instanceId": "0010dd86077342343de876dcae1dfc3fcb21076c29f169f73b7cb26cf05628f3f78e3d15c3a9298bdbe9f145f074be2b5fa00b3b235d7d371ac6571143012d4907ce259eab1188a266ee5283e76c5b0c4142197be938f96f4fd497749b1d",
+      "lab": "4",
+      "run.googleapis.com/execution_name": "itcs355-lab4-drift-g6gbv",
+      "run.googleapis.com/task_attempt": "0",
+      "run.googleapis.com/task_index": "0",
+      "student": "itcs355-6688058"
+    },
+    "logName": "projects/itcs355-6688058/logs/run.googleapis.com%2Fstdout",
+    "receiveTimestamp": "2026-10-07T17:59:28.607404983Z",
+    "resource": {
+      "labels": {
+        "job_name": "itcs355-lab4-drift",
+        "location": "asia-southeast1",
+        "project_id": "itcs355-6688058"
+      },
+      "type": "cloud_run_job"
+    },
+    "timestamp": "2026-10-07T17:59:28.602374Z"
+  },
+  {
+    "insertId": "6ac68844000eada16cf9492e",
+    "jsonPayload": {
+      "event": "drift_window",
+      "results": [
+        {
+          "cur_mean": 88.2142,
+          "feature": "temp_c",
+          "ks_statistic": 0.33339,
+          "psi": 0.6602,
+          "ref_mean": 79.6689,
+          "verdict": "significant"
+        },
+        {
+          "cur_mean": 67.3128,
+          "feature": "load_pct",
+          "ks_statistic": 0.05044,
+          "psi": 0.02461,
+          "ref_mean": 65.6636,
+          "verdict": "stable"
+        },
+        {
+          "cur_mean": 4.6514,
+          "feature": "vibration_mm_s",
+          "ks_statistic": 0.04361,
+          "psi": 0.02272,
+          "ref_mean": 4.6032,
+          "verdict": "stable"
+        },
+        {
+          "cur_mean": 318.3566,
+          "feature": "pressure_kpa",
+          "ks_statistic": 0.02106,
+          "psi": 0.01644,
+          "ref_mean": 318.1791,
+          "verdict": "stable"
+        },
+        {
+          "cur_mean": 58.3503,
+          "feature": "ambient_humidity",
+          "ks_statistic": 0.02622,
+          "psi": 0.01059,
+          "ref_mean": 58.0388,
+          "verdict": "stable"
+        },
+        {
+          "cur_mean": 4669.3892,
+          "feature": "hours_since_service",
+          "ks_statistic": 0.04017,
+          "psi": 0.00714,
+          "ref_mean": 4533.5857,
+          "verdict": "stable"
+        }
+      ],
+      "rows": 500,
+      "temperature_alert": true,
+      "utc": "2026-10-07T17:58:22.926109+00:00",
+      "window_start": "2026-10-07T17:43:22.926109+00:00"
+    },
+    "labels": {
+      "course": "itcs355",
+      "instanceId": "0010dd860756e86564dd5dfcad42c2b489b6868cf25bfb5d0bc96543f3864ab3beed3f450dc71e56387b10277b5f4b8b190b2d6354b543e46c322421b614c82768cb44cf6c3f31cbc07ffc9f152c8a5f99109dab2feacbb2e121081fc8c4",
+      "lab": "4",
+      "run.googleapis.com/execution_name": "itcs355-lab4-drift-45nl7",
+      "run.googleapis.com/task_attempt": "0",
+      "run.googleapis.com/task_index": "0",
+      "student": "itcs355-6688058"
+    },
+    "logName": "projects/itcs355-6688058/logs/run.googleapis.com%2Fstdout",
+    "receiveTimestamp": "2026-10-07T17:58:28.968687480Z",
+    "resource": {
+      "labels": {
+        "job_name": "itcs355-lab4-drift",
+        "location": "asia-southeast1",
+        "project_id": "itcs355-6688058"
+      },
+      "type": "cloud_run_job"
+    },
+    "timestamp": "2026-10-07T17:58:28.961953Z"
+  },
+  {
+    "insertId": "6ac687ff0004abed5061f420",
+    "jsonPayload": {
+      "event": "drift_window",
+      "results": [
+        {
+          "cur_mean": 67.3128,
+          "feature": "load_pct",
+          "ks_statistic": 0.05044,
+          "psi": 0.02461,
+          "ref_mean": 65.6636,
+          "verdict": "stable"
+        },
+        {
+          "cur_mean": 4.6514,
+          "feature": "vibration_mm_s",
+          "ks_statistic": 0.04361,
+          "psi": 0.02272,
+          "ref_mean": 4.6032,
+          "verdict": "stable"
+        },
+        {
+          "cur_mean": 318.3566,
+          "feature": "pressure_kpa",
+          "ks_statistic": 0.02106,
+          "psi": 0.01644,
+          "ref_mean": 318.1791,
+          "verdict": "stable"
+        },
+        {
+          "cur_mean": 58.3503,
+          "feature": "ambient_humidity",
+          "ks_statistic": 0.02622,
+          "psi": 0.01059,
+          "ref_mean": 58.0388,
+          "verdict": "stable"
+        },
+        {
+          "cur_mean": 4669.3892,
+          "feature": "hours_since_service",
+          "ks_statistic": 0.04017,
+          "psi": 0.00714,
+          "ref_mean": 4533.5857,
+          "verdict": "stable"
+        },
+        {
+          "cur_mean": 80.2142,
+          "feature": "temp_c",
+          "ks_statistic": 0.03644,
+          "psi": 0.00495,
+          "ref_mean": 79.6689,
+          "verdict": "stable"
+        }
+      ],
+      "rows": 500,
+      "temperature_alert": false,
+      "utc": "2026-10-07T17:57:13.101924+00:00",
+      "window_start": "2026-10-07T17:42:13.101924+00:00"
+    },
+    "labels": {
+      "course": "itcs355",
+      "instanceId": "0010dd8607a9110dbe21f4bab5adaebabd93810e9903870a2626e8cb2b36c5cff6e1f8d69816d96345c489a87504eb6eef3afa4cd7212703bc6844bd9ed4206650f1e798b4ba674b9f5bdbccd0c943574859defd24df421ccf173ebeb0",
+      "lab": "4",
+      "run.googleapis.com/execution_name": "itcs355-lab4-drift-ccmh5",
+      "run.googleapis.com/task_attempt": "0",
+      "run.googleapis.com/task_index": "0",
+      "student": "itcs355-6688058"
+    },
+    "logName": "projects/itcs355-6688058/logs/run.googleapis.com%2Fstdout",
+    "receiveTimestamp": "2026-10-07T17:57:19.309213592Z",
+    "resource": {
+      "labels": {
+        "job_name": "itcs355-lab4-drift",
+        "location": "asia-southeast1",
+        "project_id": "itcs355-6688058"
+      },
+      "type": "cloud_run_job"
+    },
+    "timestamp": "2026-10-07T17:57:19.306157Z"
+  }
+]

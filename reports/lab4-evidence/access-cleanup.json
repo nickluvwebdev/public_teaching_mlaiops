@@ -1,0 +1,87 @@
+{
+  "utc": "2026-10-08T07:05:05.855944+00:00",
+  "actions": [
+    {
+      "action": [
+        "projects",
+        "remove-iam-policy-binding",
+        "itcs355-6688058",
+        "--member=serviceAccount:itcs355-serving@itcs355-6688058.iam.gserviceaccount.com"
+      ],
+      "exit": 0
+    },
+    {
+      "action": [
+        "projects",
+        "remove-iam-policy-binding",
+        "itcs355-6688058",
+        "--member=serviceAccount:itcs355-lab4-monitor@itcs355-6688058.iam.gserviceaccount.com"
+      ],
+      "exit": 0
+    },
+    {
+      "action": [
+        "projects",
+        "remove-iam-policy-binding",
+        "itcs355-6688058",
+        "--member=serviceAccount:itcs355-lab4-monitor@itcs355-6688058.iam.gserviceaccount.com"
+      ],
+      "exit": 0
+    },
+    {
+      "action": [
+        "artifacts",
+        "repositories",
+        "remove-iam-policy-binding",
+        "itcs355"
+      ],
+      "exit": 0
+    },
+    {
+      "action": [
+        "storage",
+        "buckets",
+        "remove-iam-policy-binding",
+        "gs://itcs355-6688058"
+      ],
+      "exit": 0
+    },
+    {
+      "action": [
+        "iam",
+        "service-accounts",
+        "remove-iam-policy-binding",
+        "itcs355-serving@itcs355-6688058.iam.gserviceaccount.com"
+      ],
+      "exit": 0
+    },
+    {
+      "action": [
+        "iam",
+        "workload-identity-pools",
+        "delete",
+        "itcs355-lab4"
+      ],
+      "exit": 0
+    },
+    {
+      "action": [
+        "iam",
+        "service-accounts",
+        "delete",
+        "itcs355-lab4-ci@itcs355-6688058.iam.gserviceaccount.com"
+      ],
+      "exit": 0
+    },
+    {
+      "action": [
+        "iam",
+        "service-accounts",
+        "delete",
+        "itcs355-lab4-monitor@itcs355-6688058.iam.gserviceaccount.com"
+      ],
+      "exit": 0
+    }
+  ],
+  "deployment_enabled": false
+}

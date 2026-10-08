@@ -1,0 +1,18 @@
+{
+  "expiry": "2026-10-08T08:00:55Z",
+  "condition": "expression=request.time < timestamp(\"2026-10-08T08:00:55Z\"),title=lab4-recovery-only",
+  "roles": [
+    [
+      "itcs355-serving@itcs355-6688058.iam.gserviceaccount.com",
+      "projects/itcs355-6688058/roles/lab3ModelReader"
+    ],
+    [
+      "itcs355-lab4-monitor@itcs355-6688058.iam.gserviceaccount.com",
+      "roles/logging.viewer"
+    ],
+    [
+      "itcs355-lab4-monitor@itcs355-6688058.iam.gserviceaccount.com",
+      "roles/monitoring.metricWriter"
+    ]
+  ]
+}

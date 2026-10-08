@@ -1,0 +1,9 @@
+# Lab 4 cost and usage disclosure
+
+This was real managed compute, not a free local-only run. The captured Cloud Run inventory has **408 executions: 407 succeeded and 1 failed**, including one manual recovery execution. The task paused before teardown, so the minute schedule continued until its temporary invoker permission expired. Scheduler calls after expiry were denied. Job success can mean a correctly skipped undersized data window; it does not imply 407 full drift comparisons.
+
+Each job was configured for 1 CPU, 1 GiB, zero retries and a 120-second task timeout. The endpoint used at most one revision instance with 1 CPU/1 GiB and could scale to zero. The exported job timestamps and statuses are in `lab4-evidence/job-executions.json`; scheduler attempts are in `scheduler-execution-logs.json`. These are usage evidence, not an invoice: startup/provisioning durations, minimum billable duration, regional rates, credits, logging, image storage and scheduler charges affect the actual bill. No verified billing total was retrieved, so this report deliberately does not claim zero cost or an exact dollar charge.
+
+The practical failure was leaving the schedule running across a paused session. A future exercise should install an independent expiry/cleanup mechanism before replay, rather than relying on an interactive session to reach teardown. The schedule, service and job were explicitly removed at completion; retained image/model/reference storage can still incur small storage charges.
+
+Business-impact estimate for a week of unnoticed corruption: assume 100,000 predictions/day, so 700,000 predictions would consume temperatures offset by +8 C. The real number of wrong decisions and maintenance/failure losses requires labels, operational thresholds and cost data; it cannot be derived from PSI. This is an assumption-based impact scenario, separate from the actual experiment bill.
