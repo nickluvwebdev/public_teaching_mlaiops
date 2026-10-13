@@ -1,0 +1,26 @@
+SKU,SKU ID,Service,Actual cost,Live cost,Subtotal
+Jobs CPU in asia-southeast1,827B-D6DA-48FA,Cloud Run,?17.76,?0.00,?17.76
+Services CPU Tier 2  (Request-based billing),085C-A237-027A,Cloud Run,?2.35,?0.00,?2.35
+Jobs Memory in asia-southeast1,9A4F-60E0-BA38,Cloud Run,?1.97,?0.00,?1.97
+Services CPU (Instance-based billing) in asia-southeast1,4D3C-D63E-1DF1,Cloud Run,?0.00,?1.02,?1.02
+Services Memory Tier 2 (Request-based billing),600C-3782-6708,Cloud Run,?0.23,?0.00,?0.23
+Gemini 3.1 Flash Lite Global Text Output - Predictions,DA75-5E07-40DC,Vertex AI,?0.00,?0.19,?0.19
+Gemini 3.1 Flash Lite Global Text Input - Predictions,7DDF-162F-B3F3,Vertex AI,?0.00,?0.19,?0.19
+Services Memory (Instance-based billing) in asia-southeast1,7550-6D11-4653,Cloud Run,?0.00,?0.11,?0.11
+Artifact Registry Storage,8502-299A-ABAF,Artifact Registry,?0.09,?0.00,?0.09
+Standard Storage Singapore,76BA-5CAD-4338,Cloud Storage,?0.05,?0.00,?0.05
+Cloud Run Network Internet Data Transfer Out AsiaPacific to AsiaPacific,9EA6-AE6D-E34E,Cloud Run,?0.01,?0.00,?0.01
+Services Min Instance CPU Tier 2 (Request-based billing),4350-71E4-3051,Cloud Run,?0.00,?0.00,?0.00
+Services Min Instance Memory Tier 2 (Request-based billing),5AF1-E483-6197,Cloud Run,?0.00,?0.00,?0.00
+Artifact Registry Network Internet Egress AsiaPacfic to AsiaPacfic,2CB3-644D-F192,Artifact Registry,?0.00,?0.00,?0.00
+Artifact Registry Network Intra Region Egress,546B-E8F2-6FF5,Artifact Registry,?0.00,?0.00,?0.00
+Dataplex Governance Metadata Storage Singapore,7068-B1CD-34EF,Dataplex,-?0.00,?0.00,?0.00
+Download APAC,1F8B-71B0-3D1B,Cloud Storage,?0.00,?0.00,?0.00
+Jobs,A5D6-43A2-28A7,Cloud Scheduler,?0.00,?0.00,?0.00
+Log Storage cost,143F-A1B0-E0BE,Cloud Logging,?0.00,?0.00,?0.00
+Metric Volume,A924-09D0-8854,Cloud Monitoring,?0.00,?0.00,?0.00
+Regional Standard Class A Operations,4DBF-185F-A415,Cloud Storage,?0.00,?0.00,?0.00
+Regional Standard Class B Operations,7870-010B-2763,Cloud Storage,?0.00,?0.00,?0.00
+Requests,2DA5-55D3-E679,Cloud Run,?0.00,?0.00,?0.00
+Time series billed count,6E35-67F5-C3C6,Cloud Monitoring,?0.00,?0.00,?0.00
+,,,,Subtotal,?23.97

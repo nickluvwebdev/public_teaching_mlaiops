@@ -1,0 +1,13 @@
+{
+  "captured_utc": "2026-10-13T13:05:00Z",
+  "posted_october_net_thb": 0.037721,
+  "posted_october_gross_display_thb": 20.47,
+  "posted_cloud_run_savings_display_thb": 20.42,
+  "live_last_15_days_gross_subtotal_thb": 23.97,
+  "live_increment_display_thb": 1.51,
+  "live_llm_input_thb": 0.19,
+  "live_llm_output_thb": 0.19,
+  "live_excludes_credits": true,
+  "vertex_training_and_pipeline_charges_missing": true,
+  "final_reconciled": false
+}

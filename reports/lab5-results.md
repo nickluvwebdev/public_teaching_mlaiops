@@ -1,6 +1,6 @@
 # Lab 5 execution review
 
-Status: real technical experiments completed; final billing reconciliation, console screenshot and 24-hour cost verification remain pending. Nothing has been pushed to GitHub.
+Status: real technical experiments completed; final billing reconciliation, 24-hour cost verification remain pending. The user authorized publication on 13 October.
 
 ## Managed pipeline and promotion
 
@@ -26,4 +26,4 @@ Actual provider token receipts and tariffs are recorded. The combined concise pr
 
 Cloud artifacts were downloaded with SHA-256 manifests before deleting temporary resources. Primary compute, schedule, secondary Lambda/S3/log resources and temporary identity grants are removed by make teardown LAB=5; teardown-verification.json and secondary-cleanup.json record verification. Registered models and original bucket/image artifacts are retained and may incur small storage charges.
 
-Remaining: reconcile the posted GCP and AWS bill, credits and total-term spending; capture an actual console screenshot of the empty Lab 5 compute inventory; repeat inventory and cost checks after 24 hours. Browser automation stopped because it could not verify the browser URL reliably; no screenshot has been fabricated. Do not describe tariff estimates as actual billing or claim full lab completion until these items are supplied.
+Remaining: reconcile the posted GCP and AWS bill, credits and total-term spending; repeat inventory and cost checks after 24 hours. Console automation recovered on the next turn. An actual empty Cloud Run screenshot and posted/live billing CSVs and screenshots are now saved. A read-only 24-hour follow-up is scheduled for 14 October at 19:20 Bangkok. Do not describe tariff estimates as actual billing or claim full lab completion until these items are supplied.

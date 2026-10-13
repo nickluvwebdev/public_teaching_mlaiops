@@ -23,3 +23,13 @@ Native training catalog rates and actual VM durations are saved for reconciliati
 See lab5-token-cost.md for real token accounting, rejected attempts, verified native THB prices, the prompt/cap optimisation and zero measured cache hits. Tariff costs exclude credits and taxes.
 
 All temporary paid compute and scheduling are torn down after the experiment; original model and image storage remains. Repeat verification and billing review after 24 hours. Final cost figures, label breakdown, credits and the estimate-versus-actual gap cannot be completed until the billing report is available.
+
+## Actual console figures captured on 13 October
+
+The downloaded posted October report totals **0.037721 THB net** (displayed 0.04), including Cloud Storage 0.037602, Cloud Run 0.000117 and Artifact Registry 0.000002 THB. Displayed Cloud Run gross usage is 20.43 THB with 20.42 THB savings; use unrounded CSV totals instead of subtracting rounded display values. This period includes earlier labs and is not the Lab 5 bill.
+
+The live SKU report for September 29–October 13 shows approximately **23.97 THB gross**, comprising about 22.46 posted gross and **1.51 THB directional live usage**, before credits. New live rows include instance-based Cloud Run CPU 1.02, memory 0.11, Gemini input 0.19 and output 0.19 THB. The Gemini 0.38 THB rounded total agrees with the provider-token calculation of 0.379346 THB. Live costs cover limited SKUs: Vertex pipeline and managed training charges are absent, so their cost is pending, not zero. The 1.51 THB cannot be substituted for final Lab 5 cost or compared with the 30 THB advance estimate as a complete experiment.
+
+AWS Cost Explorer was checked again after teardown; the downloaded estimate is saved. Same-day zero estimates can lag usage. A complete net/gross estimate gap, resource-label breakdown and total-term budget reconciliation remain pending posted training and pipeline charges.
+
+Evidence: [posted CSV](lab5-evidence/gcp-posted-billing-20261013.csv), [live CSV](lab5-evidence/gcp-live-billing-20261013.csv), [posted screenshot](lab5-evidence/lab5-posted-billing.jpg), [live summary](lab5-evidence/lab5-live-billing-summary.jpg), [live SKU screenshot](lab5-evidence/lab5-live-billing-skus.jpg), [empty Cloud Run console](lab5-evidence/lab5-empty-cloud-run.jpg). A read-only follow-up is scheduled for 14 October 19:20 Bangkok, after the 24-hour teardown interval. The repeated same-day inventory is empty; it is not labelled a 24-hour check.
