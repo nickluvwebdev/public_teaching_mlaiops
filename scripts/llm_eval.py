@@ -18,6 +18,7 @@ The gate is deliberately stricter than a pass-rate threshold: a case that passed
 baseline and fails now is a regression, even if the overall rate went up. Averages hide
 exactly the failure you care about.
 """
+
 from __future__ import annotations
 
 import argparse
@@ -86,6 +87,8 @@ def check_one(check: dict, response: str) -> tuple[bool, str]:
             parsed = json.loads(response)
         except json.JSONDecodeError:
             return False, f"expected valid JSON with {field}={value!r}, got unparseable text"
+        if not isinstance(parsed, dict):
+            return False, "expected a JSON object, got another JSON type"
         actual = parsed.get(field)
         return actual == value, f"expected {field}={value!r}, got {actual!r}"
 
@@ -102,18 +105,24 @@ def score(golden: list[dict], responses: list[dict]) -> list[dict]:
             results.append({"id": cid, "passed": False, "failures": ["no response recorded"]})
             continue
         text = got.get("response", "")
-        failures = [why for check in case.get("checks", [])
-                    for ok, why in [check_one(check, text)] if not ok]
+        failures = [
+            why
+            for check in case.get("checks", [])
+            for ok, why in [check_one(check, text)]
+            if not ok
+        ]
         if got.get("control_error"):
             failures.append("output control: " + got["control_error"])
-        results.append({
-            "id": cid,
-            "passed": not failures,
-            "failures": failures,
-            "input_tokens": got.get("input_tokens", 0),
-            "output_tokens": got.get("output_tokens", 0),
-            "latency_ms": got.get("latency_ms", 0),
-        })
+        results.append(
+            {
+                "id": cid,
+                "passed": not failures,
+                "failures": failures,
+                "input_tokens": got.get("input_tokens", 0),
+                "output_tokens": got.get("output_tokens", 0),
+                "latency_ms": got.get("latency_ms", 0),
+            }
+        )
     return results
 
 
@@ -165,7 +174,10 @@ def gate(report: dict, baseline_path: Path) -> int:
     if regressions:
         print(f"\nGATE FAILED — {len(regressions)} regression(s): {', '.join(regressions)}")
         for cid in regressions:
-            for why in next((r for r in report["results"] if r["id"] == cid), {"failures":["case removed from current golden set"]})["failures"]:
+            for why in next(
+                (r for r in report["results"] if r["id"] == cid),
+                {"failures": ["case removed from current golden set"]},
+            )["failures"]:
                 print(f"    {cid}: {why}")
         return 1
     print("\nGATE PASSED — no case that passed before fails now")
@@ -175,16 +187,24 @@ def gate(report: dict, baseline_path: Path) -> int:
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--golden", type=Path, default=DEFAULT_GOLDEN)
-    ap.add_argument("--responses", type=Path, default=DEFAULT_RESPONSES,
-                    help="recorded responses; omit and pass --live to call your adapter")
-    ap.add_argument("--live", action="store_true",
-                    help="generate responses through cloudlayer instead of a fixture")
+    ap.add_argument(
+        "--responses",
+        type=Path,
+        default=DEFAULT_RESPONSES,
+        help="recorded responses; omit and pass --live to call your adapter",
+    )
+    ap.add_argument(
+        "--live",
+        action="store_true",
+        help="generate responses through cloudlayer instead of a fixture",
+    )
     ap.add_argument("--provider", default="gcp")
     ap.add_argument("--model", default="small")
     ap.add_argument("--out", type=Path, default=ROOT / "reports" / "llm_eval.json")
     ap.add_argument("--max-output-tokens", type=int, default=200)
-    ap.add_argument("--baseline", type=Path,
-                    help="a previous report; fail if any case regresses against it")
+    ap.add_argument(
+        "--baseline", type=Path, help="a previous report; fail if any case regresses against it"
+    )
     args = ap.parse_args()
 
     golden = read_jsonl(args.golden)
@@ -193,10 +213,15 @@ def main() -> int:
     else:
         responses = read_jsonl(args.responses)
 
-    report = summarise(score(golden, responses), args.provider, args.model)
+    model = args.model
+    if args.live:
+        versions = {row.get("model_version") for row in responses}
+        if len(versions) != 1 or None in versions:
+            raise ValueError("Live eval needs one provider-returned exact model version")
+        model = versions.pop()
+    report = summarise(score(golden, responses), args.provider, model)
     report["evidence_mode"] = "live_provider" if args.live else "offline_fixture"
     report["recorded_responses"] = responses
-
 
     print(f"golden set  {args.golden.name}  ({report['cases']} cases)")
     for r in report["results"]:
@@ -204,8 +229,10 @@ def main() -> int:
         print(f"  [{mark}] {r['id']}")
         for why in r["failures"]:
             print(f"         {why}")
-    print(f"\npass rate           {report['passed']}/{report['cases']}"
-          f"  ({report['pass_rate'] * 100:.1f}%)")
+    print(
+        f"\npass rate           {report['passed']}/{report['cases']}"
+        f"  ({report['pass_rate'] * 100:.1f}%)"
+    )
     print(f"p95 latency         {report['p95_latency_ms']} ms")
     print("actual token cost   pending provider usage and verified model tariff")
 

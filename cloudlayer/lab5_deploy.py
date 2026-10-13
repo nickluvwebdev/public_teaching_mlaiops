@@ -2,12 +2,10 @@
 
 import time
 import requests
-import google.auth.transport.requests
-from google.oauth2 import id_token
 from cloudlayer.gcp_monitoring import session
 
 
-def deploy(cfg, model_ref, endpoint):
+def deploy(cfg, model_ref, endpoint, invoker_identity):
     name, version = model_ref.rsplit("@", 1)
     if not version.isdigit() or "@sha256:" not in cfg.serving_image or not cfg.serving_identity:
         raise ValueError("Exact model, immutable image and serving identity required")
@@ -67,7 +65,15 @@ def deploy(cfg, model_ref, endpoint):
     r = s.get(base + "/services/" + endpoint, timeout=30)
     r.raise_for_status()
     url = r.json()["uri"]
-    token = id_token.fetch_id_token(google.auth.transport.requests.Request(), url)
+    token_response = s.post(
+        "https://iamcredentials.googleapis.com/v1/projects/-/serviceAccounts/"
+        + invoker_identity
+        + ":generateIdToken",
+        json={"audience": url, "includeEmail": True},
+        timeout=30,
+    )
+    token_response.raise_for_status()
+    token = token_response.json()["token"]
     smoke = requests.post(
         url + "/predict",
         headers={"Authorization": "Bearer " + token},

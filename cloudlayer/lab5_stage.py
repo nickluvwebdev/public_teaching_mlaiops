@@ -63,7 +63,7 @@ def run(stage, settings, value="", info=""):
         from cloudlayer.lab5_deploy import deploy
 
         serving = replace(cfg, serving_lab=5)
-        return deploy(serving, value, settings["endpoint"]), ""
+        return deploy(serving, value, settings["endpoint"], settings["pipeline_identity"]), ""
     raise ValueError("Unknown stage")
 
 

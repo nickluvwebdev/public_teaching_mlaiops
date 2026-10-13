@@ -22,6 +22,13 @@ def totals(report):
 
 def price(usage, tariff):
     fresh = usage["input"] - usage["cached"]
+    if "input_thb_per_million" in tariff:
+        thb = (
+            fresh * tariff["input_thb_per_million"]
+            + usage["cached"] * tariff["cached_thb_per_million"]
+            + usage["output"] * tariff["output_thb_per_million"]
+        ) / 1_000_000
+        return thb * 1000 / usage["requests"]
     usd = (
         fresh * tariff["input_usd_per_million"]
         + usage["cached"] * tariff["cached_usd_per_million"]
@@ -64,9 +71,19 @@ def main():
     if not 0 <= read < 1 or write < 1:
         raise ValueError("Invalid cache tariff assumptions")
     breakeven = (write - 1) / (write - read) if write > 1 else 0
+    currency = (
+        "Native Cloud Billing Catalog THB unit rates; no assumed FX conversion."
+        if "input_thb_per_million" in tariff
+        else f"Currency conversion: {tariff['thb_per_usd']} THB/USD."
+    )
+    working = (
+        "(fresh input × native THB input rate + cached input × native THB cache rate + output × native THB output rate) / 1,000,000 × 1,000 / requests"
+        if "input_thb_per_million" in tariff
+        else "(fresh input × USD input rate + cached input × USD cache rate + output × USD output rate) / 1,000,000 × THB/USD × 1,000 / requests"
+    )
     content = f"""# Lab 5 — real token cost
 
-Provider tariff: {tariff["source_url"]}, verified {tariff["verified_date"]}; model {tariff["model"]}. Currency conversion: {tariff["thb_per_usd"]} THB/USD. This is a tariff estimate, to reconcile with invoiced THB and credits.
+Provider tariff: {tariff["source_url"]}, verified {tariff["verified_date"]}; model {tariff["model"]}. {currency} This is a tariff-based usage figure; reconcile invoices and credits separately.
 
 | | Baseline | Output-capped |
 |---|---:|---:|
@@ -76,7 +93,7 @@ Provider tariff: {tariff["source_url"]}, verified {tariff["verified_date"]}; mod
 | Provider cached input tokens | {before["cached"]} | {after["cached"]} |
 | THB per 1,000 requests | {b:.6f} | {aft:.6f} |
 
-Working: (fresh input × input price + cached input × cached price + output × output price) / 1,000,000 × THB/USD × 1,000 / measured requests. Capped saving: {b - aft:.6f} THB per 1,000; both golden sets passed.
+Working: {working}. Capped saving: {b - aft:.6f} THB per 1,000; both golden sets passed.
 
 Cache break-even hit rate: (write factor − 1)/(write factor − read factor) = {breakeven:.4%}. Measured hit rate: {after["cache_hits"]}/{after["requests"]} = {after["cache_hits"] / after["requests"]:.4%}. Include cache storage charges separately if applicable; the generic surcharge model does not include storage rent.
 

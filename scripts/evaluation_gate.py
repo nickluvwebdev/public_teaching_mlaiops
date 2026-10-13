@@ -29,7 +29,7 @@ def decision(candidate: float, incumbent: float | None, first: bool = False) -> 
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--metrics", type=Path, required=True)
-    ap.add_argument("--metric", default="val_roc_auc")
+    ap.add_argument("--metric", default="val_roc_auc", choices=["val_roc_auc"])
     ap.add_argument("--incumbent", type=float)
     ap.add_argument("--allow-first-registration", action="store_true")
     ap.add_argument("--decision-out", type=Path)

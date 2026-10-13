@@ -19,10 +19,10 @@ Three levers move an LLM bill, in the order they are worth pulling:
 
 Prices are THB per 1,000,000 tokens. They change often and differ by region.
 
-TODO(Lab 5): verify every rate below against your provider's pricing page for YOUR region
-before you cite a cost figure. Record the date you checked in your cost report. A stale
-price presented as current is exactly what the report is designed to catch.
+Only verified model-specific rates are included. Historical small/medium/large scaffold
+prices were removed; guessing a similar model rate now fails. Reverify before a future run.
 """
+
 from __future__ import annotations
 
 from dataclasses import dataclass
@@ -30,20 +30,9 @@ from dataclasses import dataclass
 # THB per 1,000,000 tokens: (input, output).
 TOKEN_PRICE_TABLE: dict[str, dict[str, tuple[float, float]]] = {
     "local": {"stub": (0.0, 0.0)},
-    "aws": {
-        "small": (9.0, 36.0),
-        "medium": (108.0, 540.0),
-        "large": (540.0, 2700.0),
-    },
-    "azure": {
-        "small": (9.5, 38.0),
-        "medium": (112.0, 550.0),
-        "large": (550.0, 2750.0),
-    },
     "gcp": {
-        "small": (8.5, 34.0),
-        "medium": (105.0, 525.0),
-        "large": (525.0, 2625.0),
+        # Native billing-catalog THB SKUs, global on-demand, effective 2026-10-13.
+        "gemini-3.1-flash-lite": (8.398, 50.388),
     },
 }
 
@@ -81,9 +70,7 @@ def token_rates(provider: str, model: str) -> tuple[float, float]:
     """THB per 1M input and output tokens. Raises rather than guessing."""
     table = TOKEN_PRICE_TABLE.get(provider.lower())
     if table is None:
-        raise KeyError(
-            f"No token price table for provider {provider!r}. Add it to src/llmcost.py."
-        )
+        raise KeyError(f"No token price table for provider {provider!r}. Add it to src/llmcost.py.")
     if model not in table:
         raise KeyError(
             f"No token rates for {model!r} on {provider}. Known: {sorted(table)}. "
@@ -124,8 +111,7 @@ def output_cap_saving(provider: str, model: str, usage: Usage, capped_output: in
     """THB per 1,000 requests saved by capping output length.
 
     Run this before you optimise anything else. On most assistant workloads it beats both
-    caching and a model downgrade, and unlike a downgrade it cannot change your answers'
-    correctness — only their length.
+    caching and a model downgrade, and check the golden gate: truncation can change correctness or break JSON.
     """
     if capped_output < 0:
         raise ValueError("capped_output must not be negative")
@@ -137,7 +123,14 @@ def output_cap_saving(provider: str, model: str, usage: Usage, capped_output: in
     )
 
 
-def cache_breakeven_hit_rate(provider: str, model: str, prefix_tokens: int) -> float:
+def cache_breakeven_hit_rate(
+    provider: str,
+    model: str,
+    prefix_tokens: int,
+    *,
+    read_factor: float = CACHE_READ_FACTOR,
+    write_factor: float = CACHE_WRITE_FACTOR,
+) -> float:
     """Cache hit rate above which prompt caching starts paying for itself.
 
     Below this, the write surcharge on misses costs more than the reads save. Report it
@@ -146,6 +139,8 @@ def cache_breakeven_hit_rate(provider: str, model: str, prefix_tokens: int) -> f
     if prefix_tokens <= 0:
         raise ValueError("prefix_tokens must be positive")
     token_rates(provider, model)  # validate provider and model early
-    saving_per_hit = 1.0 - CACHE_READ_FACTOR
-    extra_per_miss = CACHE_WRITE_FACTOR - 1.0
+    if not 0 <= read_factor < 1 or write_factor < 1:
+        raise ValueError("Invalid cache tariff factors")
+    saving_per_hit = 1.0 - read_factor
+    extra_per_miss = write_factor - 1.0
     return extra_per_miss / (saving_per_hit + extra_per_miss)

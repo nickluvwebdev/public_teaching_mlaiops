@@ -96,7 +96,7 @@ def test_output_tokens_cost_more_than_input():
 def test_cached_input_is_cheaper_than_fresh_input():
     fresh = llmcost.Usage(input_tokens=1000, output_tokens=100)
     cached = llmcost.Usage(input_tokens=1000, output_tokens=100, cached_input_tokens=900)
-    assert llmcost.request_cost("gcp", "small", cached) < llmcost.request_cost("gcp", "small", fresh)
+    assert llmcost.request_cost("gcp", "gemini-3.1-flash-lite", cached) < llmcost.request_cost("gcp", "gemini-3.1-flash-lite", fresh)
 
 
 def test_cached_tokens_cannot_exceed_input():
@@ -111,10 +111,10 @@ def test_unknown_model_raises_rather_than_guessing():
 
 def test_capping_output_saves_money_and_capping_upward_saves_nothing():
     usage = llmcost.Usage(input_tokens=400, output_tokens=800)
-    assert llmcost.output_cap_saving("gcp", "medium", usage, 200) > 0
-    assert llmcost.output_cap_saving("gcp", "medium", usage, 900) == 0.0
+    assert llmcost.output_cap_saving("gcp", "gemini-3.1-flash-lite", usage, 200) > 0
+    assert llmcost.output_cap_saving("gcp", "gemini-3.1-flash-lite", usage, 900) == 0.0
 
 
 def test_cache_breakeven_is_a_fraction():
-    rate = llmcost.cache_breakeven_hit_rate("gcp", "small", prefix_tokens=2000)
+    rate = llmcost.cache_breakeven_hit_rate("gcp", "gemini-3.1-flash-lite", prefix_tokens=2000)
     assert 0.0 < rate < 1.0

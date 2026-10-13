@@ -35,6 +35,7 @@ def operate(cfg, stage, settings=None):
             "output_key",
             "endpoint",
             "environment",
+            "pipeline_root",
         ]:
             if not settings.get(key):
                 raise ValueError("Missing configuration: " + key)
@@ -43,7 +44,7 @@ def operate(cfg, stage, settings=None):
         job = aiplatform.PipelineJob(
             display_name="itcs355-lab5-" + cfg.project_id,
             template_path=str(Path(__file__).resolve().parents[1] / "pipeline/compiled.json"),
-            pipeline_root=cfg.blob_uri.rstrip("/") + "/lab5/pipeline",
+            pipeline_root=settings["pipeline_root"],
             parameter_values={"configuration": json.dumps(settings)},
             enable_caching=False,
             project=cfg.project_id,
@@ -54,7 +55,7 @@ def operate(cfg, stage, settings=None):
         if not identity or identity == cfg.identity_ref or identity == cfg.serving_identity:
             raise ValueError("A separate orchestrator/CI identity must run the pipeline")
         if stage == "submit":
-            job.submit(service_account=identity)
+            job.submit(service_account=identity, enable_preflight_validations=True)
             return {
                 "pipeline_job": job.resource_name,
                 "note": "Wait, capture evidence, and tear down immediately",

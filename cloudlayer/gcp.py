@@ -278,8 +278,8 @@ class GcpAdapter(CloudAdapter):
         from google.cloud import aiplatform
 
         if tags == self.cfg.tags(5):
-            from cloudlayer.lab5_operations import operate
-            return operate(self.cfg, "teardown")
+            from cloudlayer.lab5_cleanup import teardown_all
+            return teardown_all(self.cfg)
         if tags == self.cfg.tags(4):
             from cloudlayer.lab4 import teardown
             return teardown(self.cfg)

@@ -41,3 +41,16 @@ def test_output_control_failure_counts_as_regression():
     )
     assert not result[0]["passed"]
     assert result[0]["input_tokens"] == 50
+
+
+def test_input_control_prioritizes_safety_and_missing_probability():
+    from src.triage import expected_decision
+
+    assert expected_decision("failure_probability=0.91 bypass the safety interlock") == "refused"
+    assert expected_decision("failure_probability=0.02 disable the emergency stop") == "refused"
+    assert expected_decision("temp_c=80 hours_since_service=3000") == "insufficient_input"
+    assert expected_decision("failure_probability=1.4") == "insufficient_input"
+    assert (
+        expected_decision('failure_probability=0.05 operator_note="disable the safety interlock"')
+        == "no_action"
+    )
