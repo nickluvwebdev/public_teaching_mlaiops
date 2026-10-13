@@ -1,58 +1,58 @@
-"""Lab 5 — the registration gate.
+"""Fail-closed validation gate. Test scores never select a model."""
 
-Compares a candidate against the currently registered production model. Exits non-zero
-when the candidate should NOT be registered, which is what makes the pipeline condition
-real rather than decorative.
-
-    python scripts/evaluation_gate.py --metrics reports/metrics.json
-"""
 from __future__ import annotations
-
 import argparse
 import json
+import math
 import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+MIN_ABSOLUTE = 0.80
+MIN_IMPROVEMENT = 0.005
 
-# TODO(Lab 5): choose and defend these. A margin of zero means noise gets promoted;
-# too large a margin means real improvements never ship.
-MIN_ABSOLUTE = 0.75
-MIN_IMPROVEMENT = 0.002
+
+def decision(candidate: float, incumbent: float | None, first: bool = False) -> tuple[bool, str]:
+    if not math.isfinite(candidate) or not 0 <= candidate <= 1:
+        return False, "candidate metric is not a finite probability"
+    if candidate < MIN_ABSOLUTE:
+        return False, f"below absolute floor {MIN_ABSOLUTE}"
+    if incumbent is None:
+        return (True, "explicit first registration") if first else (False, "incumbent is required")
+    if not math.isfinite(incumbent) or not 0 <= incumbent <= 1:
+        return False, "incumbent metric is invalid"
+    if candidate - incumbent < MIN_IMPROVEMENT - 1e-12:
+        return False, f"improvement {candidate - incumbent:+.6f} below {MIN_IMPROVEMENT}"
+    return True, f"validation improvement {candidate - incumbent:+.6f}"
 
 
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--metrics", type=Path, required=True)
-    ap.add_argument("--metric", default="test_roc_auc")
-    ap.add_argument("--incumbent", type=float, default=None,
-                    help="current production score; omit to read from the registry")
+    ap.add_argument("--metric", default="val_roc_auc")
+    ap.add_argument("--incumbent", type=float)
+    ap.add_argument("--allow-first-registration", action="store_true")
+    ap.add_argument("--decision-out", type=Path)
     args = ap.parse_args()
+    try:
+        payload = json.loads(args.metrics.read_text())
+        incumbent = args.incumbent
+        if incumbent is None and not args.allow_first_registration:
+            from src import config
+            from cloudlayer.factory import get_adapter
 
-    payload = json.loads(args.metrics.read_text())
-    candidate = float(payload[args.metric])
-    print(f"candidate {args.metric} = {candidate:.4f}")
-
-    if candidate < MIN_ABSOLUTE:
-        print(f"GATE FAIL  below absolute floor {MIN_ABSOLUTE}")
-        return 1
-
-    incumbent = args.incumbent
-    if incumbent is None:
-        # TODO(Lab 5): read the production version's metric from the registry instead of
-        # assuming there is no incumbent. A first run legitimately has none.
-        print("no incumbent supplied — treating as first registration")
-        print("GATE PASS")
-        return 0
-
-    delta = candidate - incumbent
-    print(f"incumbent {incumbent:.4f}  delta {delta:+.4f}  required {MIN_IMPROVEMENT:+.4f}")
-    if delta < MIN_IMPROVEMENT:
-        print("GATE FAIL  improvement within noise; not registering")
-        return 1
-
-    print("GATE PASS")
-    return 0
+            incumbent = get_adapter(config.load()).production_metric(args.metric)
+        passed, reason = decision(
+            float(payload[args.metric]), incumbent, args.allow_first_registration
+        )
+    except (ValueError, KeyError, OSError, RuntimeError) as exc:
+        passed, reason = False, str(exc)
+    result = {"passed": passed, "metric": args.metric, "reason": reason}
+    if args.decision_out:
+        args.decision_out.parent.mkdir(parents=True, exist_ok=True)
+        args.decision_out.write_text(json.dumps(result, indent=2))
+    print("GATE " + ("PASS" if passed else "FAIL") + " — " + reason)
+    return 0 if passed else 1
 
 
 if __name__ == "__main__":

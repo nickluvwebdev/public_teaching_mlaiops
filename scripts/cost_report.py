@@ -27,6 +27,8 @@ def main() -> int:
     ap.add_argument("--out", type=Path, default=Path("reports/lab5-cost.md"))
     args = ap.parse_args()
 
+    if args.estimate < 0 or args.actual < 0 or args.rps <= 0:
+        ap.error("Costs must be nonnegative and measured throughput must be positive")
     cfg = config.load(strict=False)
     rate = costs.hourly_rate(cfg.provider, args.instance, spot=args.spot)
     gap = args.actual - args.estimate
@@ -97,7 +99,7 @@ triples p99 is a trade, not a win.
     print(f"wrote {args.out}")
     print(f"gap {gap:+.2f} THB ({gap_pct:+.1f}%)")
     if abs(gap_pct) > 20:
-        print("Gap exceeds 20% — the lab requires your figure to match billing within 20%. "
+        print("Estimate differs by over 20% — explain this forecast gap. The separate report must match actual billing within 20%. "
               "Either the estimate needs work or there is spend you have not accounted for.")
     return 0
 

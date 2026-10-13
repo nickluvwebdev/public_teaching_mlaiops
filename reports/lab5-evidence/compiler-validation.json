@@ -1,0 +1,7 @@
+{
+  "sdk": "kfp==2.17.0",
+  "compiled": true,
+  "submitted": false,
+  "test_image_only": true,
+  "condition": "inputs.parameter_values['pipelinechannel--stage-4-value'] == 'pass'"
+}

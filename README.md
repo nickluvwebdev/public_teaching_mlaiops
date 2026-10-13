@@ -209,3 +209,23 @@ The rolling detector uses the latest 500 accepted prediction rows from the last 
 Run `make teardown LAB=4` with the resource receipt after collecting evidence. Confirm the schedule is gone as well as the serving service and job. Offline tests cannot replace the required failing GitHub run or real alert evidence.
 
 Measured Lab 4 evidence: [results and timestamps](reports/lab4-results.md), [five-line post-mortem](reports/lab4-postmortem.md), [usage/cost disclosure](reports/lab4-cost.md), and [dashboard snapshot](reports/lab4-evidence/injection-dashboard.png). The real alert reached the authorized inbox 200.84 seconds after injection; clean recovery returned PSI from 0.66020 to 0.00495. Final evidence includes the later permission-expiry startup failure, not just the successful exercise. `make teardown` now defaults to Lab 4; use `LAB=2` or `LAB=3` explicitly for earlier labs. `make cost-report` prints the Lab 4 usage disclosure.
+
+## Lab 5 — bounded development and pending cloud evidence
+
+The managed pipeline compiler uses durable artifact URIs between ingest, data validation, bounded Spot training, evaluation, gated registration and staging deployment. Validation AUC must be at least 0.80 and improve on the exact incumbent by 0.005; test scores do not select. The margin exceeds the measured Lab 2 model-seed noise, but does not establish generalisation across new machine populations. A same-data retrain is expected to fail promotion.
+
+| Retraining trigger | Suitable for this machine-failure system | Failure mode |
+|---|---|---|
+| Weekly fixed time | Sunday 02:00 Bangkok, after enough new labelled machine groups pass validation | Wasteful retraining on unchanged data; labels may still be delayed |
+| New-data volume | Retrain after a meaningful number of newly labelled machines, keeping machine-group splits | Repeated rows from a few machines exaggerate volume; label delay stalls training |
+| Drift alert | Starts investigation; retraining only after the change is legitimate and labelled evaluation supports it | A broken Celsius producer triggers drift; automatic retraining would learn corrupted inputs |
+
+Chosen approach: weekly opportunity gated by data freshness/validation and independent promotion evidence; the lab schedule is limited to one run, immediately paused and removed after evidence collection. The current prototype does not yet enforce a new-machine volume threshold automatically, so an operator must verify that prerequisite before enabling a schedule.
+
+Run `python scripts/lab5.py compile` after setting `PIPELINE_IMAGE` to a newly built digest containing the Lab 5 code. Compiler development dependencies are `kfp==2.17.0`; the optional second-provider adapter needs `boto3==1.43.112` in its own environment. These are development SDKs, not changes to the serving image's locked dependencies. `scripts/lab5.py submit --configuration <ignored JSON>` requires a separate orchestration identity, explicit environment/artifact settings, and the 50 THB stop rule. Do not submit a test-only compiled digest.
+
+LLM commands: `make llm-eval` evaluates 12 cases; `make llm-gate` must fail on authored regressions. The advice is JSON only and cannot execute a maintenance action. Operator-note instructions are omitted from the LLM input, and output validation rejects tool-call fields. Fixture reports are offline evidence; live usage and prices are required by the token-cost report.
+
+Status: local implementation and compiler validation are prepared. The real managed positive path, permission-removal test, AWS probe, billing reconciliation, token measurement and console teardown screenshot are pending. See [advance budget](reports/lab5-plan.md), [identity plan](reports/lab5-identities.md), [portability verdict](reports/lab5-portability.md), and [cost evidence status](reports/lab5-cost.md). These gaps must be completed before claiming Lab 5 passes.
+
+A local validation-only preflight found a legitimate candidate: standardized logistic regression scored 0.859642 versus incumbent 0.842600, exceeding the unchanged 0.005 promotion margin. The managed worker uses this configuration; its real run and promotion still require verification. Test scores were not used for this candidate choice.

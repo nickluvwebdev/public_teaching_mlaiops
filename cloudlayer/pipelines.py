@@ -1,67 +1,106 @@
-"""Lab 5 — compile pipeline/pipeline.yaml into your provider's pipeline service.
-
-This module is Layer 3, so provider SDKs are allowed here and nowhere else. The DAG stays
-in YAML; only the translation lives here. That separation is what you argue for or against
-in Lab 5 Task 4.
-
-Implement ONE compile function, for your provider.
-"""
-from __future__ import annotations
+"""Translate the neutral Lab 5 DAG to a real conditional KFP specification."""
 
 import os
+import re
 from pathlib import Path
-from typing import Any
-
 import yaml
 
-SPEC = Path(__file__).resolve().parents[1] / "pipeline" / "pipeline.yaml"
+SPEC = Path(__file__).resolve().parents[1] / "pipeline/pipeline.yaml"
 
 
-def load_spec(path: Path = SPEC) -> dict[str, Any]:
-    """Read the neutral DAG and expand ${VAR} references from the environment."""
-    raw = path.read_text()
-    for key, value in os.environ.items():
-        raw = raw.replace(f"${{{key}}}", value)
-    return yaml.safe_load(raw)
+def load_spec(path=SPEC):
+    raw = os.path.expandvars(path.read_text())
+    unresolved = re.findall(r"\$\{[^}]+\}", raw)
+    if unresolved:
+        raise ValueError("Unresolved pipeline settings: " + ", ".join(unresolved))
+    spec = yaml.safe_load(raw)
+    names = [s["name"] for s in spec["steps"]]
+    if names != ["ingest", "validate", "train", "evaluate", "register", "deploy_staging"]:
+        raise ValueError("Unexpected Lab 5 DAG")
+    if spec["steps"][4].get("condition") != "gate_decision == 'pass'":
+        raise ValueError("Registration must be conditional on gate pass")
+    return spec
 
 
-def compile_aws(spec: dict[str, Any]):
-    """SageMaker Pipelines.
+def compile_gcp(spec):
+    from kfp import compiler, dsl
 
-    Each step becomes a ProcessingStep or TrainingStep; `condition` becomes a
-    ConditionStep. Note that SageMaker's condition steps branch rather than abort, so
-    `on_failure: abort` needs a FailStep on the else branch — an asymmetry worth
-    mentioning in your Lab 5 write-up.
-    """
-    raise NotImplementedError("TODO Lab 5: build a sagemaker.workflow.pipeline.Pipeline")
+    image = spec["steps"][0]["image"]
+    if "@sha256:" not in image:
+        raise ValueError("Pipeline image must be digest pinned")
+
+    @dsl.container_component
+    def stage(
+        name: str,
+        configuration: str,
+        input_value: str,
+        input_info: str,
+        value: dsl.OutputPath(str),
+        info: dsl.OutputPath(str),
+    ):
+        return dsl.ContainerSpec(
+            image=image,
+            command=spec["steps"][0]["command"],
+            args=[
+                "--stage",
+                name,
+                "--configuration",
+                configuration,
+                "--input-value",
+                input_value,
+                "--input-info",
+                input_info,
+                "--value-out",
+                value,
+                "--info-out",
+                info,
+            ],
+        )
+
+    @dsl.pipeline(name=spec["name"])
+    def pipeline(configuration: str):
+        ingest = stage(name="ingest", configuration=configuration, input_value="", input_info="")
+        validate = stage(
+            name="validate",
+            configuration=configuration,
+            input_value=ingest.outputs["value"],
+            input_info="",
+        )
+        train = stage(
+            name="train",
+            configuration=configuration,
+            input_value=validate.outputs["value"],
+            input_info="",
+        )
+        evaluate = stage(
+            name="evaluate",
+            configuration=configuration,
+            input_value=train.outputs["value"],
+            input_info=train.outputs["info"],
+        )
+        with dsl.If(evaluate.outputs["value"] == "pass", name="gate-passed"):
+            register = stage(
+                name="register",
+                configuration=configuration,
+                input_value=train.outputs["value"],
+                input_info=evaluate.outputs["info"],
+            )
+            deploy = stage(
+                name="deploy_staging",
+                configuration=configuration,
+                input_value=register.outputs["value"],
+                input_info="",
+            )
+            deploy.set_caching_options(False)
+        for task in (ingest, validate, train, evaluate, register):
+            task.set_caching_options(False).set_cpu_limit("1").set_memory_limit("1Gi")
+
+    out = SPEC.parent / "compiled.json"
+    compiler.Compiler().compile(pipeline, str(out))
+    return str(out)
 
 
-def compile_azure(spec: dict[str, Any]):
-    """Azure ML Pipelines.
-
-    Each step becomes a command component; the DAG is expressed as a @pipeline function.
-    Conditions use azure.ai.ml.dsl.condition, which is closer to this YAML than the other
-    two providers' equivalents.
-    """
-    raise NotImplementedError("TODO Lab 5: build an azure.ai.ml pipeline job")
-
-
-def compile_gcp(spec: dict[str, Any]):
-    """Vertex AI Pipelines.
-
-    Kubeflow Pipelines underneath: steps become container components, conditions become
-    dsl.If blocks. The compiled artifact is a JSON file you submit, so your build step
-    produces a file rather than an object — different from the other two.
-    """
-    raise NotImplementedError("TODO Lab 5: compile a KFP pipeline and submit to Vertex")
-
-
-COMPILERS = {"aws": compile_aws, "azure": compile_azure, "gcp": compile_gcp}
-
-
-def compile_for(provider: str, spec: dict[str, Any] | None = None):
-    spec = spec or load_spec()
-    try:
-        return COMPILERS[provider.lower()](spec)
-    except KeyError:
-        raise ValueError(f"No pipeline compiler for {provider!r}") from None
+def compile_for(provider, spec=None):
+    if provider != "gcp":
+        raise NotImplementedError("Only the primary provider's managed pipeline is implemented")
+    return compile_gcp(spec or load_spec())

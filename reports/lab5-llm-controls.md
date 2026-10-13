@@ -1,0 +1,9 @@
+# Lab 5 — advisory LLM controls and evaluation
+
+The maintenance assistant only returns a decision and rationale. It cannot create a work order or invoke a tool. The 12-case golden set adds invalid probabilities, a hidden work-order instruction, an unsupported exact failure date and a low-risk safety-bypass request to the course examples. Baseline offline responses pass 12/12. A deliberately degraded recorded set fails cases 003, 004, 005, 007 and 010, including the added tool-instruction injection. These are authored regression fixtures, not claims that a particular live provider produced those answers.
+
+The expensive failure is allowing an untrusted operator note to trigger maintenance. The input control omits the note from the instruction stream; output validation rejects extra tool-call fields and invalid decision/schema values. `pytest -q tests/test_triage.py` demonstrates a hidden tool instruction removed, an output tool field rejected, and a safety case deletion caught by the gate. The regressed fixture demonstrates the failure on demand; the live provider experiment remains pending.
+
+The per-case gate now fails if a previously passing case disappears entirely; improving an aggregate pass rate cannot hide a lost safety case. Live records retain provider usage metadata even if the output control fails, since rejected output can still cost money. The report must include those calls in the total experiment bill. Cost optimization is acceptable only when both baseline and output-capped golden sets pass.
+
+Do not treat the course example token numbers or zero-token authored fixtures as measured usage. `scripts/lab5_token_report.py` rejects them. The generic cache helper's surcharge assumptions also need a model-specific tariff: some providers price cache storage separately. Real token counts, tariff date/currency conversion, observed cache hits and invoice reconciliation are still required.

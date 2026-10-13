@@ -27,3 +27,6 @@ __pycache__/
 # Lab 2 synchronized tracking snapshots
 reports/*.db
 reports/*.db-*
+
+# Generated KFP spec can contain private runtime settings; compile locally.
+/pipeline/compiled.json

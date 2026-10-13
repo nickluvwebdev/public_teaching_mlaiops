@@ -18,7 +18,7 @@ import pytest
 
 from src import config, data
 
-RAW = config.REPO_ROOT / "data" / "raw" / "sensors.csv"
+RAW = config.load(strict=False).raw_path
 
 
 @pytest.fixture(scope="module")

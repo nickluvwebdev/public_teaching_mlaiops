@@ -1,55 +1,70 @@
-# Lab 5 — pipeline as a neutral DAG.
-#
-# This file describes WHAT runs. cloudlayer/pipelines.py compiles it into SageMaker
-# Pipelines, Azure ML Pipelines, or Vertex AI Pipelines. Keeping the DAG here rather than
-# in provider SDK calls is what makes the pipeline portable, and it is why every step is
-# a container rather than a function.
-
 name: itcs355-training-pipeline
-schedule: "0 2 * * 0"          # TODO(Lab 5): justify this in your README, or change it
-
+schedule: TZ=Asia/Bangkok 0 2 * * 0
 steps:
-  - name: ingest
-    image: "${CONTAINER_REGISTRY}/itcs355:${IMAGE_TAG}"
-    command: ["python", "scripts/make_dataset.py"]
-    outputs: [raw_data]
-
-  - name: validate
-    image: "${CONTAINER_REGISTRY}/itcs355:${IMAGE_TAG}"
-    command: ["pytest", "-q", "tests/test_data.py"]
-    depends_on: [ingest]
-    on_failure: abort
-    # Aborting here is the point. A pipeline that trains on data failing its own contract
-    # produces a model nobody should trust, and it will do so silently.
-
-  - name: train
-    image: "${CONTAINER_REGISTRY}/itcs355:${IMAGE_TAG}"
-    command: ["python", "-m", "src.train", "--metrics-out", "/outputs/metrics.json"]
-    depends_on: [validate]
-    instance: "${TRAIN_INSTANCE}"
-    spot: true
-    outputs: [model, metrics]
-
-  - name: evaluate
-    image: "${CONTAINER_REGISTRY}/itcs355:${IMAGE_TAG}"
-    command: ["python", "scripts/evaluation_gate.py", "--metrics", "/outputs/metrics.json"]
-    depends_on: [train]
-    outputs: [gate_decision]
-
-  - name: register
-    image: "${CONTAINER_REGISTRY}/itcs355:${IMAGE_TAG}"
-    command: ["python", "scripts/register.py"]
-    depends_on: [evaluate]
-    condition: "gate_decision == 'pass'"
-    # TODO(Lab 5): a pipeline that registers unconditionally has no gate. The condition
-    # must be real, and the grader will try to make it fail.
-
-  - name: deploy_staging
-    image: "${CONTAINER_REGISTRY}/itcs355:${IMAGE_TAG}"
-    command: ["python", "scripts/deploy.py", "--target", "staging"]
-    depends_on: [register]
-
+- name: ingest
+  image: ${PIPELINE_IMAGE}
+  command:
+  - python
+  - -m
+  - cloudlayer.lab5_stage
+  outputs:
+  - raw_data
+  stage: ingest
+- name: validate
+  image: ${PIPELINE_IMAGE}
+  command:
+  - python
+  - -m
+  - cloudlayer.lab5_stage
+  depends_on:
+  - ingest
+  on_failure: abort
+  stage: validate
+- name: train
+  image: ${PIPELINE_IMAGE}
+  command:
+  - python
+  - -m
+  - cloudlayer.lab5_stage
+  depends_on:
+  - validate
+  instance: n1-standard-4
+  spot: true
+  outputs:
+  - model
+  - metrics
+  stage: train
+- name: evaluate
+  image: ${PIPELINE_IMAGE}
+  command:
+  - python
+  - -m
+  - cloudlayer.lab5_stage
+  depends_on:
+  - train
+  outputs:
+  - gate_decision
+  stage: evaluate
+- name: register
+  image: ${PIPELINE_IMAGE}
+  command:
+  - python
+  - -m
+  - cloudlayer.lab5_stage
+  depends_on:
+  - evaluate
+  condition: gate_decision == 'pass'
+  stage: register
+- name: deploy_staging
+  image: ${PIPELINE_IMAGE}
+  command:
+  - python
+  - -m
+  - cloudlayer.lab5_stage
+  depends_on:
+  - register
+  stage: deploy_staging
 tags:
   course: itcs355
-  student: "${PROJECT_ID}"
-  lab: "5"
+  student: ${PROJECT_ID}
+  lab: '5'

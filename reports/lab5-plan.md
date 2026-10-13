@@ -19,3 +19,7 @@ Promotion uses validation AUC, never selection by test score. Absolute floor 0.8
 Choose Sunday 02:00 Asia/Bangkok retraining only after sufficient new labelled machine groups and upstream validation; create a paused schedule for evidence and delete it after the exercise. Fixed timing alone cannot justify training on corrupt or unlabelled drifted inputs.
 
 Pending external prerequisites: AWS or Azure credentials for the real second-provider probe, access to actual billing data, and confirmation of available managed pipeline/LLM model access. Offline fixtures and mocked adapter tests are development evidence, not proof of cloud deployment or token usage.
+
+## Local candidate exploration after the plan commit
+
+A single standardized logistic-regression candidate (C=1, max_iter=1000) achieved 0.859642 validation AUC versus the incumbent's 0.842600 on the same machine-group split. The difference 0.017042 exceeds the predeclared 0.005 margin. No test metric was consulted for this choice. The managed worker now trains this candidate; it must still reproduce a passing metric in the real pipeline. The earlier same-configuration retrain remains a useful rejected-gate case. This is local development evidence, not managed-pipeline completion.

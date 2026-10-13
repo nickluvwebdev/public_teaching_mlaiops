@@ -1,36 +1,52 @@
-"""AWS adapter. Implement upload/download/push_image for Lab 1.
+"""Lab 5 second-provider seam: S3 storage and authenticated model invocation."""
 
-SDK:  pip install boto3
-Docs: S3 -> boto3 client("s3"); ECR -> boto3 client("ecr") for the auth token,
-      then `docker push` through subprocess.
-
-Hints for Lab 1:
-  * BLOB_URI looks like s3://bucket/prefix — parse it here, never in src/.
-  * ECR login expires. If a push that worked yesterday fails today, re-authenticate:
-        aws ecr get-login-password --region $REGION | docker login --username AWS \
-            --password-stdin <account>.dkr.ecr.<region>.amazonaws.com
-  * Return the DIGEST reference from push_image, not the tag. `docker inspect` or the
-    push output gives you the sha256.
-  * Tag the bucket objects and the ECR repository with cfg.tags(1).
-"""
 from __future__ import annotations
-
-
+import json
+from pathlib import Path
+from urllib.parse import urlparse
 from cloudlayer.base import CloudAdapter
 
 
+def location(uri):
+    parsed = urlparse(uri)
+    if parsed.scheme != "s3" or not parsed.netloc:
+        raise ValueError("Second-provider storage requires an s3:// bucket URI")
+    return parsed.netloc, parsed.path.lstrip("/")
+
+
 class AwsAdapter(CloudAdapter):
+    def client(self, service):
+        import boto3
+
+        return boto3.client(service, region_name=self.cfg.region)
+
     def upload(self, local_path: str, key: str) -> str:
-        raise NotImplementedError("TODO Lab 1: put_object into BLOB_URI, return the s3:// URI")
+        bucket, prefix = location(self.cfg.blob_uri)
+        object_key = "/".join(x.strip("/") for x in (prefix, key) if x)
+        if any(x == ".." for x in object_key.split("/")):
+            raise ValueError("Unsafe object key")
+        self.client("s3").upload_file(local_path, bucket, object_key)
+        return f"s3://{bucket}/{object_key}"
 
     def download(self, uri: str, local_path: str) -> None:
-        raise NotImplementedError("TODO Lab 1: download_file, creating parent directories")
+        bucket, key = location(uri)
+        path = Path(local_path)
+        path.parent.mkdir(parents=True, exist_ok=True)
+        self.client("s3").download_file(bucket, key, str(path))
+
+    def invoke(self, endpoint: str, payload: dict) -> dict:
+        response = self.client("sagemaker-runtime").invoke_endpoint(
+            EndpointName=endpoint,
+            ContentType="application/json",
+            Accept="application/json",
+            Body=json.dumps(payload).encode(),
+        )
+        result = json.loads(response["Body"].read())
+        if not isinstance(result, dict) or "model_version" not in result:
+            raise ValueError("Second-provider response violates the versioned service contract")
+        return result
 
     def push_image(self, local_tag: str) -> str:
-        raise NotImplementedError("TODO Lab 1: authenticate to ECR, push, return repo@sha256:...")
-
-    # submit_training / register_model  -> Lab 2 (SageMaker training job + model package group)
-    # deploy / invoke                   -> Lab 3 (SageMaker real-time endpoint)
-    # emit_metric                       -> Lab 4 (CloudWatch put_metric_data)
-    # generate                          -> Lab 5 (managed LLM endpoint; read the usage block for tokens)
-    # teardown                          -> Lab 5 (resourcegroupstaggingapi to find by tag)
+        raise NotImplementedError(
+            "Only upload, download and invoke are implemented for the second provider"
+        )

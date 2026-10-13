@@ -10,7 +10,7 @@ fixtures/   recorded responses, so the harness runs offline, free, and determini
 Run it:
 
 ```bash
-make llm-eval     # 8 cases against the baseline fixture — everything passes
+make llm-eval     # 12 cases against the baseline fixture — everything passes
 make llm-gate     # the same cases against a degraded set — fails, on purpose
 ```
 
@@ -55,3 +55,5 @@ treated as data), and **insufficient input** (the right answer is "I cannot answ
 
 A golden set that has never failed has not been tested. Break something on purpose and
 confirm the gate catches it before you trust it.
+
+The added Lab 5 cases and authored fixtures are offline development evidence. Provider usage must be recorded by a live run before pricing the token bill.

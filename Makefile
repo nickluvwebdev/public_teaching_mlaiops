@@ -6,7 +6,7 @@ IMAGE ?= itcs355-lab1
 TAG   ?= $(shell git rev-parse --short HEAD 2>/dev/null || echo dev)
 PLATFORM ?= linux/amd64
 SEED ?= 20260101
-LAB ?= 4
+LAB ?= 5
 
 .PHONY: help setup cloud-check data test portability-audit train image image-push reproduce verify clean teardown \
         tune compare reload-check serve serve-image loadtest drift inject-drift pipeline cost swap-check llm-eval llm-gate
@@ -123,7 +123,9 @@ swap-check: ## Prove the portability seam against a second provider
 
 .PHONY: cost-report
 cost-report: ## Render the current lab cost evidence
-ifeq ($(LAB),4)
+ifeq ($(LAB),5)
+	@cat reports/lab5-cost.md
+else ifeq ($(LAB),4)
 	@cat reports/lab4-cost.md
 else ifeq ($(LAB),3)
 	python scripts/lab3_report.py

@@ -36,6 +36,7 @@ RUN chown runner:runner /app
 COPY --chown=runner:runner src/ ./src/
 COPY --chown=runner:runner cloudlayer/ ./cloudlayer/
 COPY --chown=runner:runner scripts/ ./scripts/
+COPY --chown=runner:runner tests/ ./tests/
 
 ARG SOURCE_COMMIT=unknown
 LABEL org.opencontainers.image.revision=$SOURCE_COMMIT

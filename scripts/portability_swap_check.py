@@ -1,74 +1,66 @@
-"""Lab 5 Task 4 — prove the portability seam is real.
-
-    python scripts/portability_swap_check.py --second-provider gcp
-
-Exercises upload, download, and invoke against a SECOND provider's adapter. You are not
-migrating the whole system; you are proving the seam exists.
-
-If this fails while `make portability-audit` passes, you have found something worth
-writing about: the leak was in configuration or in an assumption, not in an import.
-"""
-from __future__ import annotations
+"""Real storage roundtrip and versioned prediction through a second adapter."""
 
 import argparse
+from dataclasses import replace
+import hashlib
+import json
+from pathlib import Path
 import sys
 import tempfile
-from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-
 from cloudlayer.factory import get_adapter
 from src import config
 
 
-def main() -> int:
+def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--second-provider", required=True, choices=["aws", "azure", "gcp"])
-    args = ap.parse_args()
-
-    primary = config.load(strict=False)
-    if primary.provider == args.second_provider:
-        print("The second provider must differ from CLOUD_PROVIDER.")
-        return 1
-
-    print(f"primary   {primary.provider}")
-    print(f"secondary {args.second_provider}\n")
-
-    # Same Config object, different adapter. If your code needs more than this to switch,
-    # say so in the write-up — that IS the finding.
-    swapped = config.Config(**{**primary.__dict__, "provider": args.second_provider})
-    adapter = get_adapter(swapped)
-
-    results: dict[str, str] = {}
+    ap.add_argument("--blob-uri", required=True)
+    ap.add_argument("--region", required=True)
+    ap.add_argument("--endpoint", required=True)
+    ap.add_argument("--version", required=True)
+    ap.add_argument("--out", type=Path, default=Path("reports/lab5-evidence/second-provider.json"))
+    a = ap.parse_args()
+    cfg = config.load(strict=False)
+    if cfg.provider == a.second_provider:
+        raise ValueError("Second provider must differ from primary")
+    adapter = get_adapter(
+        replace(cfg, provider=a.second_provider, blob_uri=a.blob_uri, region=a.region)
+    )
     with tempfile.TemporaryDirectory() as tmp:
-        probe = Path(tmp) / "probe.txt"
-        probe.write_text("itcs355 portability probe\n")
-
-        for name, call in (
-            ("upload", lambda: adapter.upload(str(probe), "portability/probe.txt")),
-            ("download", lambda: adapter.download(
-                f"{swapped.blob_uri}/portability/probe.txt", str(Path(tmp) / "back.txt"))),
-            ("invoke", lambda: adapter.invoke(swapped.project_id, {"rows": []})),
-        ):
-            try:
-                call()
-                results[name] = "PASS"
-            except NotImplementedError:
-                results[name] = "NOT IMPLEMENTED"
-            except Exception as exc:
-                results[name] = f"FAIL — {type(exc).__name__}: {exc}"
-
-    for name, outcome in results.items():
-        print(f"  [{outcome.split(' —')[0]:<16}] {name}  {outcome.partition('— ')[2]}")
-
-    print("\nWrite-up (Lab 5 Task 4), half a page:")
-    print("  - which method was hardest to port, and why")
-    print("  - one place the abstraction genuinely leaked and could not be hidden")
-    print("  - what a full migration would cost in engineering days")
-    print("  - was building this abstraction worth it? A well-argued 'no' scores full marks.")
-
-    return 0 if all(v == "PASS" for v in results.values()) else 1
+        source = Path(tmp) / "probe.json"
+        source.write_text(
+            json.dumps(
+                {
+                    "temp_c": 78.4,
+                    "vibration_mm_s": 3.1,
+                    "pressure_kpa": 315.2,
+                    "hours_since_service": 4200,
+                    "load_pct": 68,
+                    "ambient_humidity": 55,
+                }
+            )
+        )
+        uri = adapter.upload(str(source), "portability/probe.json")
+        restored = Path(tmp) / "downloaded.json"
+        adapter.download(uri, str(restored))
+        assert source.read_bytes() == restored.read_bytes(), "storage roundtrip changed bytes"
+        response = adapter.invoke(a.endpoint, json.loads(restored.read_text()))
+        assert response["model_version"] == a.version
+        assert 0 <= float(response["probability"]) <= 1
+        result = {
+            "primary": cfg.provider,
+            "secondary": a.second_provider,
+            "uri": uri,
+            "sha256": hashlib.sha256(source.read_bytes()).hexdigest(),
+            "response": response,
+            "proof": "real SDK calls; byte roundtrip and exact model version checked",
+        }
+    a.out.parent.mkdir(parents=True, exist_ok=True)
+    a.out.write_text(json.dumps(result, indent=2))
+    print(a.out)
 
 
 if __name__ == "__main__":
-    raise SystemExit(main())
+    main()

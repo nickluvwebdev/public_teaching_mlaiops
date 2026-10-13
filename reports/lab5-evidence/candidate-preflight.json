@@ -1,0 +1,12 @@
+{
+  "mode": "local_validation_only",
+  "managed_training": false,
+  "candidate": "standardized_logistic_regression",
+  "C": 1.0,
+  "split_seed": 20260101,
+  "validation_auc": 0.8596420009344434,
+  "incumbent_validation_auc": 0.84259989736441,
+  "improvement": 0.01704210357003344,
+  "required_margin": 0.005,
+  "test_metric_used_for_selection": false
+}

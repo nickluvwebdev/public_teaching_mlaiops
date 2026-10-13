@@ -1,0 +1,1 @@
+PORTABILITY AUDIT PASSED — src, service, monitoring, tests contain no provider-specific strings

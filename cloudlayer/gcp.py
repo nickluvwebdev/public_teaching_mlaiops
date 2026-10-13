@@ -106,14 +106,15 @@ class GcpAdapter(CloudAdapter):
             "SOURCE_COMMIT": args["git_commit"],
             "DATA_VERSION": args.get("data_version", ""),
             "IMAGE_DIGEST": image_uri,
+            "LAB5_RUN_ID": args.get("run_id", ""),
             "MLFLOW_TRACKING_URI": args.get("tracking_uri", "sqlite:////tmp/mlflow.db"),
         }
         job = aiplatform.CustomJob(
-            display_name="itcs355-lab2",
+            display_name=f"itcs355-lab{args.get('lab', 2)}",
             project=self.cfg.project_id, location=self.cfg.region,
             staging_bucket=self.cfg.blob_uri,
             base_output_dir=f"{self.cfg.blob_uri.rstrip('/')}/{output_key}",
-            labels=self.cfg.tags(2),
+            labels=self.cfg.tags(args.get("lab", 2)),
             worker_pool_specs=[{
                 "machine_spec": {"machine_type": args.get("machine_type", "n1-standard-4")},
                 "replica_count": 1,
@@ -205,7 +206,7 @@ class GcpAdapter(CloudAdapter):
         if not count:
             raise FileNotFoundError(uri)
 
-    def register_model(self, model_uri: str, name: str) -> str:
+    def register_model(self, model_uri: str, name: str, lab: int = 2) -> str:
         import json
         import tempfile
         from pathlib import Path
@@ -235,7 +236,7 @@ class GcpAdapter(CloudAdapter):
             serving_container_predict_route="/predict", serving_container_health_route="/health",
             project=self.cfg.project_id, location=self.cfg.region,
             parent_model=existing[0].resource_name if existing else None,
-            labels={**self.cfg.tags(2), "git_commit": lineage["git_commit"],
+            labels={**self.cfg.tags(lab), "git_commit": lineage["git_commit"],
                     "mlflow_run_id": lineage["mlflow_run_id"]},
             version_description=json.dumps(lineage, sort_keys=True),
             version_aliases=["candidate"], is_default_version=not existing, sync=True,
@@ -276,6 +277,9 @@ class GcpAdapter(CloudAdapter):
         """Cancel active matching training jobs; preserve registry, artifacts and evidence."""
         from google.cloud import aiplatform
 
+        if tags == self.cfg.tags(5):
+            from cloudlayer.lab5_operations import operate
+            return operate(self.cfg, "teardown")
         if tags == self.cfg.tags(4):
             from cloudlayer.lab4 import teardown
             return teardown(self.cfg)
@@ -306,4 +310,26 @@ class GcpAdapter(CloudAdapter):
     def emit_metric(self, name: str, value: float, unit: str = "None") -> None:
         from cloudlayer.gcp_monitoring import emit
         emit(self.cfg, name, value, unit)
-    # generate                          -> Lab 5 (managed LLM endpoint; read usageMetadata for tokens)
+    def production_metric(self, metric: str) -> float:
+        import json
+        import os
+        from google.cloud import aiplatform
+        version = os.environ.get("INCUMBENT_VERSION", "1")
+        if not version.isdigit():
+            raise ValueError("Incumbent requires an exact numeric registry version")
+        name = self.cfg.model_registry_name
+        if not name.startswith("projects/"):
+            matches = aiplatform.Model.list(filter=f'display_name="{name}"',
+                project=self.cfg.project_id, location=self.cfg.region)
+            if len(matches) != 1:
+                raise ValueError("Incumbent name must resolve to exactly one registry model")
+            name = matches[0].resource_name
+        model = aiplatform.Model(name, version=version,
+            project=self.cfg.project_id, location=self.cfg.region)
+        lineage = json.loads(model.version_description)
+        key = {"val_roc_auc": "metric_val", "test_roc_auc": "metric_test"}[metric]
+        return float(lineage[key])
+
+    def generate(self, prompt: str, options: dict) -> dict:
+        from cloudlayer.gcp_llm import generate
+        return generate(self.cfg, prompt, options)

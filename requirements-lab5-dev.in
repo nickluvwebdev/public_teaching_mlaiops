@@ -1,0 +1,3 @@
+# Optional development SDKs; keep separate from the production runtime lock.
+kfp==2.17.0
+boto3==1.43.112

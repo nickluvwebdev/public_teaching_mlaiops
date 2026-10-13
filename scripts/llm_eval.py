@@ -104,6 +104,8 @@ def score(golden: list[dict], responses: list[dict]) -> list[dict]:
         text = got.get("response", "")
         failures = [why for check in case.get("checks", [])
                     for ok, why in [check_one(check, text)] if not ok]
+        if got.get("control_error"):
+            failures.append("output control: " + got["control_error"])
         results.append({
             "id": cid,
             "passed": not failures,
@@ -141,7 +143,8 @@ def summarise(results: list[dict], provider: str, model: str) -> dict:
         "p95_latency_ms": percentile([r.get("latency_ms", 0) for r in results], 95),
         "avg_input_tokens": avg.input_tokens,
         "avg_output_tokens": avg.output_tokens,
-        "thb_per_1k_requests": round(llmcost.cost_per_1k_requests(provider, model, avg), 4),
+        "thb_per_1k_requests": None,
+        "cost_status": "Actual cost requires provider usage records and verified model-specific rates",
         "results": results,
     }
 
@@ -152,7 +155,7 @@ def gate(report: dict, baseline_path: Path) -> int:
     was = {r["id"]: r["passed"] for r in baseline.get("results", [])}
     now = {r["id"]: r["passed"] for r in report.get("results", [])}
 
-    regressions = sorted(cid for cid, ok in now.items() if was.get(cid) and not ok)
+    regressions = sorted(cid for cid, ok in was.items() if ok and not now.get(cid, False))
     fixed = sorted(cid for cid, ok in now.items() if ok and was.get(cid) is False)
 
     print(f"\nbaseline pass rate  {baseline.get('pass_rate')}")
@@ -162,7 +165,7 @@ def gate(report: dict, baseline_path: Path) -> int:
     if regressions:
         print(f"\nGATE FAILED — {len(regressions)} regression(s): {', '.join(regressions)}")
         for cid in regressions:
-            for why in next(r for r in report["results"] if r["id"] == cid)["failures"]:
+            for why in next((r for r in report["results"] if r["id"] == cid), {"failures":["case removed from current golden set"]})["failures"]:
                 print(f"    {cid}: {why}")
         return 1
     print("\nGATE PASSED — no case that passed before fails now")
@@ -179,17 +182,21 @@ def main() -> int:
     ap.add_argument("--provider", default="gcp")
     ap.add_argument("--model", default="small")
     ap.add_argument("--out", type=Path, default=ROOT / "reports" / "llm_eval.json")
+    ap.add_argument("--max-output-tokens", type=int, default=200)
     ap.add_argument("--baseline", type=Path,
                     help="a previous report; fail if any case regresses against it")
     args = ap.parse_args()
 
     golden = read_jsonl(args.golden)
     if args.live:
-        responses = generate_live(golden)
+        responses = generate_live(golden, args.max_output_tokens)
     else:
         responses = read_jsonl(args.responses)
 
     report = summarise(score(golden, responses), args.provider, args.model)
+    report["evidence_mode"] = "live_provider" if args.live else "offline_fixture"
+    report["recorded_responses"] = responses
+
 
     print(f"golden set  {args.golden.name}  ({report['cases']} cases)")
     for r in report["results"]:
@@ -200,8 +207,7 @@ def main() -> int:
     print(f"\npass rate           {report['passed']}/{report['cases']}"
           f"  ({report['pass_rate'] * 100:.1f}%)")
     print(f"p95 latency         {report['p95_latency_ms']} ms")
-    print(f"cost per 1k reqs    {report['thb_per_1k_requests']} THB"
-          f"  ({report['provider']}/{report['model']})")
+    print("actual token cost   pending provider usage and verified model tariff")
 
     args.out.parent.mkdir(parents=True, exist_ok=True)
     args.out.write_text(json.dumps(report, indent=2) + "\n")
@@ -212,8 +218,8 @@ def main() -> int:
     return 0
 
 
-def generate_live(golden: list[dict]) -> list[dict]:
-    """TODO(Lab 5): route each prompt through your adapter's `generate`.
+def generate_live(golden: list[dict], max_output_tokens: int = 200) -> list[dict]:
+    """Route each prompt through the adapter and retain real usage fields.
 
     Record input_tokens, output_tokens and latency_ms from the provider's own usage
     fields — do not estimate them by counting words. Every provider tokenises
@@ -225,7 +231,7 @@ def generate_live(golden: list[dict]) -> list[dict]:
     adapter = get_adapter(config.load())
     rows = []
     for case in golden:
-        result = adapter.generate(case["prompt"], {"max_output_tokens": 200})
+        result = adapter.generate(case["prompt"], {"max_output_tokens": max_output_tokens})
         rows.append({"id": case["id"], **result})
     return rows
 
