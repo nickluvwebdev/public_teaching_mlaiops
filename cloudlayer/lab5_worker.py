@@ -62,6 +62,10 @@ def main():
         }
         (artifact / "lineage.json").write_text(json.dumps(lineage, indent=2))
         (artifact / "metrics.json").write_text(json.dumps(metrics))
+        scaler, classifier = model.steps[0][1], model.steps[1][1]
+        (artifact / "portable-weights.json").write_text(json.dumps({
+            "features": data.FEATURES, "mean": scaler.mean_.tolist(), "scale": scaler.scale_.tolist(),
+            "coefficients": classifier.coef_[0].tolist(), "intercept": float(classifier.intercept_[0])}))
         manifest = {
             f.relative_to(artifact).as_posix(): hashlib.sha256(f.read_bytes()).hexdigest()
             for f in artifact.rglob("*")

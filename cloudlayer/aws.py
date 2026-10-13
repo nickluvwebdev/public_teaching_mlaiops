@@ -35,13 +35,23 @@ class AwsAdapter(CloudAdapter):
         self.client("s3").download_file(bucket, key, str(path))
 
     def invoke(self, endpoint: str, payload: dict) -> dict:
-        response = self.client("sagemaker-runtime").invoke_endpoint(
-            EndpointName=endpoint,
-            ContentType="application/json",
-            Accept="application/json",
-            Body=json.dumps(payload).encode(),
-        )
-        result = json.loads(response["Body"].read())
+        if endpoint.startswith("lambda:"):
+            response = self.client("lambda").invoke(
+                FunctionName=endpoint.removeprefix("lambda:"),
+                InvocationType="RequestResponse",
+                Payload=json.dumps(payload).encode(),
+            )
+            result = json.loads(response["Payload"].read())
+            if response.get("FunctionError"):
+                raise RuntimeError("Second-provider function failed: " + json.dumps(result))
+        else:
+            response = self.client("sagemaker-runtime").invoke_endpoint(
+                EndpointName=endpoint,
+                ContentType="application/json",
+                Accept="application/json",
+                Body=json.dumps(payload).encode(),
+            )
+            result = json.loads(response["Body"].read())
         if not isinstance(result, dict) or "model_version" not in result:
             raise ValueError("Second-provider response violates the versioned service contract")
         return result
