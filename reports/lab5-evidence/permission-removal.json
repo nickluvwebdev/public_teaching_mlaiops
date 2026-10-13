@@ -1,0 +1,9 @@
+{
+  "identity": "itcs355-serving@itcs355-6688058.iam.gserviceaccount.com",
+  "permission": "aiplatform.models.get",
+  "before_status": 200,
+  "removed_status": 403,
+  "restored_status": 200,
+  "restoration_delayed_by_iam_propagation": true,
+  "fresh_impersonated_requests": true
+}

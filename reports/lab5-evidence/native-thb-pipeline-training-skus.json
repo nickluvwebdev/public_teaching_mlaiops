@@ -1,0 +1,2162 @@
+[
+  {
+    "name": "services/C7E2-9256-1C43/skus/005E-FD8E-1DA0",
+    "skuId": "005E-FD8E-1DA0",
+    "description": "Vertex AI: Training/Pipelines on G2 Instance Ram running in Singapore",
+    "category": {
+      "serviceDisplayName": "Vertex AI",
+      "resourceFamily": "ApplicationServices",
+      "resourceGroup": "AiPlatform",
+      "usageType": "OnDemand"
+    },
+    "serviceRegions": [
+      "asia-southeast1"
+    ],
+    "pricingInfo": [
+      {
+        "summary": "",
+        "pricingExpression": {
+          "usageUnit": "GiBy.h",
+          "displayQuantity": 1,
+          "tieredRates": [
+            {
+              "startUsageAmount": 0,
+              "unitPrice": {
+                "currencyCode": "THB",
+                "units": "0",
+                "nanos": 139520803
+              }
+            }
+          ],
+          "usageUnitDescription": "gibibyte hour",
+          "baseUnit": "By.s",
+          "baseUnitDescription": "byte second",
+          "baseUnitConversionFactor": 3865470566400
+        },
+        "currencyConversionRate": 33.59250000047878,
+        "effectiveTime": "2026-10-13T07:00:00Z"
+      }
+    ],
+    "serviceProviderName": "Google",
+    "geoTaxonomy": {
+      "type": "REGIONAL",
+      "regions": [
+        "asia-southeast1"
+      ]
+    }
+  },
+  {
+    "name": "services/C7E2-9256-1C43/skus/0108-E63C-0CF5",
+    "skuId": "0108-E63C-0CF5",
+    "description": "Vertex AI: Training/Pipelines on NVIDIA H100 MEGA 80GB in Singapore",
+    "category": {
+      "serviceDisplayName": "Vertex AI",
+      "resourceFamily": "ApplicationServices",
+      "resourceGroup": "AiPlatform",
+      "usageType": "OnDemand"
+    },
+    "serviceRegions": [
+      "asia-southeast1"
+    ],
+    "pricingInfo": [
+      {
+        "summary": "",
+        "pricingExpression": {
+          "usageUnit": "h",
+          "displayQuantity": 1,
+          "tieredRates": [
+            {
+              "startUsageAmount": 0,
+              "unitPrice": {
+                "currencyCode": "THB",
+                "units": "519",
+                "nanos": 497733202
+              }
+            }
+          ],
+          "usageUnitDescription": "hour",
+          "baseUnit": "s",
+          "baseUnitDescription": "second",
+          "baseUnitConversionFactor": 3600
+        },
+        "currencyConversionRate": 33.59250000047878,
+        "effectiveTime": "2026-10-13T07:00:00Z"
+      }
+    ],
+    "serviceProviderName": "Google",
+    "geoTaxonomy": {
+      "type": "REGIONAL",
+      "regions": [
+        "asia-southeast1"
+      ]
+    }
+  },
+  {
+    "name": "services/C7E2-9256-1C43/skus/051E-0A10-19B0",
+    "skuId": "051E-0A10-19B0",
+    "description": "Vertex AI: Training/Pipelines on Storage PD Capacity in Singapore",
+    "category": {
+      "serviceDisplayName": "Vertex AI",
+      "resourceFamily": "ApplicationServices",
+      "resourceGroup": "AiPlatform",
+      "usageType": "OnDemand"
+    },
+    "serviceRegions": [
+      "asia-southeast1"
+    ],
+    "pricingInfo": [
+      {
+        "summary": "",
+        "pricingExpression": {
+          "usageUnit": "GiBy.mo",
+          "displayQuantity": 1,
+          "tieredRates": [
+            {
+              "startUsageAmount": 0,
+              "unitPrice": {
+                "currencyCode": "THB",
+                "units": "1",
+                "nanos": 699780500
+              }
+            }
+          ],
+          "usageUnitDescription": "gibibyte month",
+          "baseUnit": "By.s",
+          "baseUnitDescription": "byte second",
+          "baseUnitConversionFactor": 2875910101401600.0
+        },
+        "currencyConversionRate": 33.59250000047878,
+        "effectiveTime": "2026-10-13T07:00:00Z"
+      }
+    ],
+    "serviceProviderName": "Google",
+    "geoTaxonomy": {
+      "type": "REGIONAL",
+      "regions": [
+        "asia-southeast1"
+      ]
+    }
+  },
+  {
+    "name": "services/C7E2-9256-1C43/skus/0C5A-6A39-6120",
+    "skuId": "0C5A-6A39-6120",
+    "description": "Vertex AI: Training/Pipelines on Nvidia L4 GPU running in Singapore",
+    "category": {
+      "serviceDisplayName": "Vertex AI",
+      "resourceFamily": "ApplicationServices",
+      "resourceGroup": "AiPlatform",
+      "usageType": "OnDemand"
+    },
+    "serviceRegions": [
+      "asia-southeast1"
+    ],
+    "pricingInfo": [
+      {
+        "summary": "",
+        "pricingExpression": {
+          "usageUnit": "h",
+          "displayQuantity": 1,
+          "tieredRates": [
+            {
+              "startUsageAmount": 0,
+              "unitPrice": {
+                "currencyCode": "THB",
+                "units": "26",
+                "nanos": 691251425
+              }
+            }
+          ],
+          "usageUnitDescription": "hour",
+          "baseUnit": "s",
+          "baseUnitDescription": "second",
+          "baseUnitConversionFactor": 3600
+        },
+        "currencyConversionRate": 33.59250000047878,
+        "effectiveTime": "2026-10-13T07:00:00Z"
+      }
+    ],
+    "serviceProviderName": "Google",
+    "geoTaxonomy": {
+      "type": "REGIONAL",
+      "regions": [
+        "asia-southeast1"
+      ]
+    }
+  },
+  {
+    "name": "services/C7E2-9256-1C43/skus/0DB7-D553-7C64",
+    "skuId": "0DB7-D553-7C64",
+    "description": "Vertex AI: Training/Pipelines Management fee on M1 Instance Core in Singapore",
+    "category": {
+      "serviceDisplayName": "Vertex AI",
+      "resourceFamily": "ApplicationServices",
+      "resourceGroup": "AiPlatform",
+      "usageType": "OnDemand"
+    },
+    "serviceRegions": [
+      "asia-southeast1"
+    ],
+    "pricingInfo": [
+      {
+        "summary": "",
+        "pricingExpression": {
+          "usageUnit": "h",
+          "displayQuantity": 1,
+          "tieredRates": [
+            {
+              "startUsageAmount": 0,
+              "unitPrice": {
+                "currencyCode": "THB",
+                "units": "0",
+                "nanos": 206089987
+              }
+            }
+          ],
+          "usageUnitDescription": "hour",
+          "baseUnit": "s",
+          "baseUnitDescription": "second",
+          "baseUnitConversionFactor": 3600
+        },
+        "currencyConversionRate": 33.59250000047878,
+        "effectiveTime": "2026-10-13T07:00:00Z"
+      }
+    ],
+    "serviceProviderName": "Google",
+    "geoTaxonomy": {
+      "type": "REGIONAL",
+      "regions": [
+        "asia-southeast1"
+      ]
+    }
+  },
+  {
+    "name": "services/C7E2-9256-1C43/skus/0FDB-FCE9-1B30",
+    "skuId": "0FDB-FCE9-1B30",
+    "description": "Vertex AI: Training/Pipelines Management fee on NVIDIA Tesla P4 in Singapore",
+    "category": {
+      "serviceDisplayName": "Vertex AI",
+      "resourceFamily": "ApplicationServices",
+      "resourceGroup": "AiPlatform",
+      "usageType": "OnDemand"
+    },
+    "serviceRegions": [
+      "asia-southeast1"
+    ],
+    "pricingInfo": [
+      {
+        "summary": "",
+        "pricingExpression": {
+          "usageUnit": "h",
+          "displayQuantity": 1,
+          "tieredRates": [
+            {
+              "startUsageAmount": 0,
+              "unitPrice": {
+                "currencyCode": "THB",
+                "units": "3",
+                "nanos": 275268750
+              }
+            }
+          ],
+          "usageUnitDescription": "hour",
+          "baseUnit": "s",
+          "baseUnitDescription": "second",
+          "baseUnitConversionFactor": 3600
+        },
+        "currencyConversionRate": 33.59250000047878,
+        "effectiveTime": "2026-10-13T07:00:00Z"
+      }
+    ],
+    "serviceProviderName": "Google",
+    "geoTaxonomy": {
+      "type": "REGIONAL",
+      "regions": [
+        "asia-southeast1"
+      ]
+    }
+  },
+  {
+    "name": "services/C7E2-9256-1C43/skus/0FE1-EC21-E36F",
+    "skuId": "0FE1-EC21-E36F",
+    "description": "Vertex AI: Ray on Vertex/Pipelines on Nvidia Tesla T4 GPU running in Singapore",
+    "category": {
+      "serviceDisplayName": "Vertex AI",
+      "resourceFamily": "ApplicationServices",
+      "resourceGroup": "AiPlatform",
+      "usageType": "OnDemand"
+    },
+    "serviceRegions": [
+      "asia-southeast1"
+    ],
+    "pricingInfo": [
+      {
+        "summary": "",
+        "pricingExpression": {
+          "usageUnit": "h",
+          "displayQuantity": 1,
+          "tieredRates": [
+            {
+              "startUsageAmount": 0,
+              "unitPrice": {
+                "currencyCode": "THB",
+                "units": "14",
+                "nanos": 915070000
+              }
+            }
+          ],
+          "usageUnitDescription": "hour",
+          "baseUnit": "s",
+          "baseUnitDescription": "second",
+          "baseUnitConversionFactor": 3600
+        },
+        "currencyConversionRate": 33.59250000047878,
+        "effectiveTime": "2026-10-13T07:00:00Z"
+      }
+    ],
+    "serviceProviderName": "Google",
+    "geoTaxonomy": {
+      "type": "REGIONAL",
+      "regions": [
+        "asia-southeast1"
+      ]
+    }
+  },
+  {
+    "name": "services/C7E2-9256-1C43/skus/1044-873B-520D",
+    "skuId": "1044-873B-520D",
+    "description": "Vertex AI: Ray on Vertex/Pipelines on Nvidia Tesla P4 GPU running in Singapore",
+    "category": {
+      "serviceDisplayName": "Vertex AI",
+      "resourceFamily": "ApplicationServices",
+      "resourceGroup": "AiPlatform",
+      "usageType": "OnDemand"
+    },
+    "serviceRegions": [
+      "asia-southeast1"
+    ],
+    "pricingInfo": [
+      {
+        "summary": "",
+        "pricingExpression": {
+          "usageUnit": "h",
+          "displayQuantity": 1,
+          "tieredRates": [
+            {
+              "startUsageAmount": 0,
+              "unitPrice": {
+                "currencyCode": "THB",
+                "units": "26",
+                "nanos": 202150000
+              }
+            }
+          ],
+          "usageUnitDescription": "hour",
+          "baseUnit": "s",
+          "baseUnitDescription": "second",
+          "baseUnitConversionFactor": 3600
+        },
+        "currencyConversionRate": 33.59250000047878,
+        "effectiveTime": "2026-10-13T07:00:00Z"
+      }
+    ],
+    "serviceProviderName": "Google",
+    "geoTaxonomy": {
+      "type": "REGIONAL",
+      "regions": [
+        "asia-southeast1"
+      ]
+    }
+  },
+  {
+    "name": "services/C7E2-9256-1C43/skus/10CF-26B7-3EA5",
+    "skuId": "10CF-26B7-3EA5",
+    "description": "Vertex AI: Ray on Vertex/Pipelines on Compute optimized Core running in Singapore",
+    "category": {
+      "serviceDisplayName": "Vertex AI",
+      "resourceFamily": "ApplicationServices",
+      "resourceGroup": "AiPlatform",
+      "usageType": "OnDemand"
+    },
+    "serviceRegions": [
+      "asia-southeast1"
+    ],
+    "pricingInfo": [
+      {
+        "summary": "",
+        "pricingExpression": {
+          "usageUnit": "h",
+          "displayQuantity": 1,
+          "tieredRates": [
+            {
+              "startUsageAmount": 0,
+              "unitPrice": {
+                "currencyCode": "THB",
+                "units": "1",
+                "nanos": 689998364
+              }
+            }
+          ],
+          "usageUnitDescription": "hour",
+          "baseUnit": "s",
+          "baseUnitDescription": "second",
+          "baseUnitConversionFactor": 3600
+        },
+        "currencyConversionRate": 33.59250000047878,
+        "effectiveTime": "2026-10-13T07:00:00Z"
+      }
+    ],
+    "serviceProviderName": "Google",
+    "geoTaxonomy": {
+      "type": "REGIONAL",
+      "regions": [
+        "asia-southeast1"
+      ]
+    }
+  },
+  {
+    "name": "services/C7E2-9256-1C43/skus/14FF-FC31-8E8F",
+    "skuId": "14FF-FC31-8E8F",
+    "description": "Vertex AI: Training/Pipelines on Storage PD Snapshot in Singapore",
+    "category": {
+      "serviceDisplayName": "Vertex AI",
+      "resourceFamily": "ApplicationServices",
+      "resourceGroup": "AiPlatform",
+      "usageType": "OnDemand"
+    },
+    "serviceRegions": [
+      "asia-southeast1"
+    ],
+    "pricingInfo": [
+      {
+        "summary": "",
+        "pricingExpression": {
+          "usageUnit": "GiBy.mo",
+          "displayQuantity": 1,
+          "tieredRates": [
+            {
+              "startUsageAmount": 0,
+              "unitPrice": {
+                "currencyCode": "THB",
+                "units": "1",
+                "nanos": 120309875
+              }
+            }
+          ],
+          "usageUnitDescription": "gibibyte month",
+          "baseUnit": "By.s",
+          "baseUnitDescription": "byte second",
+          "baseUnitConversionFactor": 2875910101401600.0
+        },
+        "currencyConversionRate": 33.59250000047878,
+        "effectiveTime": "2026-10-13T07:00:00Z"
+      }
+    ],
+    "serviceProviderName": "Google",
+    "geoTaxonomy": {
+      "type": "REGIONAL",
+      "regions": [
+        "asia-southeast1"
+      ]
+    }
+  },
+  {
+    "name": "services/C7E2-9256-1C43/skus/150B-14D4-1F15",
+    "skuId": "150B-14D4-1F15",
+    "description": "Vertex AI: Training/Pipelines Management fee on M2 Instance Core in Singapore",
+    "category": {
+      "serviceDisplayName": "Vertex AI",
+      "resourceFamily": "ApplicationServices",
+      "resourceGroup": "AiPlatform",
+      "usageType": "OnDemand"
+    },
+    "serviceRegions": [
+      "asia-southeast1"
+    ],
+    "pricingInfo": [
+      {
+        "summary": "",
+        "pricingExpression": {
+          "usageUnit": "h",
+          "displayQuantity": 1,
+          "tieredRates": [
+            {
+              "startUsageAmount": 0,
+              "unitPrice": {
+                "currencyCode": "THB",
+                "units": "0",
+                "nanos": 26790018
+              }
+            }
+          ],
+          "usageUnitDescription": "hour",
+          "baseUnit": "s",
+          "baseUnitDescription": "second",
+          "baseUnitConversionFactor": 3600
+        },
+        "currencyConversionRate": 33.59250000047878,
+        "effectiveTime": "2026-10-13T07:00:00Z"
+      }
+    ],
+    "serviceProviderName": "Google",
+    "geoTaxonomy": {
+      "type": "REGIONAL",
+      "regions": [
+        "asia-southeast1"
+      ]
+    }
+  },
+  {
+    "name": "services/C7E2-9256-1C43/skus/1579-D52F-E7F1",
+    "skuId": "1579-D52F-E7F1",
+    "description": "Vertex AI: Ray on Vertex/Pipelines on SSD backed PD Capacity in Singapore",
+    "category": {
+      "serviceDisplayName": "Vertex AI",
+      "resourceFamily": "ApplicationServices",
+      "resourceGroup": "AiPlatform",
+      "usageType": "OnDemand"
+    },
+    "serviceRegions": [
+      "asia-southeast1"
+    ],
+    "pricingInfo": [
+      {
+        "summary": "",
+        "pricingExpression": {
+          "usageUnit": "GiBy.mo",
+          "displayQuantity": 1,
+          "tieredRates": [
+            {
+              "startUsageAmount": 0,
+              "unitPrice": {
+                "currencyCode": "THB",
+                "units": "7",
+                "nanos": 538157000
+              }
+            }
+          ],
+          "usageUnitDescription": "gibibyte month",
+          "baseUnit": "By.s",
+          "baseUnitDescription": "byte second",
+          "baseUnitConversionFactor": 2875910101401600.0
+        },
+        "currencyConversionRate": 33.59250000047878,
+        "effectiveTime": "2026-10-13T07:00:00Z"
+      }
+    ],
+    "serviceProviderName": "Google",
+    "geoTaxonomy": {
+      "type": "REGIONAL",
+      "regions": [
+        "asia-southeast1"
+      ]
+    }
+  },
+  {
+    "name": "services/C7E2-9256-1C43/skus/15DE-E69F-66BB",
+    "skuId": "15DE-E69F-66BB",
+    "description": "Vertex AI: Training/Pipelines on Custom Instance Core running in Singapore",
+    "category": {
+      "serviceDisplayName": "Vertex AI",
+      "resourceFamily": "ApplicationServices",
+      "resourceGroup": "AiPlatform",
+      "usageType": "OnDemand"
+    },
+    "serviceRegions": [
+      "asia-southeast1"
+    ],
+    "pricingInfo": [
+      {
+        "summary": "",
+        "pricingExpression": {
+          "usageUnit": "h",
+          "displayQuantity": 1,
+          "tieredRates": [
+            {
+              "startUsageAmount": 0,
+              "unitPrice": {
+                "currencyCode": "THB",
+                "units": "1",
+                "nanos": 506469099
+              }
+            }
+          ],
+          "usageUnitDescription": "hour",
+          "baseUnit": "s",
+          "baseUnitDescription": "second",
+          "baseUnitConversionFactor": 3600
+        },
+        "currencyConversionRate": 33.59250000047878,
+        "effectiveTime": "2026-10-13T07:00:00Z"
+      }
+    ],
+    "serviceProviderName": "Google",
+    "geoTaxonomy": {
+      "type": "REGIONAL",
+      "regions": [
+        "asia-southeast1"
+      ]
+    }
+  },
+  {
+    "name": "services/C7E2-9256-1C43/skus/1600-9052-3B28",
+    "skuId": "1600-9052-3B28",
+    "description": "Vertex AI: Training/Pipelines Management fee on N2 Custom Instance Core in Singapore",
+    "category": {
+      "serviceDisplayName": "Vertex AI",
+      "resourceFamily": "ApplicationServices",
+      "resourceGroup": "AiPlatform",
+      "usageType": "OnDemand"
+    },
+    "serviceRegions": [
+      "asia-southeast1"
+    ],
+    "pricingInfo": [
+      {
+        "summary": "",
+        "pricingExpression": {
+          "usageUnit": "h",
+          "displayQuantity": 1,
+          "tieredRates": [
+            {
+              "startUsageAmount": 0,
+              "unitPrice": {
+                "currencyCode": "THB",
+                "units": "0",
+                "nanos": 206336556
+              }
+            }
+          ],
+          "usageUnitDescription": "hour",
+          "baseUnit": "s",
+          "baseUnitDescription": "second",
+          "baseUnitConversionFactor": 3600
+        },
+        "currencyConversionRate": 33.59250000047878,
+        "effectiveTime": "2026-10-13T07:00:00Z"
+      }
+    ],
+    "serviceProviderName": "Google",
+    "geoTaxonomy": {
+      "type": "REGIONAL",
+      "regions": [
+        "asia-southeast1"
+      ]
+    }
+  },
+  {
+    "name": "services/C7E2-9256-1C43/skus/16D0-FBE7-22EA",
+    "skuId": "16D0-FBE7-22EA",
+    "description": "Vertex AI: Ray on Vertex/Pipelines on E2 Instance Ram running in Singapore",
+    "category": {
+      "serviceDisplayName": "Vertex AI",
+      "resourceFamily": "ApplicationServices",
+      "resourceGroup": "AiPlatform",
+      "usageType": "OnDemand"
+    },
+    "serviceRegions": [
+      "asia-southeast1"
+    ],
+    "pricingInfo": [
+      {
+        "summary": "",
+        "pricingExpression": {
+          "usageUnit": "GiBy.h",
+          "displayQuantity": 1,
+          "tieredRates": [
+            {
+              "startUsageAmount": 0,
+              "unitPrice": {
+                "currencyCode": "THB",
+                "units": "0",
+                "nanos": 145359114
+              }
+            }
+          ],
+          "usageUnitDescription": "gibibyte hour",
+          "baseUnit": "By.s",
+          "baseUnitDescription": "byte second",
+          "baseUnitConversionFactor": 3865470566400
+        },
+        "currencyConversionRate": 33.59250000047878,
+        "effectiveTime": "2026-10-13T07:00:00Z"
+      }
+    ],
+    "serviceProviderName": "Google",
+    "geoTaxonomy": {
+      "type": "REGIONAL",
+      "regions": [
+        "asia-southeast1"
+      ]
+    }
+  },
+  {
+    "name": "services/C7E2-9256-1C43/skus/1C3F-2ED6-FA6E",
+    "skuId": "1C3F-2ED6-FA6E",
+    "description": "Vertex AI: Training/Pipelines Management fee on C2 Instance Core in Singapore",
+    "category": {
+      "serviceDisplayName": "Vertex AI",
+      "resourceFamily": "ApplicationServices",
+      "resourceGroup": "AiPlatform",
+      "usageType": "OnDemand"
+    },
+    "serviceRegions": [
+      "asia-southeast1"
+    ],
+    "pricingInfo": [
+      {
+        "summary": "",
+        "pricingExpression": {
+          "usageUnit": "h",
+          "displayQuantity": 1,
+          "tieredRates": [
+            {
+              "startUsageAmount": 0,
+              "unitPrice": {
+                "currencyCode": "THB",
+                "units": "0",
+                "nanos": 211249795
+              }
+            }
+          ],
+          "usageUnitDescription": "hour",
+          "baseUnit": "s",
+          "baseUnitDescription": "second",
+          "baseUnitConversionFactor": 3600
+        },
+        "currencyConversionRate": 33.59250000047878,
+        "effectiveTime": "2026-10-13T07:00:00Z"
+      }
+    ],
+    "serviceProviderName": "Google",
+    "geoTaxonomy": {
+      "type": "REGIONAL",
+      "regions": [
+        "asia-southeast1"
+      ]
+    }
+  },
+  {
+    "name": "services/C7E2-9256-1C43/skus/22C8-D515-DC75",
+    "skuId": "22C8-D515-DC75",
+    "description": "Vertex AI: Ray on Vertex/Pipelines on A3Plus Instance RAM in Singapore",
+    "category": {
+      "serviceDisplayName": "Vertex AI",
+      "resourceFamily": "ApplicationServices",
+      "resourceGroup": "AiPlatform",
+      "usageType": "OnDemand"
+    },
+    "serviceRegions": [
+      "asia-southeast1"
+    ],
+    "pricingInfo": [
+      {
+        "summary": "",
+        "pricingExpression": {
+          "usageUnit": "GiBy.h",
+          "displayQuantity": 1,
+          "tieredRates": [
+            {
+              "startUsageAmount": 0,
+              "unitPrice": {
+                "currencyCode": "THB",
+                "units": "0",
+                "nanos": 122861209
+              }
+            }
+          ],
+          "usageUnitDescription": "gibibyte hour",
+          "baseUnit": "By.s",
+          "baseUnitDescription": "byte second",
+          "baseUnitConversionFactor": 3865470566400
+        },
+        "currencyConversionRate": 33.59250000047878,
+        "effectiveTime": "2026-10-13T07:00:00Z"
+      }
+    ],
+    "serviceProviderName": "Google",
+    "geoTaxonomy": {
+      "type": "REGIONAL",
+      "regions": [
+        "asia-southeast1"
+      ]
+    }
+  },
+  {
+    "name": "services/C7E2-9256-1C43/skus/2325-026A-9E85",
+    "skuId": "2325-026A-9E85",
+    "description": "Vertex AI: Training/Pipelines Management fee on N1 Instance Core in Singapore",
+    "category": {
+      "serviceDisplayName": "Vertex AI",
+      "resourceFamily": "ApplicationServices",
+      "resourceGroup": "AiPlatform",
+      "usageType": "OnDemand"
+    },
+    "serviceRegions": [
+      "asia-southeast1"
+    ],
+    "pricingInfo": [
+      {
+        "summary": "",
+        "pricingExpression": {
+          "usageUnit": "h",
+          "displayQuantity": 1,
+          "tieredRates": [
+            {
+              "startUsageAmount": 0,
+              "unitPrice": {
+                "currencyCode": "THB",
+                "units": "0",
+                "nanos": 196509406
+              }
+            }
+          ],
+          "usageUnitDescription": "hour",
+          "baseUnit": "s",
+          "baseUnitDescription": "second",
+          "baseUnitConversionFactor": 3600
+        },
+        "currencyConversionRate": 33.59250000047878,
+        "effectiveTime": "2026-10-13T07:00:00Z"
+      }
+    ],
+    "serviceProviderName": "Google",
+    "geoTaxonomy": {
+      "type": "REGIONAL",
+      "regions": [
+        "asia-southeast1"
+      ]
+    }
+  },
+  {
+    "name": "services/C7E2-9256-1C43/skus/236E-0699-C64F",
+    "skuId": "236E-0699-C64F",
+    "description": "Vertex AI: Ray on Vertex/Pipelines on Memory Optimized Upgrade Premium for Memory-optimized Instance Ram running in Singapore",
+    "category": {
+      "serviceDisplayName": "Vertex AI",
+      "resourceFamily": "ApplicationServices",
+      "resourceGroup": "AiPlatform",
+      "usageType": "OnDemand"
+    },
+    "serviceRegions": [
+      "asia-southeast1"
+    ],
+    "pricingInfo": [
+      {
+        "summary": "",
+        "pricingExpression": {
+          "usageUnit": "GiBy.h",
+          "displayQuantity": 1,
+          "tieredRates": [
+            {
+              "startUsageAmount": 0,
+              "unitPrice": {
+                "currencyCode": "THB",
+                "units": "0",
+                "nanos": 31494312
+              }
+            }
+          ],
+          "usageUnitDescription": "gibibyte hour",
+          "baseUnit": "By.s",
+          "baseUnitDescription": "byte second",
+          "baseUnitConversionFactor": 3865470566400
+        },
+        "currencyConversionRate": 33.59250000047878,
+        "effectiveTime": "2026-10-13T07:00:00Z"
+      }
+    ],
+    "serviceProviderName": "Google",
+    "geoTaxonomy": {
+      "type": "REGIONAL",
+      "regions": [
+        "asia-southeast1"
+      ]
+    }
+  },
+  {
+    "name": "services/C7E2-9256-1C43/skus/238C-9198-8CF4",
+    "skuId": "238C-9198-8CF4",
+    "description": "Vertex AI: Training/Pipelines management fee on A2 Instance Core in Singapore",
+    "category": {
+      "serviceDisplayName": "Vertex AI",
+      "resourceFamily": "ApplicationServices",
+      "resourceGroup": "AiPlatform",
+      "usageType": "OnDemand"
+    },
+    "serviceRegions": [
+      "asia-southeast1"
+    ],
+    "pricingInfo": [
+      {
+        "summary": "",
+        "pricingExpression": {
+          "usageUnit": "h",
+          "displayQuantity": 1,
+          "tieredRates": [
+            {
+              "startUsageAmount": 0,
+              "unitPrice": {
+                "currencyCode": "THB",
+                "units": "0",
+                "nanos": 196509406
+              }
+            }
+          ],
+          "usageUnitDescription": "hour",
+          "baseUnit": "s",
+          "baseUnitDescription": "second",
+          "baseUnitConversionFactor": 3600
+        },
+        "currencyConversionRate": 33.59250000047878,
+        "effectiveTime": "2026-10-13T07:00:00Z"
+      }
+    ],
+    "serviceProviderName": "Google",
+    "geoTaxonomy": {
+      "type": "REGIONAL",
+      "regions": [
+        "asia-southeast1"
+      ]
+    }
+  },
+  {
+    "name": "services/C7E2-9256-1C43/skus/25BF-9BB6-477B",
+    "skuId": "25BF-9BB6-477B",
+    "description": "Vertex AI: Training/Pipelines on Compute optimized Ram running in Singapore",
+    "category": {
+      "serviceDisplayName": "Vertex AI",
+      "resourceFamily": "ApplicationServices",
+      "resourceGroup": "AiPlatform",
+      "usageType": "OnDemand"
+    },
+    "serviceRegions": [
+      "asia-southeast1"
+    ],
+    "pricingInfo": [
+      {
+        "summary": "",
+        "pricingExpression": {
+          "usageUnit": "GiBy.h",
+          "displayQuantity": 1,
+          "tieredRates": [
+            {
+              "startUsageAmount": 0,
+              "unitPrice": {
+                "currencyCode": "THB",
+                "units": "0",
+                "nanos": 217031064
+              }
+            }
+          ],
+          "usageUnitDescription": "gibibyte hour",
+          "baseUnit": "By.s",
+          "baseUnitDescription": "byte second",
+          "baseUnitConversionFactor": 3865470566400
+        },
+        "currencyConversionRate": 33.59250000047878,
+        "effectiveTime": "2026-10-13T07:00:00Z"
+      }
+    ],
+    "serviceProviderName": "Google",
+    "geoTaxonomy": {
+      "type": "REGIONAL",
+      "regions": [
+        "asia-southeast1"
+      ]
+    }
+  },
+  {
+    "name": "services/C7E2-9256-1C43/skus/26FF-AC02-D7A5",
+    "skuId": "26FF-AC02-D7A5",
+    "description": "Vertex AI: Training/Pipelines on N1 Predefined Instance Ram running in Singapore",
+    "category": {
+      "serviceDisplayName": "Vertex AI",
+      "resourceFamily": "ApplicationServices",
+      "resourceGroup": "AiPlatform",
+      "usageType": "OnDemand"
+    },
+    "serviceRegions": [
+      "asia-southeast1"
+    ],
+    "pricingInfo": [
+      {
+        "summary": "",
+        "pricingExpression": {
+          "usageUnit": "GiBy.h",
+          "displayQuantity": 1,
+          "tieredRates": [
+            {
+              "startUsageAmount": 0,
+              "unitPrice": {
+                "currencyCode": "THB",
+                "units": "0",
+                "nanos": 201887565
+              }
+            }
+          ],
+          "usageUnitDescription": "gibibyte hour",
+          "baseUnit": "By.s",
+          "baseUnitDescription": "byte second",
+          "baseUnitConversionFactor": 3865470566400
+        },
+        "currencyConversionRate": 33.59250000047878,
+        "effectiveTime": "2026-10-13T07:00:00Z"
+      }
+    ],
+    "serviceProviderName": "Google",
+    "geoTaxonomy": {
+      "type": "REGIONAL",
+      "regions": [
+        "asia-southeast1"
+      ]
+    }
+  },
+  {
+    "name": "services/C7E2-9256-1C43/skus/2B84-9CF1-241F",
+    "skuId": "2B84-9CF1-241F",
+    "description": "AI Pipeline job: Managed Pipeline job count",
+    "category": {
+      "serviceDisplayName": "Vertex AI",
+      "resourceFamily": "ApplicationServices",
+      "resourceGroup": "AiPlatform",
+      "usageType": "OnDemand"
+    },
+    "serviceRegions": [
+      "global"
+    ],
+    "pricingInfo": [
+      {
+        "summary": "",
+        "pricingExpression": {
+          "usageUnit": "count",
+          "displayQuantity": 1,
+          "tieredRates": [
+            {
+              "startUsageAmount": 0,
+              "unitPrice": {
+                "currencyCode": "THB",
+                "units": "1",
+                "nanos": 7775000
+              }
+            }
+          ],
+          "usageUnitDescription": "count",
+          "baseUnit": "count",
+          "baseUnitDescription": "count",
+          "baseUnitConversionFactor": 1
+        },
+        "currencyConversionRate": 33.59250000047878,
+        "effectiveTime": "2026-10-13T07:00:00Z"
+      }
+    ],
+    "serviceProviderName": "Google",
+    "geoTaxonomy": {
+      "type": "GLOBAL",
+      "regions": []
+    }
+  },
+  {
+    "name": "services/C7E2-9256-1C43/skus/2E56-3C9A-B587",
+    "skuId": "2E56-3C9A-B587",
+    "description": "Vertex AI: Ray on Vertex/Pipelines on E2 Instance Core running in Singapore",
+    "category": {
+      "serviceDisplayName": "Vertex AI",
+      "resourceFamily": "ApplicationServices",
+      "resourceGroup": "AiPlatform",
+      "usageType": "OnDemand"
+    },
+    "serviceRegions": [
+      "asia-southeast1"
+    ],
+    "pricingInfo": [
+      {
+        "summary": "",
+        "pricingExpression": {
+          "usageUnit": "h",
+          "displayQuantity": 1,
+          "tieredRates": [
+            {
+              "startUsageAmount": 0,
+              "unitPrice": {
+                "currencyCode": "THB",
+                "units": "1",
+                "nanos": 84741128
+              }
+            }
+          ],
+          "usageUnitDescription": "hour",
+          "baseUnit": "s",
+          "baseUnitDescription": "second",
+          "baseUnitConversionFactor": 3600
+        },
+        "currencyConversionRate": 33.59250000047878,
+        "effectiveTime": "2026-10-13T07:00:00Z"
+      }
+    ],
+    "serviceProviderName": "Google",
+    "geoTaxonomy": {
+      "type": "REGIONAL",
+      "regions": [
+        "asia-southeast1"
+      ]
+    }
+  },
+  {
+    "name": "services/C7E2-9256-1C43/skus/3361-BE85-E370",
+    "skuId": "3361-BE85-E370",
+    "description": "Vertex AI: Ray on Vertex/Pipelines on A2 Instance Ram running in Singapore",
+    "category": {
+      "serviceDisplayName": "Vertex AI",
+      "resourceFamily": "ApplicationServices",
+      "resourceGroup": "AiPlatform",
+      "usageType": "OnDemand"
+    },
+    "serviceRegions": [
+      "asia-southeast1"
+    ],
+    "pricingInfo": [
+      {
+        "summary": "",
+        "pricingExpression": {
+          "usageUnit": "GiBy.h",
+          "displayQuantity": 1,
+          "tieredRates": [
+            {
+              "startUsageAmount": 0,
+              "unitPrice": {
+                "currencyCode": "THB",
+                "units": "0",
+                "nanos": 210665286
+              }
+            }
+          ],
+          "usageUnitDescription": "gibibyte hour",
+          "baseUnit": "By.s",
+          "baseUnitDescription": "byte second",
+          "baseUnitConversionFactor": 3865470566400
+        },
+        "currencyConversionRate": 33.59250000047878,
+        "effectiveTime": "2026-10-13T07:00:00Z"
+      }
+    ],
+    "serviceProviderName": "Google",
+    "geoTaxonomy": {
+      "type": "REGIONAL",
+      "regions": [
+        "asia-southeast1"
+      ]
+    }
+  },
+  {
+    "name": "services/C7E2-9256-1C43/skus/3CEB-119A-0D81",
+    "skuId": "3CEB-119A-0D81",
+    "description": "Vertex AI: Ray on Vertex/Pipelines on Storage PD Snapshot in Singapore",
+    "category": {
+      "serviceDisplayName": "Vertex AI",
+      "resourceFamily": "ApplicationServices",
+      "resourceGroup": "AiPlatform",
+      "usageType": "OnDemand"
+    },
+    "serviceRegions": [
+      "asia-southeast1"
+    ],
+    "pricingInfo": [
+      {
+        "summary": "",
+        "pricingExpression": {
+          "usageUnit": "GiBy.mo",
+          "displayQuantity": 1,
+          "tieredRates": [
+            {
+              "startUsageAmount": 0,
+              "unitPrice": {
+                "currencyCode": "THB",
+                "units": "1",
+                "nanos": 169019000
+              }
+            }
+          ],
+          "usageUnitDescription": "gibibyte month",
+          "baseUnit": "By.s",
+          "baseUnitDescription": "byte second",
+          "baseUnitConversionFactor": 2875910101401600.0
+        },
+        "currencyConversionRate": 33.59250000047878,
+        "effectiveTime": "2026-10-13T07:00:00Z"
+      }
+    ],
+    "serviceProviderName": "Google",
+    "geoTaxonomy": {
+      "type": "REGIONAL",
+      "regions": [
+        "asia-southeast1"
+      ]
+    }
+  },
+  {
+    "name": "services/C7E2-9256-1C43/skus/3F4A-F495-4F53",
+    "skuId": "3F4A-F495-4F53",
+    "description": "Vertex AI: Ray on Vertex/Pipelines on N2 Custom Instance Core running in Singapore",
+    "category": {
+      "serviceDisplayName": "Vertex AI",
+      "resourceFamily": "ApplicationServices",
+      "resourceGroup": "AiPlatform",
+      "usageType": "OnDemand"
+    },
+    "serviceRegions": [
+      "asia-southeast1"
+    ],
+    "pricingInfo": [
+      {
+        "summary": "",
+        "pricingExpression": {
+          "usageUnit": "h",
+          "displayQuantity": 1,
+          "tieredRates": [
+            {
+              "startUsageAmount": 0,
+              "unitPrice": {
+                "currencyCode": "THB",
+                "units": "1",
+                "nanos": 571967756
+              }
+            }
+          ],
+          "usageUnitDescription": "hour",
+          "baseUnit": "s",
+          "baseUnitDescription": "second",
+          "baseUnitConversionFactor": 3600
+        },
+        "currencyConversionRate": 33.59250000047878,
+        "effectiveTime": "2026-10-13T07:00:00Z"
+      }
+    ],
+    "serviceProviderName": "Google",
+    "geoTaxonomy": {
+      "type": "REGIONAL",
+      "regions": [
+        "asia-southeast1"
+      ]
+    }
+  },
+  {
+    "name": "services/C7E2-9256-1C43/skus/417B-BEF3-1253",
+    "skuId": "417B-BEF3-1253",
+    "description": "Vertex AI: Training/Pipelines Management fee on E2 Instance Core in Singapore",
+    "category": {
+      "serviceDisplayName": "Vertex AI",
+      "resourceFamily": "ApplicationServices",
+      "resourceGroup": "AiPlatform",
+      "usageType": "OnDemand"
+    },
+    "serviceRegions": [
+      "asia-southeast1"
+    ],
+    "pricingInfo": [
+      {
+        "summary": "",
+        "pricingExpression": {
+          "usageUnit": "h",
+          "displayQuantity": 1,
+          "tieredRates": [
+            {
+              "startUsageAmount": 0,
+              "unitPrice": {
+                "currencyCode": "THB",
+                "units": "0",
+                "nanos": 135592767
+              }
+            }
+          ],
+          "usageUnitDescription": "hour",
+          "baseUnit": "s",
+          "baseUnitDescription": "second",
+          "baseUnitConversionFactor": 3600
+        },
+        "currencyConversionRate": 33.59250000047878,
+        "effectiveTime": "2026-10-13T07:00:00Z"
+      }
+    ],
+    "serviceProviderName": "Google",
+    "geoTaxonomy": {
+      "type": "REGIONAL",
+      "regions": [
+        "asia-southeast1"
+      ]
+    }
+  },
+  {
+    "name": "services/C7E2-9256-1C43/skus/436D-DD84-B42F",
+    "skuId": "436D-DD84-B42F",
+    "description": "Vertex AI: Training/Pipelines on Nvidia Tesla P4 GPU running in Singapore",
+    "category": {
+      "serviceDisplayName": "Vertex AI",
+      "resourceFamily": "ApplicationServices",
+      "resourceGroup": "AiPlatform",
+      "usageType": "OnDemand"
+    },
+    "serviceRegions": [
+      "asia-southeast1"
+    ],
+    "pricingInfo": [
+      {
+        "summary": "",
+        "pricingExpression": {
+          "usageUnit": "h",
+          "displayQuantity": 1,
+          "tieredRates": [
+            {
+              "startUsageAmount": 0,
+              "unitPrice": {
+                "currencyCode": "THB",
+                "units": "25",
+                "nanos": 110393750
+              }
+            }
+          ],
+          "usageUnitDescription": "hour",
+          "baseUnit": "s",
+          "baseUnitDescription": "second",
+          "baseUnitConversionFactor": 3600
+        },
+        "currencyConversionRate": 33.59250000047878,
+        "effectiveTime": "2026-10-13T07:00:00Z"
+      }
+    ],
+    "serviceProviderName": "Google",
+    "geoTaxonomy": {
+      "type": "REGIONAL",
+      "regions": [
+        "asia-southeast1"
+      ]
+    }
+  },
+  {
+    "name": "services/C7E2-9256-1C43/skus/49B6-25D7-1B79",
+    "skuId": "49B6-25D7-1B79",
+    "description": "Vertex AI: Training/Pipelines management fee on NVIDIA B200 in Singapore",
+    "category": {
+      "serviceDisplayName": "Vertex AI",
+      "resourceFamily": "ApplicationServices",
+      "resourceGroup": "AiPlatform",
+      "usageType": "OnDemand"
+    },
+    "serviceRegions": [
+      "asia-southeast1"
+    ],
+    "pricingInfo": [
+      {
+        "summary": "",
+        "pricingExpression": {
+          "usageUnit": "h",
+          "displayQuantity": 1,
+          "tieredRates": [
+            {
+              "startUsageAmount": 0,
+              "unitPrice": {
+                "currencyCode": "THB",
+                "units": "97",
+                "nanos": 411531501
+              }
+            }
+          ],
+          "usageUnitDescription": "hour",
+          "baseUnit": "s",
+          "baseUnitDescription": "second",
+          "baseUnitConversionFactor": 3600
+        },
+        "currencyConversionRate": 33.59250000047878,
+        "effectiveTime": "2026-10-13T07:00:00Z"
+      }
+    ],
+    "serviceProviderName": "Google",
+    "geoTaxonomy": {
+      "type": "REGIONAL",
+      "regions": [
+        "asia-southeast1"
+      ]
+    }
+  },
+  {
+    "name": "services/C7E2-9256-1C43/skus/4C9D-F038-616F",
+    "skuId": "4C9D-F038-616F",
+    "description": "Vertex AI: Training/Pipelines on A3Plus Instance Core in Singapore",
+    "category": {
+      "serviceDisplayName": "Vertex AI",
+      "resourceFamily": "ApplicationServices",
+      "resourceGroup": "AiPlatform",
+      "usageType": "OnDemand"
+    },
+    "serviceRegions": [
+      "asia-southeast1"
+    ],
+    "pricingInfo": [
+      {
+        "summary": "",
+        "pricingExpression": {
+          "usageUnit": "h",
+          "displayQuantity": 1,
+          "tieredRates": [
+            {
+              "startUsageAmount": 0,
+              "unitPrice": {
+                "currencyCode": "THB",
+                "units": "1",
+                "nanos": 352124327
+              }
+            }
+          ],
+          "usageUnitDescription": "hour",
+          "baseUnit": "s",
+          "baseUnitDescription": "second",
+          "baseUnitConversionFactor": 3600
+        },
+        "currencyConversionRate": 33.59250000047878,
+        "effectiveTime": "2026-10-13T07:00:00Z"
+      }
+    ],
+    "serviceProviderName": "Google",
+    "geoTaxonomy": {
+      "type": "REGIONAL",
+      "regions": [
+        "asia-southeast1"
+      ]
+    }
+  },
+  {
+    "name": "services/C7E2-9256-1C43/skus/4F3D-03B9-2802",
+    "skuId": "4F3D-03B9-2802",
+    "description": "Vertex AI: Training/Pipelines on N4 Instance Ram running in Singapore",
+    "category": {
+      "serviceDisplayName": "Vertex AI",
+      "resourceFamily": "ApplicationServices",
+      "resourceGroup": "AiPlatform",
+      "usageType": "OnDemand"
+    },
+    "serviceRegions": [
+      "asia-southeast1"
+    ],
+    "pricingInfo": [
+      {
+        "summary": "",
+        "pricingExpression": {
+          "usageUnit": "GiBy.h",
+          "displayQuantity": 1,
+          "tieredRates": [
+            {
+              "startUsageAmount": 0,
+              "unitPrice": {
+                "currencyCode": "THB",
+                "units": "0",
+                "nanos": 168714736
+              }
+            }
+          ],
+          "usageUnitDescription": "gibibyte hour",
+          "baseUnit": "By.s",
+          "baseUnitDescription": "byte second",
+          "baseUnitConversionFactor": 3865470566400
+        },
+        "currencyConversionRate": 33.59250000047878,
+        "effectiveTime": "2026-10-13T07:00:00Z"
+      }
+    ],
+    "serviceProviderName": "Google",
+    "geoTaxonomy": {
+      "type": "REGIONAL",
+      "regions": [
+        "asia-southeast1"
+      ]
+    }
+  },
+  {
+    "name": "services/C7E2-9256-1C43/skus/5351-B2DC-4ED7",
+    "skuId": "5351-B2DC-4ED7",
+    "description": "Vertex AI: Training/Pipelines management fee on N4 Instance Core in Singapore",
+    "category": {
+      "serviceDisplayName": "Vertex AI",
+      "resourceFamily": "ApplicationServices",
+      "resourceGroup": "AiPlatform",
+      "usageType": "OnDemand"
+    },
+    "serviceRegions": [
+      "asia-southeast1"
+    ],
+    "pricingInfo": [
+      {
+        "summary": "",
+        "pricingExpression": {
+          "usageUnit": "h",
+          "displayQuantity": 1,
+          "tieredRates": [
+            {
+              "startUsageAmount": 0,
+              "unitPrice": {
+                "currencyCode": "THB",
+                "units": "1",
+                "nanos": 486501717
+              }
+            }
+          ],
+          "usageUnitDescription": "hour",
+          "baseUnit": "s",
+          "baseUnitDescription": "second",
+          "baseUnitConversionFactor": 3600
+        },
+        "currencyConversionRate": 33.59250000047878,
+        "effectiveTime": "2026-10-13T07:00:00Z"
+      }
+    ],
+    "serviceProviderName": "Google",
+    "geoTaxonomy": {
+      "type": "REGIONAL",
+      "regions": [
+        "asia-southeast1"
+      ]
+    }
+  },
+  {
+    "name": "services/C7E2-9256-1C43/skus/5358-83AE-F3DC",
+    "skuId": "5358-83AE-F3DC",
+    "description": "Vertex AI: Ray on Vertex/Pipelines on N2 Instance Ram running in Singapore",
+    "category": {
+      "serviceDisplayName": "Vertex AI",
+      "resourceFamily": "ApplicationServices",
+      "resourceGroup": "AiPlatform",
+      "usageType": "OnDemand"
+    },
+    "serviceRegions": [
+      "asia-southeast1"
+    ],
+    "pricingInfo": [
+      {
+        "summary": "",
+        "pricingExpression": {
+          "usageUnit": "GiBy.h",
+          "displayQuantity": 1,
+          "tieredRates": [
+            {
+              "startUsageAmount": 0,
+              "unitPrice": {
+                "currencyCode": "THB",
+                "units": "0",
+                "nanos": 210665286
+              }
+            }
+          ],
+          "usageUnitDescription": "gibibyte hour",
+          "baseUnit": "By.s",
+          "baseUnitDescription": "byte second",
+          "baseUnitConversionFactor": 3865470566400
+        },
+        "currencyConversionRate": 33.59250000047878,
+        "effectiveTime": "2026-10-13T07:00:00Z"
+      }
+    ],
+    "serviceProviderName": "Google",
+    "geoTaxonomy": {
+      "type": "REGIONAL",
+      "regions": [
+        "asia-southeast1"
+      ]
+    }
+  },
+  {
+    "name": "services/C7E2-9256-1C43/skus/53B1-D157-DDE4",
+    "skuId": "53B1-D157-DDE4",
+    "description": "Vertex AI: Ray on Vertex/Pipelines on A3Plus Instance Core in Singapore",
+    "category": {
+      "serviceDisplayName": "Vertex AI",
+      "resourceFamily": "ApplicationServices",
+      "resourceGroup": "AiPlatform",
+      "usageType": "OnDemand"
+    },
+    "serviceRegions": [
+      "asia-southeast1"
+    ],
+    "pricingInfo": [
+      {
+        "summary": "",
+        "pricingExpression": {
+          "usageUnit": "h",
+          "displayQuantity": 1,
+          "tieredRates": [
+            {
+              "startUsageAmount": 0,
+              "unitPrice": {
+                "currencyCode": "THB",
+                "units": "1",
+                "nanos": 410911874
+              }
+            }
+          ],
+          "usageUnitDescription": "hour",
+          "baseUnit": "s",
+          "baseUnitDescription": "second",
+          "baseUnitConversionFactor": 3600
+        },
+        "currencyConversionRate": 33.59250000047878,
+        "effectiveTime": "2026-10-13T07:00:00Z"
+      }
+    ],
+    "serviceProviderName": "Google",
+    "geoTaxonomy": {
+      "type": "REGIONAL",
+      "regions": [
+        "asia-southeast1"
+      ]
+    }
+  },
+  {
+    "name": "services/C7E2-9256-1C43/skus/5665-41B7-4E1F",
+    "skuId": "5665-41B7-4E1F",
+    "description": "Vertex AI: Training/Pipelines on NVIDIA H100 80GB in Singapore",
+    "category": {
+      "serviceDisplayName": "Vertex AI",
+      "resourceFamily": "ApplicationServices",
+      "resourceGroup": "AiPlatform",
+      "usageType": "OnDemand"
+    },
+    "serviceRegions": [
+      "asia-southeast1"
+    ],
+    "pricingInfo": [
+      {
+        "summary": "",
+        "pricingExpression": {
+          "usageUnit": "h",
+          "displayQuantity": 1,
+          "tieredRates": [
+            {
+              "startUsageAmount": 0,
+              "unitPrice": {
+                "currencyCode": "THB",
+                "units": "491",
+                "nanos": 990494421
+              }
+            }
+          ],
+          "usageUnitDescription": "hour",
+          "baseUnit": "s",
+          "baseUnitDescription": "second",
+          "baseUnitConversionFactor": 3600
+        },
+        "currencyConversionRate": 33.59250000047878,
+        "effectiveTime": "2026-10-13T07:00:00Z"
+      }
+    ],
+    "serviceProviderName": "Google",
+    "geoTaxonomy": {
+      "type": "REGIONAL",
+      "regions": [
+        "asia-southeast1"
+      ]
+    }
+  },
+  {
+    "name": "services/C7E2-9256-1C43/skus/5BBB-FC67-6FE4",
+    "skuId": "5BBB-FC67-6FE4",
+    "description": "Vertex AI: Training/Pipelines on Nvidia Tesla A100 GPU running in Singapore",
+    "category": {
+      "serviceDisplayName": "Vertex AI",
+      "resourceFamily": "ApplicationServices",
+      "resourceGroup": "AiPlatform",
+      "usageType": "OnDemand"
+    },
+    "serviceRegions": [
+      "asia-southeast1"
+    ],
+    "pricingInfo": [
+      {
+        "summary": "",
+        "pricingExpression": {
+          "usageUnit": "h",
+          "displayQuantity": 1,
+          "tieredRates": [
+            {
+              "startUsageAmount": 0,
+              "unitPrice": {
+                "currencyCode": "THB",
+                "units": "119",
+                "nanos": 817524591
+              }
+            }
+          ],
+          "usageUnitDescription": "hour",
+          "baseUnit": "s",
+          "baseUnitDescription": "second",
+          "baseUnitConversionFactor": 3600
+        },
+        "currencyConversionRate": 33.59250000047878,
+        "effectiveTime": "2026-10-13T07:00:00Z"
+      }
+    ],
+    "serviceProviderName": "Google",
+    "geoTaxonomy": {
+      "type": "REGIONAL",
+      "regions": [
+        "asia-southeast1"
+      ]
+    }
+  },
+  {
+    "name": "services/C7E2-9256-1C43/skus/6035-0654-0AE5",
+    "skuId": "6035-0654-0AE5",
+    "description": "Vertex AI: Ray on Vertex/Pipelines on Custom Instance Ram running in Singapore",
+    "category": {
+      "serviceDisplayName": "Vertex AI",
+      "resourceFamily": "ApplicationServices",
+      "resourceGroup": "AiPlatform",
+      "usageType": "OnDemand"
+    },
+    "serviceRegions": [
+      "asia-southeast1"
+    ],
+    "pricingInfo": [
+      {
+        "summary": "",
+        "pricingExpression": {
+          "usageUnit": "GiBy.h",
+          "displayQuantity": 1,
+          "tieredRates": [
+            {
+              "startUsageAmount": 0,
+              "unitPrice": {
+                "currencyCode": "THB",
+                "units": "0",
+                "nanos": 210665286
+              }
+            }
+          ],
+          "usageUnitDescription": "gibibyte hour",
+          "baseUnit": "By.s",
+          "baseUnitDescription": "byte second",
+          "baseUnitConversionFactor": 3865470566400
+        },
+        "currencyConversionRate": 33.59250000047878,
+        "effectiveTime": "2026-10-13T07:00:00Z"
+      }
+    ],
+    "serviceProviderName": "Google",
+    "geoTaxonomy": {
+      "type": "REGIONAL",
+      "regions": [
+        "asia-southeast1"
+      ]
+    }
+  },
+  {
+    "name": "services/C7E2-9256-1C43/skus/6175-0718-6FBB",
+    "skuId": "6175-0718-6FBB",
+    "description": "Vertex AI: Ray on Vertex/Pipelines on NVIDIA H100 80GB in Singapore",
+    "category": {
+      "serviceDisplayName": "Vertex AI",
+      "resourceFamily": "ApplicationServices",
+      "resourceGroup": "AiPlatform",
+      "usageType": "OnDemand"
+    },
+    "serviceRegions": [
+      "asia-southeast1"
+    ],
+    "pricingInfo": [
+      {
+        "summary": "",
+        "pricingExpression": {
+          "usageUnit": "h",
+          "displayQuantity": 1,
+          "tieredRates": [
+            {
+              "startUsageAmount": 0,
+              "unitPrice": {
+                "currencyCode": "THB",
+                "units": "513",
+                "nanos": 381385483
+              }
+            }
+          ],
+          "usageUnitDescription": "hour",
+          "baseUnit": "s",
+          "baseUnitDescription": "second",
+          "baseUnitConversionFactor": 3600
+        },
+        "currencyConversionRate": 33.59250000047878,
+        "effectiveTime": "2026-10-13T07:00:00Z"
+      }
+    ],
+    "serviceProviderName": "Google",
+    "geoTaxonomy": {
+      "type": "REGIONAL",
+      "regions": [
+        "asia-southeast1"
+      ]
+    }
+  },
+  {
+    "name": "services/C7E2-9256-1C43/skus/6612-C331-DDEC",
+    "skuId": "6612-C331-DDEC",
+    "description": "Vertex AI: Training/Pipelines management fee on N4 Instance Core in Singapore",
+    "category": {
+      "serviceDisplayName": "Vertex AI",
+      "resourceFamily": "ApplicationServices",
+      "resourceGroup": "AiPlatform",
+      "usageType": "OnDemand"
+    },
+    "serviceRegions": [
+      "asia-southeast1"
+    ],
+    "pricingInfo": [
+      {
+        "summary": "",
+        "pricingExpression": {
+          "usageUnit": "h",
+          "displayQuantity": 1,
+          "tieredRates": [
+            {
+              "startUsageAmount": 0,
+              "unitPrice": {
+                "currencyCode": "THB",
+                "units": "0",
+                "nanos": 193892550
+              }
+            }
+          ],
+          "usageUnitDescription": "hour",
+          "baseUnit": "s",
+          "baseUnitDescription": "second",
+          "baseUnitConversionFactor": 3600
+        },
+        "currencyConversionRate": 33.59250000047878,
+        "effectiveTime": "2026-10-13T07:00:00Z"
+      }
+    ],
+    "serviceProviderName": "Google",
+    "geoTaxonomy": {
+      "type": "REGIONAL",
+      "regions": [
+        "asia-southeast1"
+      ]
+    }
+  },
+  {
+    "name": "services/C7E2-9256-1C43/skus/6A08-DE9E-E857",
+    "skuId": "6A08-DE9E-E857",
+    "description": "Vertex AI: Training/Pipelines Management fee on M1 Instance RAM in Singapore",
+    "category": {
+      "serviceDisplayName": "Vertex AI",
+      "resourceFamily": "ApplicationServices",
+      "resourceGroup": "AiPlatform",
+      "usageType": "OnDemand"
+    },
+    "serviceRegions": [
+      "asia-southeast1"
+    ],
+    "pricingInfo": [
+      {
+        "summary": "",
+        "pricingExpression": {
+          "usageUnit": "GiBy.h",
+          "displayQuantity": 1,
+          "tieredRates": [
+            {
+              "startUsageAmount": 0,
+              "unitPrice": {
+                "currencyCode": "THB",
+                "units": "0",
+                "nanos": 30283638
+              }
+            }
+          ],
+          "usageUnitDescription": "gibibyte hour",
+          "baseUnit": "By.s",
+          "baseUnitDescription": "byte second",
+          "baseUnitConversionFactor": 3865470566400
+        },
+        "currencyConversionRate": 33.59250000047878,
+        "effectiveTime": "2026-10-13T07:00:00Z"
+      }
+    ],
+    "serviceProviderName": "Google",
+    "geoTaxonomy": {
+      "type": "REGIONAL",
+      "regions": [
+        "asia-southeast1"
+      ]
+    }
+  },
+  {
+    "name": "services/C7E2-9256-1C43/skus/6BEA-617B-A992",
+    "skuId": "6BEA-617B-A992",
+    "description": "Vertex AI: Training/Pipelines management fee on NVIDIA A100 80GB in Singapore",
+    "category": {
+      "serviceDisplayName": "Vertex AI",
+      "resourceFamily": "ApplicationServices",
+      "resourceGroup": "AiPlatform",
+      "usageType": "OnDemand"
+    },
+    "serviceRegions": [
+      "asia-southeast1"
+    ],
+    "pricingInfo": [
+      {
+        "summary": "",
+        "pricingExpression": {
+          "usageUnit": "h",
+          "displayQuantity": 1,
+          "tieredRates": [
+            {
+              "startUsageAmount": 0,
+              "unitPrice": {
+                "currencyCode": "THB",
+                "units": "24",
+                "nanos": 418724175
+              }
+            }
+          ],
+          "usageUnitDescription": "hour",
+          "baseUnit": "s",
+          "baseUnitDescription": "second",
+          "baseUnitConversionFactor": 3600
+        },
+        "currencyConversionRate": 33.59250000047878,
+        "effectiveTime": "2026-10-13T07:00:00Z"
+      }
+    ],
+    "serviceProviderName": "Google",
+    "geoTaxonomy": {
+      "type": "REGIONAL",
+      "regions": [
+        "asia-southeast1"
+      ]
+    }
+  },
+  {
+    "name": "services/C7E2-9256-1C43/skus/7161-0557-6511",
+    "skuId": "7161-0557-6511",
+    "description": "Vertex AI: Training/Pipelines Management fee on C2 Instance RAM in Singapore",
+    "category": {
+      "serviceDisplayName": "Vertex AI",
+      "resourceFamily": "ApplicationServices",
+      "resourceGroup": "AiPlatform",
+      "usageType": "OnDemand"
+    },
+    "serviceRegions": [
+      "asia-southeast1"
+    ],
+    "pricingInfo": [
+      {
+        "summary": "",
+        "pricingExpression": {
+          "usageUnit": "GiBy.h",
+          "displayQuantity": 1,
+          "tieredRates": [
+            {
+              "startUsageAmount": 0,
+              "unitPrice": {
+                "currencyCode": "THB",
+                "units": "0",
+                "nanos": 28308399
+              }
+            }
+          ],
+          "usageUnitDescription": "gibibyte hour",
+          "baseUnit": "By.s",
+          "baseUnitDescription": "byte second",
+          "baseUnitConversionFactor": 3865470566400
+        },
+        "currencyConversionRate": 33.59250000047878,
+        "effectiveTime": "2026-10-13T07:00:00Z"
+      }
+    ],
+    "serviceProviderName": "Google",
+    "geoTaxonomy": {
+      "type": "REGIONAL",
+      "regions": [
+        "asia-southeast1"
+      ]
+    }
+  },
+  {
+    "name": "services/C7E2-9256-1C43/skus/7754-F3FD-FDB1",
+    "skuId": "7754-F3FD-FDB1",
+    "description": "Vertex AI: Ray on Vertex/Pipelines on Regional SSD backed PD Capacity in Singapore",
+    "category": {
+      "serviceDisplayName": "Vertex AI",
+      "resourceFamily": "ApplicationServices",
+      "resourceGroup": "AiPlatform",
+      "usageType": "OnDemand"
+    },
+    "serviceRegions": [
+      "asia-southeast1"
+    ],
+    "pricingInfo": [
+      {
+        "summary": "",
+        "pricingExpression": {
+          "usageUnit": "GiBy.mo",
+          "displayQuantity": 1,
+          "tieredRates": [
+            {
+              "startUsageAmount": 0,
+              "unitPrice": {
+                "currencyCode": "THB",
+                "units": "15",
+                "nanos": 76314000
+              }
+            }
+          ],
+          "usageUnitDescription": "gibibyte month",
+          "baseUnit": "By.s",
+          "baseUnitDescription": "byte second",
+          "baseUnitConversionFactor": 2875910101401600.0
+        },
+        "currencyConversionRate": 33.59250000047878,
+        "effectiveTime": "2026-10-13T07:00:00Z"
+      }
+    ],
+    "serviceProviderName": "Google",
+    "geoTaxonomy": {
+      "type": "REGIONAL",
+      "regions": [
+        "asia-southeast1"
+      ]
+    }
+  },
+  {
+    "name": "services/C7E2-9256-1C43/skus/7A53-3CE0-8189",
+    "skuId": "7A53-3CE0-8189",
+    "description": "Vertex AI: Training/Pipelines on A2 Instance Ram running in Singapore",
+    "category": {
+      "serviceDisplayName": "Vertex AI",
+      "resourceFamily": "ApplicationServices",
+      "resourceGroup": "AiPlatform",
+      "usageType": "OnDemand"
+    },
+    "serviceRegions": [
+      "asia-southeast1"
+    ],
+    "pricingInfo": [
+      {
+        "summary": "",
+        "pricingExpression": {
+          "usageUnit": "GiBy.h",
+          "displayQuantity": 1,
+          "tieredRates": [
+            {
+              "startUsageAmount": 0,
+              "unitPrice": {
+                "currencyCode": "THB",
+                "units": "0",
+                "nanos": 201887565
+              }
+            }
+          ],
+          "usageUnitDescription": "gibibyte hour",
+          "baseUnit": "By.s",
+          "baseUnitDescription": "byte second",
+          "baseUnitConversionFactor": 3865470566400
+        },
+        "currencyConversionRate": 33.59250000047878,
+        "effectiveTime": "2026-10-13T07:00:00Z"
+      }
+    ],
+    "serviceProviderName": "Google",
+    "geoTaxonomy": {
+      "type": "REGIONAL",
+      "regions": [
+        "asia-southeast1"
+      ]
+    }
+  },
+  {
+    "name": "services/C7E2-9256-1C43/skus/7DEF-42C9-AD90",
+    "skuId": "7DEF-42C9-AD90",
+    "description": "Vertex AI: Training/Pipelines Management fee on N2 Instance Core in Singapore",
+    "category": {
+      "serviceDisplayName": "Vertex AI",
+      "resourceFamily": "ApplicationServices",
+      "resourceGroup": "AiPlatform",
+      "usageType": "OnDemand"
+    },
+    "serviceRegions": [
+      "asia-southeast1"
+    ],
+    "pricingInfo": [
+      {
+        "summary": "",
+        "pricingExpression": {
+          "usageUnit": "h",
+          "displayQuantity": 1,
+          "tieredRates": [
+            {
+              "startUsageAmount": 0,
+              "unitPrice": {
+                "currencyCode": "THB",
+                "units": "0",
+                "nanos": 196512765
+              }
+            }
+          ],
+          "usageUnitDescription": "hour",
+          "baseUnit": "s",
+          "baseUnitDescription": "second",
+          "baseUnitConversionFactor": 3600
+        },
+        "currencyConversionRate": 33.59250000047878,
+        "effectiveTime": "2026-10-13T07:00:00Z"
+      }
+    ],
+    "serviceProviderName": "Google",
+    "geoTaxonomy": {
+      "type": "REGIONAL",
+      "regions": [
+        "asia-southeast1"
+      ]
+    }
+  },
+  {
+    "name": "services/C7E2-9256-1C43/skus/7E95-B21C-ADB3",
+    "skuId": "7E95-B21C-ADB3",
+    "description": "Vertex AI: Training/Pipelines on A2 Instance Core running in Singapore",
+    "category": {
+      "serviceDisplayName": "Vertex AI",
+      "resourceFamily": "ApplicationServices",
+      "resourceGroup": "AiPlatform",
+      "usageType": "OnDemand"
+    },
+    "serviceRegions": [
+      "asia-southeast1"
+    ],
+    "pricingInfo": [
+      {
+        "summary": "",
+        "pricingExpression": {
+          "usageUnit": "h",
+          "displayQuantity": 1,
+          "tieredRates": [
+            {
+              "startUsageAmount": 0,
+              "unitPrice": {
+                "currencyCode": "THB",
+                "units": "1",
+                "nanos": 506584993
+              }
+            }
+          ],
+          "usageUnitDescription": "hour",
+          "baseUnit": "s",
+          "baseUnitDescription": "second",
+          "baseUnitConversionFactor": 3600
+        },
+        "currencyConversionRate": 33.59250000047878,
+        "effectiveTime": "2026-10-13T07:00:00Z"
+      }
+    ],
+    "serviceProviderName": "Google",
+    "geoTaxonomy": {
+      "type": "REGIONAL",
+      "regions": [
+        "asia-southeast1"
+      ]
+    }
+  }
+]

@@ -1,0 +1,6 @@
+{
+  "pipeline_job": "projects/775344551291/locations/asia-southeast1/pipelineJobs/itcs355-training-pipeline-20261013182148",
+  "pipeline_root": "gs://itcs355-lab5-pipeline-775344551291-20261013/runs",
+  "attempt": 3,
+  "preflight_validations": true
+}

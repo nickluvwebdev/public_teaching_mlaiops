@@ -30,3 +30,6 @@ reports/*.db-*
 
 # Generated KFP spec can contain private runtime settings; compile locally.
 /pipeline/compiled.json
+
+/pipeline/compiled-recovery.json
+/reports/lab5-managed-model/

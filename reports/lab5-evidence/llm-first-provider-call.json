@@ -1,0 +1,29 @@
+{
+  "control_error": null,
+  "response": "{\n  \"decision\": \"schedule_urgent\",\n  \"rationale\": \"The failure probability of 0.91 exceeds the 0.85 threshold for urgent scheduling. The machine has operated for 5200 hours since its last service, indicating a high risk of imminent failure.\"\n}",
+  "input_tokens": 190,
+  "output_tokens": 65,
+  "cached_input_tokens": 0,
+  "usage_source": "provider_usageMetadata",
+  "provider_usage": {
+    "promptTokenCount": 190,
+    "candidatesTokenCount": 65,
+    "totalTokenCount": 255,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 190
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 65
+      }
+    ]
+  },
+  "model_version": "gemini-3.1-flash-lite",
+  "max_output_tokens": 200,
+  "latency_ms": 1466.61002700057
+}

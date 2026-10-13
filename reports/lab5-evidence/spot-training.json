@@ -1,0 +1,94 @@
+{
+  "name": "projects/775344551291/locations/asia-southeast1/customJobs/6516548956741173248",
+  "displayName": "itcs355-lab5",
+  "jobSpec": {
+    "workerPoolSpecs": [
+      {
+        "machineSpec": {
+          "machineType": "n1-standard-4"
+        },
+        "replicaCount": "1",
+        "diskSpec": {
+          "bootDiskType": "pd-ssd",
+          "bootDiskSizeGb": 100
+        },
+        "containerSpec": {
+          "imageUri": "asia-southeast1-docker.pkg.dev/itcs355-6688058/itcs355/itcs355-lab5@sha256:cc34617152335504fec31ecdf0d1762eb2a9900ea653927da9f034bf7a5cf3bd",
+          "command": [
+            "python",
+            "-m",
+            "cloudlayer.lab5_worker"
+          ],
+          "env": [
+            {
+              "name": "CLOUD_PROVIDER",
+              "value": "gcp"
+            },
+            {
+              "name": "PROJECT_ID",
+              "value": "itcs355-6688058"
+            },
+            {
+              "name": "REGION",
+              "value": "asia-southeast1"
+            },
+            {
+              "name": "BLOB_URI",
+              "value": "gs://itcs355-6688058/itcs355"
+            },
+            {
+              "name": "TRAINING_DATA_URI",
+              "value": "gs://itcs355-6688058/itcs355/lab5/runs/20261013/data/sensors.csv"
+            },
+            {
+              "name": "TRAINING_OUTPUT_KEY",
+              "value": "lab5/runs/20261013/model"
+            },
+            {
+              "name": "SOURCE_COMMIT",
+              "value": "947b20118191af0e502fe44e453cca2b4599dfd2"
+            },
+            {
+              "name": "DATA_VERSION",
+              "value": "1c886b512c8a5c9bf723da1cd119fc80.dir"
+            },
+            {
+              "name": "IMAGE_DIGEST",
+              "value": "asia-southeast1-docker.pkg.dev/itcs355-6688058/itcs355/itcs355-lab5@sha256:cc34617152335504fec31ecdf0d1762eb2a9900ea653927da9f034bf7a5cf3bd"
+            },
+            {
+              "name": "LAB5_RUN_ID",
+              "value": "20261013-lab5"
+            },
+            {
+              "name": "MLFLOW_TRACKING_URI",
+              "value": "sqlite:////tmp/mlflow.db"
+            }
+          ]
+        }
+      }
+    ],
+    "scheduling": {
+      "timeout": "600s",
+      "strategy": "SPOT"
+    },
+    "serviceAccount": "itcs355-training@itcs355-6688058.iam.gserviceaccount.com",
+    "baseOutputDirectory": {
+      "outputUriPrefix": "gs://itcs355-6688058/itcs355/lab5/runs/20261013/model"
+    }
+  },
+  "state": "JOB_STATE_SUCCEEDED",
+  "createTime": "2026-10-13T11:32:56.546370Z",
+  "startTime": "2026-10-13T11:43:53Z",
+  "endTime": "2026-10-13T11:44:54Z",
+  "updateTime": "2026-10-13T11:45:03.110178Z",
+  "labels": {
+    "goog-vertex-ai-product": "vertex-ai-training",
+    "student": "itcs355-6688058",
+    "goog-originating-service-id": "c7e2-9256-1c43",
+    "course": "itcs355",
+    "goog-vertex-ai-image-uri": "5164374262204744158-itcs355-lab5_sha256",
+    "goog-vertex-ai-reservation": "",
+    "lab": "5"
+  }
+}

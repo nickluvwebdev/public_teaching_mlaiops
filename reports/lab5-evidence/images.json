@@ -1,0 +1,7 @@
+{
+  "source_commit": "947b20118191af0e502fe44e453cca2b4599dfd2",
+  "images": {
+    "itcs355-lab5": "asia-southeast1-docker.pkg.dev/itcs355-6688058/itcs355/itcs355-lab5@sha256:cc34617152335504fec31ecdf0d1762eb2a9900ea653927da9f034bf7a5cf3bd",
+    "itcs355-lab5-serve": "asia-southeast1-docker.pkg.dev/itcs355-6688058/itcs355/itcs355-lab5-serve@sha256:b1285275cb2d6649d4c9df520e472766579f8ceb88d9be3a56db58500e52bd8a"
+  }
+}

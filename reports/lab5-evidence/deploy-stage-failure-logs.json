@@ -1,0 +1,741 @@
+[
+  {
+    "insertId": "171acd0d4uxv",
+    "labels": {
+      "ml.googleapis.com/endpoint": ""
+    },
+    "logName": "projects/itcs355-6688058/logs/ml.googleapis.com%2F3559935801372442624",
+    "receiveTimestamp": "2026-10-13T11:55:18.645661164Z",
+    "resource": {
+      "labels": {
+        "job_id": "3559935801372442624",
+        "project_id": "itcs355-6688058",
+        "task_name": "service"
+      },
+      "type": "ml_job"
+    },
+    "severity": "ERROR",
+    "textPayload": "The replica workerpool0-0 exited with a non-zero status of 1. To find out more about why your job exited please check the logs: https://console.cloud.google.com/logs/viewer?project=775344551291&resource=ml_job%2Fjob_id%2F3559935801372442624&advancedFilter=resource.type%3D%22ml_job%22%0Aresource.labels.job_id%3D%223559935801372442624%22",
+    "timestamp": "2026-10-13T11:55:18.082582268Z"
+  },
+  {
+    "insertId": "171acd0d4uxu",
+    "labels": {
+      "ml.googleapis.com/endpoint": ""
+    },
+    "logName": "projects/itcs355-6688058/logs/ml.googleapis.com%2F3559935801372442624",
+    "receiveTimestamp": "2026-10-13T11:55:18.645661164Z",
+    "resource": {
+      "labels": {
+        "job_id": "3559935801372442624",
+        "project_id": "itcs355-6688058",
+        "task_name": "service"
+      },
+      "type": "ml_job"
+    },
+    "severity": "INFO",
+    "textPayload": "Job is running.",
+    "timestamp": "2026-10-13T11:55:17.936594896Z"
+  },
+  {
+    "insertId": "171acd0d4uxn",
+    "labels": {
+      "ml.googleapis.com/endpoint": ""
+    },
+    "logName": "projects/itcs355-6688058/logs/ml.googleapis.com%2F3559935801372442624",
+    "receiveTimestamp": "2026-10-13T11:55:02.655250748Z",
+    "resource": {
+      "labels": {
+        "job_id": "3559935801372442624",
+        "project_id": "itcs355-6688058",
+        "task_name": "service"
+      },
+      "type": "ml_job"
+    },
+    "severity": "INFO",
+    "textPayload": "Job is running.",
+    "timestamp": "2026-10-13T11:55:01.616121367Z"
+  },
+  {
+    "insertId": "a3tvafapaqk4",
+    "jsonPayload": {
+      "attrs": {
+        "tag": "workerpool0-0"
+      },
+      "levelname": "ERROR",
+      "message": "google.auth.exceptions.RefreshError: (\"Failed to retrieve http://metadata.google.internal/computeMetadata/v1/instance/service-accounts/default/identity?audience=https%3A%2F%2Fitcs355-lab5-irtmnatasq-as.a.run.app&format=full from the Google Compute Engine metadata service. Status: 404 Response:\\nb'please provide a user-specified service account\\\\n'\", <google.auth.transport.requests._Response object at 0x7a2e50ac8950>)"
+    },
+    "labels": {
+      "compute.googleapis.com/resource_id": "2026-10-13 11:54:22 +0000 [error]: #0 Failed to obtain vm_id:  error_class=OpenURI::HTTPError error=\"404 Not Found\"",
+      "compute.googleapis.com/resource_name": "76775d394202",
+      "compute.googleapis.com/zone": "2026-10-13 11:54:22 +0000 [error]: #0 Failed to obtain location:  error_class=OpenURI::HTTPError error=\"404 Not Found\"",
+      "ml.googleapis.com/job_id/log_area": "root",
+      "ml.googleapis.com/tpu_worker_id": "",
+      "ml.googleapis.com/trial_id": "",
+      "ml.googleapis.com/trial_type": ""
+    },
+    "logName": "projects/itcs355-6688058/logs/workerpool0-0",
+    "receiveTimestamp": "2026-10-13T11:54:49.250975920Z",
+    "resource": {
+      "labels": {
+        "job_id": "3559935801372442624",
+        "project_id": "itcs355-6688058",
+        "task_name": "workerpool0-0"
+      },
+      "type": "ml_job"
+    },
+    "severity": "ERROR",
+    "timestamp": "2026-10-13T11:54:46.841422673Z"
+  },
+  {
+    "insertId": "a3tvafapaqk3",
+    "jsonPayload": {
+      "attrs": {
+        "tag": "workerpool0-0"
+      },
+      "levelname": "ERROR",
+      "message": "    raise new_exc from caught_exc"
+    },
+    "labels": {
+      "compute.googleapis.com/resource_id": "2026-10-13 11:54:22 +0000 [error]: #0 Failed to obtain vm_id:  error_class=OpenURI::HTTPError error=\"404 Not Found\"",
+      "compute.googleapis.com/resource_name": "76775d394202",
+      "compute.googleapis.com/zone": "2026-10-13 11:54:22 +0000 [error]: #0 Failed to obtain location:  error_class=OpenURI::HTTPError error=\"404 Not Found\"",
+      "ml.googleapis.com/job_id/log_area": "root",
+      "ml.googleapis.com/tpu_worker_id": "",
+      "ml.googleapis.com/trial_id": "",
+      "ml.googleapis.com/trial_type": ""
+    },
+    "logName": "projects/itcs355-6688058/logs/workerpool0-0",
+    "receiveTimestamp": "2026-10-13T11:54:49.250975920Z",
+    "resource": {
+      "labels": {
+        "job_id": "3559935801372442624",
+        "project_id": "itcs355-6688058",
+        "task_name": "workerpool0-0"
+      },
+      "type": "ml_job"
+    },
+    "severity": "ERROR",
+    "timestamp": "2026-10-13T11:54:46.841415206Z"
+  },
+  {
+    "insertId": "a3tvafapaqk2",
+    "jsonPayload": {
+      "attrs": {
+        "tag": "workerpool0-0"
+      },
+      "levelname": "ERROR",
+      "message": "  File \"/usr/local/lib/python3.11/site-packages/google/auth/compute_engine/credentials.py\", line 539, in _call_metadata_identity_endpoint"
+    },
+    "labels": {
+      "compute.googleapis.com/resource_id": "2026-10-13 11:54:22 +0000 [error]: #0 Failed to obtain vm_id:  error_class=OpenURI::HTTPError error=\"404 Not Found\"",
+      "compute.googleapis.com/resource_name": "76775d394202",
+      "compute.googleapis.com/zone": "2026-10-13 11:54:22 +0000 [error]: #0 Failed to obtain location:  error_class=OpenURI::HTTPError error=\"404 Not Found\"",
+      "ml.googleapis.com/job_id/log_area": "root",
+      "ml.googleapis.com/tpu_worker_id": "",
+      "ml.googleapis.com/trial_id": "",
+      "ml.googleapis.com/trial_type": ""
+    },
+    "logName": "projects/itcs355-6688058/logs/workerpool0-0",
+    "receiveTimestamp": "2026-10-13T11:54:49.250975920Z",
+    "resource": {
+      "labels": {
+        "job_id": "3559935801372442624",
+        "project_id": "itcs355-6688058",
+        "task_name": "workerpool0-0"
+      },
+      "type": "ml_job"
+    },
+    "severity": "ERROR",
+    "timestamp": "2026-10-13T11:54:46.841408368Z"
+  },
+  {
+    "insertId": "a3tvafapaqk1",
+    "jsonPayload": {
+      "attrs": {
+        "tag": "workerpool0-0"
+      },
+      "levelname": "ERROR",
+      "message": "                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
+    },
+    "labels": {
+      "compute.googleapis.com/resource_id": "2026-10-13 11:54:22 +0000 [error]: #0 Failed to obtain vm_id:  error_class=OpenURI::HTTPError error=\"404 Not Found\"",
+      "compute.googleapis.com/resource_name": "76775d394202",
+      "compute.googleapis.com/zone": "2026-10-13 11:54:22 +0000 [error]: #0 Failed to obtain location:  error_class=OpenURI::HTTPError error=\"404 Not Found\"",
+      "ml.googleapis.com/job_id/log_area": "root",
+      "ml.googleapis.com/tpu_worker_id": "",
+      "ml.googleapis.com/trial_id": "",
+      "ml.googleapis.com/trial_type": ""
+    },
+    "logName": "projects/itcs355-6688058/logs/workerpool0-0",
+    "receiveTimestamp": "2026-10-13T11:54:49.250975920Z",
+    "resource": {
+      "labels": {
+        "job_id": "3559935801372442624",
+        "project_id": "itcs355-6688058",
+        "task_name": "workerpool0-0"
+      },
+      "type": "ml_job"
+    },
+    "severity": "ERROR",
+    "timestamp": "2026-10-13T11:54:46.841400864Z"
+  },
+  {
+    "insertId": "a3tvafapaqk0",
+    "jsonPayload": {
+      "attrs": {
+        "tag": "workerpool0-0"
+      },
+      "levelname": "ERROR",
+      "message": "    self.token, self.expiry = self._call_metadata_identity_endpoint(request)"
+    },
+    "labels": {
+      "compute.googleapis.com/resource_id": "2026-10-13 11:54:22 +0000 [error]: #0 Failed to obtain vm_id:  error_class=OpenURI::HTTPError error=\"404 Not Found\"",
+      "compute.googleapis.com/resource_name": "76775d394202",
+      "compute.googleapis.com/zone": "2026-10-13 11:54:22 +0000 [error]: #0 Failed to obtain location:  error_class=OpenURI::HTTPError error=\"404 Not Found\"",
+      "ml.googleapis.com/job_id/log_area": "root",
+      "ml.googleapis.com/tpu_worker_id": "",
+      "ml.googleapis.com/trial_id": "",
+      "ml.googleapis.com/trial_type": ""
+    },
+    "logName": "projects/itcs355-6688058/logs/workerpool0-0",
+    "receiveTimestamp": "2026-10-13T11:54:49.250975920Z",
+    "resource": {
+      "labels": {
+        "job_id": "3559935801372442624",
+        "project_id": "itcs355-6688058",
+        "task_name": "workerpool0-0"
+      },
+      "type": "ml_job"
+    },
+    "severity": "ERROR",
+    "timestamp": "2026-10-13T11:54:46.841384740Z"
+  },
+  {
+    "insertId": "a3tvafapaqjz",
+    "jsonPayload": {
+      "attrs": {
+        "tag": "workerpool0-0"
+      },
+      "levelname": "ERROR",
+      "message": "  File \"/usr/local/lib/python3.11/site-packages/google/auth/compute_engine/credentials.py\", line 557, in refresh"
+    },
+    "labels": {
+      "compute.googleapis.com/resource_id": "2026-10-13 11:54:22 +0000 [error]: #0 Failed to obtain vm_id:  error_class=OpenURI::HTTPError error=\"404 Not Found\"",
+      "compute.googleapis.com/resource_name": "76775d394202",
+      "compute.googleapis.com/zone": "2026-10-13 11:54:22 +0000 [error]: #0 Failed to obtain location:  error_class=OpenURI::HTTPError error=\"404 Not Found\"",
+      "ml.googleapis.com/job_id/log_area": "root",
+      "ml.googleapis.com/tpu_worker_id": "",
+      "ml.googleapis.com/trial_id": "",
+      "ml.googleapis.com/trial_type": ""
+    },
+    "logName": "projects/itcs355-6688058/logs/workerpool0-0",
+    "receiveTimestamp": "2026-10-13T11:54:49.250975920Z",
+    "resource": {
+      "labels": {
+        "job_id": "3559935801372442624",
+        "project_id": "itcs355-6688058",
+        "task_name": "workerpool0-0"
+      },
+      "type": "ml_job"
+    },
+    "severity": "ERROR",
+    "timestamp": "2026-10-13T11:54:46.841377311Z"
+  },
+  {
+    "insertId": "a3tvafapaqjy",
+    "jsonPayload": {
+      "attrs": {
+        "tag": "workerpool0-0"
+      },
+      "levelname": "ERROR",
+      "message": "    id_token_credentials.refresh(request)"
+    },
+    "labels": {
+      "compute.googleapis.com/resource_id": "2026-10-13 11:54:22 +0000 [error]: #0 Failed to obtain vm_id:  error_class=OpenURI::HTTPError error=\"404 Not Found\"",
+      "compute.googleapis.com/resource_name": "76775d394202",
+      "compute.googleapis.com/zone": "2026-10-13 11:54:22 +0000 [error]: #0 Failed to obtain location:  error_class=OpenURI::HTTPError error=\"404 Not Found\"",
+      "ml.googleapis.com/job_id/log_area": "root",
+      "ml.googleapis.com/tpu_worker_id": "",
+      "ml.googleapis.com/trial_id": "",
+      "ml.googleapis.com/trial_type": ""
+    },
+    "logName": "projects/itcs355-6688058/logs/workerpool0-0",
+    "receiveTimestamp": "2026-10-13T11:54:49.250975920Z",
+    "resource": {
+      "labels": {
+        "job_id": "3559935801372442624",
+        "project_id": "itcs355-6688058",
+        "task_name": "workerpool0-0"
+      },
+      "type": "ml_job"
+    },
+    "severity": "ERROR",
+    "timestamp": "2026-10-13T11:54:46.841369976Z"
+  },
+  {
+    "insertId": "a3tvafapaqjx",
+    "jsonPayload": {
+      "attrs": {
+        "tag": "workerpool0-0"
+      },
+      "levelname": "ERROR",
+      "message": "  File \"/usr/local/lib/python3.11/site-packages/google/oauth2/id_token.py\", line 390, in fetch_id_token"
+    },
+    "labels": {
+      "compute.googleapis.com/resource_id": "2026-10-13 11:54:22 +0000 [error]: #0 Failed to obtain vm_id:  error_class=OpenURI::HTTPError error=\"404 Not Found\"",
+      "compute.googleapis.com/resource_name": "76775d394202",
+      "compute.googleapis.com/zone": "2026-10-13 11:54:22 +0000 [error]: #0 Failed to obtain location:  error_class=OpenURI::HTTPError error=\"404 Not Found\"",
+      "ml.googleapis.com/job_id/log_area": "root",
+      "ml.googleapis.com/tpu_worker_id": "",
+      "ml.googleapis.com/trial_id": "",
+      "ml.googleapis.com/trial_type": ""
+    },
+    "logName": "projects/itcs355-6688058/logs/workerpool0-0",
+    "receiveTimestamp": "2026-10-13T11:54:49.250975920Z",
+    "resource": {
+      "labels": {
+        "job_id": "3559935801372442624",
+        "project_id": "itcs355-6688058",
+        "task_name": "workerpool0-0"
+      },
+      "type": "ml_job"
+    },
+    "severity": "ERROR",
+    "timestamp": "2026-10-13T11:54:46.841359928Z"
+  },
+  {
+    "insertId": "a3tvafapaqjw",
+    "jsonPayload": {
+      "attrs": {
+        "tag": "workerpool0-0"
+      },
+      "levelname": "ERROR",
+      "message": "            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
+    },
+    "labels": {
+      "compute.googleapis.com/resource_id": "2026-10-13 11:54:22 +0000 [error]: #0 Failed to obtain vm_id:  error_class=OpenURI::HTTPError error=\"404 Not Found\"",
+      "compute.googleapis.com/resource_name": "76775d394202",
+      "compute.googleapis.com/zone": "2026-10-13 11:54:22 +0000 [error]: #0 Failed to obtain location:  error_class=OpenURI::HTTPError error=\"404 Not Found\"",
+      "ml.googleapis.com/job_id/log_area": "root",
+      "ml.googleapis.com/tpu_worker_id": "",
+      "ml.googleapis.com/trial_id": "",
+      "ml.googleapis.com/trial_type": ""
+    },
+    "logName": "projects/itcs355-6688058/logs/workerpool0-0",
+    "receiveTimestamp": "2026-10-13T11:54:49.250975920Z",
+    "resource": {
+      "labels": {
+        "job_id": "3559935801372442624",
+        "project_id": "itcs355-6688058",
+        "task_name": "workerpool0-0"
+      },
+      "type": "ml_job"
+    },
+    "severity": "ERROR",
+    "timestamp": "2026-10-13T11:54:46.841352878Z"
+  },
+  {
+    "insertId": "a3tvafapaqjv",
+    "jsonPayload": {
+      "attrs": {
+        "tag": "workerpool0-0"
+      },
+      "levelname": "ERROR",
+      "message": "    token = id_token.fetch_id_token(google.auth.transport.requests.Request(), url)"
+    },
+    "labels": {
+      "compute.googleapis.com/resource_id": "2026-10-13 11:54:22 +0000 [error]: #0 Failed to obtain vm_id:  error_class=OpenURI::HTTPError error=\"404 Not Found\"",
+      "compute.googleapis.com/resource_name": "76775d394202",
+      "compute.googleapis.com/zone": "2026-10-13 11:54:22 +0000 [error]: #0 Failed to obtain location:  error_class=OpenURI::HTTPError error=\"404 Not Found\"",
+      "ml.googleapis.com/job_id/log_area": "root",
+      "ml.googleapis.com/tpu_worker_id": "",
+      "ml.googleapis.com/trial_id": "",
+      "ml.googleapis.com/trial_type": ""
+    },
+    "logName": "projects/itcs355-6688058/logs/workerpool0-0",
+    "receiveTimestamp": "2026-10-13T11:54:49.250975920Z",
+    "resource": {
+      "labels": {
+        "job_id": "3559935801372442624",
+        "project_id": "itcs355-6688058",
+        "task_name": "workerpool0-0"
+      },
+      "type": "ml_job"
+    },
+    "severity": "ERROR",
+    "timestamp": "2026-10-13T11:54:46.841345355Z"
+  },
+  {
+    "insertId": "a3tvafapaqju",
+    "jsonPayload": {
+      "attrs": {
+        "tag": "workerpool0-0"
+      },
+      "levelname": "ERROR",
+      "message": "  File \"/app/cloudlayer/lab5_deploy.py\", line 70, in deploy"
+    },
+    "labels": {
+      "compute.googleapis.com/resource_id": "2026-10-13 11:54:22 +0000 [error]: #0 Failed to obtain vm_id:  error_class=OpenURI::HTTPError error=\"404 Not Found\"",
+      "compute.googleapis.com/resource_name": "76775d394202",
+      "compute.googleapis.com/zone": "2026-10-13 11:54:22 +0000 [error]: #0 Failed to obtain location:  error_class=OpenURI::HTTPError error=\"404 Not Found\"",
+      "ml.googleapis.com/job_id/log_area": "root",
+      "ml.googleapis.com/tpu_worker_id": "",
+      "ml.googleapis.com/trial_id": "",
+      "ml.googleapis.com/trial_type": ""
+    },
+    "logName": "projects/itcs355-6688058/logs/workerpool0-0",
+    "receiveTimestamp": "2026-10-13T11:54:49.250975920Z",
+    "resource": {
+      "labels": {
+        "job_id": "3559935801372442624",
+        "project_id": "itcs355-6688058",
+        "task_name": "workerpool0-0"
+      },
+      "type": "ml_job"
+    },
+    "severity": "ERROR",
+    "timestamp": "2026-10-13T11:54:46.841334656Z"
+  },
+  {
+    "insertId": "a3tvafapaqjt",
+    "jsonPayload": {
+      "attrs": {
+        "tag": "workerpool0-0"
+      },
+      "levelname": "ERROR",
+      "message": "           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
+    },
+    "labels": {
+      "compute.googleapis.com/resource_id": "2026-10-13 11:54:22 +0000 [error]: #0 Failed to obtain vm_id:  error_class=OpenURI::HTTPError error=\"404 Not Found\"",
+      "compute.googleapis.com/resource_name": "76775d394202",
+      "compute.googleapis.com/zone": "2026-10-13 11:54:22 +0000 [error]: #0 Failed to obtain location:  error_class=OpenURI::HTTPError error=\"404 Not Found\"",
+      "ml.googleapis.com/job_id/log_area": "root",
+      "ml.googleapis.com/tpu_worker_id": "",
+      "ml.googleapis.com/trial_id": "",
+      "ml.googleapis.com/trial_type": ""
+    },
+    "logName": "projects/itcs355-6688058/logs/workerpool0-0",
+    "receiveTimestamp": "2026-10-13T11:54:49.250975920Z",
+    "resource": {
+      "labels": {
+        "job_id": "3559935801372442624",
+        "project_id": "itcs355-6688058",
+        "task_name": "workerpool0-0"
+      },
+      "type": "ml_job"
+    },
+    "severity": "ERROR",
+    "timestamp": "2026-10-13T11:54:46.841325639Z"
+  },
+  {
+    "insertId": "a3tvafapaqjs",
+    "jsonPayload": {
+      "attrs": {
+        "tag": "workerpool0-0"
+      },
+      "levelname": "ERROR",
+      "message": "    return deploy(serving, value, settings[\"endpoint\"]), \"\""
+    },
+    "labels": {
+      "compute.googleapis.com/resource_id": "2026-10-13 11:54:22 +0000 [error]: #0 Failed to obtain vm_id:  error_class=OpenURI::HTTPError error=\"404 Not Found\"",
+      "compute.googleapis.com/resource_name": "76775d394202",
+      "compute.googleapis.com/zone": "2026-10-13 11:54:22 +0000 [error]: #0 Failed to obtain location:  error_class=OpenURI::HTTPError error=\"404 Not Found\"",
+      "ml.googleapis.com/job_id/log_area": "root",
+      "ml.googleapis.com/tpu_worker_id": "",
+      "ml.googleapis.com/trial_id": "",
+      "ml.googleapis.com/trial_type": ""
+    },
+    "logName": "projects/itcs355-6688058/logs/workerpool0-0",
+    "receiveTimestamp": "2026-10-13T11:54:49.250975920Z",
+    "resource": {
+      "labels": {
+        "job_id": "3559935801372442624",
+        "project_id": "itcs355-6688058",
+        "task_name": "workerpool0-0"
+      },
+      "type": "ml_job"
+    },
+    "severity": "ERROR",
+    "timestamp": "2026-10-13T11:54:46.841312551Z"
+  },
+  {
+    "insertId": "a3tvafapaqjr",
+    "jsonPayload": {
+      "attrs": {
+        "tag": "workerpool0-0"
+      },
+      "levelname": "ERROR",
+      "message": "  File \"/app/cloudlayer/lab5_stage.py\", line 66, in run"
+    },
+    "labels": {
+      "compute.googleapis.com/resource_id": "2026-10-13 11:54:22 +0000 [error]: #0 Failed to obtain vm_id:  error_class=OpenURI::HTTPError error=\"404 Not Found\"",
+      "compute.googleapis.com/resource_name": "76775d394202",
+      "compute.googleapis.com/zone": "2026-10-13 11:54:22 +0000 [error]: #0 Failed to obtain location:  error_class=OpenURI::HTTPError error=\"404 Not Found\"",
+      "ml.googleapis.com/job_id/log_area": "root",
+      "ml.googleapis.com/tpu_worker_id": "",
+      "ml.googleapis.com/trial_id": "",
+      "ml.googleapis.com/trial_type": ""
+    },
+    "logName": "projects/itcs355-6688058/logs/workerpool0-0",
+    "receiveTimestamp": "2026-10-13T11:54:49.250975920Z",
+    "resource": {
+      "labels": {
+        "job_id": "3559935801372442624",
+        "project_id": "itcs355-6688058",
+        "task_name": "workerpool0-0"
+      },
+      "type": "ml_job"
+    },
+    "severity": "ERROR",
+    "timestamp": "2026-10-13T11:54:46.841297052Z"
+  },
+  {
+    "insertId": "a3tvafapaqjq",
+    "jsonPayload": {
+      "attrs": {
+        "tag": "workerpool0-0"
+      },
+      "levelname": "ERROR",
+      "message": "                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
+    },
+    "labels": {
+      "compute.googleapis.com/resource_id": "2026-10-13 11:54:22 +0000 [error]: #0 Failed to obtain vm_id:  error_class=OpenURI::HTTPError error=\"404 Not Found\"",
+      "compute.googleapis.com/resource_name": "76775d394202",
+      "compute.googleapis.com/zone": "2026-10-13 11:54:22 +0000 [error]: #0 Failed to obtain location:  error_class=OpenURI::HTTPError error=\"404 Not Found\"",
+      "ml.googleapis.com/job_id/log_area": "root",
+      "ml.googleapis.com/tpu_worker_id": "",
+      "ml.googleapis.com/trial_id": "",
+      "ml.googleapis.com/trial_type": ""
+    },
+    "logName": "projects/itcs355-6688058/logs/workerpool0-0",
+    "receiveTimestamp": "2026-10-13T11:54:49.250975920Z",
+    "resource": {
+      "labels": {
+        "job_id": "3559935801372442624",
+        "project_id": "itcs355-6688058",
+        "task_name": "workerpool0-0"
+      },
+      "type": "ml_job"
+    },
+    "severity": "ERROR",
+    "timestamp": "2026-10-13T11:54:46.841285536Z"
+  },
+  {
+    "insertId": "a3tvafapaqjp",
+    "jsonPayload": {
+      "attrs": {
+        "tag": "workerpool0-0"
+      },
+      "levelname": "ERROR",
+      "message": "    value, info = run(a.stage, json.loads(a.configuration), a.input_value, a.input_info)"
+    },
+    "labels": {
+      "compute.googleapis.com/resource_id": "2026-10-13 11:54:22 +0000 [error]: #0 Failed to obtain vm_id:  error_class=OpenURI::HTTPError error=\"404 Not Found\"",
+      "compute.googleapis.com/resource_name": "76775d394202",
+      "compute.googleapis.com/zone": "2026-10-13 11:54:22 +0000 [error]: #0 Failed to obtain location:  error_class=OpenURI::HTTPError error=\"404 Not Found\"",
+      "ml.googleapis.com/job_id/log_area": "root",
+      "ml.googleapis.com/tpu_worker_id": "",
+      "ml.googleapis.com/trial_id": "",
+      "ml.googleapis.com/trial_type": ""
+    },
+    "logName": "projects/itcs355-6688058/logs/workerpool0-0",
+    "receiveTimestamp": "2026-10-13T11:54:49.250975920Z",
+    "resource": {
+      "labels": {
+        "job_id": "3559935801372442624",
+        "project_id": "itcs355-6688058",
+        "task_name": "workerpool0-0"
+      },
+      "type": "ml_job"
+    },
+    "severity": "ERROR",
+    "timestamp": "2026-10-13T11:54:46.841273508Z"
+  },
+  {
+    "insertId": "a3tvafapaqjo",
+    "jsonPayload": {
+      "attrs": {
+        "tag": "workerpool0-0"
+      },
+      "levelname": "ERROR",
+      "message": "  File \"/app/cloudlayer/lab5_stage.py\", line 75, in main"
+    },
+    "labels": {
+      "compute.googleapis.com/resource_id": "2026-10-13 11:54:22 +0000 [error]: #0 Failed to obtain vm_id:  error_class=OpenURI::HTTPError error=\"404 Not Found\"",
+      "compute.googleapis.com/resource_name": "76775d394202",
+      "compute.googleapis.com/zone": "2026-10-13 11:54:22 +0000 [error]: #0 Failed to obtain location:  error_class=OpenURI::HTTPError error=\"404 Not Found\"",
+      "ml.googleapis.com/job_id/log_area": "root",
+      "ml.googleapis.com/tpu_worker_id": "",
+      "ml.googleapis.com/trial_id": "",
+      "ml.googleapis.com/trial_type": ""
+    },
+    "logName": "projects/itcs355-6688058/logs/workerpool0-0",
+    "receiveTimestamp": "2026-10-13T11:54:49.250975920Z",
+    "resource": {
+      "labels": {
+        "job_id": "3559935801372442624",
+        "project_id": "itcs355-6688058",
+        "task_name": "workerpool0-0"
+      },
+      "type": "ml_job"
+    },
+    "severity": "ERROR",
+    "timestamp": "2026-10-13T11:54:46.841255548Z"
+  },
+  {
+    "insertId": "a3tvafapaqjn",
+    "jsonPayload": {
+      "attrs": {
+        "tag": "workerpool0-0"
+      },
+      "levelname": "ERROR",
+      "message": "    main()"
+    },
+    "labels": {
+      "compute.googleapis.com/resource_id": "2026-10-13 11:54:22 +0000 [error]: #0 Failed to obtain vm_id:  error_class=OpenURI::HTTPError error=\"404 Not Found\"",
+      "compute.googleapis.com/resource_name": "76775d394202",
+      "compute.googleapis.com/zone": "2026-10-13 11:54:22 +0000 [error]: #0 Failed to obtain location:  error_class=OpenURI::HTTPError error=\"404 Not Found\"",
+      "ml.googleapis.com/job_id/log_area": "root",
+      "ml.googleapis.com/tpu_worker_id": "",
+      "ml.googleapis.com/trial_id": "",
+      "ml.googleapis.com/trial_type": ""
+    },
+    "logName": "projects/itcs355-6688058/logs/workerpool0-0",
+    "receiveTimestamp": "2026-10-13T11:54:49.250975920Z",
+    "resource": {
+      "labels": {
+        "job_id": "3559935801372442624",
+        "project_id": "itcs355-6688058",
+        "task_name": "workerpool0-0"
+      },
+      "type": "ml_job"
+    },
+    "severity": "ERROR",
+    "timestamp": "2026-10-13T11:54:46.841227511Z"
+  },
+  {
+    "insertId": "a3tvafapaqjm",
+    "jsonPayload": {
+      "attrs": {
+        "tag": "workerpool0-0"
+      },
+      "levelname": "ERROR",
+      "message": "  File \"/app/cloudlayer/lab5_stage.py\", line 83, in <module>"
+    },
+    "labels": {
+      "compute.googleapis.com/resource_id": "2026-10-13 11:54:22 +0000 [error]: #0 Failed to obtain vm_id:  error_class=OpenURI::HTTPError error=\"404 Not Found\"",
+      "compute.googleapis.com/resource_name": "76775d394202",
+      "compute.googleapis.com/zone": "2026-10-13 11:54:22 +0000 [error]: #0 Failed to obtain location:  error_class=OpenURI::HTTPError error=\"404 Not Found\"",
+      "ml.googleapis.com/job_id/log_area": "root",
+      "ml.googleapis.com/tpu_worker_id": "",
+      "ml.googleapis.com/trial_id": "",
+      "ml.googleapis.com/trial_type": ""
+    },
+    "logName": "projects/itcs355-6688058/logs/workerpool0-0",
+    "receiveTimestamp": "2026-10-13T11:54:49.250975920Z",
+    "resource": {
+      "labels": {
+        "job_id": "3559935801372442624",
+        "project_id": "itcs355-6688058",
+        "task_name": "workerpool0-0"
+      },
+      "type": "ml_job"
+    },
+    "severity": "ERROR",
+    "timestamp": "2026-10-13T11:54:46.841220808Z"
+  },
+  {
+    "insertId": "a3tvafapaqjl",
+    "jsonPayload": {
+      "attrs": {
+        "tag": "workerpool0-0"
+      },
+      "levelname": "ERROR",
+      "message": "  File \"<frozen runpy>\", line 88, in _run_code"
+    },
+    "labels": {
+      "compute.googleapis.com/resource_id": "2026-10-13 11:54:22 +0000 [error]: #0 Failed to obtain vm_id:  error_class=OpenURI::HTTPError error=\"404 Not Found\"",
+      "compute.googleapis.com/resource_name": "76775d394202",
+      "compute.googleapis.com/zone": "2026-10-13 11:54:22 +0000 [error]: #0 Failed to obtain location:  error_class=OpenURI::HTTPError error=\"404 Not Found\"",
+      "ml.googleapis.com/job_id/log_area": "root",
+      "ml.googleapis.com/tpu_worker_id": "",
+      "ml.googleapis.com/trial_id": "",
+      "ml.googleapis.com/trial_type": ""
+    },
+    "logName": "projects/itcs355-6688058/logs/workerpool0-0",
+    "receiveTimestamp": "2026-10-13T11:54:49.250975920Z",
+    "resource": {
+      "labels": {
+        "job_id": "3559935801372442624",
+        "project_id": "itcs355-6688058",
+        "task_name": "workerpool0-0"
+      },
+      "type": "ml_job"
+    },
+    "severity": "ERROR",
+    "timestamp": "2026-10-13T11:54:46.841213246Z"
+  },
+  {
+    "insertId": "a3tvafapaqjk",
+    "jsonPayload": {
+      "attrs": {
+        "tag": "workerpool0-0"
+      },
+      "levelname": "ERROR",
+      "message": "  File \"<frozen runpy>\", line 198, in _run_module_as_main"
+    },
+    "labels": {
+      "compute.googleapis.com/resource_id": "2026-10-13 11:54:22 +0000 [error]: #0 Failed to obtain vm_id:  error_class=OpenURI::HTTPError error=\"404 Not Found\"",
+      "compute.googleapis.com/resource_name": "76775d394202",
+      "compute.googleapis.com/zone": "2026-10-13 11:54:22 +0000 [error]: #0 Failed to obtain location:  error_class=OpenURI::HTTPError error=\"404 Not Found\"",
+      "ml.googleapis.com/job_id/log_area": "root",
+      "ml.googleapis.com/tpu_worker_id": "",
+      "ml.googleapis.com/trial_id": "",
+      "ml.googleapis.com/trial_type": ""
+    },
+    "logName": "projects/itcs355-6688058/logs/workerpool0-0",
+    "receiveTimestamp": "2026-10-13T11:54:49.250975920Z",
+    "resource": {
+      "labels": {
+        "job_id": "3559935801372442624",
+        "project_id": "itcs355-6688058",
+        "task_name": "workerpool0-0"
+      },
+      "type": "ml_job"
+    },
+    "severity": "ERROR",
+    "timestamp": "2026-10-13T11:54:46.841201920Z"
+  },
+  {
+    "insertId": "a3tvafapaqjj",
+    "jsonPayload": {
+      "attrs": {
+        "tag": "workerpool0-0"
+      },
+      "levelname": "ERROR",
+      "message": "Traceback (most recent call last):"
+    },
+    "labels": {
+      "compute.googleapis.com/resource_id": "2026-10-13 11:54:22 +0000 [error]: #0 Failed to obtain vm_id:  error_class=OpenURI::HTTPError error=\"404 Not Found\"",
+      "compute.googleapis.com/resource_name": "76775d394202",
+      "compute.googleapis.com/zone": "2026-10-13 11:54:22 +0000 [error]: #0 Failed to obtain location:  error_class=OpenURI::HTTPError error=\"404 Not Found\"",
+      "ml.googleapis.com/job_id/log_area": "root",
+      "ml.googleapis.com/tpu_worker_id": "",
+      "ml.googleapis.com/trial_id": "",
+      "ml.googleapis.com/trial_type": ""
+    },
+    "logName": "projects/itcs355-6688058/logs/workerpool0-0",
+    "receiveTimestamp": "2026-10-13T11:54:49.250975920Z",
+    "resource": {
+      "labels": {
+        "job_id": "3559935801372442624",
+        "project_id": "itcs355-6688058",
+        "task_name": "workerpool0-0"
+      },
+      "type": "ml_job"
+    },
+    "severity": "ERROR",
+    "timestamp": "2026-10-13T11:54:46.841194846Z"
+  }
+]

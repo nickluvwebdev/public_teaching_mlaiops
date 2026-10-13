@@ -1,0 +1,18 @@
+{
+  "baseline_thb_per_1000": 4.604903333333334,
+  "cap_only_thb_per_1000": 4.550316333333334,
+  "concise_cap_thb_per_1000": 4.0898259999999995,
+  "observed_joint_saving": 0.515077333333334,
+  "worst_case_cap_saving_thb_per_1000": 5.240352000000002,
+  "measured_cache_hits": 0,
+  "measured_requests": 12,
+  "experiment_all_calls": {
+    "requests": 87,
+    "input": 22065,
+    "output": 3851,
+    "cached": 0
+  },
+  "experiment_tariff_gross_thb": 0.379346058,
+  "price_basis": "native THB SKU prices",
+  "invoice_reconciled": false
+}

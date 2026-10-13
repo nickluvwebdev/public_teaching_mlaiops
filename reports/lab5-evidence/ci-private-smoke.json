@@ -1,0 +1,9 @@
+{
+  "identity": "itcs355-lab5-ci@itcs355-6688058.iam.gserviceaccount.com",
+  "token_method": "IAM generateIdToken self-only",
+  "status": 200,
+  "response": {
+    "probability": 0.014802283475923952,
+    "model_version": "1"
+  }
+}

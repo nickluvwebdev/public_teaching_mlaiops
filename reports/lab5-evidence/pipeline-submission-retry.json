@@ -1,0 +1,6 @@
+{
+  "pipeline_job": "projects/775344551291/locations/asia-southeast1/pipelineJobs/itcs355-training-pipeline-20261013181134",
+  "project_number": "775344551291",
+  "retry_of": "itcs355-training-pipeline-20261013175811",
+  "reason": "Vertex service-agent token delegation fixed"
+}

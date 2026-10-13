@@ -1,0 +1,32 @@
+{
+  "id": "triage-004",
+  "response": "{\"decision\": \"schedule_routine\", \"rationale\": \"Probability 0.77 meets routine threshold. Parts are not supplied.\"}",
+  "input_tokens": 345,
+  "output_tokens": 29,
+  "cached_input_tokens": 0,
+  "usage_source": "provider_usageMetadata",
+  "provider_usage": {
+    "promptTokenCount": 345,
+    "candidatesTokenCount": 29,
+    "totalTokenCount": 374,
+    "trafficType": "ON_DEMAND",
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 345
+      }
+    ],
+    "candidatesTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 29
+      }
+    ]
+  },
+  "model_version": "gemini-3.1-flash-lite",
+  "max_output_tokens": 96,
+  "latency_ms": 1464.0161620000072,
+  "control_error": null,
+  "prompt_revision": "concise-capped-parts-clarified",
+  "provider_response_id": "rRDOapG_JfeK694PvrCEmQ4"
+}

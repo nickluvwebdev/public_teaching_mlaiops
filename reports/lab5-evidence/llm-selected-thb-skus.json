@@ -1,0 +1,83 @@
+[
+  {
+    "sku": "7DDF-162F-B3F3",
+    "description": "Gemini 3.1 Flash Lite Global Text Input - Predictions",
+    "pricingInfo": {
+      "summary": "",
+      "pricingExpression": {
+        "usageUnit": "count",
+        "displayQuantity": 1000000,
+        "tieredRates": [
+          {
+            "startUsageAmount": 0,
+            "unitPrice": {
+              "currencyCode": "THB",
+              "units": "0",
+              "nanos": 8398
+            }
+          }
+        ],
+        "usageUnitDescription": "count",
+        "baseUnit": "count",
+        "baseUnitDescription": "count",
+        "baseUnitConversionFactor": 1
+      },
+      "currencyConversionRate": 33.59250000047878,
+      "effectiveTime": "2026-10-13T07:00:00Z"
+    }
+  },
+  {
+    "sku": "DA75-5E07-40DC",
+    "description": "Gemini 3.1 Flash Lite Global Text Output - Predictions",
+    "pricingInfo": {
+      "summary": "",
+      "pricingExpression": {
+        "usageUnit": "count",
+        "displayQuantity": 1000000,
+        "tieredRates": [
+          {
+            "startUsageAmount": 0,
+            "unitPrice": {
+              "currencyCode": "THB",
+              "units": "0",
+              "nanos": 50388
+            }
+          }
+        ],
+        "usageUnitDescription": "count",
+        "baseUnit": "count",
+        "baseUnitDescription": "count",
+        "baseUnitConversionFactor": 1
+      },
+      "currencyConversionRate": 33.59250000047878,
+      "effectiveTime": "2026-10-13T07:00:00Z"
+    }
+  },
+  {
+    "sku": "A0D7-CE97-949A",
+    "description": "Gemini 3.1 Flash Lite Global Text Input Caching",
+    "pricingInfo": {
+      "summary": "",
+      "pricingExpression": {
+        "usageUnit": "count",
+        "displayQuantity": 1000000,
+        "tieredRates": [
+          {
+            "startUsageAmount": 0,
+            "unitPrice": {
+              "currencyCode": "THB",
+              "units": "0",
+              "nanos": 839
+            }
+          }
+        ],
+        "usageUnitDescription": "count",
+        "baseUnit": "count",
+        "baseUnitDescription": "count",
+        "baseUnitConversionFactor": 1
+      },
+      "currencyConversionRate": 33.59250000047878,
+      "effectiveTime": "2026-10-13T07:00:00Z"
+    }
+  }
+]

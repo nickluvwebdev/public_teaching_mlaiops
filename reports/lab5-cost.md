@@ -1,22 +1,25 @@
-# Lab 5 — cost report (pending real billing evidence)
+# Lab 5 cost and budget
 
-## 1. Estimate before running
-The advance estimate is 30 THB gross incremental spend with a 50 THB operational ceiling, committed in `lab5-plan.md` before any Lab 5 paid run. Total-term ceiling is 800 THB. These are allowances, not automatic billing limits.
+The advance plan was committed before paid work: 30 THB expected, 50 THB operational ceiling, 800 THB term cap. These are operating limits, not an automatic cloud spending cap. Actual invoice reconciliation is pending, so compliance with the total term cap is not yet verified.
 
-## 2. Actual, filtered by lab labels
-Pending. No Lab 5 managed run has been executed in this session. The earlier screenshot showed 0.02 THB net for its selected period and 20.43 THB Cloud Run gross usage; it is not a Lab 5 bill and its period was not shown. Do not reuse it as Lab 5 actual cost.
+## Measured usage and pricing
 
-## 3. Gap
-Cannot calculate until actual labelled charges and credits are retrieved. The earlier Lab 4 overnight scheduler mistake is a concrete reason for immediate schedule cleanup and a separate 24-hour verification. Billing credits must be reported separately from gross usage.
+The real experiment used Vertex managed pipeline stages (resolved e2-highmem-2), one bounded n1-standard-4 Spot training job, private Cloud Run with minimum zero/maximum one instance, AWS Lambda/S3, and Gemini token calls. Startup and deployment failures are included in evidence. Native job start/end timestamps and machine specs are in all-managed-jobs.json; pipeline submissions and cached recovery are recorded separately. Billing by component and label must be reconciled with the posted bill; no missing charge is treated as zero.
 
-## 4. Components
-Training, storage, serving, pipeline and monitoring charges are pending the real run and billing export. Source/range, currency, labels and credits must accompany the numbers; no zero-cost cloud claim is made from local development.
+Cloud Run Singapore native THB catalog rate for one CPU and one GiB is 4.4866116 THB per active hour before request fees, credits and tax. Measured warm throughput was 17.5585 single predictions/sec and 2662.6990 predictions/sec with batches of 100. Request p95 was 230.71 ms and 208.93 ms respectively. This small benchmark does not prove a production SLO or cold-start latency.
 
-## 5. Cost per 1,000 predictions
-Pending current tariff verification and measured throughput from the Lab 5 service. Report 5%, 25% and 80% utilisation using `hourly_THB / (requests_per_second * utilisation * 3600) * 1000`. Separate provisioned-capacity assumptions from scale-to-zero request billing; do not price Cloud Run as a permanently warm machine without stating that assumption.
+| Utilisation | Single prediction THB/1000 | Batch-100 THB/1000 |
+|---|---:|---:|
+| 5% | 1.419575 | 0.009361 |
+| 25% | 0.283915 | 0.001872 |
+| 80% | 0.088723 | 0.000585 |
 
-## 6. Applied optimisation
-Prepared: scale-to-zero staging, one maximum instance, one bounded Spot training job, short-output advisory prompts, and a paused one-run schedule. Before/after cost and latency evidence still require live measurement; configuration alone is not measured savings.
+The table assumes allocated capacity charged for an hour and useful predictions occupying 5%, 25% or 80% of that hour. It is a capacity model, not an invoice; the actual service uses request-based billing and scales to zero. Marginal request pricing beyond the free tier adds 0.013437 THB per thousand requests (100 predictions/request divides this by 100 per thousand predictions). The applied batching optimisation improves measured throughput substantially, but actual bill savings remain pending.
 
-## LLM token bill
-The 12-case authored/offline fixtures prove the evaluation gate can fail. Their token values are not accepted as this student's provider usage. `scripts/lab5_token_report.py` requires provider-origin input/output/cache fields plus an exact model tariff and refuses fixtures. A live baseline/capped pair, measured cache hit rate and verified tariff remain pending.
+Native training catalog rates and actual VM durations are saved for reconciliation. Do not apply an invented Spot discount. Pipeline creation, provisioning, failed attempts, storage and Artifact Registry must be included; they explain possible differences from the advance estimate. AWS Cost Explorer initially returned estimated zero with no posted groups; that is not a final bill.
+
+## LLM and cleanup
+
+See lab5-token-cost.md for real token accounting, rejected attempts, verified native THB prices, the prompt/cap optimisation and zero measured cache hits. Tariff costs exclude credits and taxes.
+
+All temporary paid compute and scheduling are torn down after the experiment; original model and image storage remains. Repeat verification and billing review after 24 hours. Final cost figures, label breakdown, credits and the estimate-versus-actual gap cannot be completed until the billing report is available.

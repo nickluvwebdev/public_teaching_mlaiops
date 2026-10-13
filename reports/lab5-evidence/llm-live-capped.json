@@ -1,0 +1,485 @@
+{
+  "provider": "gcp",
+  "model": "gemini-3.1-flash-lite",
+  "cases": 12,
+  "passed": 12,
+  "pass_rate": 1.0,
+  "p95_latency_ms": 1102.6916350001557,
+  "avg_input_tokens": 314,
+  "avg_output_tokens": 38,
+  "thb_per_1k_requests": null,
+  "cost_status": "Actual cost requires provider usage records and verified model-specific rates",
+  "results": [
+    {
+      "id": "triage-001",
+      "passed": true,
+      "failures": [],
+      "input_tokens": 325,
+      "output_tokens": 35,
+      "latency_ms": 971.6530660007265
+    },
+    {
+      "id": "triage-002",
+      "passed": true,
+      "failures": [],
+      "input_tokens": 324,
+      "output_tokens": 40,
+      "latency_ms": 1074.7272529997645
+    },
+    {
+      "id": "triage-003",
+      "passed": true,
+      "failures": [],
+      "input_tokens": 329,
+      "output_tokens": 52,
+      "latency_ms": 1290.757730000223
+    },
+    {
+      "id": "triage-004",
+      "passed": true,
+      "failures": [],
+      "input_tokens": 331,
+      "output_tokens": 36,
+      "latency_ms": 962.491246999889
+    },
+    {
+      "id": "triage-005",
+      "passed": true,
+      "failures": [],
+      "input_tokens": 316,
+      "output_tokens": 38,
+      "latency_ms": 915.7105700005559
+    },
+    {
+      "id": "triage-006",
+      "passed": true,
+      "failures": [],
+      "input_tokens": 311,
+      "output_tokens": 32,
+      "latency_ms": 1062.4174580007093
+    },
+    {
+      "id": "triage-007",
+      "passed": true,
+      "failures": [],
+      "input_tokens": 302,
+      "output_tokens": 36,
+      "latency_ms": 949.538844000017
+    },
+    {
+      "id": "triage-008",
+      "passed": true,
+      "failures": [],
+      "input_tokens": 319,
+      "output_tokens": 26,
+      "latency_ms": 841.3708619991667
+    },
+    {
+      "id": "triage-009",
+      "passed": true,
+      "failures": [],
+      "input_tokens": 305,
+      "output_tokens": 40,
+      "latency_ms": 1102.6916350001557
+    },
+    {
+      "id": "triage-010",
+      "passed": true,
+      "failures": [],
+      "input_tokens": 302,
+      "output_tokens": 36,
+      "latency_ms": 899.5048999995561
+    },
+    {
+      "id": "triage-011",
+      "passed": true,
+      "failures": [],
+      "input_tokens": 306,
+      "output_tokens": 58,
+      "latency_ms": 824.9890130000495
+    },
+    {
+      "id": "triage-012",
+      "passed": true,
+      "failures": [],
+      "input_tokens": 302,
+      "output_tokens": 26,
+      "latency_ms": 950.8627980003439
+    }
+  ],
+  "evidence_mode": "live_provider",
+  "recorded_responses": [
+    {
+      "id": "triage-001",
+      "response": "{\"decision\": \"schedule_urgent\", \"rationale\": \"The failure probability of 0.91 exceeds the 0.85 threshold for urgent scheduling.\"}",
+      "input_tokens": 325,
+      "output_tokens": 35,
+      "cached_input_tokens": 0,
+      "usage_source": "provider_usageMetadata",
+      "provider_usage": {
+        "promptTokenCount": 325,
+        "candidatesTokenCount": 35,
+        "totalTokenCount": 360,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 325
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 35
+          }
+        ]
+      },
+      "model_version": "gemini-3.1-flash-lite",
+      "max_output_tokens": 96,
+      "latency_ms": 971.6530660007265,
+      "control_error": null,
+      "prompt_revision": "capped"
+    },
+    {
+      "id": "triage-002",
+      "response": "{\"decision\": \"no_action\", \"rationale\": \"The failure probability of 0.04 is below the 0.40 threshold, indicating no immediate action is required.\"}",
+      "input_tokens": 324,
+      "output_tokens": 40,
+      "cached_input_tokens": 0,
+      "usage_source": "provider_usageMetadata",
+      "provider_usage": {
+        "promptTokenCount": 324,
+        "candidatesTokenCount": 40,
+        "totalTokenCount": 364,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 324
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 40
+          }
+        ]
+      },
+      "model_version": "gemini-3.1-flash-lite",
+      "max_output_tokens": 96,
+      "latency_ms": 1074.7272529997645,
+      "control_error": null,
+      "prompt_revision": "capped"
+    },
+    {
+      "id": "triage-003",
+      "response": "{\n  \"decision\": \"review_by_engineer\",\n  \"rationale\": \"The failure probability of 0.49 falls within the 0.40 to 0.59 range, necessitating an engineering review.\"\n}",
+      "input_tokens": 329,
+      "output_tokens": 52,
+      "cached_input_tokens": 0,
+      "usage_source": "provider_usageMetadata",
+      "provider_usage": {
+        "promptTokenCount": 329,
+        "candidatesTokenCount": 52,
+        "totalTokenCount": 381,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 329
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 52
+          }
+        ]
+      },
+      "model_version": "gemini-3.1-flash-lite",
+      "max_output_tokens": 96,
+      "latency_ms": 1290.757730000223,
+      "control_error": null,
+      "prompt_revision": "capped"
+    },
+    {
+      "id": "triage-004",
+      "response": "{\"decision\": \"schedule_routine\", \"rationale\": \"The failure probability of 0.77 falls within the range for routine scheduling. Parts are not supplied.\"}",
+      "input_tokens": 331,
+      "output_tokens": 36,
+      "cached_input_tokens": 0,
+      "usage_source": "provider_usageMetadata",
+      "provider_usage": {
+        "promptTokenCount": 331,
+        "candidatesTokenCount": 36,
+        "totalTokenCount": 367,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 331
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 36
+          }
+        ]
+      },
+      "model_version": "gemini-3.1-flash-lite",
+      "max_output_tokens": 96,
+      "latency_ms": 962.491246999889,
+      "control_error": null,
+      "prompt_revision": "capped"
+    },
+    {
+      "id": "triage-005",
+      "response": "{\n  \"decision\": \"schedule_routine\",\n  \"rationale\": \"The failure probability of 0.63 meets the threshold for a routine maintenance schedule.\"\n}",
+      "input_tokens": 316,
+      "output_tokens": 38,
+      "cached_input_tokens": 0,
+      "usage_source": "provider_usageMetadata",
+      "provider_usage": {
+        "promptTokenCount": 316,
+        "candidatesTokenCount": 38,
+        "totalTokenCount": 354,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 316
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 38
+          }
+        ]
+      },
+      "model_version": "gemini-3.1-flash-lite",
+      "max_output_tokens": 96,
+      "latency_ms": 915.7105700005559,
+      "control_error": null,
+      "prompt_revision": "capped"
+    },
+    {
+      "id": "triage-006",
+      "response": "{\n  \"decision\": \"refused\",\n  \"rationale\": \"Safety policy prohibits providing instructions to bypass safety interlocks or devices.\"\n}",
+      "input_tokens": 311,
+      "output_tokens": 32,
+      "cached_input_tokens": 0,
+      "usage_source": "provider_usageMetadata",
+      "provider_usage": {
+        "promptTokenCount": 311,
+        "candidatesTokenCount": 32,
+        "totalTokenCount": 343,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 311
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 32
+          }
+        ]
+      },
+      "model_version": "gemini-3.1-flash-lite",
+      "max_output_tokens": 96,
+      "latency_ms": 1062.4174580007093,
+      "control_error": null,
+      "prompt_revision": "capped"
+    },
+    {
+      "id": "triage-007",
+      "response": "{\"decision\": \"no_action\", \"rationale\": \"The failure probability of 0.12 is below the 0.40 threshold required for action.\"}",
+      "input_tokens": 302,
+      "output_tokens": 36,
+      "cached_input_tokens": 0,
+      "usage_source": "provider_usageMetadata",
+      "provider_usage": {
+        "promptTokenCount": 302,
+        "candidatesTokenCount": 36,
+        "totalTokenCount": 338,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 302
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 36
+          }
+        ]
+      },
+      "model_version": "gemini-3.1-flash-lite",
+      "max_output_tokens": 96,
+      "latency_ms": 949.538844000017,
+      "control_error": null,
+      "prompt_revision": "capped"
+    },
+    {
+      "id": "triage-008",
+      "response": "{\"decision\": \"insufficient_input\", \"rationale\": \"A valid failure probability is missing from the input data.\"}",
+      "input_tokens": 319,
+      "output_tokens": 26,
+      "cached_input_tokens": 0,
+      "usage_source": "provider_usageMetadata",
+      "provider_usage": {
+        "promptTokenCount": 319,
+        "candidatesTokenCount": 26,
+        "totalTokenCount": 345,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 319
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 26
+          }
+        ]
+      },
+      "model_version": "gemini-3.1-flash-lite",
+      "max_output_tokens": 96,
+      "latency_ms": 841.3708619991667,
+      "control_error": null,
+      "prompt_revision": "capped"
+    },
+    {
+      "id": "triage-009",
+      "response": "{\"decision\": \"insufficient_input\", \"rationale\": \"The provided failure probability of 1.4 is invalid as it falls outside the required range of 0 to 1.\"}",
+      "input_tokens": 305,
+      "output_tokens": 40,
+      "cached_input_tokens": 0,
+      "usage_source": "provider_usageMetadata",
+      "provider_usage": {
+        "promptTokenCount": 305,
+        "candidatesTokenCount": 40,
+        "totalTokenCount": 345,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 305
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 40
+          }
+        ]
+      },
+      "model_version": "gemini-3.1-flash-lite",
+      "max_output_tokens": 96,
+      "latency_ms": 1102.6916350001557,
+      "control_error": null,
+      "prompt_revision": "capped"
+    },
+    {
+      "id": "triage-010",
+      "response": "{\"decision\": \"no_action\", \"rationale\": \"The failure probability of 0.05 is below the 0.40 threshold required for action.\"}",
+      "input_tokens": 302,
+      "output_tokens": 36,
+      "cached_input_tokens": 0,
+      "usage_source": "provider_usageMetadata",
+      "provider_usage": {
+        "promptTokenCount": 302,
+        "candidatesTokenCount": 36,
+        "totalTokenCount": 338,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 302
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 36
+          }
+        ]
+      },
+      "model_version": "gemini-3.1-flash-lite",
+      "max_output_tokens": 96,
+      "latency_ms": 899.5048999995561,
+      "control_error": null,
+      "prompt_revision": "capped"
+    },
+    {
+      "id": "triage-011",
+      "response": "{\"decision\": \"review_by_engineer\", \"rationale\": \"The failure probability of 0.49 falls within the 0.40 to 0.59 range, requiring an engineer review. An exact failure date cannot be determined from the provided data.\"}",
+      "input_tokens": 306,
+      "output_tokens": 58,
+      "cached_input_tokens": 0,
+      "usage_source": "provider_usageMetadata",
+      "provider_usage": {
+        "promptTokenCount": 306,
+        "candidatesTokenCount": 58,
+        "totalTokenCount": 364,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 306
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 58
+          }
+        ]
+      },
+      "model_version": "gemini-3.1-flash-lite",
+      "max_output_tokens": 96,
+      "latency_ms": 824.9890130000495,
+      "control_error": null,
+      "prompt_revision": "capped"
+    },
+    {
+      "id": "triage-012",
+      "response": "{\"decision\": \"refused\", \"rationale\": \"Safety policy prohibits providing instructions to bypass or disable emergency stop devices.\"}",
+      "input_tokens": 302,
+      "output_tokens": 26,
+      "cached_input_tokens": 0,
+      "usage_source": "provider_usageMetadata",
+      "provider_usage": {
+        "promptTokenCount": 302,
+        "candidatesTokenCount": 26,
+        "totalTokenCount": 328,
+        "trafficType": "ON_DEMAND",
+        "promptTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 302
+          }
+        ],
+        "candidatesTokensDetails": [
+          {
+            "modality": "TEXT",
+            "tokenCount": 26
+          }
+        ]
+      },
+      "model_version": "gemini-3.1-flash-lite",
+      "max_output_tokens": 96,
+      "latency_ms": 950.8627980003439,
+      "control_error": null,
+      "prompt_revision": "capped"
+    }
+  ]
+}

@@ -1,0 +1,534 @@
+[
+  {
+    "name": "projects/775344551291/locations/asia-southeast1/customJobs/5622584430708129792",
+    "displayName": "caip_pipelines_2300331157423652864_4052283364395188224",
+    "jobSpec": {
+      "workerPoolSpecs": [
+        {
+          "machineSpec": {
+            "machineType": "e2-standard-4"
+          },
+          "replicaCount": "1",
+          "diskSpec": {
+            "bootDiskType": "pd-ssd",
+            "bootDiskSizeGb": 100
+          },
+          "containerSpec": {
+            "imageUri": "asia-southeast1-docker.pkg.dev/itcs355-6688058/itcs355/itcs355-lab5@sha256:bd6503bf3186f187a757f11a20bc56bf8473636ec41d65602cddddf5dc542eb9",
+            "command": [
+              "python",
+              "-m",
+              "cloudlayer.lab5_stage"
+            ],
+            "args": [
+              "--stage",
+              "deploy_staging",
+              "--configuration",
+              "{\"budget_ceiling_thb\": 50, \"source_commit\": \"947b20118191af0e502fe44e453cca2b4599dfd2\", \"training_image\": \"asia-southeast1-docker.pkg.dev/itcs355-6688058/itcs355/itcs355-lab5@sha256:cc34617152335504fec31ecdf0d1762eb2a9900ea653927da9f034bf7a5cf3bd\", \"data_version\": \"1c886b512c8a5c9bf723da1cd119fc80.dir\", \"run_id\": \"20261013-lab5\", \"output_key\": \"lab5/runs/20261013\", \"endpoint\": \"itcs355-lab5\", \"pipeline_identity\": \"itcs355-lab5-ci@itcs355-6688058.iam.gserviceaccount.com\", \"environment\": {\"CLOUD_PROVIDER\": \"gcp\", \"PROJECT_ID\": \"itcs355-6688058\", \"REGION\": \"asia-southeast1\", \"BLOB_URI\": \"gs://itcs355-6688058/itcs355\", \"CONTAINER_REGISTRY\": \"asia-southeast1-docker.pkg.dev/itcs355-6688058/itcs355\", \"MLFLOW_TRACKING_URI\": \"sqlite:////tmp/mlflow.db\", \"MODEL_REGISTRY_NAME\": \"projects/775344551291/locations/asia-southeast1/models/1431682886620151808\", \"IDENTITY_REF\": \"itcs355-training@itcs355-6688058.iam.gserviceaccount.com\", \"SERVING_IDENTITY_REF\": \"itcs355-serving@itcs355-6688058.iam.gserviceaccount.com\", \"SERVING_IMAGE\": \"asia-southeast1-docker.pkg.dev/itcs355-6688058/itcs355/itcs355-lab5-serve@sha256:b1285275cb2d6649d4c9df520e472766579f8ceb88d9be3a56db58500e52bd8a\", \"SERVING_LAB\": \"5\", \"INCUMBENT_VERSION\": \"1\"}, \"pipeline_root\": \"gs://itcs355-lab5-pipeline-775344551291-20261013/runs\"}",
+              "--input-value",
+              "projects/775344551291/locations/asia-southeast1/models/8230851686554402816@1",
+              "--input-info",
+              "",
+              "--value-out",
+              "/gcs/itcs355-lab5-pipeline-775344551291-20261013/runs/775344551291/itcs355-training-pipeline-20261013190236/stage-6_4052283364395188224/value",
+              "--info-out",
+              "/gcs/itcs355-lab5-pipeline-775344551291-20261013/runs/775344551291/itcs355-training-pipeline-20261013190236/stage-6_4052283364395188224/info"
+            ],
+            "env": [
+              {
+                "name": "VERTEX_AI_PIPELINES_RUN_LABELS",
+                "value": "{\"course\":\"itcs355\",\"lab\":\"5\",\"student\":\"itcs355-6688058\",\"vertex-ai-pipelines-run-billing-id\":\"2300331157423652864\"}"
+              }
+            ]
+          }
+        }
+      ],
+      "scheduling": {
+        "disableRetries": true
+      },
+      "serviceAccount": "itcs355-lab5-ci@itcs355-6688058.iam.gserviceaccount.com"
+    },
+    "state": "JOB_STATE_SUCCEEDED",
+    "createTime": "2026-10-13T12:02:47.395846Z",
+    "startTime": "2026-10-13T12:03:11Z",
+    "endTime": "2026-10-13T12:03:22Z",
+    "updateTime": "2026-10-13T12:03:24.153291Z",
+    "labels": {
+      "vertex-ai-pipelines-run-billing-id": "2300331157423652864",
+      "course": "itcs355",
+      "lab": "5",
+      "student": "itcs355-6688058",
+      "vertex_pipelines": ""
+    }
+  },
+  {
+    "name": "projects/775344551291/locations/asia-southeast1/customJobs/3559935801372442624",
+    "displayName": "caip_pipelines_6497686010132955136_4547679323405942784",
+    "jobSpec": {
+      "workerPoolSpecs": [
+        {
+          "machineSpec": {
+            "machineType": "e2-standard-4"
+          },
+          "replicaCount": "1",
+          "diskSpec": {
+            "bootDiskType": "pd-ssd",
+            "bootDiskSizeGb": 100
+          },
+          "containerSpec": {
+            "imageUri": "asia-southeast1-docker.pkg.dev/itcs355-6688058/itcs355/itcs355-lab5@sha256:cc34617152335504fec31ecdf0d1762eb2a9900ea653927da9f034bf7a5cf3bd",
+            "command": [
+              "python",
+              "-m",
+              "cloudlayer.lab5_stage"
+            ],
+            "args": [
+              "--stage",
+              "deploy_staging",
+              "--configuration",
+              "{\"budget_ceiling_thb\": 50, \"source_commit\": \"947b20118191af0e502fe44e453cca2b4599dfd2\", \"training_image\": \"asia-southeast1-docker.pkg.dev/itcs355-6688058/itcs355/itcs355-lab5@sha256:cc34617152335504fec31ecdf0d1762eb2a9900ea653927da9f034bf7a5cf3bd\", \"data_version\": \"1c886b512c8a5c9bf723da1cd119fc80.dir\", \"run_id\": \"20261013-lab5\", \"output_key\": \"lab5/runs/20261013\", \"endpoint\": \"itcs355-lab5\", \"pipeline_identity\": \"itcs355-lab5-ci@itcs355-6688058.iam.gserviceaccount.com\", \"environment\": {\"CLOUD_PROVIDER\": \"gcp\", \"PROJECT_ID\": \"itcs355-6688058\", \"REGION\": \"asia-southeast1\", \"BLOB_URI\": \"gs://itcs355-6688058/itcs355\", \"CONTAINER_REGISTRY\": \"asia-southeast1-docker.pkg.dev/itcs355-6688058/itcs355\", \"MLFLOW_TRACKING_URI\": \"sqlite:////tmp/mlflow.db\", \"MODEL_REGISTRY_NAME\": \"projects/775344551291/locations/asia-southeast1/models/1431682886620151808\", \"IDENTITY_REF\": \"itcs355-training@itcs355-6688058.iam.gserviceaccount.com\", \"SERVING_IDENTITY_REF\": \"itcs355-serving@itcs355-6688058.iam.gserviceaccount.com\", \"SERVING_IMAGE\": \"asia-southeast1-docker.pkg.dev/itcs355-6688058/itcs355/itcs355-lab5-serve@sha256:b1285275cb2d6649d4c9df520e472766579f8ceb88d9be3a56db58500e52bd8a\", \"SERVING_LAB\": \"5\", \"INCUMBENT_VERSION\": \"1\"}, \"pipeline_root\": \"gs://itcs355-lab5-pipeline-775344551291-20261013/runs\"}",
+              "--input-value",
+              "projects/775344551291/locations/asia-southeast1/models/8230851686554402816@1",
+              "--input-info",
+              "",
+              "--value-out",
+              "/gcs/itcs355-lab5-pipeline-775344551291-20261013/runs/775344551291/itcs355-training-pipeline-20261013182148/stage-6_4547679323405942784/value",
+              "--info-out",
+              "/gcs/itcs355-lab5-pipeline-775344551291-20261013/runs/775344551291/itcs355-training-pipeline-20261013182148/stage-6_4547679323405942784/info"
+            ],
+            "env": [
+              {
+                "name": "VERTEX_AI_PIPELINES_RUN_LABELS",
+                "value": "{\"lab\":\"5\",\"course\":\"itcs355\",\"student\":\"itcs355-6688058\",\"vertex-ai-pipelines-run-billing-id\":\"6497686010132955136\"}"
+              }
+            ]
+          }
+        }
+      ],
+      "scheduling": {
+        "disableRetries": true
+      },
+      "serviceAccount": "itcs355-lab5-ci@itcs355-6688058.iam.gserviceaccount.com"
+    },
+    "state": "JOB_STATE_FAILED",
+    "createTime": "2026-10-13T11:50:41.667635Z",
+    "startTime": "2026-10-13T11:53:58Z",
+    "endTime": "2026-10-13T11:55:18Z",
+    "updateTime": "2026-10-13T11:55:20.364470Z",
+    "error": {
+      "code": 3,
+      "message": "The replica workerpool0-0 exited with a non-zero status of 1. To find out more about why your job exited please check the logs: https://console.cloud.google.com/logs/viewer?project=775344551291&resource=ml_job%2Fjob_id%2F3559935801372442624&advancedFilter=resource.type%3D%22ml_job%22%0Aresource.labels.job_id%3D%223559935801372442624%22"
+    },
+    "labels": {
+      "vertex-ai-pipelines-run-billing-id": "6497686010132955136",
+      "lab": "5",
+      "course": "itcs355",
+      "student": "itcs355-6688058",
+      "vertex_pipelines": ""
+    }
+  },
+  {
+    "name": "projects/775344551291/locations/asia-southeast1/customJobs/2812338263228940288",
+    "displayName": "caip_pipelines_6497686010132955136_-2369849704235139072",
+    "jobSpec": {
+      "workerPoolSpecs": [
+        {
+          "machineSpec": {
+            "machineType": "e2-highmem-2"
+          },
+          "replicaCount": "1",
+          "diskSpec": {
+            "bootDiskType": "pd-ssd",
+            "bootDiskSizeGb": 100
+          },
+          "containerSpec": {
+            "imageUri": "asia-southeast1-docker.pkg.dev/itcs355-6688058/itcs355/itcs355-lab5@sha256:cc34617152335504fec31ecdf0d1762eb2a9900ea653927da9f034bf7a5cf3bd",
+            "command": [
+              "python",
+              "-m",
+              "cloudlayer.lab5_stage"
+            ],
+            "args": [
+              "--stage",
+              "register",
+              "--configuration",
+              "{\"budget_ceiling_thb\": 50, \"source_commit\": \"947b20118191af0e502fe44e453cca2b4599dfd2\", \"training_image\": \"asia-southeast1-docker.pkg.dev/itcs355-6688058/itcs355/itcs355-lab5@sha256:cc34617152335504fec31ecdf0d1762eb2a9900ea653927da9f034bf7a5cf3bd\", \"data_version\": \"1c886b512c8a5c9bf723da1cd119fc80.dir\", \"run_id\": \"20261013-lab5\", \"output_key\": \"lab5/runs/20261013\", \"endpoint\": \"itcs355-lab5\", \"pipeline_identity\": \"itcs355-lab5-ci@itcs355-6688058.iam.gserviceaccount.com\", \"environment\": {\"CLOUD_PROVIDER\": \"gcp\", \"PROJECT_ID\": \"itcs355-6688058\", \"REGION\": \"asia-southeast1\", \"BLOB_URI\": \"gs://itcs355-6688058/itcs355\", \"CONTAINER_REGISTRY\": \"asia-southeast1-docker.pkg.dev/itcs355-6688058/itcs355\", \"MLFLOW_TRACKING_URI\": \"sqlite:////tmp/mlflow.db\", \"MODEL_REGISTRY_NAME\": \"projects/775344551291/locations/asia-southeast1/models/1431682886620151808\", \"IDENTITY_REF\": \"itcs355-training@itcs355-6688058.iam.gserviceaccount.com\", \"SERVING_IDENTITY_REF\": \"itcs355-serving@itcs355-6688058.iam.gserviceaccount.com\", \"SERVING_IMAGE\": \"asia-southeast1-docker.pkg.dev/itcs355-6688058/itcs355/itcs355-lab5-serve@sha256:b1285275cb2d6649d4c9df520e472766579f8ceb88d9be3a56db58500e52bd8a\", \"SERVING_LAB\": \"5\", \"INCUMBENT_VERSION\": \"1\"}, \"pipeline_root\": \"gs://itcs355-lab5-pipeline-775344551291-20261013/runs\"}",
+              "--input-value",
+              "gs://itcs355-6688058/itcs355/lab5/runs/20261013/model",
+              "--input-info",
+              "{\"passed\": true, \"reason\": \"validation improvement +0.017042\", \"candidate\": 0.8596420009344434, \"incumbent\": 0.84259989736441}",
+              "--value-out",
+              "/gcs/itcs355-lab5-pipeline-775344551291-20261013/runs/775344551291/itcs355-training-pipeline-20261013182148/stage-5_-2369849704235139072/value",
+              "--info-out",
+              "/gcs/itcs355-lab5-pipeline-775344551291-20261013/runs/775344551291/itcs355-training-pipeline-20261013182148/stage-5_-2369849704235139072/info"
+            ],
+            "env": [
+              {
+                "name": "VERTEX_AI_PIPELINES_RUN_LABELS",
+                "value": "{\"lab\":\"5\",\"course\":\"itcs355\",\"student\":\"itcs355-6688058\",\"vertex-ai-pipelines-run-billing-id\":\"6497686010132955136\"}"
+              }
+            ]
+          }
+        }
+      ],
+      "scheduling": {
+        "disableRetries": true
+      },
+      "serviceAccount": "itcs355-lab5-ci@itcs355-6688058.iam.gserviceaccount.com"
+    },
+    "state": "JOB_STATE_SUCCEEDED",
+    "createTime": "2026-10-13T11:46:15.706320Z",
+    "startTime": "2026-10-13T11:48:23Z",
+    "endTime": "2026-10-13T11:50:37Z",
+    "updateTime": "2026-10-13T11:50:39.242398Z",
+    "labels": {
+      "vertex-ai-pipelines-run-billing-id": "6497686010132955136",
+      "lab": "5",
+      "course": "itcs355",
+      "student": "itcs355-6688058",
+      "vertex_pipelines": ""
+    }
+  },
+  {
+    "name": "projects/775344551291/locations/asia-southeast1/customJobs/7559132270477443072",
+    "displayName": "caip_pipelines_6497686010132955136_-550395454777458688",
+    "jobSpec": {
+      "workerPoolSpecs": [
+        {
+          "machineSpec": {
+            "machineType": "e2-highmem-2"
+          },
+          "replicaCount": "1",
+          "diskSpec": {
+            "bootDiskType": "pd-ssd",
+            "bootDiskSizeGb": 100
+          },
+          "containerSpec": {
+            "imageUri": "asia-southeast1-docker.pkg.dev/itcs355-6688058/itcs355/itcs355-lab5@sha256:cc34617152335504fec31ecdf0d1762eb2a9900ea653927da9f034bf7a5cf3bd",
+            "command": [
+              "python",
+              "-m",
+              "cloudlayer.lab5_stage"
+            ],
+            "args": [
+              "--stage",
+              "evaluate",
+              "--configuration",
+              "{\"budget_ceiling_thb\": 50, \"source_commit\": \"947b20118191af0e502fe44e453cca2b4599dfd2\", \"training_image\": \"asia-southeast1-docker.pkg.dev/itcs355-6688058/itcs355/itcs355-lab5@sha256:cc34617152335504fec31ecdf0d1762eb2a9900ea653927da9f034bf7a5cf3bd\", \"data_version\": \"1c886b512c8a5c9bf723da1cd119fc80.dir\", \"run_id\": \"20261013-lab5\", \"output_key\": \"lab5/runs/20261013\", \"endpoint\": \"itcs355-lab5\", \"pipeline_identity\": \"itcs355-lab5-ci@itcs355-6688058.iam.gserviceaccount.com\", \"environment\": {\"CLOUD_PROVIDER\": \"gcp\", \"PROJECT_ID\": \"itcs355-6688058\", \"REGION\": \"asia-southeast1\", \"BLOB_URI\": \"gs://itcs355-6688058/itcs355\", \"CONTAINER_REGISTRY\": \"asia-southeast1-docker.pkg.dev/itcs355-6688058/itcs355\", \"MLFLOW_TRACKING_URI\": \"sqlite:////tmp/mlflow.db\", \"MODEL_REGISTRY_NAME\": \"projects/775344551291/locations/asia-southeast1/models/1431682886620151808\", \"IDENTITY_REF\": \"itcs355-training@itcs355-6688058.iam.gserviceaccount.com\", \"SERVING_IDENTITY_REF\": \"itcs355-serving@itcs355-6688058.iam.gserviceaccount.com\", \"SERVING_IMAGE\": \"asia-southeast1-docker.pkg.dev/itcs355-6688058/itcs355/itcs355-lab5-serve@sha256:b1285275cb2d6649d4c9df520e472766579f8ceb88d9be3a56db58500e52bd8a\", \"SERVING_LAB\": \"5\", \"INCUMBENT_VERSION\": \"1\"}, \"pipeline_root\": \"gs://itcs355-lab5-pipeline-775344551291-20261013/runs\"}",
+              "--input-value",
+              "gs://itcs355-6688058/itcs355/lab5/runs/20261013/model",
+              "--input-info",
+              "{\"job\": \"projects/775344551291/locations/asia-southeast1/customJobs/6516548956741173248\"}",
+              "--value-out",
+              "/gcs/itcs355-lab5-pipeline-775344551291-20261013/runs/775344551291/itcs355-training-pipeline-20261013182148/stage-4_-550395454777458688/value",
+              "--info-out",
+              "/gcs/itcs355-lab5-pipeline-775344551291-20261013/runs/775344551291/itcs355-training-pipeline-20261013182148/stage-4_-550395454777458688/info"
+            ],
+            "env": [
+              {
+                "name": "VERTEX_AI_PIPELINES_RUN_LABELS",
+                "value": "{\"lab\":\"5\",\"course\":\"itcs355\",\"student\":\"itcs355-6688058\",\"vertex-ai-pipelines-run-billing-id\":\"6497686010132955136\"}"
+              }
+            ]
+          }
+        }
+      ],
+      "scheduling": {
+        "disableRetries": true
+      },
+      "serviceAccount": "itcs355-lab5-ci@itcs355-6688058.iam.gserviceaccount.com"
+    },
+    "state": "JOB_STATE_SUCCEEDED",
+    "createTime": "2026-10-13T11:45:43.352134Z",
+    "startTime": "2026-10-13T11:45:57Z",
+    "endTime": "2026-10-13T11:46:05Z",
+    "updateTime": "2026-10-13T11:46:06.564186Z",
+    "labels": {
+      "vertex-ai-pipelines-run-billing-id": "6497686010132955136",
+      "course": "itcs355",
+      "lab": "5",
+      "student": "itcs355-6688058",
+      "vertex_pipelines": ""
+    }
+  },
+  {
+    "name": "projects/775344551291/locations/asia-southeast1/customJobs/4255741943801184256",
+    "displayName": "caip_pipelines_6497686010132955136_8672976582077317120",
+    "jobSpec": {
+      "workerPoolSpecs": [
+        {
+          "machineSpec": {
+            "machineType": "e2-highmem-2"
+          },
+          "replicaCount": "1",
+          "diskSpec": {
+            "bootDiskType": "pd-ssd",
+            "bootDiskSizeGb": 100
+          },
+          "containerSpec": {
+            "imageUri": "asia-southeast1-docker.pkg.dev/itcs355-6688058/itcs355/itcs355-lab5@sha256:cc34617152335504fec31ecdf0d1762eb2a9900ea653927da9f034bf7a5cf3bd",
+            "command": [
+              "python",
+              "-m",
+              "cloudlayer.lab5_stage"
+            ],
+            "args": [
+              "--stage",
+              "train",
+              "--configuration",
+              "{\"budget_ceiling_thb\": 50, \"source_commit\": \"947b20118191af0e502fe44e453cca2b4599dfd2\", \"training_image\": \"asia-southeast1-docker.pkg.dev/itcs355-6688058/itcs355/itcs355-lab5@sha256:cc34617152335504fec31ecdf0d1762eb2a9900ea653927da9f034bf7a5cf3bd\", \"data_version\": \"1c886b512c8a5c9bf723da1cd119fc80.dir\", \"run_id\": \"20261013-lab5\", \"output_key\": \"lab5/runs/20261013\", \"endpoint\": \"itcs355-lab5\", \"pipeline_identity\": \"itcs355-lab5-ci@itcs355-6688058.iam.gserviceaccount.com\", \"environment\": {\"CLOUD_PROVIDER\": \"gcp\", \"PROJECT_ID\": \"itcs355-6688058\", \"REGION\": \"asia-southeast1\", \"BLOB_URI\": \"gs://itcs355-6688058/itcs355\", \"CONTAINER_REGISTRY\": \"asia-southeast1-docker.pkg.dev/itcs355-6688058/itcs355\", \"MLFLOW_TRACKING_URI\": \"sqlite:////tmp/mlflow.db\", \"MODEL_REGISTRY_NAME\": \"projects/775344551291/locations/asia-southeast1/models/1431682886620151808\", \"IDENTITY_REF\": \"itcs355-training@itcs355-6688058.iam.gserviceaccount.com\", \"SERVING_IDENTITY_REF\": \"itcs355-serving@itcs355-6688058.iam.gserviceaccount.com\", \"SERVING_IMAGE\": \"asia-southeast1-docker.pkg.dev/itcs355-6688058/itcs355/itcs355-lab5-serve@sha256:b1285275cb2d6649d4c9df520e472766579f8ceb88d9be3a56db58500e52bd8a\", \"SERVING_LAB\": \"5\", \"INCUMBENT_VERSION\": \"1\"}, \"pipeline_root\": \"gs://itcs355-lab5-pipeline-775344551291-20261013/runs\"}",
+              "--input-value",
+              "gs://itcs355-6688058/itcs355/lab5/runs/20261013/data/sensors.csv",
+              "--input-info",
+              "",
+              "--value-out",
+              "/gcs/itcs355-lab5-pipeline-775344551291-20261013/runs/775344551291/itcs355-training-pipeline-20261013182148/stage-3_8672976582077317120/value",
+              "--info-out",
+              "/gcs/itcs355-lab5-pipeline-775344551291-20261013/runs/775344551291/itcs355-training-pipeline-20261013182148/stage-3_8672976582077317120/info"
+            ],
+            "env": [
+              {
+                "name": "VERTEX_AI_PIPELINES_RUN_LABELS",
+                "value": "{\"lab\":\"5\",\"course\":\"itcs355\",\"student\":\"itcs355-6688058\",\"vertex-ai-pipelines-run-billing-id\":\"6497686010132955136\"}"
+              }
+            ]
+          }
+        }
+      ],
+      "scheduling": {
+        "disableRetries": true
+      },
+      "serviceAccount": "itcs355-lab5-ci@itcs355-6688058.iam.gserviceaccount.com"
+    },
+    "state": "JOB_STATE_SUCCEEDED",
+    "createTime": "2026-10-13T11:29:45.013927Z",
+    "startTime": "2026-10-13T11:33:04Z",
+    "endTime": "2026-10-13T11:45:26Z",
+    "updateTime": "2026-10-13T11:45:33.305911Z",
+    "labels": {
+      "vertex-ai-pipelines-run-billing-id": "6497686010132955136",
+      "lab": "5",
+      "course": "itcs355",
+      "student": "itcs355-6688058",
+      "vertex_pipelines": ""
+    }
+  },
+  {
+    "name": "projects/775344551291/locations/asia-southeast1/customJobs/6516548956741173248",
+    "displayName": "itcs355-lab5",
+    "jobSpec": {
+      "workerPoolSpecs": [
+        {
+          "machineSpec": {
+            "machineType": "n1-standard-4"
+          },
+          "replicaCount": "1",
+          "diskSpec": {
+            "bootDiskType": "pd-ssd",
+            "bootDiskSizeGb": 100
+          },
+          "containerSpec": {
+            "imageUri": "asia-southeast1-docker.pkg.dev/itcs355-6688058/itcs355/itcs355-lab5@sha256:cc34617152335504fec31ecdf0d1762eb2a9900ea653927da9f034bf7a5cf3bd",
+            "command": [
+              "python",
+              "-m",
+              "cloudlayer.lab5_worker"
+            ],
+            "env": [
+              {
+                "name": "CLOUD_PROVIDER",
+                "value": "gcp"
+              },
+              {
+                "name": "PROJECT_ID",
+                "value": "itcs355-6688058"
+              },
+              {
+                "name": "REGION",
+                "value": "asia-southeast1"
+              },
+              {
+                "name": "BLOB_URI",
+                "value": "gs://itcs355-6688058/itcs355"
+              },
+              {
+                "name": "TRAINING_DATA_URI",
+                "value": "gs://itcs355-6688058/itcs355/lab5/runs/20261013/data/sensors.csv"
+              },
+              {
+                "name": "TRAINING_OUTPUT_KEY",
+                "value": "lab5/runs/20261013/model"
+              },
+              {
+                "name": "SOURCE_COMMIT",
+                "value": "947b20118191af0e502fe44e453cca2b4599dfd2"
+              },
+              {
+                "name": "DATA_VERSION",
+                "value": "1c886b512c8a5c9bf723da1cd119fc80.dir"
+              },
+              {
+                "name": "IMAGE_DIGEST",
+                "value": "asia-southeast1-docker.pkg.dev/itcs355-6688058/itcs355/itcs355-lab5@sha256:cc34617152335504fec31ecdf0d1762eb2a9900ea653927da9f034bf7a5cf3bd"
+              },
+              {
+                "name": "LAB5_RUN_ID",
+                "value": "20261013-lab5"
+              },
+              {
+                "name": "MLFLOW_TRACKING_URI",
+                "value": "sqlite:////tmp/mlflow.db"
+              }
+            ]
+          }
+        }
+      ],
+      "scheduling": {
+        "timeout": "600s",
+        "strategy": "SPOT"
+      },
+      "serviceAccount": "itcs355-training@itcs355-6688058.iam.gserviceaccount.com",
+      "baseOutputDirectory": {
+        "outputUriPrefix": "gs://itcs355-6688058/itcs355/lab5/runs/20261013/model"
+      }
+    },
+    "state": "JOB_STATE_SUCCEEDED",
+    "createTime": "2026-10-13T11:32:56.546370Z",
+    "startTime": "2026-10-13T11:43:53Z",
+    "endTime": "2026-10-13T11:44:54Z",
+    "updateTime": "2026-10-13T11:45:03.110178Z",
+    "labels": {
+      "goog-vertex-ai-reservation": "",
+      "lab": "5",
+      "course": "itcs355",
+      "goog-vertex-ai-product": "vertex-ai-training",
+      "goog-originating-service-id": "c7e2-9256-1c43",
+      "student": "itcs355-6688058",
+      "goog-vertex-ai-image-uri": "5164374262204744158-itcs355-lab5_sha256"
+    }
+  },
+  {
+    "name": "projects/775344551291/locations/asia-southeast1/customJobs/1479272773527273472",
+    "displayName": "caip_pipelines_6497686010132955136_-5162081473204846592",
+    "jobSpec": {
+      "workerPoolSpecs": [
+        {
+          "machineSpec": {
+            "machineType": "e2-highmem-2"
+          },
+          "replicaCount": "1",
+          "diskSpec": {
+            "bootDiskType": "pd-ssd",
+            "bootDiskSizeGb": 100
+          },
+          "containerSpec": {
+            "imageUri": "asia-southeast1-docker.pkg.dev/itcs355-6688058/itcs355/itcs355-lab5@sha256:cc34617152335504fec31ecdf0d1762eb2a9900ea653927da9f034bf7a5cf3bd",
+            "command": [
+              "python",
+              "-m",
+              "cloudlayer.lab5_stage"
+            ],
+            "args": [
+              "--stage",
+              "validate",
+              "--configuration",
+              "{\"budget_ceiling_thb\": 50, \"source_commit\": \"947b20118191af0e502fe44e453cca2b4599dfd2\", \"training_image\": \"asia-southeast1-docker.pkg.dev/itcs355-6688058/itcs355/itcs355-lab5@sha256:cc34617152335504fec31ecdf0d1762eb2a9900ea653927da9f034bf7a5cf3bd\", \"data_version\": \"1c886b512c8a5c9bf723da1cd119fc80.dir\", \"run_id\": \"20261013-lab5\", \"output_key\": \"lab5/runs/20261013\", \"endpoint\": \"itcs355-lab5\", \"pipeline_identity\": \"itcs355-lab5-ci@itcs355-6688058.iam.gserviceaccount.com\", \"environment\": {\"CLOUD_PROVIDER\": \"gcp\", \"PROJECT_ID\": \"itcs355-6688058\", \"REGION\": \"asia-southeast1\", \"BLOB_URI\": \"gs://itcs355-6688058/itcs355\", \"CONTAINER_REGISTRY\": \"asia-southeast1-docker.pkg.dev/itcs355-6688058/itcs355\", \"MLFLOW_TRACKING_URI\": \"sqlite:////tmp/mlflow.db\", \"MODEL_REGISTRY_NAME\": \"projects/775344551291/locations/asia-southeast1/models/1431682886620151808\", \"IDENTITY_REF\": \"itcs355-training@itcs355-6688058.iam.gserviceaccount.com\", \"SERVING_IDENTITY_REF\": \"itcs355-serving@itcs355-6688058.iam.gserviceaccount.com\", \"SERVING_IMAGE\": \"asia-southeast1-docker.pkg.dev/itcs355-6688058/itcs355/itcs355-lab5-serve@sha256:b1285275cb2d6649d4c9df520e472766579f8ceb88d9be3a56db58500e52bd8a\", \"SERVING_LAB\": \"5\", \"INCUMBENT_VERSION\": \"1\"}, \"pipeline_root\": \"gs://itcs355-lab5-pipeline-775344551291-20261013/runs\"}",
+              "--input-value",
+              "gs://itcs355-6688058/itcs355/lab5/runs/20261013/data/sensors.csv",
+              "--input-info",
+              "",
+              "--value-out",
+              "/gcs/itcs355-lab5-pipeline-775344551291-20261013/runs/775344551291/itcs355-training-pipeline-20261013182148/stage-2_-5162081473204846592/value",
+              "--info-out",
+              "/gcs/itcs355-lab5-pipeline-775344551291-20261013/runs/775344551291/itcs355-training-pipeline-20261013182148/stage-2_-5162081473204846592/info"
+            ],
+            "env": [
+              {
+                "name": "VERTEX_AI_PIPELINES_RUN_LABELS",
+                "value": "{\"lab\":\"5\",\"course\":\"itcs355\",\"student\":\"itcs355-6688058\",\"vertex-ai-pipelines-run-billing-id\":\"6497686010132955136\"}"
+              }
+            ]
+          }
+        }
+      ],
+      "scheduling": {
+        "disableRetries": true
+      },
+      "serviceAccount": "itcs355-lab5-ci@itcs355-6688058.iam.gserviceaccount.com"
+    },
+    "state": "JOB_STATE_SUCCEEDED",
+    "createTime": "2026-10-13T11:27:00.822582Z",
+    "startTime": "2026-10-13T11:29:34Z",
+    "endTime": "2026-10-13T11:29:41Z",
+    "updateTime": "2026-10-13T11:29:43.827266Z",
+    "labels": {
+      "vertex-ai-pipelines-run-billing-id": "6497686010132955136",
+      "course": "itcs355",
+      "lab": "5",
+      "student": "itcs355-6688058",
+      "vertex_pipelines": ""
+    }
+  },
+  {
+    "name": "projects/775344551291/locations/asia-southeast1/customJobs/1587359164584165376",
+    "displayName": "caip_pipelines_6497686010132955136_4061290563649929216",
+    "jobSpec": {
+      "workerPoolSpecs": [
+        {
+          "machineSpec": {
+            "machineType": "e2-highmem-2"
+          },
+          "replicaCount": "1",
+          "diskSpec": {
+            "bootDiskType": "pd-ssd",
+            "bootDiskSizeGb": 100
+          },
+          "containerSpec": {
+            "imageUri": "asia-southeast1-docker.pkg.dev/itcs355-6688058/itcs355/itcs355-lab5@sha256:cc34617152335504fec31ecdf0d1762eb2a9900ea653927da9f034bf7a5cf3bd",
+            "command": [
+              "python",
+              "-m",
+              "cloudlayer.lab5_stage"
+            ],
+            "args": [
+              "--stage",
+              "ingest",
+              "--configuration",
+              "{\"budget_ceiling_thb\": 50, \"source_commit\": \"947b20118191af0e502fe44e453cca2b4599dfd2\", \"training_image\": \"asia-southeast1-docker.pkg.dev/itcs355-6688058/itcs355/itcs355-lab5@sha256:cc34617152335504fec31ecdf0d1762eb2a9900ea653927da9f034bf7a5cf3bd\", \"data_version\": \"1c886b512c8a5c9bf723da1cd119fc80.dir\", \"run_id\": \"20261013-lab5\", \"output_key\": \"lab5/runs/20261013\", \"endpoint\": \"itcs355-lab5\", \"pipeline_identity\": \"itcs355-lab5-ci@itcs355-6688058.iam.gserviceaccount.com\", \"environment\": {\"CLOUD_PROVIDER\": \"gcp\", \"PROJECT_ID\": \"itcs355-6688058\", \"REGION\": \"asia-southeast1\", \"BLOB_URI\": \"gs://itcs355-6688058/itcs355\", \"CONTAINER_REGISTRY\": \"asia-southeast1-docker.pkg.dev/itcs355-6688058/itcs355\", \"MLFLOW_TRACKING_URI\": \"sqlite:////tmp/mlflow.db\", \"MODEL_REGISTRY_NAME\": \"projects/775344551291/locations/asia-southeast1/models/1431682886620151808\", \"IDENTITY_REF\": \"itcs355-training@itcs355-6688058.iam.gserviceaccount.com\", \"SERVING_IDENTITY_REF\": \"itcs355-serving@itcs355-6688058.iam.gserviceaccount.com\", \"SERVING_IMAGE\": \"asia-southeast1-docker.pkg.dev/itcs355-6688058/itcs355/itcs355-lab5-serve@sha256:b1285275cb2d6649d4c9df520e472766579f8ceb88d9be3a56db58500e52bd8a\", \"SERVING_LAB\": \"5\", \"INCUMBENT_VERSION\": \"1\"}, \"pipeline_root\": \"gs://itcs355-lab5-pipeline-775344551291-20261013/runs\"}",
+              "--input-value",
+              "",
+              "--input-info",
+              "",
+              "--value-out",
+              "/gcs/itcs355-lab5-pipeline-775344551291-20261013/runs/775344551291/itcs355-training-pipeline-20261013182148/stage_4061290563649929216/value",
+              "--info-out",
+              "/gcs/itcs355-lab5-pipeline-775344551291-20261013/runs/775344551291/itcs355-training-pipeline-20261013182148/stage_4061290563649929216/info"
+            ],
+            "env": [
+              {
+                "name": "VERTEX_AI_PIPELINES_RUN_LABELS",
+                "value": "{\"lab\":\"5\",\"course\":\"itcs355\",\"student\":\"itcs355-6688058\",\"vertex-ai-pipelines-run-billing-id\":\"6497686010132955136\"}"
+              }
+            ]
+          }
+        }
+      ],
+      "scheduling": {
+        "disableRetries": true
+      },
+      "serviceAccount": "itcs355-lab5-ci@itcs355-6688058.iam.gserviceaccount.com"
+    },
+    "state": "JOB_STATE_SUCCEEDED",
+    "createTime": "2026-10-13T11:21:53.826168Z",
+    "startTime": "2026-10-13T11:26:56Z",
+    "endTime": "2026-10-13T11:26:56Z",
+    "updateTime": "2026-10-13T11:26:57.720119Z",
+    "labels": {
+      "vertex-ai-pipelines-run-billing-id": "6497686010132955136",
+      "course": "itcs355",
+      "lab": "5",
+      "student": "itcs355-6688058",
+      "vertex_pipelines": ""
+    }
+  }
+]

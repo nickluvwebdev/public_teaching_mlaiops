@@ -1,0 +1,25 @@
+{
+  "primary": "gcp",
+  "secondary": "aws",
+  "uri": "s3://itcs355-lab5-349819881336/portability/probe.json",
+  "sha256": "262bd5ad3f00d3f4fb37931522856fd1f7199feffd2515363b01fdc834fc3a9d",
+  "response": {
+    "probability": 0.014802283475923968,
+    "model_version": "1"
+  },
+  "proof": "real SDK calls; byte roundtrip and exact model version checked",
+  "managed_model_ref": "projects/775344551291/locations/asia-southeast1/models/8230851686554402816@1",
+  "weights_source": "s3://itcs355-lab5-349819881336/model/portable-weights.json",
+  "managed_lineage": {
+    "git_commit": "947b20118191af0e502fe44e453cca2b4599dfd2",
+    "data_version": "1c886b512c8a5c9bf723da1cd119fc80.dir",
+    "mlflow_run_id": "e6622dba706b4931abde6b8f4ed68ba9",
+    "training_job_id": "projects/itcs355-6688058/locations/asia-southeast1/customJobs/6516548956741173248",
+    "image_digest": "asia-southeast1-docker.pkg.dev/itcs355-6688058/itcs355/itcs355-lab5@sha256:cc34617152335504fec31ecdf0d1762eb2a9900ea653927da9f034bf7a5cf3bd",
+    "seed": 20260101,
+    "split_seed": 20260101,
+    "data_fingerprint": "422cccb9136e8140",
+    "metric_val": 0.8596420009344434,
+    "metric_test": 0.8651811764394546
+  }
+}

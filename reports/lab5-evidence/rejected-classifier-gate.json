@@ -1,0 +1,8 @@
+{
+  "candidate": 0.8596420009344434,
+  "test_incumbent": 0.9,
+  "gate_exit": 1,
+  "gate_output": "GATE FAIL \u2014 improvement -0.040358 below 0.005\n",
+  "registration_blocked": "Registration refused: gate did not pass",
+  "real_managed_metrics": true
+}

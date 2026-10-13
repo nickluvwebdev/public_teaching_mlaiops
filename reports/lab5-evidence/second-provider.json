@@ -1,0 +1,11 @@
+{
+  "primary": "gcp",
+  "secondary": "aws",
+  "uri": "s3://itcs355-lab5-349819881336/portability/probe.json",
+  "sha256": "262bd5ad3f00d3f4fb37931522856fd1f7199feffd2515363b01fdc834fc3a9d",
+  "response": {
+    "probability": 0.014802283475923982,
+    "model_version": "local-preflight"
+  },
+  "proof": "real SDK calls; byte roundtrip and exact model version checked"
+}

@@ -1,0 +1,59 @@
+[
+  {
+    "name": "services/152E-C115-5142/skus/2DA5-55D3-E679",
+    "skuId": "2DA5-55D3-E679",
+    "description": "Requests",
+    "category": {
+      "serviceDisplayName": "Cloud Run",
+      "resourceFamily": "ApplicationServices",
+      "resourceGroup": "Compute",
+      "usageType": "OnDemand"
+    },
+    "serviceRegions": [
+      "global"
+    ],
+    "pricingInfo": [
+      {
+        "summary": "",
+        "pricingExpression": {
+          "usageUnit": "count",
+          "displayQuantity": 1000000,
+          "tieredRates": [
+            {
+              "startUsageAmount": 0,
+              "unitPrice": {
+                "currencyCode": "THB",
+                "units": "0",
+                "nanos": 0
+              }
+            },
+            {
+              "startUsageAmount": 2000000,
+              "unitPrice": {
+                "currencyCode": "THB",
+                "units": "0",
+                "nanos": 13437
+              }
+            }
+          ],
+          "usageUnitDescription": "count",
+          "baseUnit": "count",
+          "baseUnitDescription": "count",
+          "baseUnitConversionFactor": 1
+        },
+        "aggregationInfo": {
+          "aggregationLevel": "ACCOUNT",
+          "aggregationInterval": "MONTHLY",
+          "aggregationCount": 1
+        },
+        "currencyConversionRate": 33.59250000047878,
+        "effectiveTime": "2026-10-13T07:00:00Z"
+      }
+    ],
+    "serviceProviderName": "Google",
+    "geoTaxonomy": {
+      "type": "GLOBAL",
+      "regions": []
+    }
+  }
+]

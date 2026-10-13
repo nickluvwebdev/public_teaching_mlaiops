@@ -1,4 +1,4 @@
-.................................................................        [100%]
+..................................................................       [100%]
 =============================== warnings summary ===============================
 ../../.venvs/itcs355/lib/python3.14/site-packages/starlette/testclient.py:53
   /home/nick/.venvs/itcs355/lib/python3.14/site-packages/starlette/testclient.py:53: DeprecationWarning: The anyio.abc.BlockingPortal alias is deprecated, use anyio.from_thread.BlockingPortal instead.
@@ -14,4 +14,4 @@ tests/test_remote_training.py: 1 warning
     with codecs.open(filename, mode="w", encoding=ENCODING) as handle:
 
 -- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
-65 passed, 44 warnings in 26.10s
+66 passed, 44 warnings in 32.90s

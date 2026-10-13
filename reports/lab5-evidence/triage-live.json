@@ -1,0 +1,36 @@
+{
+  "classifier": {
+    "probability": 0.014802283475923952,
+    "model_version": "1"
+  },
+  "advisory": {
+    "control_error": null,
+    "provider_response_id": "gR_OatG-LsKE694PkISmyQc",
+    "response": "{\"decision\": \"no_action\", \"rationale\": \"The failure probability is below the 0.40 threshold for action.\"}",
+    "input_tokens": 314,
+    "output_tokens": 29,
+    "cached_input_tokens": 0,
+    "usage_source": "provider_usageMetadata",
+    "provider_usage": {
+      "promptTokenCount": 314,
+      "candidatesTokenCount": 29,
+      "totalTokenCount": 343,
+      "trafficType": "ON_DEMAND",
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 314
+        }
+      ],
+      "candidatesTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 29
+        }
+      ]
+    },
+    "model_version": "gemini-3.1-flash-lite",
+    "max_output_tokens": 96,
+    "latency_ms": 2296.3766819993907
+  }
+}

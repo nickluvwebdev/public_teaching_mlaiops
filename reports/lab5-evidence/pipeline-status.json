@@ -1,0 +1,836 @@
+{
+  "name": "projects/775344551291/locations/asia-southeast1/pipelineJobs/itcs355-training-pipeline-20261013175811",
+  "displayName": "itcs355-lab5-itcs355-6688058",
+  "createTime": "2026-10-13T10:58:13.694065Z",
+  "updateTime": "2026-10-13T10:58:13.835365Z",
+  "pipelineSpec": {
+    "deploymentConfig": {
+      "@type": "type.googleapis.com/ml_pipelines.PipelineDeploymentConfig",
+      "executors": {
+        "exec-stage": {
+          "container": {
+            "image": "asia-southeast1-docker.pkg.dev/itcs355-6688058/itcs355/itcs355-lab5@sha256:cc34617152335504fec31ecdf0d1762eb2a9900ea653927da9f034bf7a5cf3bd",
+            "command": [
+              "python",
+              "-m",
+              "cloudlayer.lab5_stage"
+            ],
+            "args": [
+              "--stage",
+              "{{$.inputs.parameters['name']}}",
+              "--configuration",
+              "{{$.inputs.parameters['configuration']}}",
+              "--input-value",
+              "{{$.inputs.parameters['input_value']}}",
+              "--input-info",
+              "{{$.inputs.parameters['input_info']}}",
+              "--value-out",
+              "{{$.outputs.parameters['value'].output_file}}",
+              "--info-out",
+              "{{$.outputs.parameters['info'].output_file}}"
+            ],
+            "resources": {
+              "cpuLimit": 1,
+              "memoryLimit": 1.073741824,
+              "resourceCpuLimit": "1",
+              "resourceMemoryLimit": "1Gi"
+            }
+          }
+        },
+        "exec-stage-5": {
+          "container": {
+            "image": "asia-southeast1-docker.pkg.dev/itcs355-6688058/itcs355/itcs355-lab5@sha256:cc34617152335504fec31ecdf0d1762eb2a9900ea653927da9f034bf7a5cf3bd",
+            "command": [
+              "python",
+              "-m",
+              "cloudlayer.lab5_stage"
+            ],
+            "args": [
+              "--stage",
+              "{{$.inputs.parameters['name']}}",
+              "--configuration",
+              "{{$.inputs.parameters['configuration']}}",
+              "--input-value",
+              "{{$.inputs.parameters['input_value']}}",
+              "--input-info",
+              "{{$.inputs.parameters['input_info']}}",
+              "--value-out",
+              "{{$.outputs.parameters['value'].output_file}}",
+              "--info-out",
+              "{{$.outputs.parameters['info'].output_file}}"
+            ],
+            "resources": {
+              "cpuLimit": 1,
+              "memoryLimit": 1.073741824,
+              "resourceCpuLimit": "1",
+              "resourceMemoryLimit": "1Gi"
+            }
+          }
+        },
+        "exec-stage-2": {
+          "container": {
+            "image": "asia-southeast1-docker.pkg.dev/itcs355-6688058/itcs355/itcs355-lab5@sha256:cc34617152335504fec31ecdf0d1762eb2a9900ea653927da9f034bf7a5cf3bd",
+            "command": [
+              "python",
+              "-m",
+              "cloudlayer.lab5_stage"
+            ],
+            "args": [
+              "--stage",
+              "{{$.inputs.parameters['name']}}",
+              "--configuration",
+              "{{$.inputs.parameters['configuration']}}",
+              "--input-value",
+              "{{$.inputs.parameters['input_value']}}",
+              "--input-info",
+              "{{$.inputs.parameters['input_info']}}",
+              "--value-out",
+              "{{$.outputs.parameters['value'].output_file}}",
+              "--info-out",
+              "{{$.outputs.parameters['info'].output_file}}"
+            ],
+            "resources": {
+              "cpuLimit": 1,
+              "memoryLimit": 1.073741824,
+              "resourceCpuLimit": "1",
+              "resourceMemoryLimit": "1Gi"
+            }
+          }
+        },
+        "exec-stage-4": {
+          "container": {
+            "image": "asia-southeast1-docker.pkg.dev/itcs355-6688058/itcs355/itcs355-lab5@sha256:cc34617152335504fec31ecdf0d1762eb2a9900ea653927da9f034bf7a5cf3bd",
+            "command": [
+              "python",
+              "-m",
+              "cloudlayer.lab5_stage"
+            ],
+            "args": [
+              "--stage",
+              "{{$.inputs.parameters['name']}}",
+              "--configuration",
+              "{{$.inputs.parameters['configuration']}}",
+              "--input-value",
+              "{{$.inputs.parameters['input_value']}}",
+              "--input-info",
+              "{{$.inputs.parameters['input_info']}}",
+              "--value-out",
+              "{{$.outputs.parameters['value'].output_file}}",
+              "--info-out",
+              "{{$.outputs.parameters['info'].output_file}}"
+            ],
+            "resources": {
+              "cpuLimit": 1,
+              "memoryLimit": 1.073741824,
+              "resourceCpuLimit": "1",
+              "resourceMemoryLimit": "1Gi"
+            }
+          }
+        },
+        "exec-stage-3": {
+          "container": {
+            "image": "asia-southeast1-docker.pkg.dev/itcs355-6688058/itcs355/itcs355-lab5@sha256:cc34617152335504fec31ecdf0d1762eb2a9900ea653927da9f034bf7a5cf3bd",
+            "command": [
+              "python",
+              "-m",
+              "cloudlayer.lab5_stage"
+            ],
+            "args": [
+              "--stage",
+              "{{$.inputs.parameters['name']}}",
+              "--configuration",
+              "{{$.inputs.parameters['configuration']}}",
+              "--input-value",
+              "{{$.inputs.parameters['input_value']}}",
+              "--input-info",
+              "{{$.inputs.parameters['input_info']}}",
+              "--value-out",
+              "{{$.outputs.parameters['value'].output_file}}",
+              "--info-out",
+              "{{$.outputs.parameters['info'].output_file}}"
+            ],
+            "resources": {
+              "cpuLimit": 1,
+              "memoryLimit": 1.073741824,
+              "resourceCpuLimit": "1",
+              "resourceMemoryLimit": "1Gi"
+            }
+          }
+        },
+        "exec-stage-6": {
+          "container": {
+            "image": "asia-southeast1-docker.pkg.dev/itcs355-6688058/itcs355/itcs355-lab5@sha256:cc34617152335504fec31ecdf0d1762eb2a9900ea653927da9f034bf7a5cf3bd",
+            "command": [
+              "python",
+              "-m",
+              "cloudlayer.lab5_stage"
+            ],
+            "args": [
+              "--stage",
+              "{{$.inputs.parameters['name']}}",
+              "--configuration",
+              "{{$.inputs.parameters['configuration']}}",
+              "--input-value",
+              "{{$.inputs.parameters['input_value']}}",
+              "--input-info",
+              "{{$.inputs.parameters['input_info']}}",
+              "--value-out",
+              "{{$.outputs.parameters['value'].output_file}}",
+              "--info-out",
+              "{{$.outputs.parameters['info'].output_file}}"
+            ]
+          }
+        }
+      }
+    },
+    "components": {
+      "comp-stage-3": {
+        "inputDefinitions": {
+          "parameters": {
+            "input_info": {
+              "parameterType": "STRING"
+            },
+            "configuration": {
+              "parameterType": "STRING"
+            },
+            "name": {
+              "parameterType": "STRING"
+            },
+            "input_value": {
+              "parameterType": "STRING"
+            }
+          }
+        },
+        "outputDefinitions": {
+          "parameters": {
+            "info": {
+              "parameterType": "STRING"
+            },
+            "value": {
+              "parameterType": "STRING"
+            }
+          }
+        },
+        "executorLabel": "exec-stage-3"
+      },
+      "comp-stage-6": {
+        "inputDefinitions": {
+          "parameters": {
+            "input_info": {
+              "parameterType": "STRING"
+            },
+            "configuration": {
+              "parameterType": "STRING"
+            },
+            "name": {
+              "parameterType": "STRING"
+            },
+            "input_value": {
+              "parameterType": "STRING"
+            }
+          }
+        },
+        "outputDefinitions": {
+          "parameters": {
+            "info": {
+              "parameterType": "STRING"
+            },
+            "value": {
+              "parameterType": "STRING"
+            }
+          }
+        },
+        "executorLabel": "exec-stage-6"
+      },
+      "comp-stage": {
+        "inputDefinitions": {
+          "parameters": {
+            "input_info": {
+              "parameterType": "STRING"
+            },
+            "configuration": {
+              "parameterType": "STRING"
+            },
+            "name": {
+              "parameterType": "STRING"
+            },
+            "input_value": {
+              "parameterType": "STRING"
+            }
+          }
+        },
+        "outputDefinitions": {
+          "parameters": {
+            "info": {
+              "parameterType": "STRING"
+            },
+            "value": {
+              "parameterType": "STRING"
+            }
+          }
+        },
+        "executorLabel": "exec-stage"
+      },
+      "comp-stage-4": {
+        "inputDefinitions": {
+          "parameters": {
+            "input_info": {
+              "parameterType": "STRING"
+            },
+            "configuration": {
+              "parameterType": "STRING"
+            },
+            "name": {
+              "parameterType": "STRING"
+            },
+            "input_value": {
+              "parameterType": "STRING"
+            }
+          }
+        },
+        "outputDefinitions": {
+          "parameters": {
+            "info": {
+              "parameterType": "STRING"
+            },
+            "value": {
+              "parameterType": "STRING"
+            }
+          }
+        },
+        "executorLabel": "exec-stage-4"
+      },
+      "comp-stage-2": {
+        "inputDefinitions": {
+          "parameters": {
+            "input_info": {
+              "parameterType": "STRING"
+            },
+            "configuration": {
+              "parameterType": "STRING"
+            },
+            "name": {
+              "parameterType": "STRING"
+            },
+            "input_value": {
+              "parameterType": "STRING"
+            }
+          }
+        },
+        "outputDefinitions": {
+          "parameters": {
+            "info": {
+              "parameterType": "STRING"
+            },
+            "value": {
+              "parameterType": "STRING"
+            }
+          }
+        },
+        "executorLabel": "exec-stage-2"
+      },
+      "comp-stage-5": {
+        "inputDefinitions": {
+          "parameters": {
+            "input_info": {
+              "parameterType": "STRING"
+            },
+            "configuration": {
+              "parameterType": "STRING"
+            },
+            "name": {
+              "parameterType": "STRING"
+            },
+            "input_value": {
+              "parameterType": "STRING"
+            }
+          }
+        },
+        "outputDefinitions": {
+          "parameters": {
+            "info": {
+              "parameterType": "STRING"
+            },
+            "value": {
+              "parameterType": "STRING"
+            }
+          }
+        },
+        "executorLabel": "exec-stage-5"
+      },
+      "comp-condition-1": {
+        "inputDefinitions": {
+          "parameters": {
+            "pipelinechannel--configuration": {
+              "parameterType": "STRING"
+            },
+            "pipelinechannel--stage-4-value": {
+              "parameterType": "STRING"
+            },
+            "pipelinechannel--stage-3-value": {
+              "parameterType": "STRING"
+            },
+            "pipelinechannel--stage-4-info": {
+              "parameterType": "STRING"
+            }
+          }
+        },
+        "dag": {
+          "tasks": {
+            "stage-5": {
+              "taskInfo": {
+                "name": "stage-5"
+              },
+              "inputs": {
+                "parameters": {
+                  "input_info": {
+                    "componentInputParameter": "pipelinechannel--stage-4-info"
+                  },
+                  "name": {
+                    "runtimeValue": {
+                      "constant": "register"
+                    }
+                  },
+                  "configuration": {
+                    "componentInputParameter": "pipelinechannel--configuration"
+                  },
+                  "input_value": {
+                    "componentInputParameter": "pipelinechannel--stage-3-value"
+                  }
+                }
+              },
+              "cachingOptions": {},
+              "componentRef": {
+                "name": "comp-stage-5"
+              }
+            },
+            "stage-6": {
+              "taskInfo": {
+                "name": "stage-6"
+              },
+              "inputs": {
+                "parameters": {
+                  "input_info": {
+                    "runtimeValue": {
+                      "constant": ""
+                    }
+                  },
+                  "name": {
+                    "runtimeValue": {
+                      "constant": "deploy_staging"
+                    }
+                  },
+                  "configuration": {
+                    "componentInputParameter": "pipelinechannel--configuration"
+                  },
+                  "input_value": {
+                    "taskOutputParameter": {
+                      "producerTask": "stage-5",
+                      "outputParameterKey": "value"
+                    }
+                  }
+                }
+              },
+              "dependentTasks": [
+                "stage-5"
+              ],
+              "cachingOptions": {},
+              "componentRef": {
+                "name": "comp-stage-6"
+              }
+            }
+          }
+        }
+      }
+    },
+    "schemaVersion": "2.1.0",
+    "root": {
+      "inputDefinitions": {
+        "parameters": {
+          "configuration": {
+            "parameterType": "STRING"
+          }
+        }
+      },
+      "dag": {
+        "tasks": {
+          "stage-2": {
+            "taskInfo": {
+              "name": "stage-2"
+            },
+            "inputs": {
+              "parameters": {
+                "input_info": {
+                  "runtimeValue": {
+                    "constant": ""
+                  }
+                },
+                "configuration": {
+                  "componentInputParameter": "configuration"
+                },
+                "name": {
+                  "runtimeValue": {
+                    "constant": "validate"
+                  }
+                },
+                "input_value": {
+                  "taskOutputParameter": {
+                    "producerTask": "stage",
+                    "outputParameterKey": "value"
+                  }
+                }
+              }
+            },
+            "dependentTasks": [
+              "stage"
+            ],
+            "cachingOptions": {},
+            "componentRef": {
+              "name": "comp-stage-2"
+            }
+          },
+          "stage-3": {
+            "taskInfo": {
+              "name": "stage-3"
+            },
+            "inputs": {
+              "parameters": {
+                "input_info": {
+                  "runtimeValue": {
+                    "constant": ""
+                  }
+                },
+                "configuration": {
+                  "componentInputParameter": "configuration"
+                },
+                "name": {
+                  "runtimeValue": {
+                    "constant": "train"
+                  }
+                },
+                "input_value": {
+                  "taskOutputParameter": {
+                    "producerTask": "stage-2",
+                    "outputParameterKey": "value"
+                  }
+                }
+              }
+            },
+            "dependentTasks": [
+              "stage-2"
+            ],
+            "cachingOptions": {},
+            "componentRef": {
+              "name": "comp-stage-3"
+            }
+          },
+          "condition-1": {
+            "taskInfo": {
+              "name": "gate-passed"
+            },
+            "inputs": {
+              "parameters": {
+                "pipelinechannel--configuration": {
+                  "componentInputParameter": "configuration"
+                },
+                "pipelinechannel--stage-4-value": {
+                  "taskOutputParameter": {
+                    "producerTask": "stage-4",
+                    "outputParameterKey": "value"
+                  }
+                },
+                "pipelinechannel--stage-3-value": {
+                  "taskOutputParameter": {
+                    "producerTask": "stage-3",
+                    "outputParameterKey": "value"
+                  }
+                },
+                "pipelinechannel--stage-4-info": {
+                  "taskOutputParameter": {
+                    "producerTask": "stage-4",
+                    "outputParameterKey": "info"
+                  }
+                }
+              }
+            },
+            "dependentTasks": [
+              "stage-3",
+              "stage-4"
+            ],
+            "cachingOptions": {},
+            "componentRef": {
+              "name": "comp-condition-1"
+            },
+            "triggerPolicy": {
+              "condition": "inputs.parameter_values['pipelinechannel--stage-4-value'] == 'pass'"
+            }
+          },
+          "stage-4": {
+            "taskInfo": {
+              "name": "stage-4"
+            },
+            "inputs": {
+              "parameters": {
+                "input_info": {
+                  "taskOutputParameter": {
+                    "producerTask": "stage-3",
+                    "outputParameterKey": "info"
+                  }
+                },
+                "configuration": {
+                  "componentInputParameter": "configuration"
+                },
+                "name": {
+                  "runtimeValue": {
+                    "constant": "evaluate"
+                  }
+                },
+                "input_value": {
+                  "taskOutputParameter": {
+                    "producerTask": "stage-3",
+                    "outputParameterKey": "value"
+                  }
+                }
+              }
+            },
+            "dependentTasks": [
+              "stage-3"
+            ],
+            "cachingOptions": {},
+            "componentRef": {
+              "name": "comp-stage-4"
+            }
+          },
+          "stage": {
+            "taskInfo": {
+              "name": "stage"
+            },
+            "inputs": {
+              "parameters": {
+                "input_info": {
+                  "runtimeValue": {
+                    "constant": ""
+                  }
+                },
+                "configuration": {
+                  "componentInputParameter": "configuration"
+                },
+                "name": {
+                  "runtimeValue": {
+                    "constant": "ingest"
+                  }
+                },
+                "input_value": {
+                  "runtimeValue": {
+                    "constant": ""
+                  }
+                }
+              }
+            },
+            "cachingOptions": {},
+            "componentRef": {
+              "name": "comp-stage"
+            }
+          }
+        }
+      }
+    },
+    "sdkVersion": "kfp-2.17.0",
+    "pipelineInfo": {
+      "name": "itcs355-training-pipeline"
+    },
+    "deploymentSpec": {
+      "executors": {
+        "exec-stage": {
+          "container": {
+            "image": "asia-southeast1-docker.pkg.dev/itcs355-6688058/itcs355/itcs355-lab5@sha256:cc34617152335504fec31ecdf0d1762eb2a9900ea653927da9f034bf7a5cf3bd",
+            "command": [
+              "python",
+              "-m",
+              "cloudlayer.lab5_stage"
+            ],
+            "args": [
+              "--stage",
+              "{{$.inputs.parameters['name']}}",
+              "--configuration",
+              "{{$.inputs.parameters['configuration']}}",
+              "--input-value",
+              "{{$.inputs.parameters['input_value']}}",
+              "--input-info",
+              "{{$.inputs.parameters['input_info']}}",
+              "--value-out",
+              "{{$.outputs.parameters['value'].output_file}}",
+              "--info-out",
+              "{{$.outputs.parameters['info'].output_file}}"
+            ],
+            "resources": {
+              "cpuLimit": 1,
+              "memoryLimit": 1.073741824,
+              "resourceCpuLimit": "1",
+              "resourceMemoryLimit": "1Gi"
+            }
+          }
+        },
+        "exec-stage-5": {
+          "container": {
+            "image": "asia-southeast1-docker.pkg.dev/itcs355-6688058/itcs355/itcs355-lab5@sha256:cc34617152335504fec31ecdf0d1762eb2a9900ea653927da9f034bf7a5cf3bd",
+            "command": [
+              "python",
+              "-m",
+              "cloudlayer.lab5_stage"
+            ],
+            "args": [
+              "--stage",
+              "{{$.inputs.parameters['name']}}",
+              "--configuration",
+              "{{$.inputs.parameters['configuration']}}",
+              "--input-value",
+              "{{$.inputs.parameters['input_value']}}",
+              "--input-info",
+              "{{$.inputs.parameters['input_info']}}",
+              "--value-out",
+              "{{$.outputs.parameters['value'].output_file}}",
+              "--info-out",
+              "{{$.outputs.parameters['info'].output_file}}"
+            ],
+            "resources": {
+              "cpuLimit": 1,
+              "memoryLimit": 1.073741824,
+              "resourceCpuLimit": "1",
+              "resourceMemoryLimit": "1Gi"
+            }
+          }
+        },
+        "exec-stage-2": {
+          "container": {
+            "image": "asia-southeast1-docker.pkg.dev/itcs355-6688058/itcs355/itcs355-lab5@sha256:cc34617152335504fec31ecdf0d1762eb2a9900ea653927da9f034bf7a5cf3bd",
+            "command": [
+              "python",
+              "-m",
+              "cloudlayer.lab5_stage"
+            ],
+            "args": [
+              "--stage",
+              "{{$.inputs.parameters['name']}}",
+              "--configuration",
+              "{{$.inputs.parameters['configuration']}}",
+              "--input-value",
+              "{{$.inputs.parameters['input_value']}}",
+              "--input-info",
+              "{{$.inputs.parameters['input_info']}}",
+              "--value-out",
+              "{{$.outputs.parameters['value'].output_file}}",
+              "--info-out",
+              "{{$.outputs.parameters['info'].output_file}}"
+            ],
+            "resources": {
+              "cpuLimit": 1,
+              "memoryLimit": 1.073741824,
+              "resourceCpuLimit": "1",
+              "resourceMemoryLimit": "1Gi"
+            }
+          }
+        },
+        "exec-stage-4": {
+          "container": {
+            "image": "asia-southeast1-docker.pkg.dev/itcs355-6688058/itcs355/itcs355-lab5@sha256:cc34617152335504fec31ecdf0d1762eb2a9900ea653927da9f034bf7a5cf3bd",
+            "command": [
+              "python",
+              "-m",
+              "cloudlayer.lab5_stage"
+            ],
+            "args": [
+              "--stage",
+              "{{$.inputs.parameters['name']}}",
+              "--configuration",
+              "{{$.inputs.parameters['configuration']}}",
+              "--input-value",
+              "{{$.inputs.parameters['input_value']}}",
+              "--input-info",
+              "{{$.inputs.parameters['input_info']}}",
+              "--value-out",
+              "{{$.outputs.parameters['value'].output_file}}",
+              "--info-out",
+              "{{$.outputs.parameters['info'].output_file}}"
+            ],
+            "resources": {
+              "cpuLimit": 1,
+              "memoryLimit": 1.073741824,
+              "resourceCpuLimit": "1",
+              "resourceMemoryLimit": "1Gi"
+            }
+          }
+        },
+        "exec-stage-3": {
+          "container": {
+            "image": "asia-southeast1-docker.pkg.dev/itcs355-6688058/itcs355/itcs355-lab5@sha256:cc34617152335504fec31ecdf0d1762eb2a9900ea653927da9f034bf7a5cf3bd",
+            "command": [
+              "python",
+              "-m",
+              "cloudlayer.lab5_stage"
+            ],
+            "args": [
+              "--stage",
+              "{{$.inputs.parameters['name']}}",
+              "--configuration",
+              "{{$.inputs.parameters['configuration']}}",
+              "--input-value",
+              "{{$.inputs.parameters['input_value']}}",
+              "--input-info",
+              "{{$.inputs.parameters['input_info']}}",
+              "--value-out",
+              "{{$.outputs.parameters['value'].output_file}}",
+              "--info-out",
+              "{{$.outputs.parameters['info'].output_file}}"
+            ],
+            "resources": {
+              "cpuLimit": 1,
+              "memoryLimit": 1.073741824,
+              "resourceCpuLimit": "1",
+              "resourceMemoryLimit": "1Gi"
+            }
+          }
+        },
+        "exec-stage-6": {
+          "container": {
+            "image": "asia-southeast1-docker.pkg.dev/itcs355-6688058/itcs355/itcs355-lab5@sha256:cc34617152335504fec31ecdf0d1762eb2a9900ea653927da9f034bf7a5cf3bd",
+            "command": [
+              "python",
+              "-m",
+              "cloudlayer.lab5_stage"
+            ],
+            "args": [
+              "--stage",
+              "{{$.inputs.parameters['name']}}",
+              "--configuration",
+              "{{$.inputs.parameters['configuration']}}",
+              "--input-value",
+              "{{$.inputs.parameters['input_value']}}",
+              "--input-info",
+              "{{$.inputs.parameters['input_info']}}",
+              "--value-out",
+              "{{$.outputs.parameters['value'].output_file}}",
+              "--info-out",
+              "{{$.outputs.parameters['info'].output_file}}"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "state": "PIPELINE_STATE_PENDING",
+  "jobDetail": {},
+  "labels": {
+    "course": "itcs355",
+    "lab": "5",
+    "student": "itcs355-6688058",
+    "vertex-ai-pipelines-run-billing-id": "4475569777443602432"
+  },
+  "runtimeConfig": {
+    "gcsOutputDirectory": "gs://itcs355-6688058/itcs355/lab5/pipeline",
+    "parameterValues": {
+      "configuration": "{\"budget_ceiling_thb\": 50, \"source_commit\": \"947b20118191af0e502fe44e453cca2b4599dfd2\", \"training_image\": \"asia-southeast1-docker.pkg.dev/itcs355-6688058/itcs355/itcs355-lab5@sha256:cc34617152335504fec31ecdf0d1762eb2a9900ea653927da9f034bf7a5cf3bd\", \"data_version\": \"1c886b512c8a5c9bf723da1cd119fc80.dir\", \"run_id\": \"20261013-lab5\", \"output_key\": \"lab5/runs/20261013\", \"endpoint\": \"itcs355-lab5\", \"pipeline_identity\": \"itcs355-lab5-ci@itcs355-6688058.iam.gserviceaccount.com\", \"environment\": {\"CLOUD_PROVIDER\": \"gcp\", \"PROJECT_ID\": \"itcs355-6688058\", \"REGION\": \"asia-southeast1\", \"BLOB_URI\": \"gs://itcs355-6688058/itcs355\", \"CONTAINER_REGISTRY\": \"asia-southeast1-docker.pkg.dev/itcs355-6688058/itcs355\", \"MLFLOW_TRACKING_URI\": \"sqlite:////tmp/mlflow.db\", \"MODEL_REGISTRY_NAME\": \"projects/775344551291/locations/asia-southeast1/models/1431682886620151808\", \"IDENTITY_REF\": \"itcs355-training@itcs355-6688058.iam.gserviceaccount.com\", \"SERVING_IDENTITY_REF\": \"itcs355-serving@itcs355-6688058.iam.gserviceaccount.com\", \"SERVING_IMAGE\": \"asia-southeast1-docker.pkg.dev/itcs355-6688058/itcs355/itcs355-lab5-serve@sha256:b1285275cb2d6649d4c9df520e472766579f8ceb88d9be3a56db58500e52bd8a\", \"SERVING_LAB\": \"5\", \"INCUMBENT_VERSION\": \"1\"}}"
+    }
+  },
+  "serviceAccount": "itcs355-lab5-ci@itcs355-6688058.iam.gserviceaccount.com"
+}

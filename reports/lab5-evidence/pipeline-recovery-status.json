@@ -1,0 +1,1339 @@
+{
+  "name": "projects/775344551291/locations/asia-southeast1/pipelineJobs/itcs355-training-pipeline-20261013190236",
+  "displayName": "itcs355-lab5-recovery-itcs355-6688058",
+  "createTime": "2026-10-13T12:02:39.206456Z",
+  "startTime": "2026-10-13T12:02:42.801983Z",
+  "endTime": "2026-10-13T12:03:28.995519Z",
+  "updateTime": "2026-10-13T12:03:28.995519Z",
+  "pipelineSpec": {
+    "deploymentConfig": {
+      "@type": "type.googleapis.com/ml_pipelines.PipelineDeploymentConfig",
+      "executors": {
+        "exec-stage": {
+          "container": {
+            "image": "asia-southeast1-docker.pkg.dev/itcs355-6688058/itcs355/itcs355-lab5@sha256:cc34617152335504fec31ecdf0d1762eb2a9900ea653927da9f034bf7a5cf3bd",
+            "command": [
+              "python",
+              "-m",
+              "cloudlayer.lab5_stage"
+            ],
+            "args": [
+              "--stage",
+              "{{$.inputs.parameters['name']}}",
+              "--configuration",
+              "{{$.inputs.parameters['configuration']}}",
+              "--input-value",
+              "{{$.inputs.parameters['input_value']}}",
+              "--input-info",
+              "{{$.inputs.parameters['input_info']}}",
+              "--value-out",
+              "{{$.outputs.parameters['value'].output_file}}",
+              "--info-out",
+              "{{$.outputs.parameters['info'].output_file}}"
+            ],
+            "resources": {
+              "cpuLimit": 1,
+              "memoryLimit": 1.073741824,
+              "resourceCpuLimit": "1",
+              "resourceMemoryLimit": "1Gi"
+            }
+          }
+        },
+        "exec-stage-2": {
+          "container": {
+            "image": "asia-southeast1-docker.pkg.dev/itcs355-6688058/itcs355/itcs355-lab5@sha256:cc34617152335504fec31ecdf0d1762eb2a9900ea653927da9f034bf7a5cf3bd",
+            "command": [
+              "python",
+              "-m",
+              "cloudlayer.lab5_stage"
+            ],
+            "args": [
+              "--stage",
+              "{{$.inputs.parameters['name']}}",
+              "--configuration",
+              "{{$.inputs.parameters['configuration']}}",
+              "--input-value",
+              "{{$.inputs.parameters['input_value']}}",
+              "--input-info",
+              "{{$.inputs.parameters['input_info']}}",
+              "--value-out",
+              "{{$.outputs.parameters['value'].output_file}}",
+              "--info-out",
+              "{{$.outputs.parameters['info'].output_file}}"
+            ],
+            "resources": {
+              "cpuLimit": 1,
+              "memoryLimit": 1.073741824,
+              "resourceCpuLimit": "1",
+              "resourceMemoryLimit": "1Gi"
+            }
+          }
+        },
+        "exec-stage-6": {
+          "container": {
+            "image": "asia-southeast1-docker.pkg.dev/itcs355-6688058/itcs355/itcs355-lab5@sha256:cc34617152335504fec31ecdf0d1762eb2a9900ea653927da9f034bf7a5cf3bd",
+            "command": [
+              "python",
+              "-m",
+              "cloudlayer.lab5_stage"
+            ],
+            "args": [
+              "--stage",
+              "{{$.inputs.parameters['name']}}",
+              "--configuration",
+              "{{$.inputs.parameters['configuration']}}",
+              "--input-value",
+              "{{$.inputs.parameters['input_value']}}",
+              "--input-info",
+              "{{$.inputs.parameters['input_info']}}",
+              "--value-out",
+              "{{$.outputs.parameters['value'].output_file}}",
+              "--info-out",
+              "{{$.outputs.parameters['info'].output_file}}"
+            ]
+          }
+        },
+        "exec-stage-4": {
+          "container": {
+            "image": "asia-southeast1-docker.pkg.dev/itcs355-6688058/itcs355/itcs355-lab5@sha256:cc34617152335504fec31ecdf0d1762eb2a9900ea653927da9f034bf7a5cf3bd",
+            "command": [
+              "python",
+              "-m",
+              "cloudlayer.lab5_stage"
+            ],
+            "args": [
+              "--stage",
+              "{{$.inputs.parameters['name']}}",
+              "--configuration",
+              "{{$.inputs.parameters['configuration']}}",
+              "--input-value",
+              "{{$.inputs.parameters['input_value']}}",
+              "--input-info",
+              "{{$.inputs.parameters['input_info']}}",
+              "--value-out",
+              "{{$.outputs.parameters['value'].output_file}}",
+              "--info-out",
+              "{{$.outputs.parameters['info'].output_file}}"
+            ],
+            "resources": {
+              "cpuLimit": 1,
+              "memoryLimit": 1.073741824,
+              "resourceCpuLimit": "1",
+              "resourceMemoryLimit": "1Gi"
+            }
+          }
+        },
+        "exec-stage-6-repaired-deploy": {
+          "container": {
+            "image": "asia-southeast1-docker.pkg.dev/itcs355-6688058/itcs355/itcs355-lab5@sha256:bd6503bf3186f187a757f11a20bc56bf8473636ec41d65602cddddf5dc542eb9",
+            "command": [
+              "python",
+              "-m",
+              "cloudlayer.lab5_stage"
+            ],
+            "args": [
+              "--stage",
+              "{{$.inputs.parameters['name']}}",
+              "--configuration",
+              "{{$.inputs.parameters['configuration']}}",
+              "--input-value",
+              "{{$.inputs.parameters['input_value']}}",
+              "--input-info",
+              "{{$.inputs.parameters['input_info']}}",
+              "--value-out",
+              "{{$.outputs.parameters['value'].output_file}}",
+              "--info-out",
+              "{{$.outputs.parameters['info'].output_file}}"
+            ]
+          }
+        },
+        "exec-stage-3": {
+          "container": {
+            "image": "asia-southeast1-docker.pkg.dev/itcs355-6688058/itcs355/itcs355-lab5@sha256:cc34617152335504fec31ecdf0d1762eb2a9900ea653927da9f034bf7a5cf3bd",
+            "command": [
+              "python",
+              "-m",
+              "cloudlayer.lab5_stage"
+            ],
+            "args": [
+              "--stage",
+              "{{$.inputs.parameters['name']}}",
+              "--configuration",
+              "{{$.inputs.parameters['configuration']}}",
+              "--input-value",
+              "{{$.inputs.parameters['input_value']}}",
+              "--input-info",
+              "{{$.inputs.parameters['input_info']}}",
+              "--value-out",
+              "{{$.outputs.parameters['value'].output_file}}",
+              "--info-out",
+              "{{$.outputs.parameters['info'].output_file}}"
+            ],
+            "resources": {
+              "cpuLimit": 1,
+              "memoryLimit": 1.073741824,
+              "resourceCpuLimit": "1",
+              "resourceMemoryLimit": "1Gi"
+            }
+          }
+        },
+        "exec-stage-5": {
+          "container": {
+            "image": "asia-southeast1-docker.pkg.dev/itcs355-6688058/itcs355/itcs355-lab5@sha256:cc34617152335504fec31ecdf0d1762eb2a9900ea653927da9f034bf7a5cf3bd",
+            "command": [
+              "python",
+              "-m",
+              "cloudlayer.lab5_stage"
+            ],
+            "args": [
+              "--stage",
+              "{{$.inputs.parameters['name']}}",
+              "--configuration",
+              "{{$.inputs.parameters['configuration']}}",
+              "--input-value",
+              "{{$.inputs.parameters['input_value']}}",
+              "--input-info",
+              "{{$.inputs.parameters['input_info']}}",
+              "--value-out",
+              "{{$.outputs.parameters['value'].output_file}}",
+              "--info-out",
+              "{{$.outputs.parameters['info'].output_file}}"
+            ],
+            "resources": {
+              "cpuLimit": 1,
+              "memoryLimit": 1.073741824,
+              "resourceCpuLimit": "1",
+              "resourceMemoryLimit": "1Gi"
+            }
+          }
+        }
+      }
+    },
+    "components": {
+      "comp-stage-6-repaired-deploy": {
+        "inputDefinitions": {
+          "parameters": {
+            "configuration": {
+              "parameterType": "STRING"
+            },
+            "input_value": {
+              "parameterType": "STRING"
+            },
+            "name": {
+              "parameterType": "STRING"
+            },
+            "input_info": {
+              "parameterType": "STRING"
+            }
+          }
+        },
+        "outputDefinitions": {
+          "parameters": {
+            "value": {
+              "parameterType": "STRING"
+            },
+            "info": {
+              "parameterType": "STRING"
+            }
+          }
+        },
+        "executorLabel": "exec-stage-6-repaired-deploy"
+      },
+      "comp-stage-6": {
+        "inputDefinitions": {
+          "parameters": {
+            "configuration": {
+              "parameterType": "STRING"
+            },
+            "input_value": {
+              "parameterType": "STRING"
+            },
+            "name": {
+              "parameterType": "STRING"
+            },
+            "input_info": {
+              "parameterType": "STRING"
+            }
+          }
+        },
+        "outputDefinitions": {
+          "parameters": {
+            "value": {
+              "parameterType": "STRING"
+            },
+            "info": {
+              "parameterType": "STRING"
+            }
+          }
+        },
+        "executorLabel": "exec-stage-6"
+      },
+      "comp-stage-4": {
+        "inputDefinitions": {
+          "parameters": {
+            "configuration": {
+              "parameterType": "STRING"
+            },
+            "input_value": {
+              "parameterType": "STRING"
+            },
+            "name": {
+              "parameterType": "STRING"
+            },
+            "input_info": {
+              "parameterType": "STRING"
+            }
+          }
+        },
+        "outputDefinitions": {
+          "parameters": {
+            "value": {
+              "parameterType": "STRING"
+            },
+            "info": {
+              "parameterType": "STRING"
+            }
+          }
+        },
+        "executorLabel": "exec-stage-4"
+      },
+      "comp-stage-2": {
+        "inputDefinitions": {
+          "parameters": {
+            "configuration": {
+              "parameterType": "STRING"
+            },
+            "input_value": {
+              "parameterType": "STRING"
+            },
+            "name": {
+              "parameterType": "STRING"
+            },
+            "input_info": {
+              "parameterType": "STRING"
+            }
+          }
+        },
+        "outputDefinitions": {
+          "parameters": {
+            "value": {
+              "parameterType": "STRING"
+            },
+            "info": {
+              "parameterType": "STRING"
+            }
+          }
+        },
+        "executorLabel": "exec-stage-2"
+      },
+      "comp-stage-3": {
+        "inputDefinitions": {
+          "parameters": {
+            "configuration": {
+              "parameterType": "STRING"
+            },
+            "input_value": {
+              "parameterType": "STRING"
+            },
+            "name": {
+              "parameterType": "STRING"
+            },
+            "input_info": {
+              "parameterType": "STRING"
+            }
+          }
+        },
+        "outputDefinitions": {
+          "parameters": {
+            "value": {
+              "parameterType": "STRING"
+            },
+            "info": {
+              "parameterType": "STRING"
+            }
+          }
+        },
+        "executorLabel": "exec-stage-3"
+      },
+      "comp-stage-5": {
+        "inputDefinitions": {
+          "parameters": {
+            "configuration": {
+              "parameterType": "STRING"
+            },
+            "input_value": {
+              "parameterType": "STRING"
+            },
+            "name": {
+              "parameterType": "STRING"
+            },
+            "input_info": {
+              "parameterType": "STRING"
+            }
+          }
+        },
+        "outputDefinitions": {
+          "parameters": {
+            "value": {
+              "parameterType": "STRING"
+            },
+            "info": {
+              "parameterType": "STRING"
+            }
+          }
+        },
+        "executorLabel": "exec-stage-5"
+      },
+      "comp-stage": {
+        "inputDefinitions": {
+          "parameters": {
+            "configuration": {
+              "parameterType": "STRING"
+            },
+            "input_value": {
+              "parameterType": "STRING"
+            },
+            "name": {
+              "parameterType": "STRING"
+            },
+            "input_info": {
+              "parameterType": "STRING"
+            }
+          }
+        },
+        "outputDefinitions": {
+          "parameters": {
+            "value": {
+              "parameterType": "STRING"
+            },
+            "info": {
+              "parameterType": "STRING"
+            }
+          }
+        },
+        "executorLabel": "exec-stage"
+      },
+      "comp-condition-1": {
+        "inputDefinitions": {
+          "parameters": {
+            "pipelinechannel--stage-4-info": {
+              "parameterType": "STRING"
+            },
+            "pipelinechannel--stage-4-value": {
+              "parameterType": "STRING"
+            },
+            "pipelinechannel--stage-3-value": {
+              "parameterType": "STRING"
+            },
+            "pipelinechannel--configuration": {
+              "parameterType": "STRING"
+            }
+          }
+        },
+        "dag": {
+          "tasks": {
+            "stage-5": {
+              "taskInfo": {
+                "name": "stage-5"
+              },
+              "inputs": {
+                "parameters": {
+                  "configuration": {
+                    "componentInputParameter": "pipelinechannel--configuration"
+                  },
+                  "name": {
+                    "runtimeValue": {
+                      "constant": "register"
+                    }
+                  },
+                  "input_value": {
+                    "componentInputParameter": "pipelinechannel--stage-3-value"
+                  },
+                  "input_info": {
+                    "componentInputParameter": "pipelinechannel--stage-4-info"
+                  }
+                }
+              },
+              "cachingOptions": {
+                "enableCache": true
+              },
+              "componentRef": {
+                "name": "comp-stage-5"
+              }
+            },
+            "stage-6": {
+              "taskInfo": {
+                "name": "stage-6"
+              },
+              "inputs": {
+                "parameters": {
+                  "configuration": {
+                    "componentInputParameter": "pipelinechannel--configuration"
+                  },
+                  "name": {
+                    "runtimeValue": {
+                      "constant": "deploy_staging"
+                    }
+                  },
+                  "input_value": {
+                    "taskOutputParameter": {
+                      "producerTask": "stage-5",
+                      "outputParameterKey": "value"
+                    }
+                  },
+                  "input_info": {
+                    "runtimeValue": {
+                      "constant": ""
+                    }
+                  }
+                }
+              },
+              "dependentTasks": [
+                "stage-5"
+              ],
+              "cachingOptions": {
+                "enableCache": true
+              },
+              "componentRef": {
+                "name": "comp-stage-6-repaired-deploy"
+              }
+            }
+          }
+        }
+      }
+    },
+    "schemaVersion": "2.1.0",
+    "root": {
+      "inputDefinitions": {
+        "parameters": {
+          "configuration": {
+            "parameterType": "STRING"
+          }
+        }
+      },
+      "dag": {
+        "tasks": {
+          "condition-1": {
+            "taskInfo": {
+              "name": "gate-passed"
+            },
+            "inputs": {
+              "parameters": {
+                "pipelinechannel--stage-4-info": {
+                  "taskOutputParameter": {
+                    "producerTask": "stage-4",
+                    "outputParameterKey": "info"
+                  }
+                },
+                "pipelinechannel--stage-4-value": {
+                  "taskOutputParameter": {
+                    "producerTask": "stage-4",
+                    "outputParameterKey": "value"
+                  }
+                },
+                "pipelinechannel--stage-3-value": {
+                  "taskOutputParameter": {
+                    "producerTask": "stage-3",
+                    "outputParameterKey": "value"
+                  }
+                },
+                "pipelinechannel--configuration": {
+                  "componentInputParameter": "configuration"
+                }
+              }
+            },
+            "dependentTasks": [
+              "stage-3",
+              "stage-4"
+            ],
+            "cachingOptions": {
+              "enableCache": true
+            },
+            "componentRef": {
+              "name": "comp-condition-1"
+            },
+            "triggerPolicy": {
+              "condition": "inputs.parameter_values['pipelinechannel--stage-4-value'] == 'pass'"
+            }
+          },
+          "stage": {
+            "taskInfo": {
+              "name": "stage"
+            },
+            "inputs": {
+              "parameters": {
+                "configuration": {
+                  "componentInputParameter": "configuration"
+                },
+                "input_value": {
+                  "runtimeValue": {
+                    "constant": ""
+                  }
+                },
+                "name": {
+                  "runtimeValue": {
+                    "constant": "ingest"
+                  }
+                },
+                "input_info": {
+                  "runtimeValue": {
+                    "constant": ""
+                  }
+                }
+              }
+            },
+            "cachingOptions": {
+              "enableCache": true
+            },
+            "componentRef": {
+              "name": "comp-stage"
+            }
+          },
+          "stage-3": {
+            "taskInfo": {
+              "name": "stage-3"
+            },
+            "inputs": {
+              "parameters": {
+                "configuration": {
+                  "componentInputParameter": "configuration"
+                },
+                "input_value": {
+                  "taskOutputParameter": {
+                    "producerTask": "stage-2",
+                    "outputParameterKey": "value"
+                  }
+                },
+                "name": {
+                  "runtimeValue": {
+                    "constant": "train"
+                  }
+                },
+                "input_info": {
+                  "runtimeValue": {
+                    "constant": ""
+                  }
+                }
+              }
+            },
+            "dependentTasks": [
+              "stage-2"
+            ],
+            "cachingOptions": {
+              "enableCache": true
+            },
+            "componentRef": {
+              "name": "comp-stage-3"
+            }
+          },
+          "stage-4": {
+            "taskInfo": {
+              "name": "stage-4"
+            },
+            "inputs": {
+              "parameters": {
+                "configuration": {
+                  "componentInputParameter": "configuration"
+                },
+                "input_value": {
+                  "taskOutputParameter": {
+                    "producerTask": "stage-3",
+                    "outputParameterKey": "value"
+                  }
+                },
+                "name": {
+                  "runtimeValue": {
+                    "constant": "evaluate"
+                  }
+                },
+                "input_info": {
+                  "taskOutputParameter": {
+                    "producerTask": "stage-3",
+                    "outputParameterKey": "info"
+                  }
+                }
+              }
+            },
+            "dependentTasks": [
+              "stage-3"
+            ],
+            "cachingOptions": {
+              "enableCache": true
+            },
+            "componentRef": {
+              "name": "comp-stage-4"
+            }
+          },
+          "stage-2": {
+            "taskInfo": {
+              "name": "stage-2"
+            },
+            "inputs": {
+              "parameters": {
+                "configuration": {
+                  "componentInputParameter": "configuration"
+                },
+                "input_value": {
+                  "taskOutputParameter": {
+                    "producerTask": "stage",
+                    "outputParameterKey": "value"
+                  }
+                },
+                "name": {
+                  "runtimeValue": {
+                    "constant": "validate"
+                  }
+                },
+                "input_info": {
+                  "runtimeValue": {
+                    "constant": ""
+                  }
+                }
+              }
+            },
+            "dependentTasks": [
+              "stage"
+            ],
+            "cachingOptions": {
+              "enableCache": true
+            },
+            "componentRef": {
+              "name": "comp-stage-2"
+            }
+          }
+        }
+      }
+    },
+    "sdkVersion": "kfp-2.17.0",
+    "pipelineInfo": {
+      "name": "itcs355-training-pipeline"
+    },
+    "deploymentSpec": {
+      "executors": {
+        "exec-stage": {
+          "container": {
+            "image": "asia-southeast1-docker.pkg.dev/itcs355-6688058/itcs355/itcs355-lab5@sha256:cc34617152335504fec31ecdf0d1762eb2a9900ea653927da9f034bf7a5cf3bd",
+            "command": [
+              "python",
+              "-m",
+              "cloudlayer.lab5_stage"
+            ],
+            "args": [
+              "--stage",
+              "{{$.inputs.parameters['name']}}",
+              "--configuration",
+              "{{$.inputs.parameters['configuration']}}",
+              "--input-value",
+              "{{$.inputs.parameters['input_value']}}",
+              "--input-info",
+              "{{$.inputs.parameters['input_info']}}",
+              "--value-out",
+              "{{$.outputs.parameters['value'].output_file}}",
+              "--info-out",
+              "{{$.outputs.parameters['info'].output_file}}"
+            ],
+            "resources": {
+              "cpuLimit": 1,
+              "memoryLimit": 1.073741824,
+              "resourceCpuLimit": "1",
+              "resourceMemoryLimit": "1Gi"
+            }
+          }
+        },
+        "exec-stage-2": {
+          "container": {
+            "image": "asia-southeast1-docker.pkg.dev/itcs355-6688058/itcs355/itcs355-lab5@sha256:cc34617152335504fec31ecdf0d1762eb2a9900ea653927da9f034bf7a5cf3bd",
+            "command": [
+              "python",
+              "-m",
+              "cloudlayer.lab5_stage"
+            ],
+            "args": [
+              "--stage",
+              "{{$.inputs.parameters['name']}}",
+              "--configuration",
+              "{{$.inputs.parameters['configuration']}}",
+              "--input-value",
+              "{{$.inputs.parameters['input_value']}}",
+              "--input-info",
+              "{{$.inputs.parameters['input_info']}}",
+              "--value-out",
+              "{{$.outputs.parameters['value'].output_file}}",
+              "--info-out",
+              "{{$.outputs.parameters['info'].output_file}}"
+            ],
+            "resources": {
+              "cpuLimit": 1,
+              "memoryLimit": 1.073741824,
+              "resourceCpuLimit": "1",
+              "resourceMemoryLimit": "1Gi"
+            }
+          }
+        },
+        "exec-stage-6": {
+          "container": {
+            "image": "asia-southeast1-docker.pkg.dev/itcs355-6688058/itcs355/itcs355-lab5@sha256:cc34617152335504fec31ecdf0d1762eb2a9900ea653927da9f034bf7a5cf3bd",
+            "command": [
+              "python",
+              "-m",
+              "cloudlayer.lab5_stage"
+            ],
+            "args": [
+              "--stage",
+              "{{$.inputs.parameters['name']}}",
+              "--configuration",
+              "{{$.inputs.parameters['configuration']}}",
+              "--input-value",
+              "{{$.inputs.parameters['input_value']}}",
+              "--input-info",
+              "{{$.inputs.parameters['input_info']}}",
+              "--value-out",
+              "{{$.outputs.parameters['value'].output_file}}",
+              "--info-out",
+              "{{$.outputs.parameters['info'].output_file}}"
+            ]
+          }
+        },
+        "exec-stage-4": {
+          "container": {
+            "image": "asia-southeast1-docker.pkg.dev/itcs355-6688058/itcs355/itcs355-lab5@sha256:cc34617152335504fec31ecdf0d1762eb2a9900ea653927da9f034bf7a5cf3bd",
+            "command": [
+              "python",
+              "-m",
+              "cloudlayer.lab5_stage"
+            ],
+            "args": [
+              "--stage",
+              "{{$.inputs.parameters['name']}}",
+              "--configuration",
+              "{{$.inputs.parameters['configuration']}}",
+              "--input-value",
+              "{{$.inputs.parameters['input_value']}}",
+              "--input-info",
+              "{{$.inputs.parameters['input_info']}}",
+              "--value-out",
+              "{{$.outputs.parameters['value'].output_file}}",
+              "--info-out",
+              "{{$.outputs.parameters['info'].output_file}}"
+            ],
+            "resources": {
+              "cpuLimit": 1,
+              "memoryLimit": 1.073741824,
+              "resourceCpuLimit": "1",
+              "resourceMemoryLimit": "1Gi"
+            }
+          }
+        },
+        "exec-stage-6-repaired-deploy": {
+          "container": {
+            "image": "asia-southeast1-docker.pkg.dev/itcs355-6688058/itcs355/itcs355-lab5@sha256:bd6503bf3186f187a757f11a20bc56bf8473636ec41d65602cddddf5dc542eb9",
+            "command": [
+              "python",
+              "-m",
+              "cloudlayer.lab5_stage"
+            ],
+            "args": [
+              "--stage",
+              "{{$.inputs.parameters['name']}}",
+              "--configuration",
+              "{{$.inputs.parameters['configuration']}}",
+              "--input-value",
+              "{{$.inputs.parameters['input_value']}}",
+              "--input-info",
+              "{{$.inputs.parameters['input_info']}}",
+              "--value-out",
+              "{{$.outputs.parameters['value'].output_file}}",
+              "--info-out",
+              "{{$.outputs.parameters['info'].output_file}}"
+            ]
+          }
+        },
+        "exec-stage-3": {
+          "container": {
+            "image": "asia-southeast1-docker.pkg.dev/itcs355-6688058/itcs355/itcs355-lab5@sha256:cc34617152335504fec31ecdf0d1762eb2a9900ea653927da9f034bf7a5cf3bd",
+            "command": [
+              "python",
+              "-m",
+              "cloudlayer.lab5_stage"
+            ],
+            "args": [
+              "--stage",
+              "{{$.inputs.parameters['name']}}",
+              "--configuration",
+              "{{$.inputs.parameters['configuration']}}",
+              "--input-value",
+              "{{$.inputs.parameters['input_value']}}",
+              "--input-info",
+              "{{$.inputs.parameters['input_info']}}",
+              "--value-out",
+              "{{$.outputs.parameters['value'].output_file}}",
+              "--info-out",
+              "{{$.outputs.parameters['info'].output_file}}"
+            ],
+            "resources": {
+              "cpuLimit": 1,
+              "memoryLimit": 1.073741824,
+              "resourceCpuLimit": "1",
+              "resourceMemoryLimit": "1Gi"
+            }
+          }
+        },
+        "exec-stage-5": {
+          "container": {
+            "image": "asia-southeast1-docker.pkg.dev/itcs355-6688058/itcs355/itcs355-lab5@sha256:cc34617152335504fec31ecdf0d1762eb2a9900ea653927da9f034bf7a5cf3bd",
+            "command": [
+              "python",
+              "-m",
+              "cloudlayer.lab5_stage"
+            ],
+            "args": [
+              "--stage",
+              "{{$.inputs.parameters['name']}}",
+              "--configuration",
+              "{{$.inputs.parameters['configuration']}}",
+              "--input-value",
+              "{{$.inputs.parameters['input_value']}}",
+              "--input-info",
+              "{{$.inputs.parameters['input_info']}}",
+              "--value-out",
+              "{{$.outputs.parameters['value'].output_file}}",
+              "--info-out",
+              "{{$.outputs.parameters['info'].output_file}}"
+            ],
+            "resources": {
+              "cpuLimit": 1,
+              "memoryLimit": 1.073741824,
+              "resourceCpuLimit": "1",
+              "resourceMemoryLimit": "1Gi"
+            }
+          }
+        }
+      }
+    }
+  },
+  "state": "PIPELINE_STATE_SUCCEEDED",
+  "jobDetail": {
+    "pipelineContext": {
+      "name": "projects/775344551291/locations/asia-southeast1/metadataStores/default/contexts/itcs355-training-pipeline",
+      "displayName": "itcs355-training-pipeline",
+      "etag": "1791892962898",
+      "createTime": "2026-10-13T11:21:52.622Z",
+      "updateTime": "2026-10-13T12:02:42.898Z",
+      "schemaTitle": "system.Pipeline",
+      "schemaVersion": "0.0.1",
+      "metadata": {}
+    },
+    "pipelineRunContext": {
+      "name": "projects/775344551291/locations/asia-southeast1/metadataStores/default/contexts/itcs355-training-pipeline-20261013190236",
+      "displayName": "itcs355-training-pipeline-20261013190236",
+      "etag": "1791892962986",
+      "createTime": "2026-10-13T12:02:42.986Z",
+      "updateTime": "2026-10-13T12:02:42.986Z",
+      "parentContexts": [
+        "projects/775344551291/locations/asia-southeast1/metadataStores/default/contexts/itcs355-training-pipeline"
+      ],
+      "schemaTitle": "system.PipelineRun",
+      "schemaVersion": "0.0.1",
+      "metadata": {}
+    },
+    "taskDetails": [
+      {
+        "taskId": "-7395866888380612608",
+        "taskName": "stage-3",
+        "createTime": "2026-10-13T12:02:43.260671Z",
+        "startTime": "2026-10-13T12:02:45.001488Z",
+        "endTime": "2026-10-13T12:02:45.001488Z",
+        "executorDetail": {
+          "containerDetail": {
+            "mainJob": "projects/775344551291/locations/asia-southeast1/customJobs/4255741943801184256"
+          }
+        },
+        "state": "SKIPPED",
+        "execution": {
+          "name": "projects/775344551291/locations/asia-southeast1/metadataStores/default/executions/5640128832257184816",
+          "displayName": "stage-3",
+          "state": "CACHED",
+          "etag": "1791892964966",
+          "createTime": "2026-10-13T12:02:44.688Z",
+          "updateTime": "2026-10-13T12:02:44.966Z",
+          "schemaTitle": "system.ContainerExecution",
+          "schemaVersion": "0.0.1",
+          "metadata": {
+            "input:input_value": "gs://itcs355-6688058/itcs355/lab5/runs/20261013/data/sensors.csv",
+            "output:value": "gs://itcs355-6688058/itcs355/lab5/runs/20261013/model",
+            "input:name": "train",
+            "vmlmd_lineage_integration": {
+              "pipeline_run_component": {
+                "location_id": "asia-southeast1",
+                "task_name": "stage-3",
+                "project_id": "itcs355-6688058",
+                "parent_task_names": [
+                  "itcs355-training-pipeline-20261013182148"
+                ],
+                "pipeline_run_id": "itcs355-training-pipeline-20261013182148"
+              }
+            },
+            "output:info": "{\"job\": \"projects/775344551291/locations/asia-southeast1/customJobs/6516548956741173248\"}",
+            "input:configuration": "{\"budget_ceiling_thb\": 50, \"source_commit\": \"947b20118191af0e502fe44e453cca2b4599dfd2\", \"training_image\": \"asia-southeast1-docker.pkg.dev/itcs355-6688058/itcs355/itcs355-lab5@sha256:cc34617152335504fec31ecdf0d1762eb2a9900ea653927da9f034bf7a5cf3bd\", \"data_version\": \"1c886b512c8a5c9bf723da1cd119fc80.dir\", \"run_id\": \"20261013-lab5\", \"output_key\": \"lab5/runs/20261013\", \"endpoint\": \"itcs355-lab5\", \"pipeline_identity\": \"itcs355-lab5-ci@itcs355-6688058.iam.gserviceaccount.com\", \"environment\": {\"CLOUD_PROVIDER\": \"gcp\", \"PROJECT_ID\": \"itcs355-6688058\", \"REGION\": \"asia-southeast1\", \"BLOB_URI\": \"gs://itcs355-6688058/itcs355\", \"CONTAINER_REGISTRY\": \"asia-southeast1-docker.pkg.dev/itcs355-6688058/itcs355\", \"MLFLOW_TRACKING_URI\": \"sqlite:////tmp/mlflow.db\", \"MODEL_REGISTRY_NAME\": \"projects/775344551291/locations/asia-southeast1/models/1431682886620151808\", \"IDENTITY_REF\": \"itcs355-training@itcs355-6688058.iam.gserviceaccount.com\", \"SERVING_IDENTITY_REF\": \"itcs355-serving@itcs355-6688058.iam.gserviceaccount.com\", \"SERVING_IMAGE\": \"asia-southeast1-docker.pkg.dev/itcs355-6688058/itcs355/itcs355-lab5-serve@sha256:b1285275cb2d6649d4c9df520e472766579f8ceb88d9be3a56db58500e52bd8a\", \"SERVING_LAB\": \"5\", \"INCUMBENT_VERSION\": \"1\"}, \"pipeline_root\": \"gs://itcs355-lab5-pipeline-775344551291-20261013/runs\"}",
+            "input:input_info": ""
+          }
+        },
+        "parentTaskId": "-3369648821511389184",
+        "pipelineTaskStatus": [
+          {
+            "updateTime": "2026-10-13T12:02:44.905257728Z",
+            "state": "SKIPPED"
+          }
+        ],
+        "taskUniqueName": "stage-3"
+      },
+      {
+        "taskId": "-3369648821511389184",
+        "taskName": "itcs355-training-pipeline-20261013190236",
+        "createTime": "2026-10-13T12:02:42.801983Z",
+        "startTime": "2026-10-13T12:02:43.260671Z",
+        "endTime": "2026-10-13T12:03:28.985883Z",
+        "executorDetail": {},
+        "state": "SUCCEEDED",
+        "execution": {
+          "name": "projects/775344551291/locations/asia-southeast1/metadataStores/default/executions/15103067147819363540",
+          "displayName": "itcs355-training-pipeline-20261013190236",
+          "state": "COMPLETE",
+          "etag": "1791893008961",
+          "createTime": "2026-10-13T12:02:43.193Z",
+          "updateTime": "2026-10-13T12:03:28.961Z",
+          "schemaTitle": "system.Run",
+          "schemaVersion": "0.0.1",
+          "metadata": {
+            "input:configuration": "{\"budget_ceiling_thb\": 50, \"source_commit\": \"947b20118191af0e502fe44e453cca2b4599dfd2\", \"training_image\": \"asia-southeast1-docker.pkg.dev/itcs355-6688058/itcs355/itcs355-lab5@sha256:cc34617152335504fec31ecdf0d1762eb2a9900ea653927da9f034bf7a5cf3bd\", \"data_version\": \"1c886b512c8a5c9bf723da1cd119fc80.dir\", \"run_id\": \"20261013-lab5\", \"output_key\": \"lab5/runs/20261013\", \"endpoint\": \"itcs355-lab5\", \"pipeline_identity\": \"itcs355-lab5-ci@itcs355-6688058.iam.gserviceaccount.com\", \"environment\": {\"CLOUD_PROVIDER\": \"gcp\", \"PROJECT_ID\": \"itcs355-6688058\", \"REGION\": \"asia-southeast1\", \"BLOB_URI\": \"gs://itcs355-6688058/itcs355\", \"CONTAINER_REGISTRY\": \"asia-southeast1-docker.pkg.dev/itcs355-6688058/itcs355\", \"MLFLOW_TRACKING_URI\": \"sqlite:////tmp/mlflow.db\", \"MODEL_REGISTRY_NAME\": \"projects/775344551291/locations/asia-southeast1/models/1431682886620151808\", \"IDENTITY_REF\": \"itcs355-training@itcs355-6688058.iam.gserviceaccount.com\", \"SERVING_IDENTITY_REF\": \"itcs355-serving@itcs355-6688058.iam.gserviceaccount.com\", \"SERVING_IMAGE\": \"asia-southeast1-docker.pkg.dev/itcs355-6688058/itcs355/itcs355-lab5-serve@sha256:b1285275cb2d6649d4c9df520e472766579f8ceb88d9be3a56db58500e52bd8a\", \"SERVING_LAB\": \"5\", \"INCUMBENT_VERSION\": \"1\"}, \"pipeline_root\": \"gs://itcs355-lab5-pipeline-775344551291-20261013/runs\"}",
+            "vmlmd_lineage_integration": {
+              "pipeline_run_component": {
+                "location_id": "asia-southeast1",
+                "task_name": "itcs355-training-pipeline-20261013190236",
+                "parent_task_names": [],
+                "pipeline_run_id": "itcs355-training-pipeline-20261013190236",
+                "project_id": "itcs355-6688058"
+              }
+            }
+          }
+        },
+        "pipelineTaskStatus": [
+          {
+            "updateTime": "2026-10-13T12:03:28.807412803Z",
+            "state": "SUCCEEDED"
+          }
+        ],
+        "taskUniqueName": "itcs355-training-pipeline-20261013190236"
+      },
+      {
+        "taskId": "-2865245663245893632",
+        "taskName": "stage-5",
+        "createTime": "2026-10-13T12:02:46.008863Z",
+        "startTime": "2026-10-13T12:02:46.508629Z",
+        "endTime": "2026-10-13T12:02:46.508629Z",
+        "executorDetail": {
+          "containerDetail": {
+            "mainJob": "projects/775344551291/locations/asia-southeast1/customJobs/2812338263228940288"
+          }
+        },
+        "state": "SKIPPED",
+        "execution": {
+          "name": "projects/775344551291/locations/asia-southeast1/metadataStores/default/executions/6374576947317423382",
+          "displayName": "stage-5",
+          "state": "CACHED",
+          "etag": "1791892966478",
+          "createTime": "2026-10-13T12:02:46.189Z",
+          "updateTime": "2026-10-13T12:02:46.478Z",
+          "schemaTitle": "system.ContainerExecution",
+          "schemaVersion": "0.0.1",
+          "metadata": {
+            "output:info": "",
+            "input:configuration": "{\"budget_ceiling_thb\": 50, \"source_commit\": \"947b20118191af0e502fe44e453cca2b4599dfd2\", \"training_image\": \"asia-southeast1-docker.pkg.dev/itcs355-6688058/itcs355/itcs355-lab5@sha256:cc34617152335504fec31ecdf0d1762eb2a9900ea653927da9f034bf7a5cf3bd\", \"data_version\": \"1c886b512c8a5c9bf723da1cd119fc80.dir\", \"run_id\": \"20261013-lab5\", \"output_key\": \"lab5/runs/20261013\", \"endpoint\": \"itcs355-lab5\", \"pipeline_identity\": \"itcs355-lab5-ci@itcs355-6688058.iam.gserviceaccount.com\", \"environment\": {\"CLOUD_PROVIDER\": \"gcp\", \"PROJECT_ID\": \"itcs355-6688058\", \"REGION\": \"asia-southeast1\", \"BLOB_URI\": \"gs://itcs355-6688058/itcs355\", \"CONTAINER_REGISTRY\": \"asia-southeast1-docker.pkg.dev/itcs355-6688058/itcs355\", \"MLFLOW_TRACKING_URI\": \"sqlite:////tmp/mlflow.db\", \"MODEL_REGISTRY_NAME\": \"projects/775344551291/locations/asia-southeast1/models/1431682886620151808\", \"IDENTITY_REF\": \"itcs355-training@itcs355-6688058.iam.gserviceaccount.com\", \"SERVING_IDENTITY_REF\": \"itcs355-serving@itcs355-6688058.iam.gserviceaccount.com\", \"SERVING_IMAGE\": \"asia-southeast1-docker.pkg.dev/itcs355-6688058/itcs355/itcs355-lab5-serve@sha256:b1285275cb2d6649d4c9df520e472766579f8ceb88d9be3a56db58500e52bd8a\", \"SERVING_LAB\": \"5\", \"INCUMBENT_VERSION\": \"1\"}, \"pipeline_root\": \"gs://itcs355-lab5-pipeline-775344551291-20261013/runs\"}",
+            "vmlmd_lineage_integration": {
+              "pipeline_run_component": {
+                "location_id": "asia-southeast1",
+                "pipeline_run_id": "itcs355-training-pipeline-20261013182148",
+                "project_id": "itcs355-6688058",
+                "task_name": "stage-5",
+                "parent_task_names": [
+                  "itcs355-training-pipeline-20261013182148",
+                  "condition-1"
+                ]
+              }
+            },
+            "input:name": "register",
+            "input:input_info": "{\"passed\": true, \"reason\": \"validation improvement +0.017042\", \"candidate\": 0.8596420009344434, \"incumbent\": 0.84259989736441}",
+            "input:input_value": "gs://itcs355-6688058/itcs355/lab5/runs/20261013/model",
+            "output:value": "projects/775344551291/locations/asia-southeast1/models/8230851686554402816@1"
+          }
+        },
+        "parentTaskId": "7592112671508398080",
+        "pipelineTaskStatus": [
+          {
+            "updateTime": "2026-10-13T12:02:46.417674247Z",
+            "state": "SKIPPED"
+          }
+        ],
+        "taskUniqueName": "condition-1.stage-5"
+      },
+      {
+        "taskId": "-1631259365346377728",
+        "taskName": "stage",
+        "createTime": "2026-10-13T12:02:43.260671Z",
+        "startTime": "2026-10-13T12:02:43.775305Z",
+        "endTime": "2026-10-13T12:02:43.775305Z",
+        "executorDetail": {
+          "containerDetail": {
+            "mainJob": "projects/775344551291/locations/asia-southeast1/customJobs/1587359164584165376"
+          }
+        },
+        "state": "SKIPPED",
+        "execution": {
+          "name": "projects/775344551291/locations/asia-southeast1/metadataStores/default/executions/7291072350911282787",
+          "displayName": "stage",
+          "state": "CACHED",
+          "etag": "1791892963745",
+          "createTime": "2026-10-13T12:02:43.453Z",
+          "updateTime": "2026-10-13T12:02:43.745Z",
+          "schemaTitle": "system.ContainerExecution",
+          "schemaVersion": "0.0.1",
+          "metadata": {
+            "output:info": "",
+            "vmlmd_lineage_integration": {
+              "pipeline_run_component": {
+                "task_name": "stage",
+                "location_id": "asia-southeast1",
+                "parent_task_names": [
+                  "itcs355-training-pipeline-20261013182148"
+                ],
+                "pipeline_run_id": "itcs355-training-pipeline-20261013182148",
+                "project_id": "itcs355-6688058"
+              }
+            },
+            "output:value": "gs://itcs355-6688058/itcs355/lab5/runs/20261013/data/sensors.csv",
+            "input:input_info": "",
+            "input:configuration": "{\"budget_ceiling_thb\": 50, \"source_commit\": \"947b20118191af0e502fe44e453cca2b4599dfd2\", \"training_image\": \"asia-southeast1-docker.pkg.dev/itcs355-6688058/itcs355/itcs355-lab5@sha256:cc34617152335504fec31ecdf0d1762eb2a9900ea653927da9f034bf7a5cf3bd\", \"data_version\": \"1c886b512c8a5c9bf723da1cd119fc80.dir\", \"run_id\": \"20261013-lab5\", \"output_key\": \"lab5/runs/20261013\", \"endpoint\": \"itcs355-lab5\", \"pipeline_identity\": \"itcs355-lab5-ci@itcs355-6688058.iam.gserviceaccount.com\", \"environment\": {\"CLOUD_PROVIDER\": \"gcp\", \"PROJECT_ID\": \"itcs355-6688058\", \"REGION\": \"asia-southeast1\", \"BLOB_URI\": \"gs://itcs355-6688058/itcs355\", \"CONTAINER_REGISTRY\": \"asia-southeast1-docker.pkg.dev/itcs355-6688058/itcs355\", \"MLFLOW_TRACKING_URI\": \"sqlite:////tmp/mlflow.db\", \"MODEL_REGISTRY_NAME\": \"projects/775344551291/locations/asia-southeast1/models/1431682886620151808\", \"IDENTITY_REF\": \"itcs355-training@itcs355-6688058.iam.gserviceaccount.com\", \"SERVING_IDENTITY_REF\": \"itcs355-serving@itcs355-6688058.iam.gserviceaccount.com\", \"SERVING_IMAGE\": \"asia-southeast1-docker.pkg.dev/itcs355-6688058/itcs355/itcs355-lab5-serve@sha256:b1285275cb2d6649d4c9df520e472766579f8ceb88d9be3a56db58500e52bd8a\", \"SERVING_LAB\": \"5\", \"INCUMBENT_VERSION\": \"1\"}, \"pipeline_root\": \"gs://itcs355-lab5-pipeline-775344551291-20261013/runs\"}",
+            "input:input_value": "",
+            "input:name": "ingest"
+          }
+        },
+        "parentTaskId": "-3369648821511389184",
+        "pipelineTaskStatus": [
+          {
+            "updateTime": "2026-10-13T12:02:43.682288869Z",
+            "state": "SKIPPED"
+          }
+        ],
+        "taskUniqueName": "stage"
+      },
+      {
+        "taskId": "1827505148474163200",
+        "taskName": "stage-2",
+        "createTime": "2026-10-13T12:02:43.260671Z",
+        "startTime": "2026-10-13T12:02:44.436458Z",
+        "endTime": "2026-10-13T12:02:44.436458Z",
+        "executorDetail": {
+          "containerDetail": {
+            "mainJob": "projects/775344551291/locations/asia-southeast1/customJobs/1479272773527273472"
+          }
+        },
+        "state": "SKIPPED",
+        "execution": {
+          "name": "projects/775344551291/locations/asia-southeast1/metadataStores/default/executions/4853787433820025037",
+          "displayName": "stage-2",
+          "state": "CACHED",
+          "etag": "1791892964410",
+          "createTime": "2026-10-13T12:02:44.100Z",
+          "updateTime": "2026-10-13T12:02:44.410Z",
+          "schemaTitle": "system.ContainerExecution",
+          "schemaVersion": "0.0.1",
+          "metadata": {
+            "vmlmd_lineage_integration": {
+              "pipeline_run_component": {
+                "parent_task_names": [
+                  "itcs355-training-pipeline-20261013182148"
+                ],
+                "pipeline_run_id": "itcs355-training-pipeline-20261013182148",
+                "project_id": "itcs355-6688058",
+                "location_id": "asia-southeast1",
+                "task_name": "stage-2"
+              }
+            },
+            "input:configuration": "{\"budget_ceiling_thb\": 50, \"source_commit\": \"947b20118191af0e502fe44e453cca2b4599dfd2\", \"training_image\": \"asia-southeast1-docker.pkg.dev/itcs355-6688058/itcs355/itcs355-lab5@sha256:cc34617152335504fec31ecdf0d1762eb2a9900ea653927da9f034bf7a5cf3bd\", \"data_version\": \"1c886b512c8a5c9bf723da1cd119fc80.dir\", \"run_id\": \"20261013-lab5\", \"output_key\": \"lab5/runs/20261013\", \"endpoint\": \"itcs355-lab5\", \"pipeline_identity\": \"itcs355-lab5-ci@itcs355-6688058.iam.gserviceaccount.com\", \"environment\": {\"CLOUD_PROVIDER\": \"gcp\", \"PROJECT_ID\": \"itcs355-6688058\", \"REGION\": \"asia-southeast1\", \"BLOB_URI\": \"gs://itcs355-6688058/itcs355\", \"CONTAINER_REGISTRY\": \"asia-southeast1-docker.pkg.dev/itcs355-6688058/itcs355\", \"MLFLOW_TRACKING_URI\": \"sqlite:////tmp/mlflow.db\", \"MODEL_REGISTRY_NAME\": \"projects/775344551291/locations/asia-southeast1/models/1431682886620151808\", \"IDENTITY_REF\": \"itcs355-training@itcs355-6688058.iam.gserviceaccount.com\", \"SERVING_IDENTITY_REF\": \"itcs355-serving@itcs355-6688058.iam.gserviceaccount.com\", \"SERVING_IMAGE\": \"asia-southeast1-docker.pkg.dev/itcs355-6688058/itcs355/itcs355-lab5-serve@sha256:b1285275cb2d6649d4c9df520e472766579f8ceb88d9be3a56db58500e52bd8a\", \"SERVING_LAB\": \"5\", \"INCUMBENT_VERSION\": \"1\"}, \"pipeline_root\": \"gs://itcs355-lab5-pipeline-775344551291-20261013/runs\"}",
+            "input:input_value": "gs://itcs355-6688058/itcs355/lab5/runs/20261013/data/sensors.csv",
+            "input:name": "validate",
+            "output:info": "",
+            "output:value": "gs://itcs355-6688058/itcs355/lab5/runs/20261013/data/sensors.csv",
+            "input:input_info": ""
+          }
+        },
+        "parentTaskId": "-3369648821511389184",
+        "pipelineTaskStatus": [
+          {
+            "updateTime": "2026-10-13T12:02:44.344028284Z",
+            "state": "SKIPPED"
+          }
+        ],
+        "taskUniqueName": "stage-2"
+      },
+      {
+        "taskId": "4052283364395188224",
+        "taskName": "stage-6",
+        "createTime": "2026-10-13T12:02:46.008863Z",
+        "startTime": "2026-10-13T12:02:47.026813Z",
+        "endTime": "2026-10-13T12:03:28.579168Z",
+        "executorDetail": {
+          "containerDetail": {
+            "mainJob": "projects/775344551291/locations/asia-southeast1/customJobs/5622584430708129792"
+          }
+        },
+        "state": "SUCCEEDED",
+        "execution": {
+          "name": "projects/775344551291/locations/asia-southeast1/metadataStores/default/executions/3879297068740190130",
+          "displayName": "stage-6",
+          "state": "COMPLETE",
+          "etag": "1791893008550",
+          "createTime": "2026-10-13T12:02:46.773Z",
+          "updateTime": "2026-10-13T12:03:28.550Z",
+          "schemaTitle": "system.ContainerExecution",
+          "schemaVersion": "0.0.1",
+          "metadata": {
+            "input:configuration": "{\"budget_ceiling_thb\": 50, \"source_commit\": \"947b20118191af0e502fe44e453cca2b4599dfd2\", \"training_image\": \"asia-southeast1-docker.pkg.dev/itcs355-6688058/itcs355/itcs355-lab5@sha256:cc34617152335504fec31ecdf0d1762eb2a9900ea653927da9f034bf7a5cf3bd\", \"data_version\": \"1c886b512c8a5c9bf723da1cd119fc80.dir\", \"run_id\": \"20261013-lab5\", \"output_key\": \"lab5/runs/20261013\", \"endpoint\": \"itcs355-lab5\", \"pipeline_identity\": \"itcs355-lab5-ci@itcs355-6688058.iam.gserviceaccount.com\", \"environment\": {\"CLOUD_PROVIDER\": \"gcp\", \"PROJECT_ID\": \"itcs355-6688058\", \"REGION\": \"asia-southeast1\", \"BLOB_URI\": \"gs://itcs355-6688058/itcs355\", \"CONTAINER_REGISTRY\": \"asia-southeast1-docker.pkg.dev/itcs355-6688058/itcs355\", \"MLFLOW_TRACKING_URI\": \"sqlite:////tmp/mlflow.db\", \"MODEL_REGISTRY_NAME\": \"projects/775344551291/locations/asia-southeast1/models/1431682886620151808\", \"IDENTITY_REF\": \"itcs355-training@itcs355-6688058.iam.gserviceaccount.com\", \"SERVING_IDENTITY_REF\": \"itcs355-serving@itcs355-6688058.iam.gserviceaccount.com\", \"SERVING_IMAGE\": \"asia-southeast1-docker.pkg.dev/itcs355-6688058/itcs355/itcs355-lab5-serve@sha256:b1285275cb2d6649d4c9df520e472766579f8ceb88d9be3a56db58500e52bd8a\", \"SERVING_LAB\": \"5\", \"INCUMBENT_VERSION\": \"1\"}, \"pipeline_root\": \"gs://itcs355-lab5-pipeline-775344551291-20261013/runs\"}",
+            "input:input_info": "",
+            "vmlmd_lineage_integration": {
+              "pipeline_run_component": {
+                "pipeline_run_id": "itcs355-training-pipeline-20261013190236",
+                "location_id": "asia-southeast1",
+                "task_name": "stage-6",
+                "project_id": "itcs355-6688058",
+                "parent_task_names": [
+                  "itcs355-training-pipeline-20261013190236",
+                  "condition-1"
+                ]
+              }
+            },
+            "output:value": "https://itcs355-lab5-irtmnatasq-as.a.run.app",
+            "output:info": "",
+            "input:name": "deploy_staging",
+            "input:input_value": "projects/775344551291/locations/asia-southeast1/models/8230851686554402816@1"
+          }
+        },
+        "parentTaskId": "7592112671508398080",
+        "pipelineTaskStatus": [
+          {
+            "updateTime": "2026-10-13T12:03:28.484823009Z",
+            "state": "SUCCEEDED"
+          }
+        ],
+        "taskUniqueName": "condition-1.stage-6"
+      },
+      {
+        "taskId": "6439191166901551104",
+        "taskName": "stage-4",
+        "createTime": "2026-10-13T12:02:43.260671Z",
+        "startTime": "2026-10-13T12:02:45.577541Z",
+        "endTime": "2026-10-13T12:02:45.577541Z",
+        "executorDetail": {
+          "containerDetail": {
+            "mainJob": "projects/775344551291/locations/asia-southeast1/customJobs/7559132270477443072"
+          }
+        },
+        "state": "SKIPPED",
+        "execution": {
+          "name": "projects/775344551291/locations/asia-southeast1/metadataStores/default/executions/7169100943161026375",
+          "displayName": "stage-4",
+          "state": "CACHED",
+          "etag": "1791892965544",
+          "createTime": "2026-10-13T12:02:45.250Z",
+          "updateTime": "2026-10-13T12:02:45.544Z",
+          "schemaTitle": "system.ContainerExecution",
+          "schemaVersion": "0.0.1",
+          "metadata": {
+            "output:value": "pass",
+            "input:input_info": "{\"job\": \"projects/775344551291/locations/asia-southeast1/customJobs/6516548956741173248\"}",
+            "input:configuration": "{\"budget_ceiling_thb\": 50, \"source_commit\": \"947b20118191af0e502fe44e453cca2b4599dfd2\", \"training_image\": \"asia-southeast1-docker.pkg.dev/itcs355-6688058/itcs355/itcs355-lab5@sha256:cc34617152335504fec31ecdf0d1762eb2a9900ea653927da9f034bf7a5cf3bd\", \"data_version\": \"1c886b512c8a5c9bf723da1cd119fc80.dir\", \"run_id\": \"20261013-lab5\", \"output_key\": \"lab5/runs/20261013\", \"endpoint\": \"itcs355-lab5\", \"pipeline_identity\": \"itcs355-lab5-ci@itcs355-6688058.iam.gserviceaccount.com\", \"environment\": {\"CLOUD_PROVIDER\": \"gcp\", \"PROJECT_ID\": \"itcs355-6688058\", \"REGION\": \"asia-southeast1\", \"BLOB_URI\": \"gs://itcs355-6688058/itcs355\", \"CONTAINER_REGISTRY\": \"asia-southeast1-docker.pkg.dev/itcs355-6688058/itcs355\", \"MLFLOW_TRACKING_URI\": \"sqlite:////tmp/mlflow.db\", \"MODEL_REGISTRY_NAME\": \"projects/775344551291/locations/asia-southeast1/models/1431682886620151808\", \"IDENTITY_REF\": \"itcs355-training@itcs355-6688058.iam.gserviceaccount.com\", \"SERVING_IDENTITY_REF\": \"itcs355-serving@itcs355-6688058.iam.gserviceaccount.com\", \"SERVING_IMAGE\": \"asia-southeast1-docker.pkg.dev/itcs355-6688058/itcs355/itcs355-lab5-serve@sha256:b1285275cb2d6649d4c9df520e472766579f8ceb88d9be3a56db58500e52bd8a\", \"SERVING_LAB\": \"5\", \"INCUMBENT_VERSION\": \"1\"}, \"pipeline_root\": \"gs://itcs355-lab5-pipeline-775344551291-20261013/runs\"}",
+            "input:input_value": "gs://itcs355-6688058/itcs355/lab5/runs/20261013/model",
+            "output:info": "{\"passed\": true, \"reason\": \"validation improvement +0.017042\", \"candidate\": 0.8596420009344434, \"incumbent\": 0.84259989736441}",
+            "vmlmd_lineage_integration": {
+              "pipeline_run_component": {
+                "parent_task_names": [
+                  "itcs355-training-pipeline-20261013182148"
+                ],
+                "task_name": "stage-4",
+                "location_id": "asia-southeast1",
+                "pipeline_run_id": "itcs355-training-pipeline-20261013182148",
+                "project_id": "itcs355-6688058"
+              }
+            },
+            "input:name": "evaluate"
+          }
+        },
+        "parentTaskId": "-3369648821511389184",
+        "pipelineTaskStatus": [
+          {
+            "updateTime": "2026-10-13T12:02:45.478767036Z",
+            "state": "SKIPPED"
+          }
+        ],
+        "taskUniqueName": "stage-4"
+      },
+      {
+        "taskId": "7592112671508398080",
+        "taskName": "condition-1",
+        "createTime": "2026-10-13T12:02:43.260671Z",
+        "startTime": "2026-10-13T12:02:46.008863Z",
+        "endTime": "2026-10-13T12:03:28.797998Z",
+        "executorDetail": {},
+        "state": "SUCCEEDED",
+        "execution": {
+          "name": "projects/775344551291/locations/asia-southeast1/metadataStores/default/executions/12235582972796038240",
+          "displayName": "condition-1",
+          "state": "COMPLETE",
+          "etag": "1791893008775",
+          "createTime": "2026-10-13T12:02:45.956Z",
+          "updateTime": "2026-10-13T12:03:28.775Z",
+          "schemaTitle": "system.DagExecution",
+          "schemaVersion": "0.0.1",
+          "metadata": {
+            "input:pipelinechannel--configuration": "{\"budget_ceiling_thb\": 50, \"source_commit\": \"947b20118191af0e502fe44e453cca2b4599dfd2\", \"training_image\": \"asia-southeast1-docker.pkg.dev/itcs355-6688058/itcs355/itcs355-lab5@sha256:cc34617152335504fec31ecdf0d1762eb2a9900ea653927da9f034bf7a5cf3bd\", \"data_version\": \"1c886b512c8a5c9bf723da1cd119fc80.dir\", \"run_id\": \"20261013-lab5\", \"output_key\": \"lab5/runs/20261013\", \"endpoint\": \"itcs355-lab5\", \"pipeline_identity\": \"itcs355-lab5-ci@itcs355-6688058.iam.gserviceaccount.com\", \"environment\": {\"CLOUD_PROVIDER\": \"gcp\", \"PROJECT_ID\": \"itcs355-6688058\", \"REGION\": \"asia-southeast1\", \"BLOB_URI\": \"gs://itcs355-6688058/itcs355\", \"CONTAINER_REGISTRY\": \"asia-southeast1-docker.pkg.dev/itcs355-6688058/itcs355\", \"MLFLOW_TRACKING_URI\": \"sqlite:////tmp/mlflow.db\", \"MODEL_REGISTRY_NAME\": \"projects/775344551291/locations/asia-southeast1/models/1431682886620151808\", \"IDENTITY_REF\": \"itcs355-training@itcs355-6688058.iam.gserviceaccount.com\", \"SERVING_IDENTITY_REF\": \"itcs355-serving@itcs355-6688058.iam.gserviceaccount.com\", \"SERVING_IMAGE\": \"asia-southeast1-docker.pkg.dev/itcs355-6688058/itcs355/itcs355-lab5-serve@sha256:b1285275cb2d6649d4c9df520e472766579f8ceb88d9be3a56db58500e52bd8a\", \"SERVING_LAB\": \"5\", \"INCUMBENT_VERSION\": \"1\"}, \"pipeline_root\": \"gs://itcs355-lab5-pipeline-775344551291-20261013/runs\"}",
+            "input:pipelinechannel--stage-3-value": "gs://itcs355-6688058/itcs355/lab5/runs/20261013/model",
+            "vmlmd_lineage_integration": {
+              "pipeline_run_component": {
+                "project_id": "itcs355-6688058",
+                "pipeline_run_id": "itcs355-training-pipeline-20261013190236",
+                "task_name": "condition-1",
+                "parent_task_names": [
+                  "itcs355-training-pipeline-20261013190236"
+                ],
+                "location_id": "asia-southeast1"
+              }
+            },
+            "input:pipelinechannel--stage-4-info": "{\"passed\": true, \"reason\": \"validation improvement +0.017042\", \"candidate\": 0.8596420009344434, \"incumbent\": 0.84259989736441}",
+            "input:pipelinechannel--stage-4-value": "pass"
+          }
+        },
+        "parentTaskId": "-3369648821511389184",
+        "pipelineTaskStatus": [
+          {
+            "updateTime": "2026-10-13T12:03:28.617410778Z",
+            "state": "SUCCEEDED"
+          }
+        ],
+        "taskUniqueName": "condition-1"
+      }
+    ]
+  },
+  "labels": {
+    "course": "itcs355",
+    "lab": "5",
+    "student": "itcs355-6688058",
+    "vertex-ai-pipelines-run-billing-id": "2300331157423652864"
+  },
+  "runtimeConfig": {
+    "gcsOutputDirectory": "gs://itcs355-lab5-pipeline-775344551291-20261013/runs",
+    "parameterValues": {
+      "configuration": "{\"budget_ceiling_thb\": 50, \"source_commit\": \"947b20118191af0e502fe44e453cca2b4599dfd2\", \"training_image\": \"asia-southeast1-docker.pkg.dev/itcs355-6688058/itcs355/itcs355-lab5@sha256:cc34617152335504fec31ecdf0d1762eb2a9900ea653927da9f034bf7a5cf3bd\", \"data_version\": \"1c886b512c8a5c9bf723da1cd119fc80.dir\", \"run_id\": \"20261013-lab5\", \"output_key\": \"lab5/runs/20261013\", \"endpoint\": \"itcs355-lab5\", \"pipeline_identity\": \"itcs355-lab5-ci@itcs355-6688058.iam.gserviceaccount.com\", \"environment\": {\"CLOUD_PROVIDER\": \"gcp\", \"PROJECT_ID\": \"itcs355-6688058\", \"REGION\": \"asia-southeast1\", \"BLOB_URI\": \"gs://itcs355-6688058/itcs355\", \"CONTAINER_REGISTRY\": \"asia-southeast1-docker.pkg.dev/itcs355-6688058/itcs355\", \"MLFLOW_TRACKING_URI\": \"sqlite:////tmp/mlflow.db\", \"MODEL_REGISTRY_NAME\": \"projects/775344551291/locations/asia-southeast1/models/1431682886620151808\", \"IDENTITY_REF\": \"itcs355-training@itcs355-6688058.iam.gserviceaccount.com\", \"SERVING_IDENTITY_REF\": \"itcs355-serving@itcs355-6688058.iam.gserviceaccount.com\", \"SERVING_IMAGE\": \"asia-southeast1-docker.pkg.dev/itcs355-6688058/itcs355/itcs355-lab5-serve@sha256:b1285275cb2d6649d4c9df520e472766579f8ceb88d9be3a56db58500e52bd8a\", \"SERVING_LAB\": \"5\", \"INCUMBENT_VERSION\": \"1\"}, \"pipeline_root\": \"gs://itcs355-lab5-pipeline-775344551291-20261013/runs\"}"
+    }
+  },
+  "serviceAccount": "itcs355-lab5-ci@itcs355-6688058.iam.gserviceaccount.com"
+}

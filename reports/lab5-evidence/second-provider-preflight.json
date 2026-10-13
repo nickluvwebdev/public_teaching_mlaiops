@@ -1,0 +1,14 @@
+{
+  "primary": "gcp",
+  "secondary": "aws",
+  "storage_uri": "s3://itcs355-lab5-349819881336/model/portable-weights.json",
+  "byte_roundtrip": true,
+  "endpoint": "arn:aws:lambda:ap-southeast-2:349819881336:function:itcs355-lab5",
+  "response": {
+    "probability": 0.014802283475923982,
+    "model_version": "local-preflight"
+  },
+  "local_reference_probability": 0.014802283475923982,
+  "difference": 0.0,
+  "source": "real signed S3 and Lambda SDK calls; temporary local-preflight model"
+}

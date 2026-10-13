@@ -229,3 +229,7 @@ LLM commands: `make llm-eval` evaluates 12 cases; `make llm-gate` must fail on a
 Status: local implementation and compiler validation are prepared. The real managed positive path, permission-removal test, AWS probe, billing reconciliation, token measurement and console teardown screenshot are pending. See [advance budget](reports/lab5-plan.md), [identity plan](reports/lab5-identities.md), [portability verdict](reports/lab5-portability.md), and [cost evidence status](reports/lab5-cost.md). These gaps must be completed before claiming Lab 5 passes.
 
 A local validation-only preflight found a legitimate candidate: standardized logistic regression scored 0.859642 versus incumbent 0.842600, exceeding the unchanged 0.005 promotion margin. The managed worker uses this configuration; its real run and promotion still require verification. Test scores were not used for this candidate choice.
+
+## Lab 5 live execution status
+
+The managed GCP pipeline, AWS Sydney portability test and real Gemini golden tests have now run. See [execution review](reports/lab5-results.md), [cost report](reports/lab5-cost.md) and [token report](reports/lab5-token-cost.md). Temporary compute and the paused schedule are torn down. This supersedes earlier preparation-only status notes. Final billing reconciliation, a console screenshot and the 24-hour cost check are pending; Lab 5 has not been pushed.

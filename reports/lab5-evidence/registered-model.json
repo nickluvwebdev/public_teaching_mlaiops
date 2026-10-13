@@ -1,0 +1,81 @@
+{
+  "name": "projects/775344551291/locations/asia-southeast1/models/8230851686554402816@1",
+  "displayName": "projects/775344551291/locations/asia-southeast1/models/1431682886620151808",
+  "predictSchemata": {},
+  "metadata": null,
+  "containerSpec": {
+    "imageUri": "asia-southeast1-docker.pkg.dev/itcs355-6688058/itcs355/itcs355-lab5@sha256:cc34617152335504fec31ecdf0d1762eb2a9900ea653927da9f034bf7a5cf3bd",
+    "command": [
+      "python",
+      "-m",
+      "scripts.registry_server"
+    ],
+    "env": [
+      {
+        "name": "CLOUD_PROVIDER",
+        "value": "gcp"
+      },
+      {
+        "name": "PROJECT_ID",
+        "value": "itcs355-6688058"
+      },
+      {
+        "name": "REGION",
+        "value": "asia-southeast1"
+      }
+    ],
+    "ports": [
+      {
+        "containerPort": 8080
+      }
+    ],
+    "predictRoute": "/predict",
+    "healthRoute": "/health"
+  },
+  "supportedDeploymentResourcesTypes": [
+    "DEDICATED_RESOURCES"
+  ],
+  "supportedInputStorageFormats": [
+    "jsonl",
+    "bigquery",
+    "csv",
+    "tf-record",
+    "tf-record-gzip",
+    "file-list"
+  ],
+  "supportedOutputStorageFormats": [
+    "jsonl",
+    "bigquery"
+  ],
+  "createTime": "2026-10-13T11:48:43.957739Z",
+  "updateTime": "2026-10-13T11:50:14.873341Z",
+  "etag": "AMEw9yPhPaUoQDj4_mlEeaapHAVzmiLltF7rXQo2pSFi1kZ2aX6M99M22ftfLEUZ7qKd",
+  "labels": {
+    "course": "itcs355",
+    "git_commit": "947b20118191af0e502fe44e453cca2b4599dfd2",
+    "mlflow_run_id": "e6622dba706b4931abde6b8f4ed68ba9",
+    "lab": "5",
+    "student": "itcs355-6688058"
+  },
+  "supportedExportFormats": [
+    {
+      "id": "custom-trained",
+      "exportableContents": [
+        "ARTIFACT",
+        "IMAGE"
+      ]
+    }
+  ],
+  "artifactUri": "gs://itcs355-6688058/itcs355/lab5/runs/20261013/model",
+  "versionId": "1",
+  "versionAliases": [
+    "candidate",
+    "default"
+  ],
+  "versionDescription": "{\"data_fingerprint\": \"422cccb9136e8140\", \"data_version\": \"1c886b512c8a5c9bf723da1cd119fc80.dir\", \"git_commit\": \"947b20118191af0e502fe44e453cca2b4599dfd2\", \"image_digest\": \"asia-southeast1-docker.pkg.dev/itcs355-6688058/itcs355/itcs355-lab5@sha256:cc34617152335504fec31ecdf0d1762eb2a9900ea653927da9f034bf7a5cf3bd\", \"metric_test\": 0.8651811764394546, \"metric_val\": 0.8596420009344434, \"mlflow_run_id\": \"e6622dba706b4931abde6b8f4ed68ba9\", \"seed\": 20260101, \"split_seed\": 20260101, \"training_job_id\": \"projects/itcs355-6688058/locations/asia-southeast1/customJobs/6516548956741173248\"}",
+  "versionCreateTime": "2026-10-13T11:48:43.957739Z",
+  "versionUpdateTime": "2026-10-13T11:50:14.873341Z",
+  "modelSourceInfo": {
+    "sourceType": "CUSTOM"
+  }
+}

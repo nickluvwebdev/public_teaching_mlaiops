@@ -1,0 +1,7 @@
+{
+  "pipeline_job": "projects/775344551291/locations/asia-southeast1/pipelineJobs/itcs355-training-pipeline-20261013190236",
+  "reuse_completed_steps": true,
+  "changed_step_only": "deploy_staging",
+  "new_deploy_image": "asia-southeast1-docker.pkg.dev/itcs355-6688058/itcs355/itcs355-lab5@sha256:bd6503bf3186f187a757f11a20bc56bf8473636ec41d65602cddddf5dc542eb9",
+  "original_run": "itcs355-training-pipeline-20261013182148"
+}

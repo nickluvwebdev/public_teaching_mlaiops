@@ -1,0 +1,38 @@
+{
+  "GroupDefinitions": [
+    {
+      "Type": "DIMENSION",
+      "Key": "SERVICE"
+    }
+  ],
+  "ResultsByTime": [
+    {
+      "TimePeriod": {
+        "Start": "2026-10-13",
+        "End": "2026-10-14"
+      },
+      "Total": {
+        "UnblendedCost": {
+          "Amount": "0",
+          "Unit": "USD"
+        }
+      },
+      "Groups": [],
+      "Estimated": true
+    }
+  ],
+  "DimensionValueAttributes": [],
+  "ResponseMetadata": {
+    "RequestId": "0f6d879f-1ad3-4f6e-8079-825ba4bfa364",
+    "HTTPStatusCode": 200,
+    "HTTPHeaders": {
+      "date": "Tue, 13 Oct 2026 11:17:11 GMT",
+      "content-type": "application/x-amz-json-1.1",
+      "content-length": "247",
+      "connection": "keep-alive",
+      "x-amzn-requestid": "0f6d879f-1ad3-4f6e-8079-825ba4bfa364",
+      "cache-control": "no-cache"
+    },
+    "RetryAttempts": 0
+  }
+}

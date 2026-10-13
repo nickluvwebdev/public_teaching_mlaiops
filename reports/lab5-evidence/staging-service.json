@@ -1,0 +1,118 @@
+{
+  "name": "projects/itcs355-6688058/locations/asia-southeast1/services/itcs355-lab5",
+  "uid": "0241ba15-97c0-4d67-a09b-39511f717393",
+  "generation": "2",
+  "labels": {
+    "course": "itcs355",
+    "student": "itcs355-6688058",
+    "lab": "5"
+  },
+  "createTime": "2026-10-13T10:56:04.937255Z",
+  "updateTime": "2026-10-13T11:53:54.808922Z",
+  "creator": "Nick165339@gmail.com",
+  "lastModifier": "itcs355-lab5-ci@itcs355-6688058.iam.gserviceaccount.com",
+  "client": "gcloud",
+  "clientVersion": "583.0.0",
+  "ingress": "INGRESS_TRAFFIC_ALL",
+  "launchStage": "GA",
+  "template": {
+    "scaling": {
+      "maxInstanceCount": 1
+    },
+    "timeout": "60s",
+    "serviceAccount": "itcs355-serving@itcs355-6688058.iam.gserviceaccount.com",
+    "containers": [
+      {
+        "image": "asia-southeast1-docker.pkg.dev/itcs355-6688058/itcs355/itcs355-lab5-serve@sha256:b1285275cb2d6649d4c9df520e472766579f8ceb88d9be3a56db58500e52bd8a",
+        "env": [
+          {
+            "name": "CLOUD_PROVIDER",
+            "value": "gcp"
+          },
+          {
+            "name": "PROJECT_ID",
+            "value": "itcs355-6688058"
+          },
+          {
+            "name": "REGION",
+            "value": "asia-southeast1"
+          },
+          {
+            "name": "MODEL_REGISTRY_NAME",
+            "value": "projects/775344551291/locations/asia-southeast1/models/8230851686554402816"
+          },
+          {
+            "name": "MODEL_VERSION",
+            "value": "1"
+          }
+        ],
+        "resources": {
+          "limits": {
+            "cpu": "1",
+            "memory": "1Gi"
+          }
+        },
+        "ports": [
+          {
+            "name": "http1",
+            "containerPort": 8080
+          }
+        ],
+        "startupProbe": {
+          "timeoutSeconds": 1,
+          "periodSeconds": 2,
+          "failureThreshold": 120,
+          "httpGet": {
+            "path": "/ready",
+            "port": 8080
+          }
+        }
+      }
+    ],
+    "maxInstanceRequestConcurrency": 80
+  },
+  "traffic": [
+    {
+      "type": "TRAFFIC_TARGET_ALLOCATION_TYPE_LATEST",
+      "percent": 100
+    }
+  ],
+  "scaling": {
+    "maxInstanceCount": 20
+  },
+  "urls": [
+    "https://itcs355-lab5-775344551291.asia-southeast1.run.app",
+    "https://itcs355-lab5-irtmnatasq-as.a.run.app"
+  ],
+  "sshEnabled": false,
+  "observedGeneration": "2",
+  "terminalCondition": {
+    "type": "Ready",
+    "state": "CONDITION_SUCCEEDED",
+    "lastTransitionTime": "2026-10-13T11:54:43.926082Z"
+  },
+  "conditions": [
+    {
+      "type": "RoutesReady",
+      "state": "CONDITION_SUCCEEDED",
+      "lastTransitionTime": "2026-10-13T11:54:43.879632Z"
+    },
+    {
+      "type": "ConfigurationsReady",
+      "state": "CONDITION_SUCCEEDED",
+      "lastTransitionTime": "2026-10-13T11:53:56.140681Z"
+    }
+  ],
+  "latestReadyRevision": "projects/itcs355-6688058/locations/asia-southeast1/services/itcs355-lab5/revisions/itcs355-lab5-00002-2ms",
+  "latestCreatedRevision": "projects/itcs355-6688058/locations/asia-southeast1/services/itcs355-lab5/revisions/itcs355-lab5-00002-2ms",
+  "trafficStatuses": [
+    {
+      "type": "TRAFFIC_TARGET_ALLOCATION_TYPE_LATEST",
+      "revision": "itcs355-lab5-00002-2ms",
+      "percent": 100
+    }
+  ],
+  "uri": "https://itcs355-lab5-irtmnatasq-as.a.run.app",
+  "satisfiesPzs": true,
+  "etag": "\"CNK3uNYGEJDX3IED/cHJvamVjdHMvaXRjczM1NS02Njg4MDU4L2xvY2F0aW9ucy9hc2lhLXNvdXRoZWFzdDEvc2VydmljZXMvaXRjczM1NS1sYWI1\""
+}

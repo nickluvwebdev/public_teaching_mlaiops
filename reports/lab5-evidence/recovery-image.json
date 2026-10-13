@@ -1,0 +1,5 @@
+{
+  "source_commit": "a57644b540b18aa9f991865a76f5cff96a27f602",
+  "image": "asia-southeast1-docker.pkg.dev/itcs355-6688058/itcs355/itcs355-lab5@sha256:bd6503bf3186f187a757f11a20bc56bf8473636ec41d65602cddddf5dc542eb9",
+  "purpose": "fixed deployment-token path; existing trained artifact retained"
+}

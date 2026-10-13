@@ -1,0 +1,17 @@
+{
+  "model": "gemini-3.1-flash-lite",
+  "verified_date": "2026-10-13",
+  "source_url": "https://cloud.google.com/gemini-enterprise-agent-platform/generative-ai/pricing",
+  "input_usd_per_million": 0.25,
+  "output_usd_per_million": 1.5,
+  "cached_usd_per_million": 0.025,
+  "thb_per_usd": 35.0,
+  "currency_note": "Native THB SKU rates are used; the old 35 THB/USD planning conversion is superseded.",
+  "cache_write_factor": 1.0,
+  "cache_source": "https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/context-cache/context-cache-overview",
+  "input_thb_per_million": 8.398,
+  "output_thb_per_million": 50.388,
+  "cached_thb_per_million": 0.8390000000000001,
+  "native_currency": "THB",
+  "price_source": "Cloud Billing Catalog native THB SKU unit prices"
+}
