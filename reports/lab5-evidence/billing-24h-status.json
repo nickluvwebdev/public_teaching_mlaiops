@@ -1,0 +1,9 @@
+{
+  "gcp_posted_october_net_thb": 5.172942,
+  "llm_posted_thb": 0.379315,
+  "llm_input_tokens": 22065,
+  "llm_output_tokens": 3851,
+  "gcp_training_and_pipeline_posted": true,
+  "aws_24h_status": "blocked: temporary login expired",
+  "final_full_reconciled": false
+}

@@ -33,3 +33,29 @@ The live SKU report for September 29–October 13 shows approximately **23.97 TH
 AWS Cost Explorer was checked again after teardown; the downloaded estimate is saved. Same-day zero estimates can lag usage. A complete net/gross estimate gap, resource-label breakdown and total-term budget reconciliation remain pending posted training and pipeline charges.
 
 Evidence: [posted CSV](lab5-evidence/gcp-posted-billing-20261013.csv), [live CSV](lab5-evidence/gcp-live-billing-20261013.csv), [posted screenshot](lab5-evidence/lab5-posted-billing.jpg), [live summary](lab5-evidence/lab5-live-billing-summary.jpg), [live SKU screenshot](lab5-evidence/lab5-live-billing-skus.jpg), [empty Cloud Run console](lab5-evidence/lab5-empty-cloud-run.jpg). A read-only follow-up is scheduled for 14 October 19:20 Bangkok, after the 24-hour teardown interval. The repeated same-day inventory is empty; it is not labelled a 24-hour check.
+
+## Posted reconciliation after 24 hours — 14 October
+
+This section supersedes the same-day missing-training status above. GCP has now posted the training and pipeline charges. The downloaded October service and SKU CSVs agree on **5.172942 THB net**, with tax currently zero. Service totals are Vertex AI 4.931621, Compute Engine 0.195910, Cloud Storage 0.045126, Cloud Run 0.000281 and Artifact Registry 0.000004 THB. This is the account's October-to-date report, including earlier labs, not an exclusively label-filtered Lab 5 invoice.
+
+| Component | Posted net THB | Evidence/interpretation |
+|---|---:|---|
+| Pipeline orchestration | 3.023325 | Three charged pipeline jobs, versus four submissions in the run receipts; use billed count rather than assuming every failed submission was charged |
+| E2 stage CPU and RAM | 1.227658 | 0.619682 CPU + 0.607976 RAM |
+| Vertex SSD disk | 0.281312 | October total includes earlier disk usage; not exclusively Lab 5 |
+| Spot N1 CPU and RAM | 0.195910 | Compute Engine posted Spot rates, not an invented discount |
+| N1 management fees | 0.020011 | 0.013318 core + 0.006693 RAM |
+| LLM | 0.379315 | Exact provider-token counts: 22,065 input and 3,851 output |
+| Original model/object storage | 0.045126 | Retained storage, including earlier labs |
+| Cloud Run | 0.000281 | Displayed 21.56 THB gross offset by displayed 21.56 savings; nonzero net is egress |
+| Artifact Registry | 0.000004 | Very small posted egress; retained storage can accrue later |
+
+The component totals sum to 5.172942 THB. Provider-token tariff calculation was 0.379346 THB; the posted 0.379315 differs by approximately 0.000031 THB, consistent with event-time tariff/conversion and precision differences. Both totals exclude unrelated infrastructure from the LLM figure.
+
+The posted service SKU includes **instance-based** Cloud Run CPU/memory (1,402.32 seconds, gross 1.02 + 0.11 THB), correcting the earlier assumption that all live serving was request-based. The utilisation table above is an explicit capacity model at its stated tariff, not the experiment's invoice or measured invoice savings. Free-tier savings offset compute; batching/token reductions are measured experiments, not claimed dollar savings from these zero-net compute rows.
+
+The observed October GCP net is 24.827058 THB below the 30 THB advance estimate, but that comparison is provisional because its period includes earlier labs and AWS is unresolved. Spot training, cached recovery and free-tier Cloud Run savings explain much of the low observed net. The 800 THB term cap cannot be fully reconciled from this October report alone.
+
+**24-hour resource check:** GCP active pipelines, training, schedules and services are all empty at 2026-10-14 12:21 UTC. AWS's temporary authentication session expired; its current bill and 24-hour inventory could not be read. The verified teardown receipts from 13 October remain valid historical evidence, but do not replace a current check. AWS reauthentication is required to complete the remaining reconciliation. No cloud resource was started and no IAM access was changed.
+
+Evidence: [posted services](lab5-evidence/gcp-posted-24h-services.csv), [posted SKUs](lab5-evidence/gcp-posted-24h-skus.csv), [bill total screenshot](lab5-evidence/lab5-billing-24h-total.jpg), [SKU screenshot](lab5-evidence/lab5-billing-24h-skus.jpg), [24-hour inventory](lab5-evidence/teardown-24h-verification.json).

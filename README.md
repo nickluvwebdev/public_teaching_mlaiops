@@ -233,3 +233,5 @@ A local validation-only preflight found a legitimate candidate: standardized log
 ## Lab 5 live execution status
 
 The managed GCP pipeline, AWS Sydney portability test and real Gemini golden tests have now run. See [execution review](reports/lab5-results.md), [cost report](reports/lab5-cost.md) and [token report](reports/lab5-token-cost.md). Temporary compute and the paused schedule are torn down. This supersedes earlier preparation-only status notes. The empty-resource console screenshot and current posted/live billing reports are saved. Final reconciliation of delayed training charges and the 24-hour check are pending; publication is now authorized. See reports/lab5-cost.md for the exact figures and limits.
+
+Lab 5 follow-up, 14 October: GCP 24-hour teardown verification passed and delayed GCP charges are reconciled (October net 5.172942 THB). AWS login expired; final AWS billing and full-term reconciliation remain pending.

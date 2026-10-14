@@ -27,3 +27,7 @@ Actual provider token receipts and tariffs are recorded. The combined concise pr
 Cloud artifacts were downloaded with SHA-256 manifests before deleting temporary resources. Primary compute, schedule, secondary Lambda/S3/log resources and temporary identity grants are removed by make teardown LAB=5; teardown-verification.json and secondary-cleanup.json record verification. Registered models and original bucket/image artifacts are retained and may incur small storage charges.
 
 Remaining: reconcile the posted GCP and AWS bill, credits and total-term spending; repeat inventory and cost checks after 24 hours. Console automation recovered on the next turn. An actual empty Cloud Run screenshot and posted/live billing CSVs and screenshots are now saved. A read-only 24-hour follow-up is scheduled for 14 October at 19:20 Bangkok. Do not describe tariff estimates as actual billing or claim full lab completion until these items are supplied.
+
+## 24-hour follow-up
+
+GCP inventory remains empty. Training and pipeline charges are now posted and reconciled in lab5-cost.md; October net is 5.172942 THB. AWS authentication expired, so its final bill/current inventory and complete term reconciliation remain pending. The report is not labelled fully complete.
